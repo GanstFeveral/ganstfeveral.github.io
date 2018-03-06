@@ -1,2 +1,0 @@
-
-<iframe src="http://www.donationalerts.ru/widget/instream-stats?id=248861&token=1daOBqbnTBaKFBt0Uf4o"></iframe>
