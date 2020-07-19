@@ -98,6 +98,10 @@ h3	{
 .manga {color:#00cc8b;}
 .game {color:#ff0000;}
 
+#kontakti {padding: 15px; border-bottom: 1px solid #d8d8d8;}
+#kontakti img {height:40px;  transition: all 0.2s ease-out; padding: 0px 15px 0px 15px; opacity:70%;}
+#kontakti img:hover {height:40px;  transform: scale(1.2); opacity:100%;}
+
 </style>
 
 
@@ -107,7 +111,7 @@ h3	{
   <title>GanstFeveral</title>
  </head>
  <body>
- <div id="top"><img src="https://raw.githubusercontent.com/GanstFeveral/GanstFeveral/master/top1.jpg" style="background-repeat: no-repeat; background-position: center top;"></div> 
+ <div id="top"><img src="https://raw.githubusercontent.com/GanstFeveral/GanstFeveral/master/top.jpg" style="background-repeat: no-repeat; background-position: center top;"></div> 
  </body>
 </html>
 
@@ -132,22 +136,40 @@ h3	{
     evt.currentTarget.className += " active";
 }</script>
 
+<script>
+// Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpen").click();
+</script>
+
 	
 <div>	
 <div style="text-align: center;">
+
+<div id="kontakti"><a target="_blank" href=""><img src="https://raw.githubusercontent.com/GanstFeveral/GanstFeveral/master/twitter.png"></a> 
+<a target="_blank" href=""><img src="https://raw.githubusercontent.com/GanstFeveral/GanstFeveral/master/instagram.png"></a> 
+<a target="_blank" href=""><img src="https://raw.githubusercontent.com/GanstFeveral/GanstFeveral/master/telegram.png"></a> 
+<a target="_blank" href=""><img src="https://raw.githubusercontent.com/GanstFeveral/GanstFeveral/master/twitch.png"></a> 
+<a target="_blank" href=""><img src="https://raw.githubusercontent.com/GanstFeveral/GanstFeveral/master/steam.png"></a> 
+<a target="_blank" href=""><img src="https://raw.githubusercontent.com/GanstFeveral/GanstFeveral/master/spotify.png"></a> 
+<a target="_blank" href=""><img src="https://raw.githubusercontent.com/GanstFeveral/GanstFeveral/master/mal.png"></a> 
+<a target="_blank" href=""><img src="https://raw.githubusercontent.com/GanstFeveral/GanstFeveral/master/discord.png"></a> 
+<a target="_blank" href=""><img src="https://raw.githubusercontent.com/GanstFeveral/GanstFeveral/master/deviantart.png"></a></div>
+
+
 <div class="tab">
-  <button class="tablinks" onclick="openCity(event, 'zhelezo')">Железо</button>
-  <button class="tablinks" onclick="openCity(event, 'art')">Рисунки</button>
-  <button class="tablinks" onclick="openCity(event, 'music')">Музыка</button>
-  <button class="tablinks" onclick="openCity(event, 'thread')">Треды</button>
-  <button class="tablinks" onclick="openCity(event, 'rating')">Оценки</button>
-  <button class="tablinks" onclick="openCity(event, 'contact')">Контакты</button>
+<button class="tablinks" onclick="openCity(event, 'zhelezo')">Железо</button>
+<button class="tablinks" onclick="openCity(event, 'art')">Рисунки</button>
+<button class="tablinks" onclick="openCity(event, 'music')">Музыка</button>
+<button class="tablinks" onclick="openCity(event, 'thread')">Треды</button>
+<button class="tablinks" onclick="openCity(event, 'rating')">Оценки</button>
+<button class="tablinks" onclick="openCity(event, 'contact')">Контакты</button>
 </div>
 </div>
+
+<div id ="kontent">
 
 <!-- ЖЕЛЕЗО ЖЕЛЕЗО ЖЕЛЕЗО ЖЕЛЕЗО ЖЕЛЕЗО ЖЕЛЕЗО ЖЕЛЕЗО ЖЕЛЕЗО ЖЕЛЕЗО ЖЕЛЕЗО -->
 
-<div id ="kontent">
 <div id="zhelezo" class="tabcontent">
 <h2>Железо</h2>
 <h3>Здесь вы можете оценить мой компьютер и прочие гаджеты, которые у меня имеются</h3>
@@ -239,7 +261,7 @@ h3	{
 
 <p><strong>Каналы в телеграме</strong>
 <br><a target="_blank" href="http://t.me/ganstfeveral_blog">Мой блог</a> — там я выговариваюсь войсами о личном и политике
-<br><a target="_blank" href="https://t.me/ganstfeveral_twitch">Мой твиче</a> — блог про всё, что связано с моими стримами
+<br><a target="_blank" href="https://t.me/ganstfeveral_twitch">Мой блог о твиче</a> — блог про всё, что связано с моими стримами
 <br><a target="_blank" href="https://t.me/tech_2d">Гаджеты из Аниме</a> — большой архив гаджетов из аниме
 
 
