@@ -1,119 +1,3 @@
-<style>body {margin:0px; /*background: url('https://raw.githubusercontent.com/GanstFeveral/GanstFeveral/master/top.jpg'); background-repeat: no-repeat; background-position: top;*/}
- html { overflow-x: hidden; overflow-y: scroll;}
- a {color:#03a8fc; text-decoration: blink; font-weight:normal;}
-a:hover {color:#f650cc; text-decoration: underline;}
-.element::-webkit-scrollbar { width: 0; }
-
-span.twitter {padding: 0px 25px 0px 25px;}
-.twitter-logo {width:14px;}
-	
-#main {
-    display: block;
-}
-
-#top {
-	text-align: center;
-    margin: auto;
-	overflow: hidden;
-	background-position: center top;
-	height: 258px;
-	}
-
-	
-.tab {же
-    overflow: hidden;
-	}
-
-.tab button {
-    background-color: inherit;
-    /*float: left;*/
-    border: none;
-    outline: none;
-    cursor: pointer;
-    padding: 14px 16px;
-    transition: 0.3s;
-	font-size: 24px;
-    font-family: russo one;
-    color: #f650cc;
-	}
-
-.tab button:hover {
-    background-color: #ffe3f8;
-	}
-
-.tab button.active {
-    background-color: #ffeafa;
-	}
-
-.tabcontent {
-    display: none;
-    padding: 6px 12px;
-    border: 0px solid #ccc;
-    border-top: none;
-	max-width: 909px;
-	/*box-shadow: 0px 40px 45px #00000030;*/
-	border-radius:30px;
-	margin: auto;
-	text-align:left;
-	}
-
-.tabcontent {
-    animation: fadeEffect 1s;
-	}
-
-@keyframes fadeEffect {
-    from {opacity: 0;}
-    to {opacity: 1;}
-	}
-
-p {
-	font-family: Tahoma;
-	font-weight: normal;
-    font-size: 16px;
-	line-height: 1.4;
-	color: #000000;
-	}
-	
-h2 {
-	font-family: russo one;
-    font-size: 24px;
-	text-align: left;
-    color: #ff92e4;
-    text-decoration: none;
-	margin: 0px;
-	font-weight: normal;
-	}
-	
-h3	{
-	font-family: russo one;
-	font-size: 18px;
-    margin: 0px;
-    font-family: tahoma;
-    color: #bdbdbd;
-	border-bottom: 2px solid #ff92e4;
-    padding-bottom: 7px;
-	}
-	
-#kontent {text-align: center; max-width: 100%;}
-#kontent::-webkit-scrollbar {width:0px;}
-
-.short {color:#acacac;}
-.serial {color:#0000ff;}
-.anime {color:#ff9900;}
-.anime-movie {color:#e06666;}
-.mult {color:#ff00ff;}
-.mult-serial {color:#9900ff;}
-.mult-short {color:#9b7ccc;}
-.manga {color:#00cc8b;}
-.game {color:#ff0000;}
-
-#kontakti {padding: 15px; border-bottom: 1px solid #d8d8d8;}
-#kontakti img {height:40px;  transition: all 0.2s ease-out; padding: 0px 15px 0px 15px; opacity:70%;}
-#kontakti img:hover {height:40px;  transform: scale(1.2); opacity:100%;}
-
-</style>
-
-
 <html>
  <head>
   <meta charset="utf-8">
@@ -123,25 +7,6 @@ h3	{
 <div id="top" style="background: url('https://raw.githubusercontent.com/GanstFeveral/GanstFeveral/master/top.jpg'); background-repeat: no-repeat; background-position: top;"></div>
  </body>
 </html>
-
-<script>
-function openCity(evt, cityName) {
-    var i, tabcontent, tablinks;
-    tabcontent = document.getElementsByClassName("tabcontent");
-    for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
-    }
-    tablinks = document.getElementsByClassName("tablinks");
-    for (i = 0; i < tablinks.length; i++) {
-        tablinks[i].className = tablinks[i].className.replace(" active", "");
-    }
-    document.getElementById(cityName).style.display = "block";
-    evt.currentTarget.className += " active";
-}
-
-// Get the element with id="defaultOpen" and click on it
-document.getElementById("defaultOpen").click();
-</script>
 	
 <div>	
 <div style="text-align: center;">
@@ -158,152 +23,11 @@ document.getElementById("defaultOpen").click();
 <a target="_blank" href="https://www.deviantart.com/ganstfeveral/"><img src="https://raw.githubusercontent.com/GanstFeveral/GanstFeveral/master/deviantart.png"></a>
 <a target="_blank" href="https://www.donationalerts.com/r/ganstfeveral"><img src="https://raw.githubusercontent.com/GanstFeveral/GanstFeveral/master/donationalerts.png"></a> 
 <a target="_blank" href="https://money.yandex.ru/to/41001290264413"><img src="https://raw.githubusercontent.com/GanstFeveral/GanstFeveral/master/yandexdengi.png"></a></div>
-
-<div class="tab">
-<button class="tablinks" onclick="openCity(event, 'main')" id="defaultOpen">Главная</button>
-<button class="tablinks" onclick="openCity(event, 'zhelezo')">Железо</button>
-<button class="tablinks" onclick="openCity(event, 'art')">Рисунки</button>
-<button class="tablinks" onclick="openCity(event, 'music')">Музыка</button>
-<button class="tablinks" onclick="openCity(event, 'thread')">Треды</button>
-<button class="tablinks" onclick="openCity(event, 'rating')">Оценки</button>
-<button class="tablinks" onclick="openCity(event, 'contact')">Контакты</button>
-</div>
 </div>
 
 <div id ="kontent">
 
-<div id="main" class="tabcontent"><p><strong>ВАЖНАЯ НОВОСТЬ:</strong> мой твиттер временно заблокировали, поэтому временно подписывайтесь на <a href="https://twitter.com/GanstFeveral2" target="_blank">второй аккаунт</a>.<br><br>
-Приветствую залётных людей. Здесь вы можете ознакомиться с моим «творчеством», получить ссылки на все мои ресурсы, на интересные треды в твиттере, любые оценки от игр, до манги. Короче здесь есть всё.</p>
-<h3></h3>
-<p><strong>Самое важное:</strong> подписаться на <a rel="noreferrer noopener" href="http://t.me/ganstblog" target="_blank">Психотерапию Енота</a> и на <a rel="noreferrer noopener" href="https://t.me/tech_2d" target="_blank">Гаджеты из Аниме</a>.</p></div>
-
-
-<!-- ЖЕЛЕЗО ЖЕЛЕЗО ЖЕЛЕЗО ЖЕЛЕЗО ЖЕЛЕЗО ЖЕЛЕЗО ЖЕЛЕЗО ЖЕЛЕЗО ЖЕЛЕЗО ЖЕЛЕЗО -->
-
-<div id="zhelezo" class="tabcontent">
-<h2>Железо</h2>
-<h3>Здесь вы можете оценить мой компьютер и прочие гаджеты, которые у меня имеются</h3>
-<p><strong>Компьютер</strong><br>
-Проц: Intel Core i7-8700K<br>
-Память: DDR4 32Gb Ballistix 3200MHz (4 по 8Gb)<br>
-Видюха: Gigabyte GeForce 2070 RTX SUPER<br>
-Мать: ASUS PRIME Z370-P II<br>
-Хард (глав.): 500Gb (SSD) – Samsung 850 EVO<br>
-Хард (доп.): 1Tb (SSD) – Samsung 860 EVO [MZ-76E1T0BW]<br>
-Хард (доп.): 1Tb (HDD) – WD Blue WD10EZRZ<br>
-Блок питания: Zalman GVM 850W<br>
-Кулер: be quiet! DARK ROCK PRO 4</p>
-<p><strong>Периферия</strong><br>
-Мониторы (3шт): S240HL, S24D300H, VB191<br>
-Уши (3шт): WI-C400, MDR-RF865R, Ha-RX700<br>
-Мышь: X7 XL-760<br>
-Клава: BTC 5105U<br>
-Вебка: Logitech Brio<br>
-Микро: Blue Yeti</p>
-<p><strong>Другое</strong>
-<br>Cмартфон: iPhone 6s<br>
-Ноут: Sony Vaio Pcg-6Q4P<br>
-Планшет: Xiaomi MiPad 64Gb<br>
-Графический планшет: Wacom One<br>
-Телевизор: Harper 55U660TS 55<br></p>
-</div>
-
-<!-- РИСУНКИ  РИСУНКИ  РИСУНКИ  РИСУНКИ  РИСУНКИ  РИСУНКИ  РИСУНКИ  РИСУНКИ -->
-
-<div id="art" class="tabcontent">
-<h2>Рисунки</h2>
-<h3>Здесь я размещаю свои рисунки, но по факту это ручное срисовывание с нуля без обводок</h3>
-<br><h2>2019</h2>
-<p><a target="_blank" href="https://www.deviantart.com/ganstfeveral/art/Star-Butterfly-and-Marco-Diaz-767729149" target="_blank"><img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/f9ef7026-8202-4b8b-9467-999362e3a3ee/dcp33lp-ba22e402-3f4c-49fd-a225-62d5af6093b1.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvZjllZjcwMjYtODIwMi00YjhiLTk0NjctOTk5MzYyZTNhM2VlXC9kY3AzM2xwLWJhMjJlNDAyLTNmNGMtNDlmZC1hMjI1LTYyZDVhZjYwOTNiMS5wbmcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.5sEdgm20Y-TWfVxkLo0ioE6fta-lhnVspAf_AIhFI3M" height="170"></a>
-<a target="_blank" href="https://www.deviantart.com/ganstfeveral/art/Star-Butterfly-and-Tom-Lucitor-769239337"><img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/f9ef7026-8202-4b8b-9467-999362e3a3ee/dcpzgvd-146e2700-a96e-473a-9e79-a25af9c4fe41.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvZjllZjcwMjYtODIwMi00YjhiLTk0NjctOTk5MzYyZTNhM2VlXC9kY3B6Z3ZkLTE0NmUyNzAwLWE5NmUtNDczYS05ZTc5LWEyNWFmOWM0ZmU0MS5wbmcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.A0CkosG81bGV0zud3TH88MXSmcMfNok78KPiu0VOuDQ" height="170"></a>
-<a target="_blank" href="https://www.deviantart.com/ganstfeveral/art/Lena-De-Spell-from-DuckTales-815585857"><img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/f9ef7026-8202-4b8b-9467-999362e3a3ee/ddhku2p-2932b875-de6d-466d-ab65-67ee4f4956a2.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvZjllZjcwMjYtODIwMi00YjhiLTk0NjctOTk5MzYyZTNhM2VlXC9kZGhrdTJwLTI5MzJiODc1LWRlNmQtNDY2ZC1hYjY1LTY3ZWU0ZjQ5NTZhMi5wbmcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.eiLvaVttxb-UX1l2nRxcsOATVCe0V-5uiDxI9J09u0s" height="170"></a></p>
-</div>
-
-<!-- МУЗЫКА МУЗЫКА МУЗЫКА МУЗЫКА МУЗЫКА МУЗЫКА МУЗЫКА МУЗЫКА МУЗЫКА МУЗЫКА -->
-
-<div id="music" class="tabcontent">
-<h2>Музыка</h2>
-<h3>Раньше я делал "музыку", и если ваши уши это выдержат, можете оценить</h3>
-<p>2015 — <a target="_blank" href="https://www.dropbox.com/s/3ka8qjpp79l3dpv/konda-music-2011.rar?dl=0&amp;preview=konda-music-2015.rar">Скачать (182.79mb)</a><br>
-2014 — <a target="_blank" href="https://www.dropbox.com/s/3ka8qjpp79l3dpv/konda-music-2011.rar?dl=0&amp;preview=konda-music-2014.rar">Скачать (46.00mb)</a><br>
-2011 — <a target="_blank" href="https://www.dropbox.com/s/3ka8qjpp79l3dpv/konda-music-2011.rar?dl=0&amp;preview=konda-music-2011.rar">Скачать (14.58mb)</a><br>
-2006 — <a target="_blank" href="https://www.dropbox.com/s/cgpg0w9cmep428r/konda-music-2006.rar?dl=0&amp;preview=konda-music-2006.rar">Скачать (65.72mb)</a><br>
-2005 — <a target="_blank" href="https://www.dropbox.com/s/ab8ntsbs4yidl49/konda-music-2005.rar?dl=0&amp;preview=konda-music-2005.rar">Скачать (78.94mb)</a></p>
-</div>
-
-<!-- ТРЕДЫ ТРЕДЫ ТРЕДЫ ТРЕДЫ ТРЕДЫ ТРЕДЫ ТРЕДЫ ТРЕДЫ ТРЕДЫ ТРЕДЫ ТРЕДЫ -->
-
-<div id="thread" class="tabcontent">
-<h2>Треды</h2>
-<h3>Здесь складируется треды из моего твиттера</h3>
-<br><h2>2020</h2>
-<p>
-09.09.20 — <a target="_blank" href="https://twitter.com/GanstFeveral/status/1303598792386764800">Тред безалкогольных напитков</a><br>
-02.09.20 — <a target="_blank" href="https://twitter.com/GanstFeveral/status/1301165982774419461">Red Dead Redemption 2</a><br>
-24.08.20 — <a target="_blank" href="https://twitter.com/GanstFeveral/status/1297996276068474881">Wizards</a><br>
-10.08.20 — <a target="_blank" href="https://twitter.com/GanstFeveral/status/1292907715560443906">3Below: Tales of Arcadia</a><br>
-30.07.20 — <a target="_blank" href="https://twitter.com/GanstFeveral/status/1288845829424451586">Ожидание "Luca"</a><br>
-25.07.20 — <a target="_blank" href="https://twitter.com/GanstFeveral/status/1286971557613645824">Шашлык 2020</a><br>
-20.07.20 — <a target="_blank" href="https://twitter.com/GanstFeveral/status/1285277128691462150">Kobayashi-san Chi no Maid Dragon</a><br>
-11.07.20 — <a target="_blank" href="https://twitter.com/GanstFeveral/status/1282009311242326030">Радуга</a><br>
-11.07.20 — <a target="_blank" href="https://twitter.com/GanstFeveral/status/1281933629522935810">Фотки птиц</a><br>
-09.07.20 — <a target="_blank" href="https://twitter.com/GanstFeveral/status/1281122553382285312">Съеденные шавы</a><br>
-28.06.20 — <a target="_blank" href="https://twitter.com/GanstFeveral/status/1277259143032733697">Divinity Original Sin 2 Enhanced Edition</a><br>
-03.06.20 — <a target="_blank" href="https://twitter.com/GanstFeveral/status/1268244570506170368">Ожидание "Tenet"</a><br>
-29.04.20 — <a target="_blank" href="https://twitter.com/GanstFeveral/status/1266289567780401152">Редактирование в твиттере</a><br>
-21.04.20 — <a target="_blank" href="https://twitter.com/GanstFeveral/status/1252569384037634048">Kami no Tou</a><br>
-09.04.20 — <a target="_blank" href="https://twitter.com/GanstFeveral/status/1248336149187362817">Divinity Original Sin Enhanced Edition</a><br>
-04.04.20 — <a target="_blank" href="https://twitter.com/GanstFeveral/status/1246414343228608514">Ginga Eiyuu Densetsu</a><br>
-03.04.20 — <a target="_blank" href="https://twitter.com/GanstFeveral/status/1246036444868640772">Манга "Yakusoku no Neverland"</a><br>
-29.03.20 — <a target="_blank" href="https://twitter.com/GanstFeveral/status/1244038972017426432">BNA</a><br>
-30.01.20 — <a target="_blank" href="https://twitter.com/GanstFeveral/status/1222806853228400640">Гонение аниме</a></p>
-<h2>2019</h2>
-<p>31.07.19 — <a target="_blank" href="https://twitter.com/GanstFeveral/status/1156653004046721026">Аниме с выёбистыми названиями</a></p>
-<h2>2018</h2>
-<p>12.12.18 — <a target="_blank" href="https://twitter.com/GanstFeveral/status/1133894612295344128">Ожидание "Onward"</a></p>
-</div>
-
-<!-- КОНТАКТЫ КОНТАКТЫ КОНТАКТЫ КОНТАКТЫ КОНТАКТЫ КОНТАКТЫ КОНТАКТЫ -->
-
-<div id="contact" class="tabcontent">
-<h2>Контакты</h2>
-<h3>Все ссылки и реквизиты на мои ресурсы</h3>
-<p><strong>Социальные сети</strong>
-<br><a target="_blank" href="http://twitter.com/ganstfeveral">Twitter</a> — самый активный ресурс обо мне о том, как я покушал
-<br><a target="_blank" href="http://instagram.com/ganstfeveral">Instagram</a> — просто склад фотографий
-<br><a target="_blank" href="http://t.me/ganstfeveral">Telegram</a> — мой аккаунт, можете писать туда в личку
-<br><a target="_blank" href="https://www.youtube.com/ganstfeveral">Youtube</a> — свалка всяких прохождений и других видео
-<br><a target="_blank" href="http://twitch.tv/ganstfeveral">Twitch</a> — мои прямые эфиры
-<br><a target="_blank" href="http://myanimelist.net/profile/ganstfeveral">MyAnimeList</a> — список всех аниме, что я видел
-<br><a target="_blank" href="http://steamcommunity.com/id/ganstfeveral">Steam</a> — мои игори
-<br><a target="_blank" href="https://open.spotify.com/user/ik0mhq1gb8tyxetmmo445bzxz?si=F2esqNYoQRW-3yU7SkJwCQ">Spotify</a> — список моей любимой музыки
-<br><a target="_blank" href="http://discordapp.com/invite/SQyymFj">Discord</a> — там можно потрещать со мной в войсе
-<br><a target="_blank" href="https://www.deviantart.com/ganstfeveral/">Deviantart</a> — мои художественные шедевры</p>
-
-<p><strong>Каналы в телеграме</strong><br><a rel="noreferrer noopener" target="_blank" href="http://t.me/ganstblog">Мой блог</a> — там я выговариваюсь о наболевшем
-<br><a rel="noreferrer noopener" href="http://t.me/ganstchat" target="_blank">Мой чат</a> — там можно общаться
-<br><a rel="noreferrer noopener" target="_blank" href="https://t.me/tech_2d">Гаджеты из Аниме</a> — большой архив гаджетов из аниме</p>
-
-
-<p><strong>Поддержка</strong>
-<br><a target="_blank" href="https://www.donationalerts.com/r/ganstfeveral">Donation Alerts</a>
-<br><a target="_blank" href="https://money.yandex.ru/to/41001290264413">Яндекс-Деньги</a>
-<br>WebMoney – R382912962080</p>
-</div>
-
-<!-- ОЦЕНКА ОЦЕНКА ОЦЕНКА ОЦЕНКА ОЦЕНКА ОЦЕНКА ОЦЕНКА ОЦЕНКА ОЦЕНКА -->
-
-<div id="rating" class="tabcontent">
-
-<style>
-.pop-block {position: fixed; background: #ffffff; padding: 10px 30px 10px 30px; border-radius: 20px; box-shadow: 0px 0px 20px #00000036; right: 1%; bottom: 2%;}
-
-#pop-checkbox {
-  display: none;
-}
-#pop-checkbox:checked + .pop-block {
-  visibility: hidden; /*чтобы освободить занимаемое место - display: none;*/}
-</style>
+<div id="main" class="tabcontent">
 
 <input type="checkbox" id="pop-checkbox"> <!--тег размещается непосредственно у блока-->
   <div class='pop-block'>
@@ -329,9 +53,10 @@ document.getElementById("defaultOpen").click();
     Закрыть подсказку</label></p> <!--кнопка закрытия; значение для for соответствует id у input-->
 </div>
 
-<h2>Оценки</h2>
-<h3>Склад оценок по всему, что я досматриваю/прохожу до конца</h3>
-<br><h2>2020</h2>
+<div id="right-column"><h2>Оценки</h2>
+<h3>Склад тредов и оценок по всему</h3>
+<h4></h4>
+<h2>2020</h2>
 	  
 <p><u>Октябрь</u>
 
@@ -343,8 +68,6 @@ document.getElementById("defaultOpen").click();
 <br>4 из 10 | <span class="anime">Ishuzoku Reviewers / 2020</span>
 	  
 <br><br><u>Сентябрь</u>
-<br><span class="twitter"><img src="https://3.bp.blogspot.com/-NxouMmz2bOY/T8_ac97cesI/AAAAAAAAGg0/e3vY1_bdnbE/s320/Twitter+logo+2012.png" class="twitter-logo"></span> <a target="_blank" href="https://twitter.com/GanstFeveral/status/1303598792386764800">Тред безалкогольных напитков</a>
-<br><span class="twitter"><img src="https://3.bp.blogspot.com/-NxouMmz2bOY/T8_ac97cesI/AAAAAAAAGg0/e3vY1_bdnbE/s320/Twitter+logo+2012.png" class="twitter-logo"></span> <a target="_blank" href="https://twitter.com/GanstFeveral/status/1301165982774419461">Red Dead Redemption 2</a>
 <br>6 из 10 | Хэппи-энд / 2020
 <br>6 из 10 | <span class="anime-movie">Made in Abyss Movie 3: Fukaki Tamashii no Reimei / 2020</span>
 <br>7 из 10 | <span class="anime">High Score Girl II / 2019</span>
@@ -360,8 +83,6 @@ document.getElementById("defaultOpen").click();
 <br>5 из 10 | <span class="game">A Lozenge / 2020</span>
 
 <br><br><u>Август</u>
-<br><span class="twitter"><img src="https://3.bp.blogspot.com/-NxouMmz2bOY/T8_ac97cesI/AAAAAAAAGg0/e3vY1_bdnbE/s320/Twitter+logo+2012.png" class="twitter-logo"></span> <a target="_blank" href="https://twitter.com/GanstFeveral/status/1297996276068474881">Wizards</a>
-<br><span class="twitter"><img src="https://3.bp.blogspot.com/-NxouMmz2bOY/T8_ac97cesI/AAAAAAAAGg0/e3vY1_bdnbE/s320/Twitter+logo+2012.png" class="twitter-logo"></span> <a target="_blank" href="https://twitter.com/GanstFeveral/status/1292907715560443906">3Below: Tales of Arcadia</a>
 <br>6 из 10 | #saraitta / 2020
 <br>4 из 10 | Project Power / 2020
 <br>5 из 10 | <span class="mult-serial">3Below: Tales of Arcadia (season 2) / 2018 – 2019</span>
@@ -369,12 +90,6 @@ document.getElementById("defaultOpen").click();
 <br>6 из 10 | <span class="game">Röki / 2020</span>
 
 <br><br><u>Июль</u>
-<br><span class="twitter"><img src="https://3.bp.blogspot.com/-NxouMmz2bOY/T8_ac97cesI/AAAAAAAAGg0/e3vY1_bdnbE/s320/Twitter+logo+2012.png" class="twitter-logo"></span> <a target="_blank" href="https://twitter.com/GanstFeveral/status/1288845829424451586">Ожидание "Luca"</a>
-<br><span class="twitter"><img src="https://3.bp.blogspot.com/-NxouMmz2bOY/T8_ac97cesI/AAAAAAAAGg0/e3vY1_bdnbE/s320/Twitter+logo+2012.png" class="twitter-logo"></span> <a target="_blank" href="https://twitter.com/GanstFeveral/status/1286971557613645824">Шашлык 2020</a>
-<br><span class="twitter"><img src="https://3.bp.blogspot.com/-NxouMmz2bOY/T8_ac97cesI/AAAAAAAAGg0/e3vY1_bdnbE/s320/Twitter+logo+2012.png" class="twitter-logo"></span> <a target="_blank" href="https://twitter.com/GanstFeveral/status/1285277128691462150">Kobayashi-san Chi no Maid Dragon</a>
-<br><span class="twitter"><img src="https://3.bp.blogspot.com/-NxouMmz2bOY/T8_ac97cesI/AAAAAAAAGg0/e3vY1_bdnbE/s320/Twitter+logo+2012.png" class="twitter-logo"></span> <a target="_blank" href="https://twitter.com/GanstFeveral/status/1282009311242326030">Радуга</a>
-<br><span class="twitter"><img src="https://3.bp.blogspot.com/-NxouMmz2bOY/T8_ac97cesI/AAAAAAAAGg0/e3vY1_bdnbE/s320/Twitter+logo+2012.png" class="twitter-logo"></span> <a target="_blank" href="https://twitter.com/GanstFeveral/status/1281933629522935810">Фотки птиц</a>
-<br><span class="twitter"><img src="https://3.bp.blogspot.com/-NxouMmz2bOY/T8_ac97cesI/AAAAAAAAGg0/e3vY1_bdnbE/s320/Twitter+logo+2012.png" class="twitter-logo"></span> <a target="_blank" href="https://twitter.com/GanstFeveral/status/1281122553382285312">Съеденные шавы</a>
 <br>6 из 10 | <span class="serial">Home Before Dark / 2020</span>
 <br>6 из 10 | <span class="anime">Kobayashi-san Chi no Maid Dragon / 2017</span>
 <br>6 из 10 | Palm Springs / 2020
@@ -2006,4 +1721,238 @@ document.getElementById("defaultOpen").click();
 <br>4 из 10 | Guardians of the Galaxy: (1-5 episode)
 <br>5 из 10 | The Walking Dead: A New Frontier (1-5 episode)</span></p>
 </div>
-</div>
+
+<div id="left-column"><div align="right">
+
+<h2>Приветствие</h2>
+<h3>Приветствую залётных людей!</h3>
+<h4></h4>
+
+<p>Здесь вы можете ознакомиться с моим «творчеством», получить ссылки на все мои ресурсы, на интересные треды в твиттере, любые оценки от игр, до манги. Здесь есть всё.<br>
+<div style="border: solid 2px #ff0000; padding:0px 10px 0 10px;"><p><strong>ВАЖНАЯ НОВОСТЬ!
+<br>Мой твиттер временно заблокировали, поэтому<br>временно подписывайтесь на <a href="https://twitter.com/GanstFeveral2" target="_blank"><strong>@GanstFeveral2</strong></a></strong></p></div></p>
+<h4></h4>
+<h2>Контакты</h2>
+<h3>Все ссылки и реквизиты на мои ресурсы</h3>
+<p><strong>Социальные сети</strong>
+<br>Ресурс, где вы узнаете обо мне всё — <a target="_blank" href="http://twitter.com/ganstfeveral">Twitter</a>
+<br>Просто склад фотографий — <a target="_blank" href="http://instagram.com/ganstfeveral">Instagram</a>
+<br>Идеальное место, если хотите написать в личку — <a target="_blank" href="http://t.me/ganstfeveral">Telegram</a>
+<br>Свалка всяких прохождений и других видео — <a target="_blank" href="https://www.youtube.com/ganstfeveral">Youtube</a>
+<br>Мои прямые эфиры — <a target="_blank" href="http://twitch.tv/ganstfeveral">Twitch</a>
+<br>Список всех аниме, что я видел — <a target="_blank" href="http://myanimelist.net/profile/ganstfeveral">MyAnimeList</a>
+<br>Мои игори — <a target="_blank" href="http://steamcommunity.com/id/ganstfeveral">Steam</a>
+<br>Список моей любимой музыки — <a target="_blank" href="https://open.spotify.com/user/ik0mhq1gb8tyxetmmo445bzxz?si=F2esqNYoQRW-3yU7SkJwCQ">Spotify</a>
+<br>Там можно потрещать со мной в войсе — <a target="_blank" href="http://discordapp.com/invite/SQyymFj">Discord</a>
+<br>Мои художественные шедевры — <a target="_blank" href="https://www.deviantart.com/ganstfeveral/">Deviantart</a></p>
+
+<p><strong>Каналы в телеграме</strong><br>Там я выговариваюсь о наболевшем — <a rel="noreferrer noopener" target="_blank" href="http://t.me/ganstblog">Мой блог</a>
+<br>Там можно общаться — <a rel="noreferrer noopener" href="http://t.me/ganstchat" target="_blank">Мой чат</a>
+<br>Большой архив гаджетов из аниме — <a rel="noreferrer noopener" target="_blank" href="https://t.me/tech_2d">Гаджеты из Аниме</a></p>
+
+
+<p><strong>Поддержка</strong>
+<br><a target="_blank" href="https://www.donationalerts.com/r/ganstfeveral">Donation Alerts</a>
+<br><a target="_blank" href="https://money.yandex.ru/to/41001290264413">Яндекс-Деньги</a>
+<br>WebMoney – R382912962080</p>
+
+<h4></h4>
+<h2>Треды</h2>
+<br><h3>2020</h3>
+<p>
+<a target="_blank" href="https://twitter.com/GanstFeveral/status/1303598792386764800">Тред безалкогольных напитков</a><br>
+<a target="_blank" href="https://twitter.com/GanstFeveral/status/1301165982774419461">Red Dead Redemption 2</a><br>
+<a target="_blank" href="https://twitter.com/GanstFeveral/status/1297996276068474881">Wizards</a><br>
+<a target="_blank" href="https://twitter.com/GanstFeveral/status/1292907715560443906">3Below: Tales of Arcadia</a><br>
+<a target="_blank" href="https://twitter.com/GanstFeveral/status/1288845829424451586">Ожидание "Luca"</a><br>
+<a target="_blank" href="https://twitter.com/GanstFeveral/status/1286971557613645824">Шашлык 2020</a><br>
+<a target="_blank" href="https://twitter.com/GanstFeveral/status/1285277128691462150">Kobayashi-san Chi no Maid Dragon</a><br>
+<a target="_blank" href="https://twitter.com/GanstFeveral/status/1282009311242326030">Радуга</a><br>
+<a target="_blank" href="https://twitter.com/GanstFeveral/status/1281933629522935810">Фотки птиц</a><br>
+<a target="_blank" href="https://twitter.com/GanstFeveral/status/1281122553382285312">Съеденные шавы</a><br>
+<a target="_blank" href="https://twitter.com/GanstFeveral/status/1277259143032733697">Divinity Original Sin 2 Enhanced Edition</a><br>
+<a target="_blank" href="https://twitter.com/GanstFeveral/status/1268244570506170368">Ожидание "Tenet"</a><br>
+<a target="_blank" href="https://twitter.com/GanstFeveral/status/1266289567780401152">Редактирование в твиттере</a><br>
+<a target="_blank" href="https://twitter.com/GanstFeveral/status/1252569384037634048">Kami no Tou</a><br>
+<a target="_blank" href="https://twitter.com/GanstFeveral/status/1248336149187362817">Divinity Original Sin Enhanced Edition</a><br>
+<a target="_blank" href="https://twitter.com/GanstFeveral/status/1246414343228608514">Ginga Eiyuu Densetsu</a><br>
+<a target="_blank" href="https://twitter.com/GanstFeveral/status/1246036444868640772">Манга "Yakusoku no Neverland"</a><br>
+<a target="_blank" href="https://twitter.com/GanstFeveral/status/1244038972017426432">BNA</a><br>
+<a target="_blank" href="https://twitter.com/GanstFeveral/status/1222806853228400640">Гонение аниме</a></p>
+<h3>2019</h3>
+<p><a target="_blank" href="https://twitter.com/GanstFeveral/status/1156653004046721026">Аниме с выёбистыми названиями</a></p>
+<h3>2018</h3>
+<p><a target="_blank" href="https://twitter.com/GanstFeveral/status/1133894612295344128">Ожидание "Onward"</a></p>
+
+<h4></h4>
+<h2>Железо</h2>
+<h3>Здесь вы можете оценить мой компьютер</h3>
+<p><strong>Компьютер</strong><br>
+Проц: Intel Core i7-8700K<br>
+Память: DDR4 32Gb Ballistix 3200MHz (4 по 8Gb)<br>
+Видюха: Gigabyte GeForce 2070 RTX SUPER<br>
+Мать: ASUS PRIME Z370-P II<br>
+Хард (глав.): 500Gb (SSD) – Samsung 850 EVO<br>
+Хард (доп.): 1Tb (SSD) – Samsung 860 EVO [MZ-76E1T0BW]<br>
+Хард (доп.): 1Tb (HDD) – WD Blue WD10EZRZ<br>
+Блок питания: Zalman GVM 850W<br>
+Кулер: be quiet! DARK ROCK PRO 4</p>
+<p><strong>Периферия</strong><br>
+Мониторы (3шт): S240HL, S24D300H, VB191<br>
+Уши (3шт): WI-C400, MDR-RF865R, Ha-RX700<br>
+Мышь: X7 XL-760<br>
+Клава: BTC 5105U<br>
+Вебка: Logitech Brio<br>
+Микро: Blue Yeti</p>
+<p><strong>Другое</strong>
+<br>Cмартфон: iPhone 6s<br>
+Ноут: Sony Vaio Pcg-6Q4P<br>
+Планшет: Xiaomi MiPad 64Gb<br>
+Графический планшет: Wacom One<br>
+Телевизор: Harper 55U660TS 55<br>
+
+<h4></h4>
+<h2>Рисунки</h2>
+<h3>2019</h3>
+<p><a target="_blank" href="https://www.deviantart.com/ganstfeveral/art/Star-Butterfly-and-Marco-Diaz-767729149" target="_blank"><img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/f9ef7026-8202-4b8b-9467-999362e3a3ee/dcp33lp-ba22e402-3f4c-49fd-a225-62d5af6093b1.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvZjllZjcwMjYtODIwMi00YjhiLTk0NjctOTk5MzYyZTNhM2VlXC9kY3AzM2xwLWJhMjJlNDAyLTNmNGMtNDlmZC1hMjI1LTYyZDVhZjYwOTNiMS5wbmcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.5sEdgm20Y-TWfVxkLo0ioE6fta-lhnVspAf_AIhFI3M" height="50"></a>
+<a target="_blank" href="https://www.deviantart.com/ganstfeveral/art/Star-Butterfly-and-Tom-Lucitor-769239337"><img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/f9ef7026-8202-4b8b-9467-999362e3a3ee/dcpzgvd-146e2700-a96e-473a-9e79-a25af9c4fe41.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvZjllZjcwMjYtODIwMi00YjhiLTk0NjctOTk5MzYyZTNhM2VlXC9kY3B6Z3ZkLTE0NmUyNzAwLWE5NmUtNDczYS05ZTc5LWEyNWFmOWM0ZmU0MS5wbmcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.A0CkosG81bGV0zud3TH88MXSmcMfNok78KPiu0VOuDQ" height="50"></a>
+<a target="_blank" href="https://www.deviantart.com/ganstfeveral/art/Lena-De-Spell-from-DuckTales-815585857"><img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/f9ef7026-8202-4b8b-9467-999362e3a3ee/ddhku2p-2932b875-de6d-466d-ab65-67ee4f4956a2.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvZjllZjcwMjYtODIwMi00YjhiLTk0NjctOTk5MzYyZTNhM2VlXC9kZGhrdTJwLTI5MzJiODc1LWRlNmQtNDY2ZC1hYjY1LTY3ZWU0ZjQ5NTZhMi5wbmcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.eiLvaVttxb-UX1l2nRxcsOATVCe0V-5uiDxI9J09u0s" height="50"></a></p>
+<h4></h4>
+<h2>Музыка</h2>
+<h3>Раньше я делал что-то напоминающее музыку</h3>
+<p>2015 — <a target="_blank" href="https://www.dropbox.com/s/3ka8qjpp79l3dpv/konda-music-2011.rar?dl=0&amp;preview=konda-music-2015.rar">Скачать (182.79mb)</a><br>
+2014 — <a target="_blank" href="https://www.dropbox.com/s/3ka8qjpp79l3dpv/konda-music-2011.rar?dl=0&amp;preview=konda-music-2014.rar">Скачать (46.00mb)</a><br>
+2011 — <a target="_blank" href="https://www.dropbox.com/s/3ka8qjpp79l3dpv/konda-music-2011.rar?dl=0&amp;preview=konda-music-2011.rar">Скачать (14.58mb)</a><br>
+2006 — <a target="_blank" href="https://www.dropbox.com/s/cgpg0w9cmep428r/konda-music-2006.rar?dl=0&amp;preview=konda-music-2006.rar">Скачать (65.72mb)</a><br>
+2005 — <a target="_blank" href="https://www.dropbox.com/s/ab8ntsbs4yidl49/konda-music-2005.rar?dl=0&amp;preview=konda-music-2005.rar">Скачать (78.94mb)</a>
+
+</p></div></div></div></div>
+
+<style>body {margin:0px; /*background: url('https://raw.githubusercontent.com/GanstFeveral/GanstFeveral/master/top.jpg'); background-repeat: no-repeat; background-position: top;*/}
+html { overflow-x: hidden; overflow-y: scroll;}
+a {color:#03a8fc; text-decoration: blink; font-weight:normal;}
+a:hover {color:#f650cc; text-decoration: underline;}
+.element::-webkit-scrollbar { width: 0; }
+
+#right-column {width:430px; float:right; border-left:2px solid #ff92e4; padding-left:10px;}
+#left-column {width:457px; padding-right:10px;}
+
+span.twitter {padding: 0px 25px 0px 25px;}
+.twitter-logo {width:14px;}
+	
+#main {display: block;}
+
+#top {
+	text-align: center;
+  margin: auto;
+	overflow: hidden;
+	background-position: center top;
+	height: 258px;
+	}
+
+	
+.tab {overflow: hidden;}
+
+.tab button {
+    background-color: inherit;
+    /*float: left;*/
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+  	font-size: 24px;
+    font-family: russo one;
+    color: #f650cc;
+	}
+
+.tab button:hover {background-color: #ffe3f8;}
+.tab button.active {background-color: #ffeafa;}
+
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border: 0px solid #ccc;
+    border-top: none;
+	  max-width: 909px;
+	  /*box-shadow: 0px 40px 45px #00000030;*/
+	  border-radius:30px;
+	  margin: auto;
+	  text-align:left;
+	  }
+
+.tabcontent {animation: fadeEffect 1s;}
+
+@keyframes fadeEffect {from {opacity: 0;} to {opacity: 1;}
+	}
+
+p {
+	font-family: Tahoma;
+	font-weight: normal;
+  font-size: 16px;
+	line-height: 1.4;
+	color: #000000;
+	}
+	
+h2 {
+	font-family: russo one;
+  font-size: 24px;
+  color: #ff92e4;
+  text-decoration: none;
+	margin: 0px;
+	font-weight: normal;
+	}
+	
+h3	{
+	font-family: russo one;
+	font-size: 18px;
+  margin: 0px;
+  font-family: tahoma;
+  color: #bdbdbd;
+	}
+
+h4 {border-bottom: 2px solid #ff92e4;}
+	
+#kontent {text-align: center; max-width: 100%;}
+#kontent::-webkit-scrollbar {width:0px;}
+
+.short {color:#acacac;}
+.serial {color:#0000ff;}
+.anime {color:#ff9900;}
+.anime-movie {color:#e06666;}
+.mult {color:#ff00ff;}
+.mult-serial {color:#9900ff;}
+.mult-short {color:#9b7ccc;}
+.manga {color:#00cc8b;}
+.game {color:#ff0000;}
+
+#kontakti {padding: 15px; border-bottom: 1px solid #d8d8d8;}
+#kontakti img {height:40px;  transition: all 0.2s ease-out; padding: 0px 15px 0px 15px; opacity:70%;}
+#kontakti img:hover {height:40px;  transform: scale(1.2); opacity:100%;}
+
+.pop-block {position: fixed; background: #ffffff; padding: 10px 30px 10px 30px; border-radius: 20px; box-shadow: 0px 0px 20px #00000036; right: 1%; bottom: 2%;}
+
+#pop-checkbox {
+  display: none;
+}
+#pop-checkbox:checked + .pop-block {
+  visibility: hidden; /*чтобы освободить занимаемое место - display: none;*/}</style>
+
+<script>
+function openCity(evt, cityName) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(cityName).style.display = "block";
+    evt.currentTarget.className += " active";
+}
+
+// Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpen").click();
+</script>
