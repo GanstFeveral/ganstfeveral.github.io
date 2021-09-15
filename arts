@@ -1,0 +1,136 @@
+<html><head><meta charset="utf-8"><title>GanstFeveral</title></head><body></body></html>
+
+<div>
+	<div id="main" class="tabcontent">
+<div id="main-column">
+	<div style="border-bottom: 2px solid #ff4fd1; text-align: center;">
+	<img src="https://github.com/GanstFeveral/ganstfeveral.github.io/blob/master/epigraf-raccoon.png?raw=true" style="display: block; max-width: 100%; height: auto; margin:0 auto;">
+	</div>
+	
+<div style="font-family:Russo One; text-align: center; padding: 15px 0px 5px 0px;}">
+	
+<span style="color:#ff92e4; font-size:24px;">Меню</span> 
+	
+<span style="color:#bdbdbd; font-size:20px"> / <a href="/threads">Треды</a> / <a href="/zhelezo">Железо</a> / <a href="#">Рисунки</a> / <a href="/music">Музыка</a></span></div>
+
+<h4></h4>
+
+<div id="right-list">
+<div id="aarts"><h2>Рисунки</h2></div>
+<h3>2019</h3>
+<p><a target="_blank" href="https://www.deviantart.com/ganstfeveral/art/Star-Butterfly-and-Marco-Diaz-767729149" target="_blank"><img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/f9ef7026-8202-4b8b-9467-999362e3a3ee/dcp33lp-ba22e402-3f4c-49fd-a225-62d5af6093b1.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvZjllZjcwMjYtODIwMi00YjhiLTk0NjctOTk5MzYyZTNhM2VlXC9kY3AzM2xwLWJhMjJlNDAyLTNmNGMtNDlmZC1hMjI1LTYyZDVhZjYwOTNiMS5wbmcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.5sEdgm20Y-TWfVxkLo0ioE6fta-lhnVspAf_AIhFI3M" height="50"></a>
+<a target="_blank" href="https://www.deviantart.com/ganstfeveral/art/Star-Butterfly-and-Tom-Lucitor-769239337"><img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/f9ef7026-8202-4b8b-9467-999362e3a3ee/dcpzgvd-146e2700-a96e-473a-9e79-a25af9c4fe41.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvZjllZjcwMjYtODIwMi00YjhiLTk0NjctOTk5MzYyZTNhM2VlXC9kY3B6Z3ZkLTE0NmUyNzAwLWE5NmUtNDczYS05ZTc5LWEyNWFmOWM0ZmU0MS5wbmcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.A0CkosG81bGV0zud3TH88MXSmcMfNok78KPiu0VOuDQ" height="50"></a>
+<a target="_blank" href="https://www.deviantart.com/ganstfeveral/art/Lena-De-Spell-from-DuckTales-815585857"><img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/f9ef7026-8202-4b8b-9467-999362e3a3ee/ddhku2p-2932b875-de6d-466d-ab65-67ee4f4956a2.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvZjllZjcwMjYtODIwMi00YjhiLTk0NjctOTk5MzYyZTNhM2VlXC9kZGhrdTJwLTI5MzJiODc1LWRlNmQtNDY2ZC1hYjY1LTY3ZWU0ZjQ5NTZhMi5wbmcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.eiLvaVttxb-UX1l2nRxcsOATVCe0V-5uiDxI9J09u0s" height="50"></a>
+</p>	
+</div></div>
+
+		
+
+<style>body {margin:0px; /*background: url('https://raw.githubusercontent.com/GanstFeveral/GanstFeveral/master/top.jpg'); background-repeat: no-repeat; background-position: top;*/}
+html {overflow-x: hidden; overflow-y: scroll;}
+a {color:#03a8fc; text-decoration: blink; font-weight:normal;}
+a:hover {color:#f650cc; text-decoration: underline;}
+.element::-webkit-scrollbar { width: 0; }
+
+#main-column {}
+#right-list {}
+#left-column {width:457px; height: 500px; overflow: hidden;}
+#left-list {height: 450px; overflow-y: scroll; width: 474px;}
+	
+span.twitter {padding: 0px 25px 0px 25px;}
+.twitter-logo {width:14px;}
+	
+#main {display: block; padding: 20px;}
+
+#top {
+	text-align: center;
+	overflow: hidden;
+	}
+
+	
+.tab {overflow: hidden;}
+
+.tab button {
+    background-color: inherit;
+    /*float: left;*/
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+  	font-size: 24px;
+    font-family: russo one;
+    color: #f650cc;
+	}
+
+.tab button:hover {background-color: #ffe3f8;}
+.tab button.active {background-color: #ffeafa;}
+
+.tabcontent {
+	border: 0px solid #ccc;
+	border-top: none;
+	max-width: 1000px;
+	border-radius: 30px;
+	margin: auto;
+	text-align: left;
+	}
+
+.tabcontent {animation: fadeEffect 1s;}
+
+@keyframes fadeEffect {from {opacity: 0;} to {opacity: 1;}
+	}
+
+p {
+	font-family: Tahoma;
+	font-weight: normal;
+  font-size: 16px;
+	line-height: 1.4;
+	color: #000000;
+	}
+	
+h2 {
+	font-family: russo one;
+  font-size: 24px;
+  color: #ff92e4;
+  text-decoration: none;
+	margin: 0px;
+	font-weight: normal;
+	}
+	
+h3	{
+	font-family: russo one;
+	font-size: 18px;
+  margin: 0px;
+  font-family: tahoma;
+  color: #bdbdbd;
+	}
+
+h4 {border-bottom: 2px solid #ff92e4; margin: 10px 0px 10px 0px;}
+h5 {border-bottom: 2px solid #e0e0e0; margin: 10px 0px 10px 0px;}
+	
+#kontent {text-align: center; max-width: 100%;}
+#kontent::-webkit-scrollbar {width:0px;}
+
+.short {color:#acacac;}
+.serial {color:#0000ff;}
+.anime {color:#ff9900;}
+.anime-movie {color:#e06666;}
+.mult {color:#ff00ff;}
+.mult-serial {color:#9900ff;}
+.mult-short {color:#9b7ccc;}
+.doc {color:#00bcd4;}
+.manga {color:#00cc8b;}
+.game {color:#ff0000;}
+
+#kontakti {
+	padding: 10px 0px 6px 0px;
+	margin: auto;
+	margin-top:8px;
+	overflow: hidden;
+	text-align:center;
+	}
+	
+#kontakti img {height: 35px; transition: all 0.2s ease-out; padding: 5px 10px 5px 10px; opacity: 70%;}
+#kontakti img:hover {transform: scale(1.2); opacity:100%;}
+
+</style>
