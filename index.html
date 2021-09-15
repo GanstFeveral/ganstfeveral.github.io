@@ -226,29 +226,4 @@ h5 {border-bottom: 2px solid #e0e0e0; margin: 10px 0px 10px 0px;}
 #kontakti img {height: 35px; transition: all 0.2s ease-out; padding: 5px 10px 5px 10px; opacity: 70%;}
 #kontakti img:hover {transform: scale(1.2); opacity:100%;}
 
-.pop-block {position: fixed; background: #ffffff; padding: 10px 30px 10px 30px; border-radius: 20px; box-shadow: 0px 0px 20px #00000036; right: 1%; bottom: 2%;}
-
-#pop-checkbox {
-  display: none;
-}
-#pop-checkbox:checked + .pop-block {
-  visibility: hidden; /*чтобы освободить занимаемое место - display: none;*/}</style>
-
-<script>
-function openCity(evt, cityName) {
-    var i, tabcontent, tablinks;
-    tabcontent = document.getElementsByClassName("tabcontent");
-    for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
-    }
-    tablinks = document.getElementsByClassName("tablinks");
-    for (i = 0; i < tablinks.length; i++) {
-        tablinks[i].className = tablinks[i].className.replace(" active", "");
-    }
-    document.getElementById(cityName).style.display = "block";
-    evt.currentTarget.className += " active";
-}
-
-// Get the element with id="defaultOpen" and click on it
-document.getElementById("defaultOpen").click();
-</script>
+</style>
