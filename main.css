@@ -1,0 +1,106 @@
+<style>body {margin:0px; /*background: url('https://raw.githubusercontent.com/GanstFeveral/GanstFeveral/master/top.jpg'); background-repeat: no-repeat; background-position: top;*/}
+html {overflow-x: hidden; overflow-y: scroll;}
+a {color:#0384fc; text-decoration: blink; font-weight:normal;}
+a:hover {color:#ff2b99; text-decoration: underline;}
+.element::-webkit-scrollbar { width: 0; }
+
+#main-column {}
+#right-list {}
+#left-column {width:457px; height: 500px; overflow: hidden;}
+#left-list {height: 450px; overflow-y: scroll; width: 474px;}
+	
+span.twitter {padding: 0px 25px 0px 25px;}
+.twitter-logo {width:14px;}
+	
+#main {display: block; padding: 0px 20px 20px 20px;}
+
+#top {
+	text-align: center;
+	overflow: hidden;
+	}
+
+	
+.tab {overflow: hidden;}
+
+.tab button {
+    background-color: inherit;
+    /*float: left;*/
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+  	font-size: 24px;
+    font-family: russo one;
+    color: #f650cc;
+	}
+
+.tab button:hover {background-color: #ffe3f8;}
+.tab button.active {background-color: #ffeafa;}
+
+.tabcontent {
+	border: 0px solid #ccc;
+	border-top: none;
+	max-width: 1000px;
+	border-radius: 30px;
+	margin: auto;
+	text-align: left;
+	}
+
+.tabcontent {animation: fadeEffect 0s;}
+
+@keyframes fadeEffect {from {opacity: 0;} to {opacity: 1;}}
+
+p {
+	font-family: Tahoma;
+	font-weight: normal;
+ 	 font-size: 16px;
+	line-height: 1.4;
+	color: #000000;
+	}
+	
+h2 {
+	font-family: russo one;
+  	font-size: 24px;
+  	color: #ff2b99;
+  	text-decoration: none;
+	margin: 0px;
+	font-weight: normal;
+	}
+	
+h3	{
+	font-family: russo one;
+	font-size: 18px;
+ 	 margin: 0px;
+ 	 font-family: tahoma;
+ 	 color: #7c7c7c;
+	}
+
+h4 {border-bottom: 2px solid #ff92e4; margin: 10px 0px 10px 0px;}
+h5 {border-bottom: 2px solid #e0e0e0; margin: 10px 0px 10px 0px;}
+	
+#kontent {text-align: center; max-width: 100%;}
+#kontent::-webkit-scrollbar {width:0px;}
+
+.short {color:#acacac;}
+.serial {color:#0000ff;}
+.anime {color:#ff9900;}
+.anime-movie {color:#e06666;}
+.mult {color:#ff00ff;}
+.mult-serial {color:#9900ff;}
+.mult-short {color:#9b7ccc;}
+.doc {color:#00bcd4;}
+.manga {color:#00cc8b;}
+.game {color:#ff0000;}
+
+#kontakti {
+	padding: 10px 0px 0px 0px;
+	margin: auto;
+	overflow: hidden;
+	text-align:center;
+	}
+	
+#kontakti img {height: 35px; transition: all 0.2s ease-out; padding: 5px 10px 5px 10px; opacity: 70%;}
+#kontakti img:hover {transform: scale(1.2); opacity:100%;}
+
+</style>
