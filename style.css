@@ -1,10 +1,10 @@
 body {margin:0px; /*background: url('https://raw.githubusercontent.com/GanstFeveral/GanstFeveral/master/top.jpg'); background-repeat: no-repeat; background-position: top;*/}
 html {overflow-x: hidden; overflow-y: scroll;}
 a {color:#0384fc; text-decoration: blink; font-weight:normal;}
-a:hover {color:#ff2b99; text-decoration: underline;}
+a:hover {color:#f54a6d; text-decoration: underline;}
 .element::-webkit-scrollbar { width: 0; }
 
-#main-menu {font-family:Russo One; text-align: center; padding: 5px 0px 10px 0px; border-bottom: 2px solid #ff2b99; font-size:20px; color: #bdbdbd;}
+#main-menu {font-family:Russo One; text-align: center; padding: 5px 0px 10px 0px; border-bottom: 2px solid #f54a6d; font-size:20px; color: #bdbdbd;}
 
 #main-column {}
 #right-list {}
@@ -64,7 +64,7 @@ p {
 h2 {
 	font-family: russo one;
   	font-size: 24px;
-  	color: #ff2b99;
+  	color: #f54a6d;
   	text-decoration: none;
 	margin: 0px;
 	font-weight: normal;
