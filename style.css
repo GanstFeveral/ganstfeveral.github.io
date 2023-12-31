@@ -4,7 +4,7 @@ a {color:#0384fc; text-decoration: blink; font-weight:normal;}
 a:hover {color:#ff2b99; text-decoration: underline;}
 .element::-webkit-scrollbar { width: 0; }
 
-#main-menu {font-family:Russo One; text-align: center; padding: 5px 0px 10px 0px; border-bottom: 2px solid #ff2b99; font-size:20px;}
+#main-menu {font-family:Russo One; text-align: center; padding: 5px 0px 10px 0px; border-bottom: 2px solid #ff2b99; font-size:20px; color: #bdbdbd;}
 
 #main-column {}
 #right-list {}
