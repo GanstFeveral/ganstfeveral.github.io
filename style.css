@@ -14,8 +14,8 @@ a:hover {color:#f54a6d; text-decoration: underline;}
 .pop-block {position: fixed;
     background: #ffffff;
     padding: 0px 20px 0px 20px;
-    right: 1%;
-    bottom: 2%;
+    right: 20px;
+    bottom: 20px;
     border: 2px solid #e0e0e0;}
 
 #pop-checkbox {
