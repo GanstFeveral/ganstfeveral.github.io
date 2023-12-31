@@ -4,14 +4,28 @@
 	<title>GanstFeveral</title>
 	<link href="https://ganstfeveral.netlify.app/style.css" rel="stylesheet" type="text/css">
 	</head>
-	<body><include src="./header.html"></include></body>
+	<body>@@include('./header.html')</body>
+	
+	<script>var fileinclude = require('gulp-file-include'),
+		gulp = require('gulp');
+		
+		gulp.task('fileinclude', function() {
+		gulp.src(['index.html'])
+		.pipe(fileinclude({
+		prefix: '@@',
+		basepath: '@file'
+		}))
+		.pipe(gulp.dest('./'));
+		});
+	</script>
+	
 </html>
 
 <div>
 	<div id="main" class="tabcontent">
 <div id="main-column">
 
-	Провер очка6.
+	Провер очка7.
 
 <h5></h5>
 <h2>Добро пожаловать на сайт</h2>
