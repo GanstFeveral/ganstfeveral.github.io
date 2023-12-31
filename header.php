@@ -1,11 +1,10 @@
 <div style="border-bottom: 0px solid #ff2b99; text-align: center; padding: 10px 0px 0px 0px;">
 	<img src="https://raw.githubusercontent.com/GanstFeveral/ganstfeveral.github.io/master/header.png" style="display: block; max-width: 100%; height: auto; margin:0 auto;">
-	</div>
+</div>
 	
-<div style="font-family:Russo One; text-align: center; padding: 5px 0px 10px 0px; border-bottom: 2px solid #ff2b99;}">
-	
+<div style="font-family:Russo One; text-align: center; padding: 5px 0px 10px 0px; border-bottom: 2px solid #ff2b99;">
+
 <span style="color:#ff92e4; font-size:20px;"><a href="/" style="color:#ff2b99;">Главная</a></span> 
-	
 <span style="color:#bdbdbd; font-size:20px"> / <a href="/threads">Треды</a> / <a href="/zhelezo">Железо</a> / <a href="/arts">Рисунки</a> / <a href="/music">Музыка</a></span></div>
 
 <div id="right-list">
