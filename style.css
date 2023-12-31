@@ -1,4 +1,4 @@
-<style>body {margin:0px; /*background: url('https://raw.githubusercontent.com/GanstFeveral/GanstFeveral/master/top.jpg'); background-repeat: no-repeat; background-position: top;*/}
+body {margin:0px; /*background: url('https://raw.githubusercontent.com/GanstFeveral/GanstFeveral/master/top.jpg'); background-repeat: no-repeat; background-position: top;*/}
 html {overflow-x: hidden; overflow-y: scroll;}
 a {color:#0384fc; text-decoration: blink; font-weight:normal;}
 a:hover {color:#ff2b99; text-decoration: underline;}
@@ -102,5 +102,3 @@ h5 {border-bottom: 2px solid #e0e0e0; margin: 10px 0px 10px 0px;}
 	
 #kontakti img {height: 35px; transition: all 0.2s ease-out; padding: 5px 10px 5px 10px; opacity: 70%;}
 #kontakti img:hover {transform: scale(1.2); opacity:100%;}
-
-</style>
