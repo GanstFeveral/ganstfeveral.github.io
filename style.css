@@ -69,7 +69,7 @@ span.twitter {padding: 0px 25px 0px 25px;}
 p {
 	font-family: Tahoma;
 	font-weight: normal;
- 	 font-size: 16px;
+ 	font-size: 16px;
 	line-height: 1.4;
 	color: #000000;
 	}
@@ -86,9 +86,8 @@ h2 {
 h3	{
 	font-family: russo one;
 	font-size: 18px;
- 	 margin: 0px;
- 	 font-family: tahoma;
- 	 color: #7c7c7c;
+ 	margin: 0px;
+ 	color: #7c7c7c;
 	}
 
 h4 {border-bottom: 2px solid #ff92e4; margin: 10px 0px 10px 0px;}
