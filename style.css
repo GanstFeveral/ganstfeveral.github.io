@@ -4,8 +4,21 @@ a {color:#0384fc; text-decoration: blink; font-weight:normal;}
 a:hover {color:#f54a6d; text-decoration: underline;}
 .element::-webkit-scrollbar { width: 0; }
 
-#main-menu {font-family:Russo One; text-align: center; padding: 5px 0px 10px 0px; border-bottom: 2px solid #f54a6d; font-size:20px; color: #bdbdbd;}
+#main-menu 
+	{
+	font-family: tahoma;
+	font-weight: bold;
+	text-align: center;
+	padding: 5px 0px 10px 0px;
+	border-bottom: 2px solid #f54a6d;
+	font-size:20px; color: #bdbdbd;
+	}
 
+#main-menu a 
+	{
+	font-family: tahoma;
+	font-weight: bold;
+	}
 #main-column {}
 #right-list {}
 #left-column {width:457px; height: 500px; overflow: hidden;}
@@ -75,19 +88,20 @@ p {
 	}
 	
 h2 {
-	font-family: russo one;
+	font-family: Tahoma;
   	font-size: 24px;
   	color: #f54a6d;
   	text-decoration: none;
 	margin: 0px;
-	font-weight: normal;
+	font-weight: bold;
 	}
 	
-h3	{
-	font-family: russo one;
+h3 {
+	font-family: Tahoma;
 	font-size: 18px;
  	margin: 0px;
  	color: #7c7c7c;
+	font-weight: bold;
 	}
 
 h4 {border-bottom: 2px solid #ff92e4; margin: 10px 0px 10px 0px;}
