@@ -58,16 +58,16 @@ span.twitter {padding: 0px 25px 0px 25px;}
 .tab {overflow: hidden;}
 
 .tab button {
-    background-color: inherit;
-    /*float: left;*/
-    border: none;
-    outline: none;
-    cursor: pointer;
-    padding: 14px 16px;
-    transition: 0.3s;
-  	font-size: 24px;
-    font-family: russo one;
-    color: #f650cc;
+	background-color: inherit;
+	/*float: left;*/
+	border: none;
+	outline: none;
+	cursor: pointer;
+	padding: 14px 16px;
+	transition: 0.3s;
+	font-size: 24px;
+	font-family: russo one;
+	color: #f650cc;
 	}
 
 .tab button:hover {background-color: #ffe3f8;}
@@ -135,5 +135,5 @@ h5 {border-bottom: 2px solid #e0e0e0; margin: 10px 0px 10px 0px;}
 	text-align:center;
 	}
 	
-#kontakti img {height: 35px; transition: all 0.2s ease-out; padding: 5px 10px 5px 10px; opacity: 70%;}
+#kontakti img {height: 35px; transition: all 0.2s ease-out; padding: 2px 7px 0px 7px; opacity: 70%;}
 #kontakti img:hover {transform: scale(1.2); opacity:100%;}
