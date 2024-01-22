@@ -24,12 +24,16 @@ a:hover {color:#f54a6d; text-decoration: underline;}
 #left-column {width:457px; height: 500px; overflow: hidden;}
 #left-list {height: 450px; overflow-y: scroll; width: 474px;}
 
-.pop-block {position: fixed;
-    background: #ffffff;
-    padding: 0px 20px 0px 20px;
-    right: 20px;
-    bottom: 20px;
-    border: 2px solid #e0e0e0;}
+.pop-block {
+	position: fixed;
+	background: #ffffff;
+	padding: 0px 20px 0px 20px;
+	border-radius:20px;
+	right: 20px;
+	bottom: 20px;
+	border: 2px solid #e0e0e0;
+	box-shadow: 0px 0px 30px #ffffff, 0px 0px 30px #ffffff, 0px 0px 30px #ffffff, 0px 0px 30px #ffffff, 0px 0px 30px #ffffff;
+	}
 
 #pop-checkbox {
   display: none;
