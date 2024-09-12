@@ -9,6 +9,16 @@
          document.getElementById('header').innerHTML = data;
       });
 </script>
+
+<script>
+   fetch('header.html')
+      .then(response => response.text())
+      .then(data => {
+         document.getElementById('header').innerHTML = data;
+         document.getElementById('header').style.display = 'block';
+      });
+</script>
+   
 <div id="azhelezo"><h2>Железо</h2></div>
 <h3>Здесь вы можете оценить мой комп и не только</h3>
 <p><u>Компьютер</u><br>
