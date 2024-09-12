@@ -9,7 +9,7 @@
             <img src="https://raw.githubusercontent.com/GanstFeveral/ganstfeveral.github.io/master/header.png" style="display: block; max-width: 100%; height: auto; margin:0 auto;">
          </div>
 
-<div id="main-menu"><a href="/">Главная</a> / <a href="/threads">Треды</a> / <span style="color:#f54a6d;">Железо</span> / <a href="/arts">Творчество</a> / <a href="/chronicle">Оценки</a></span></div>
+<div id="main-menu"><a href="/">Главная</a> / <a href="/threads">Треды</a> / <a href="/zhelezo">Железо</a> / <a href="/arts">Творчество</a> / <a href="/chronicle">Оценки</a></div>
 <div id="right-list">
    <div id="kontakti">
       <a target="_blank" href="https://twitter.com/ganstfeveral"><img src="https://raw.githubusercontent.com/GanstFeveral/ganstfeveral.github.io/master/icons/twitter-old.png"></a> 
