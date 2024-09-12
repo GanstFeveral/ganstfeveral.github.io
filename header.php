@@ -1,24 +1,13 @@
 <header>
    <head>
       <meta charset="utf-8"><link href="https://ganstfeveral.netlify.app/style.css" rel="stylesheet" type="text/css">
-   </head>   
+   </head>
+   
    <div id="main" class="tabcontent">
       <div id="main-column">
          <div style="border-bottom: 0px solid #ff2b99; text-align: center; padding: 10px 0px 0px 0px;">
             <img src="https://raw.githubusercontent.com/GanstFeveral/ganstfeveral.github.io/master/header.png" style="display: block; max-width: 100%; height: auto; margin:0 auto;">
          </div>
-
-         <style>
-            #header {
-               display: none;
-               opacity: 0;
-               transition: opacity 0.5s ease;
-            }
-            #header.show {
-               display: block;
-               opacity: 1;
-            }
-         </style>
 
 <div id="main-menu"><a href="/">Главная</a> / <a href="/threads">Треды</a> / <span style="color:#f54a6d;">Железо</span> / <a href="/arts">Творчество</a> / <a href="/chronicle">Оценки</a></span></div>
 <div id="right-list">
