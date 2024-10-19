@@ -8,17 +8,17 @@
         body {
             font-family: Arial, sans-serif;
         }
-        .menu {
+        .main-menu {
             display: flex;
             margin-bottom: 20px;
         }
-        .menu a {
+        .main-menu a {
             margin-right: 15px;
             text-decoration: none;
             color: blue;
             font-weight: bold;
         }
-        .menu a.active {
+        .main-menu a.active {
             color: red;
         }
         .content {
@@ -35,7 +35,7 @@
 <html><head><meta charset="utf-8"><title>GanstFeveral</title><link href="https://ganstfeveral.netlify.app/style.css" rel="stylesheet" type="text/css"></head><body></body></html>
 
   <div><div id="main" class="tabcontent"><div id="main-column"><div style="border-bottom: 0px solid #ff2b99; text-align: center; padding: 10px 0px 0px 0px;"><img src="https://raw.githubusercontent.com/GanstFeveral/ganstfeveral.github.io/master/header.png" style="display: block; max-width: 100%; height: auto; margin:0 auto;"></div>
-	<div class="menu" style="border-bottom: 2px solid #f54a6d;">
+	<div class="main-menu">
 		<a href="#section1" id="link1">Главная</a> / 
 		<a href="#section2" id="link2">Треды</a> / 
 		<a href="#section3" id="link3">Железо</a> / 
@@ -2745,7 +2745,7 @@ document.getElementById("defaultOpen").click();
     // Функция для переключения контента
     function showSection(sectionId) {
         const contents = document.querySelectorAll('.content');
-        const links = document.querySelectorAll('.menu a');
+        const links = document.querySelectorAll('.main-menu a');
 
         contents.forEach(content => {
             content.classList.remove('active');
@@ -2766,7 +2766,7 @@ document.getElementById("defaultOpen").click();
     });
 
     // Изменение контента при клике на ссылки
-    document.querySelectorAll('.menu a').forEach(link => {
+    document.querySelectorAll('.main-menu a').forEach(link => {
         link.addEventListener('click', (event) => {
             event.preventDefault(); // Останавливаем стандартное поведение якорной ссылки
             const sectionId = link.getAttribute('href');
