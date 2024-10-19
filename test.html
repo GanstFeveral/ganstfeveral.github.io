@@ -8,17 +8,17 @@
         body {
             font-family: Arial, sans-serif;
         }
-        .main-menu {
+        #main-menu {
             display: flex;
             margin-bottom: 20px;
         }
-        .main-menu a {
+        #main-menu a {
             margin-right: 15px;
             text-decoration: none;
             color: blue;
             font-weight: bold;
         }
-        .main-menu a.active {
+        #main-menu a.active {
             color: red;
         }
         .content {
@@ -2745,7 +2745,7 @@ document.getElementById("defaultOpen").click();
     // Функция для переключения контента
     function showSection(sectionId) {
         const contents = document.querySelectorAll('.content');
-        const links = document.querySelectorAll('.main-menu a');
+        const links = document.querySelectorAll('#main-menu a');
 
         contents.forEach(content => {
             content.classList.remove('active');
@@ -2766,7 +2766,7 @@ document.getElementById("defaultOpen").click();
     });
 
     // Изменение контента при клике на ссылки
-    document.querySelectorAll('.main-menu a').forEach(link => {
+    document.querySelectorAll('#main-menu a').forEach(link => {
         link.addEventListener('click', (event) => {
             event.preventDefault(); // Останавливаем стандартное поведение якорной ссылки
             const sectionId = link.getAttribute('href');
