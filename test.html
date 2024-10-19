@@ -2769,9 +2769,9 @@ document.getElementById("defaultOpen").click();
     // Изменение контента при клике на ссылки
     document.querySelectorAll('.menu a').forEach(link => {
         link.addEventListener('click', (event) => {
-            event.preventDefault();
+            event.preventDefault(); // Останавливаем стандартное поведение якорной ссылки
             const sectionId = link.getAttribute('href');
-            window.location.hash = sectionId;
+            window.history.pushState(null, null, sectionId); // Обновляем URL без прокрутки
             showSection(sectionId);
         });
     });
