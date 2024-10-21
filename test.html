@@ -2760,9 +2760,13 @@ document.getElementById("defaultOpen").click();
         document.querySelector(`a[href="${sectionId}"]`).classList.add('active');
     }
 
-    // Проверка хэша URL при загрузке страницы
+    // Останавливаем стандартную прокрутку при загрузке с хэшем
     window.addEventListener('load', () => {
+        // Проверяем, есть ли хэш в URL
         const hash = window.location.hash || '#section1';
+        // Прокручиваем страницу вверх
+        window.scrollTo(0, 0);
+        // Отображаем нужный раздел контента
         showSection(hash);
     });
 
