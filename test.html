@@ -2760,14 +2760,22 @@ document.getElementById("defaultOpen").click();
         document.querySelector(`a[href="${sectionId}"]`).classList.add('active');
     }
 
-    // Останавливаем стандартную прокрутку при загрузке с хэшем
+    // Остановка прокрутки до якоря при загрузке
     window.addEventListener('load', () => {
-        // Проверяем, есть ли хэш в URL
-        const hash = window.location.hash || '#section1';
-        // Прокручиваем страницу вверх
-        window.scrollTo(0, 0);
-        // Отображаем нужный раздел контента
-        showSection(hash);
+        // Сохраняем текущий хэш
+        const hash = window.location.hash;
+
+        // Если хэш есть, удаляем его временно
+        if (hash) {
+            window.location.hash = ''; // Убираем хэш
+            window.scrollTo(0, 0); // Прокручиваем страницу наверх
+
+            // Задержка, чтобы дождаться завершения загрузки страницы
+            setTimeout(() => {
+                window.location.hash = hash; // Возвращаем хэш обратно
+                showSection(hash); // Показываем соответствующий контент
+            }, 1); // Минимальная задержка для корректного выполнения
+        }
     });
 
     // Изменение контента при клике на ссылки
