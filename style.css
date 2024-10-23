@@ -13,7 +13,8 @@ left: 0;
 top: 0;
 height: 100%;
 width: 50px;
-background-color: #f54a6d75;
+background: linear-gradient(to bottom, #f54a6d00, #f54a6d75);
+/*background-color: #f54a6d75;*/
 opacity: 0;
 transition: opacity 0.5s ease, pointer-events 0s ease 0.5s;
 cursor: pointer;
