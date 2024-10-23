@@ -6,6 +6,25 @@ a:hover {color:#f54a6d; text-decoration: underline;}
 .content {display: none;}
 .content.active {display: block;}
 
+/* Стиль кнопки */
+.back-to-top {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 5px;
+    background-color: #3498db;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+/* Появление кнопки при скролле */
+.back-to-top.visible {
+    opacity: 1;
+}
+
 #main-menu a:hover {text-decoration: underline;}
 #main-menu a.active {text-decoration: none !important; cursor: default; color:#f54a6d;}
 .element::-webkit-scrollbar { width: 0;}
