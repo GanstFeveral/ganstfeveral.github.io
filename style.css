@@ -2,7 +2,8 @@ body {margin:0px; /*background: url('https://raw.githubusercontent.com/GanstFeve
 html {overflow-x: hidden; overflow-y: scroll;}
 a {color:#0384fc; text-decoration: blink; font-weight:normal;}
 a:hover {color:#f54a6d; text-decoration: underline;}
-#main-menu a:hover {color:#f54a6d; text-decoration: underline;}
+#main-menu a:hover {text-decoration: underline;}
+#main-menu a.active {text-decoration: none !important;}
 .element::-webkit-scrollbar { width: 0; }
 
 #main-menu 
