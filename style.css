@@ -25,7 +25,7 @@ align-items: flex-end; /* Располагаем стрелку внизу */
 justify-content: center; /* Центрируем стрелку по горизонтали */
 }
 
-#backToTop:hover {background:#f54a6d75);}
+#backToTop:hover {background:#f54a6d75;}
 
 /* Появление кнопки при скролле */
 .back-to-top.visible {
