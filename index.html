@@ -2739,7 +2739,7 @@ const backToTopButton = document.getElementById('backToTop');
 
 // Функция для быстрой прокрутки наверх
 backToTopButton.addEventListener('click', () => {
-    const scrollStep = -window.scrollY / 15; // Измените это число для ускорения/замедления (меньше число — быстрее)
+    const scrollStep = -window.scrollY / 7; // Измените это число для ускорения/замедления (меньше число — быстрее)
     const scrollInterval = setInterval(() => {
         if (window.scrollY !== 0) {
             window.scrollBy(0, scrollStep);
