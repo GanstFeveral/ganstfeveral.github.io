@@ -13,7 +13,7 @@ left: 0;
 top: 0;
 height: 100%;
 width: 50px;
-background: linear-gradient(to bottom, #f54a6d00, #f54a6d75);
+background: linear-gradient(to bottom, #f54a6d00, #0000004d);
 /*background-color: #f54a6d75;*/
 opacity: 0;
 transition: opacity 0.5s ease, pointer-events 0s ease 0.5s;
@@ -24,6 +24,8 @@ display: flex;
 align-items: flex-end; /* Располагаем стрелку внизу */
 justify-content: center; /* Центрируем стрелку по горизонтали */
 }
+
+.back-to-top a.hover {linear-gradient(to bottom, #f54a6d00, #f54a6d75);}
 
 /* Появление кнопки при скролле */
 .back-to-top.visible {
