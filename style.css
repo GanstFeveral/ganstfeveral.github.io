@@ -19,6 +19,9 @@ transition: opacity 0.5s ease, pointer-events 0s ease 0.5s;
 cursor: pointer;
 z-index: 1000;
 pointer-events: none; /* Отключаем клики по умолчанию */
+display: flex;
+align-items: flex-end; /* Располагаем стрелку внизу */
+justify-content: center; /* Центрируем стрелку по горизонтали */
 }
 
 /* Появление кнопки при скролле */
@@ -26,6 +29,14 @@ pointer-events: none; /* Отключаем клики по умолчанию *
 opacity: 1;
 pointer-events: auto; /* Включаем клики при видимости */
 transition: opacity 0.5s ease, pointer-events 0s;
+}
+
+/* Стиль стрелки */
+.arrow {
+color: white;
+font-size: 24px;
+margin-bottom: 10px; /* Отступ снизу для стрелки */
+user-select: none; /* Отключаем выделение текста */
 }
 
 #main-menu a:hover {text-decoration: underline;}
