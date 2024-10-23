@@ -34,7 +34,7 @@ transition: opacity 0.5s ease, pointer-events 0s;
 /* Стиль стрелки */
 .arrow {
 color: white;
-font-size: 24px;
+font-size: 80px;
 margin-bottom: 10px; /* Отступ снизу для стрелки */
 user-select: none; /* Отключаем выделение текста */
 }
