@@ -8,24 +8,24 @@ a:hover {color:#f54a6d; text-decoration: underline;}
 
 /* Стиль кнопки */
 .back-to-top {
-    position: fixed;
-    left: 0;
-    top: 0;
-    height: 100%;
-    width: 5px;
-    background-color: #3498db;
-    opacity: 0;
-    transition: opacity 0.5s ease, pointer-events 0s ease 0.5s;
-    cursor: pointer;
-    z-index: 1000;
-    pointer-events: none; /* Отключаем клики по умолчанию */
+position: fixed;
+left: 0;
+top: 0;
+height: 100%;
+width: 50px;
+background-color: #f54a6d75;
+opacity: 0;
+transition: opacity 0.5s ease, pointer-events 0s ease 0.5s;
+cursor: pointer;
+z-index: 1000;
+pointer-events: none; /* Отключаем клики по умолчанию */
 }
 
 /* Появление кнопки при скролле */
 .back-to-top.visible {
-    opacity: 1;
-    pointer-events: auto; /* Включаем клики при видимости */
-    transition: opacity 0.5s ease, pointer-events 0s;
+opacity: 1;
+pointer-events: auto; /* Включаем клики при видимости */
+transition: opacity 0.5s ease, pointer-events 0s;
 }
 
 #main-menu a:hover {text-decoration: underline;}
