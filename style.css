@@ -12,7 +12,7 @@ position: fixed;
 left: 0;
 top: 0;
 height: 100%;
-width: 40px;
+width: 30px;
 background: #0384fc6e;
 opacity: 0;
 transition: opacity 0.5s ease, pointer-events 0s ease 0.5s;
@@ -36,7 +36,7 @@ transition: opacity 0.5s ease, pointer-events 0s;
 /* Стиль стрелки */
 .arrow {
 color: white;
-font-size: 60px;
+font-size: 50px;
 margin-bottom: 10px; /* Отступ снизу для стрелки */
 user-select: none; /* Отключаем выделение текста */
 }
