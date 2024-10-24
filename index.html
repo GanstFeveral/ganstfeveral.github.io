@@ -14,7 +14,21 @@
 <p>36 годиков дурачку, который никак не может выйти из интернета и должен держать вселенную максимально в курсе.<br>
 Ниже я размещу самые важные ссылки, где я зависаю активнее всего, так что добавляйтесь на случай бана:<br><br>
 
-<a href="https://twitter.com/intent/tweet?button_hashtag=ganstfeveral&ref_src=twsrc%5Etfw" class="twitter-hashtag-button" data-show-count="false">Tweet #ganstfeveral</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script><br><br>
+<?php
+$username = "ganstfeveral";
+$url = "https://x.com/" . $username;
+
+$html = file_get_contents($url);
+
+preg_match('/"followers_count":(\d+)/', $html, $matches);
+
+if (isset($matches[1])) {
+    $followers_count = $matches[1];
+    echo "У вас " . $followers_count . " подписчиков в Twitter.";
+} else {
+    echo "Не удалось получить количество подписчиков.";
+}
+?><br><br>
 
 <a target="_blank" href="https://x.com/ganstfeveral"><img src="https://raw.githubusercontent.com/GanstFeveral/ganstfeveral.github.io/master/icons/twitter-x.png" height="12px" width="12px"> x.com/ganstfeveral</a> &nbsp;&nbsp;&nbsp;&nbsp;
 <a target="_blank" href="http://t.me/ganstfeveral"><img src="https://raw.githubusercontent.com/GanstFeveral/ganstfeveral.github.io/master/icons/telegram.png" height="12px" width="12px"> t.me/ganstfeveral</a> &nbsp;&nbsp;&nbsp;&nbsp;
