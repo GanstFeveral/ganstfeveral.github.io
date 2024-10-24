@@ -20,7 +20,8 @@ $url = "https://x.com/" . $username;
 
 $html = file_get_contents($url);
 
-preg_match('/"followers_count":(\d+)/', $html, $matches);
+// Найдем количество фолловеров в html-коде
+preg_match('/followers_count&quot;:(\d+),/', $html, $matches);
 
 if (isset($matches[1])) {
     $followers_count = $matches[1];
@@ -28,7 +29,8 @@ if (isset($matches[1])) {
 } else {
     echo "Не удалось получить количество подписчиков.";
 }
-?><br><br>
+?>
+<br><br>
 
 <a target="_blank" href="https://x.com/ganstfeveral"><img src="https://raw.githubusercontent.com/GanstFeveral/ganstfeveral.github.io/master/icons/twitter-x.png" height="12px" width="12px"> x.com/ganstfeveral</a> &nbsp;&nbsp;&nbsp;&nbsp;
 <a target="_blank" href="http://t.me/ganstfeveral"><img src="https://raw.githubusercontent.com/GanstFeveral/ganstfeveral.github.io/master/icons/telegram.png" height="12px" width="12px"> t.me/ganstfeveral</a> &nbsp;&nbsp;&nbsp;&nbsp;
