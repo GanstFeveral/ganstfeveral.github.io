@@ -8,7 +8,7 @@ a:hover {color:#f54a6d; text-decoration: underline;}
 
 @font-face {
 	font-family: 'uni-sans', sans-serif; /* Название шрифта */
-	src: url('/fonts/uni-sans.otf') format('otf');
+	src: url('/fonts/uni-sans.otf') format('otf'),
 	url('/fonts/uni-sans.woff2') format('woff2'),
 	url('/fonts/uni-sans.woff') format('woff'),
 	url('/fonts/uni-sans.ttf') format('truetype');
