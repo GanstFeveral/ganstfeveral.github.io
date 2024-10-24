@@ -7,8 +7,11 @@ a:hover {color:#f54a6d; text-decoration: underline;}
 .content.active {display: block;}
 
 @font-face {
-    font-family: 'uni-sans', sans-serif; /* Название шрифта */
-    src: url('/fonts/uni-sans.otf') format('otf');
+	font-family: 'uni-sans', sans-serif; /* Название шрифта */
+	src: url('/fonts/uni-sans.otf') format('otf');
+	url('/fonts/uni-sans.woff2') format('woff2'),
+	url('/fonts/uni-sans.woff') format('woff'),
+	url('/fonts/uni-sans.ttf') format('truetype');
 }
 
 /* Стиль кнопки */
@@ -59,11 +62,7 @@ user-select: none; /* Отключаем выделение текста */
 	font-size:20px; color: #bdbdbd;
 	}
 
-#main-menu a 
-	{
-	font-family: tahoma;
-	font-weight: bold;
-	}
+#main-menu a {font-weight: bold;}
 #main-column {}
 #right-list {}
 #left-column {width:457px; height: 500px; overflow: hidden;}
