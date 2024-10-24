@@ -6,6 +6,11 @@ a:hover {color:#f54a6d; text-decoration: underline;}
 .content {display: none;}
 .content.active {display: block;}
 
+@font-face {
+    font-family: 'uni-sans', sans-serif; /* Название шрифта */
+    src: url('/fonts/uni-sans.otf') format('otf');
+}
+
 /* Стиль кнопки */
 .back-to-top {
 position: fixed;
@@ -46,7 +51,7 @@ user-select: none; /* Отключаем выделение текста */
 .element::-webkit-scrollbar { width: 0;}
 #main-menu a.active {color: #f54a6d;}
 #main-menu {
-	font-family: tahoma;
+	font-family: uni-sans, sans-serif;
 	font-weight: bold;
 	text-align: center;
 	padding: 5px 0px 10px 0px;
