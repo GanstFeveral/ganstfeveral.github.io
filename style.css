@@ -12,6 +12,8 @@ a:hover {color:#f54a6d; text-decoration: underline;}
 	url('https://github.com/GanstFeveral/ganstfeveral.github.io/raw/refs/heads/master/fonts/uni-sans.woff2') format('woff2'),
 	url('https://github.com/GanstFeveral/ganstfeveral.github.io/raw/refs/heads/master/fonts/uni-sans.woff') format('woff'),
 	url('https://github.com/GanstFeveral/ganstfeveral.github.io/raw/refs/heads/master/fonts/uni-sans.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
 }
 
 /* Стиль кнопки */
@@ -55,16 +57,12 @@ user-select: none; /* Отключаем выделение текста */
 #main-menu a.active {color: #f54a6d;}
 #main-menu {
 	font-family: uni-sans, sans-serif;
-	font-weight: bold;
 	text-align: center;
 	padding: 5px 0px 10px 0px;
 	border-bottom: 2px solid #f54a6d;
 	font-size:20px; color: #bdbdbd;
 	}
 
-#main-menu a {font-weight: bold;}
-#main-column {}
-#right-list {}
 #left-column {width:457px; height: 500px; overflow: hidden;}
 #left-list {height: 450px; overflow-y: scroll; width: 474px;}
 
