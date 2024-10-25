@@ -6,16 +6,6 @@ a:hover {color:#f54a6d; text-decoration: underline;}
 .content {display: none;}
 .content.active {display: block;}
 
-@font-face {
-	font-family: 'uni-sans', sans-serif; /* Название шрифта */
-	src: url('https://s54vla.storage.yandex.net/rdisk/152d255ceb902493735746643f7a6b99d5f736f64a1f93db3a7803eb8f81958a/671b149c/iRaCkxAx07hxJGcQ7Alk-53minlDWzsmIC11uUwq2QuLBWDLtOHI29X-aKkZxapPkZK7rx5fuQj0dkKV4FWN-w==?uid=0&filename=uni-sans.otf&disposition=attachment&hash=hTvV9515UgvCbBsmaaylH/O%2BLnNjOF6%2BdUJ%2Bg2sxURxx1dQ9MOsvsfVzyxnzd3jcq/J6bpmRyOJonT3VoXnDag%3D%3D&limit=0&content_type=application%2Foctet-stream&owner_uid=46627696&fsize=127600&hid=5001067c93b1cb2e89b982d267dcbae3&media_type=font&tknv=v2&ts=62544f7395f00&s=e481415f98c06c954bcb516bd1992c23c4205d3a504836bfee57a43991dec743&pb=U2FsdGVkX1_Ut2Wd6h9-IVpu4sULiwbul8C1VNPZB8rnMidb40Tdgl3kdoWw9AMA8h5uwPUNYptl7go-0KhSc0F_VLVA-8VFXBDafKYS77A') format('otf'),
-	url('https://github.com/GanstFeveral/ganstfeveral.github.io/raw/refs/heads/master/fonts/uni-sans.woff2') format('woff2'),
-	url('https://github.com/GanstFeveral/ganstfeveral.github.io/raw/refs/heads/master/fonts/uni-sans.woff') format('woff'),
-	url('https://github.com/GanstFeveral/ganstfeveral.github.io/raw/refs/heads/master/fonts/uni-sans.ttf') format('truetype');
-	font-weight: normal;
-	font-style: normal;
-}
-
 /* Стиль кнопки */
 .back-to-top {
 position: fixed;
@@ -56,9 +46,9 @@ user-select: none; /* Отключаем выделение текста */
 .element::-webkit-scrollbar { width: 0;}
 #main-menu a.active {color: #f54a6d;}
 #main-menu {
-	font-family: "Russo One", sans-serif;
-	font-size:24px;
-	font-style: normal;
+	font-family: "Yanone Kaffeesatz", sans-serif;
+	font-size:35px;
+	font-style: bold;
 	text-align: center;
 	padding: 5px 0px 10px 0px;
 	border-bottom: 2px solid #f54a6d;
@@ -140,8 +130,8 @@ p {
 	
 h2 {
 	font-family: "Yanone Kaffeesatz", sans-serif;
-	font-weight: normal;
-  	font-size: 24px;
+  	font-size: 30px;
+	font-weight: bold;
   	color: #f54a6d;
   	text-decoration: none;
 	margin: 0px;
