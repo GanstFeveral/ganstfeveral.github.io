@@ -131,7 +131,7 @@ span.twitter {padding: 0px 25px 0px 25px;}
 @keyframes fadeEffect {from {opacity: 0;} to {opacity: 1;}}
 
 p {
-	font-family: Tahoma;
+	font-family: Tahoma, sans-serif;
 	font-weight: normal;
  	font-size: 16px;
 	line-height: 1.4;
@@ -139,7 +139,7 @@ p {
 	}
 	
 h2 {
-	font-family: Tahoma;
+	font-family: "Russo One", sans-serif;
   	font-size: 24px;
   	color: #f54a6d;
   	text-decoration: none;
@@ -148,7 +148,7 @@ h2 {
 	}
 	
 h3 {
-	font-family: Tahoma;
+	font-family: "Russo One", sans-serif;
 	font-size: 18px;
  	margin: 0px;
  	color: #7c7c7c;
