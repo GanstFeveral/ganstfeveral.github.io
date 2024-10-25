@@ -8,37 +8,37 @@ a:hover {color:#f54a6d; text-decoration: underline;}
 
 /* Стиль кнопки */
 .back-to-top {
-position: fixed;
-left: 0;
-top: 0;
-height: 100%;
-width: 30px;
-background: #0384fc6e;
-opacity: 0;
-transition: opacity 0.5s ease, pointer-events 0s ease 0.5s;
-cursor: pointer;
-z-index: 1000;
-pointer-events: none; /* Отключаем клики по умолчанию */
-display: flex;
-align-items: flex-end; /* Располагаем стрелку внизу */
-justify-content: center; /* Центрируем стрелку по горизонтали */
+	position: fixed;
+	left: 0;
+	top: 0;
+	height: 100%;
+	width: 30px;
+	background: #0384fc6e;
+	opacity: 0;
+	transition: opacity 0.5s ease, pointer-events 0s ease 0.5s;
+	cursor: pointer;
+	z-index: 1000;
+	pointer-events: none; /* Отключаем клики по умолчанию */
+	display: flex;
+	align-items: flex-end; /* Располагаем стрелку внизу */
+	justify-content: center; /* Центрируем стрелку по горизонтали */
 }
 
 #backToTop:hover {background:#f54a6d75;}
 
 /* Появление кнопки при скролле */
 .back-to-top.visible {
-opacity: 1;
-pointer-events: auto; /* Включаем клики при видимости */
-transition: opacity 0.5s ease, pointer-events 0s;
+	opacity: 1;
+	pointer-events: auto; /* Включаем клики при видимости */
+	transition: opacity 0.5s ease, pointer-events 0s;
 }
 
 /* Стиль стрелки */
 .arrow {
-color: white;
-font-size: 50px;
-margin-bottom: 10px; /* Отступ снизу для стрелки */
-user-select: none; /* Отключаем выделение текста */
+	color: white;
+	font-size: 50px;
+	margin-bottom: 10px; /* Отступ снизу для стрелки */
+	user-select: none; /* Отключаем выделение текста */
 }
 
 #main-menu a:hover {text-decoration: underline;}
@@ -52,7 +52,7 @@ user-select: none; /* Отключаем выделение текста */
 	text-align: center;
 	padding: 5px 0px 10px 0px;
 	border-bottom: 2px solid #f54a6d;
-	font-size:20px; color: #bdbdbd;
+	color: #bdbdbd;
 	}
 
 #left-column {width:457px; height: 500px; overflow: hidden;}
@@ -131,7 +131,7 @@ p {
 h2 {
 	font-family: "Yanone Kaffeesatz", sans-serif;
   	font-size: 30px;
-	font-weight: bold;
+	font-weight: normal;
   	color: #f54a6d;
   	text-decoration: none;
 	margin: 0px;
@@ -139,7 +139,7 @@ h2 {
 	
 h3 {
 	font-family: "Yanone Kaffeesatz", sans-serif;
-	font-size: 18px;
+	font-size: 20px;
  	margin: 0px;
  	color: #a0a0a0;
 	font-weight: normal;
