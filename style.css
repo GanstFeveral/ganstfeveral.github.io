@@ -6,6 +6,16 @@ a:hover {color:#f54a6d; text-decoration: underline;}
 .content {display: none;}
 .content.active {display: block;}
 
+.soc-x::before {
+    content: url('https://raw.githubusercontent.com/GanstFeveral/ganstfeveral.github.io/master/icons/twitter-x.png');
+    margin-right: 5px;
+}
+
+.soc-tel::before {
+    content: url('https://raw.githubusercontent.com/GanstFeveral/GanstFeveral/master/icons/telegram.png'); /* Путь к логотипу Telegram */
+    margin-right: 5px;
+}
+
 /* Стиль кнопки */
 .back-to-top {
 	position: fixed;
