@@ -7,17 +7,19 @@ a:hover {color:#f54a6d; text-decoration: underline;}
 .content.active {display: block;}
 
 .soc-x::before {
-	content: url('https://raw.githubusercontent.com/GanstFeveral/ganstfeveral.github.io/master/icons/twitter-x.png');
-	margin-right: 5px;
-	width:12px;
-	height:12px;
+	display: inline-block;
+	background-image: url('https://raw.githubusercontent.com/GanstFeveral/ganstfeveral.github.io/master/icons/twitter-x.png');
+	background-size: 12px 12px;
+	background-repeat: no-repeat;
+	padding-left: 20px;
 	}
 
 .soc-tel::before {
 	content: url('https://raw.githubusercontent.com/GanstFeveral/GanstFeveral/master/icons/telegram.png'); /* Путь к логотипу Telegram */
-	margin-right: 5px;
-	width:12px;
-	height:12px;	
+	display: inline-block;
+	background-size: 12px 12px;
+	background-repeat: no-repeat;
+	padding-left: 20px;
 	}
 
 /* Стиль кнопки */
