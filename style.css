@@ -19,8 +19,8 @@ a:hover {color:#f54a6d; text-decoration: underline;}
 .soc-tel::before {
 	content: '';
 	display: inline-block;
-	width: 14px; /* Ширина логотипа */
-	height: 14px; /* Высота логотипа */
+	width: 13px; /* Ширина логотипа */
+	height: 13px; /* Высота логотипа */
 	background-size: contain;
 	background-repeat: no-repeat;
 	margin-right: 5px; /* Отступ между логотипом и текстом ссылки */
