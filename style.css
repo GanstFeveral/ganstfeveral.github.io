@@ -6,21 +6,25 @@ a:hover {color:#f54a6d; text-decoration: underline;}
 .content {display: none;}
 .content.active {display: block;}
 
+.soc-x::before,
+.soc-tel::before {
+    content: '';
+    display: inline-block;
+    width: 12px; /* Ширина логотипа */
+    height: 12px; /* Высота логотипа */
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-right: 5px; /* Отступ между логотипом и текстом ссылки */
+}
+
 .soc-x::before {
-	display: inline-block;
-	background-image: url('https://raw.githubusercontent.com/GanstFeveral/ganstfeveral.github.io/master/icons/twitter-x.png');
-	background-size: 12px 12px;
-	background-repeat: no-repeat;
-	padding-left: 20px;
-	}
+    background-image: url('https://raw.githubusercontent.com/GanstFeveral/ganstfeveral.github.io/master/icons/twitter-x.png');
+}
 
 .soc-tel::before {
-	content: url('https://raw.githubusercontent.com/GanstFeveral/GanstFeveral/master/icons/telegram.png'); /* Путь к логотипу Telegram */
-	display: inline-block;
-	background-size: 12px 12px;
-	background-repeat: no-repeat;
-	padding-left: 20px;
-	}
+    background-image: url('https://raw.githubusercontent.com/GanstFeveral/GanstFeveral/master/icons/telegram.png');
+}
+
 
 /* Стиль кнопки */
 .back-to-top {
