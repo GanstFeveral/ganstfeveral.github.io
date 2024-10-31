@@ -6,7 +6,33 @@ a:hover {color:#f54a6d; text-decoration: underline;}
 .content {display: none;}
 .content.active {display: block;}
 
+.scrollable-wrapper {
+  width: 300px; /* Ширина блока */
+  height: 200px; /* Высота блока */
+  overflow: hidden; /* Скрыть скроллбар */
+  position: relative;
+}
 
+/* Контейнер для контента с прокруткой */
+.scrollable-content {
+  width: 100%;
+  height: 100%;
+  padding-right: 15px; /* Отступ для скрытого скроллбара */
+  overflow-y: scroll; /* Прокрутка только содержимого */
+  box-sizing: content-box; /* Учет отступа */
+}
+
+/* Полупрозрачный градиент снизу */
+.scrollable-wrapper::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 50px; /* Высота градиента */
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
+  pointer-events: none; /* Чтобы градиент не мешал прокрутке */
+}
 
 .soc-x::before {
 	content: '';
