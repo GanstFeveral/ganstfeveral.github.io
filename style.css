@@ -17,7 +17,7 @@ a:hover {color:#f54a6d; text-decoration: underline;}
 .scrollable-content {
 	width: 100%;
 	height: 100%;
-	padding-right: 15px; /* Отступ для скрытого скроллбара */
+	padding-right: 20px; /* Отступ для скрытого скроллбара */
 	overflow-y: scroll; /* Прокрутка только содержимого */
 	box-sizing: content-box; /* Учет отступа */
 	}
