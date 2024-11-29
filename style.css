@@ -1,4 +1,4 @@
-body {margin:0px; /*background: url('https://raw.githubusercontent.com/GanstFeveral/GanstFeveral/master/top.jpg'); background-repeat: no-repeat; background-position: top;*/}
+body {margin:0px; min-width: 550px;}
 html {overflow-x: hidden; overflow-y: scroll;}
 a {color:#0384fc; text-decoration: blink; font-weight:normal;}
 a:hover {color:#f54a6d; text-decoration: underline;}
