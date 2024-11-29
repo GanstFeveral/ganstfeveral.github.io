@@ -106,7 +106,7 @@ a:hover {color:#f54a6d; text-decoration: underline;}
 #main-menu a.active {color: #f54a6d;}
 #main-menu {
 	font-family: "Yanone Kaffeesatz", sans-serif;
-	font-size:35px;
+	font-size:28px;
 	font-style: bold;
 	text-align: center;
 	padding: 5px 0px 10px 0px;
@@ -229,5 +229,5 @@ h5 {border-bottom: 2px solid #e0e0e0; margin: 10px 0px 10px 0px;}
 	text-align:center;
 	}
 	
-#kontakti img {height: 35px; transition: all 0.2s ease-out; padding: 2px 7px 0px 7px; opacity: 70%;}
+#kontakti img {height: 30px; transition: all 0.2s ease-out; padding: 2px 4px 0px 4px; opacity: 70%;}
 #kontakti img:hover {transform: scale(1.2); opacity:100%;}
