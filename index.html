@@ -40,17 +40,20 @@
 
 <div style="border: 2px #f54a6d solid; border-radius: 10px; padding: 0px 10px 0px 10px; min-width: 400px; max-width: 600px; margin: 0px 0px 20px 0px;">
 <p><img src="https://raw.githubusercontent.com/GanstFeveral/GanstFeveral/master/icons/avatar.jpg" style="border-radius: 50%; float: left; margin-right: 15px; object-fit: cover; width:110px;">
-<img src="https://raw.githubusercontent.com/GanstFeveral/ganstfeveral.github.io/master/icons/twitter-x.png" height="12px" width="12px"> <a target="_blank" href="https://x.com/ganstfeveral">x.com/ganstfeveral</a><br>
-<img src="https://raw.githubusercontent.com/GanstFeveral/ganstfeveral.github.io/master/icons/telegram.png" height="12px" width="12px"> <a target="_blank" href="http://t.me/ganstfeveral">t.me/ganstfeveral</a><br>
-<img src="https://raw.githubusercontent.com/GanstFeveral/ganstfeveral.github.io/master/icons/tbank.png" height="12px" width="12px"> <a target="_blank" href="https://www.tinkoff.ru/rm/lysenko.sergey196/FX8jh39276">Т-Банк (тинькофф)</a><br>
-<img src="https://raw.githubusercontent.com/GanstFeveral/GanstFeveral/master/icons/da.png" height="12px" width="12px"> <a target="_blank" href="https://www.donationalerts.com/r/ganstfeveral">DonationAlerts</a><br>
-<img src="https://raw.githubusercontent.com/GanstFeveral/GanstFeveral/master/icons/cripto.png" height="12px" width="12px"> <a id="text-to-copy" onclick="copyText()" style="text-decoration: underline; cursor: pointer; display: inline-block; transform: scaleX(0.5); transform-origin: left;">UQD25gB5skGmiseXWbsuXEFmqiZYZtrRxOeb4qeRPG1FM1pt</a></div>
+<a target="_blank" href="https://x.com/ganstfeveral"><img src="https://raw.githubusercontent.com/GanstFeveral/ganstfeveral.github.io/master/icons/twitter-x.png" height="12px" width="12px"> x.com/ganstfeveral</a><br>
+<a target="_blank" href="http://t.me/ganstfeveral"><img src="https://raw.githubusercontent.com/GanstFeveral/ganstfeveral.github.io/master/icons/telegram.png" height="12px" width="12px"> t.me/ganstfeveral</a><br>
+<a target="_blank" href="https://www.tinkoff.ru/rm/lysenko.sergey196/FX8jh39276"><img src="https://raw.githubusercontent.com/GanstFeveral/ganstfeveral.github.io/master/icons/tbank.png" height="12px" width="12px"> Т-Банк (тинькофф)</a><br>
+<a target="_blank" href="https://www.donationalerts.com/r/ganstfeveral"><img src="https://raw.githubusercontent.com/GanstFeveral/GanstFeveral/master/icons/da.png" height="12px" width="12px"> DonationAlerts</a><br>
+<a href="#" onclick="copyText(event)" style="text-decoration: underline; cursor: pointer; display: inline-block; transform: scaleX(0.5); transform-origin: left;"><img src="https://raw.githubusercontent.com/GanstFeveral/GanstFeveral/master/icons/cripto.png" height="12px" width="12px"> </a></div>
 
 <script>
-  function copyText() {
-    const text = document.getElementById("text-to-copy").innerText;
-    navigator.clipboard.writeText(text).then(() => {
-      alert("Текст скопирован!");
+  function copyText(event) {
+    event.preventDefault();
+    const textToCopy = "UQD25gB5skGmiseXWbsuXEFmqiZYZtrRxOeb4qeRPG1FM1pt";
+    navigator.clipboard.writeText(textToCopy).then(() => {
+      alert("Текст скопирован");
+    }).catch(err => {
+      alert("Ошибка копирования: " + err);
     });
   }
 </script>
