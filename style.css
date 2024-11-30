@@ -14,13 +14,12 @@ left:0px;
   animation: moveBackground 10s linear infinite; /* Анимация */
 }
 
-/* Анимация для сдвига картинки справа налево */
 @keyframes moveBackground {
   0% {
-    background-position: 0 0; /* Начальная позиция */
+    transform: translateX(0); /* Начальная позиция */
   }
   100% {
-    background-position: -100% 0; /* Позиция после полного сдвига */
+    transform: translateX(-3000px); /* Сдвиг на 3000px (ширина картинки) */
   }
 }
 
