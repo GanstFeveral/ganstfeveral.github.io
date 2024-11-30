@@ -3,6 +3,27 @@ html {overflow-x: hidden; overflow-y: scroll;}
 a {color:#0384fc; text-decoration: blink; font-weight:normal;}
 a:hover {color:#f54a6d; text-decoration: underline;}
 
+.background1 {
+  position: absolute;
+  bottom: 0; /* Картинка будет внизу экрана */
+  width: 200%; /* Ширина блока в 2 раза больше экрана для плавности */
+  height: 100px; /* Высота картинки */
+  background-image: url('https://raw.githubusercontent.com/GanstFeveral/ganstfeveral.github.io/master/header.png'); /* Укажите путь к вашей картинке */
+  background-repeat: repeat-x; /* Повторение картинки по горизонтали */
+  animation: moveBackground 10s linear infinite; /* Анимация */
+}
+
+/* Анимация для сдвига картинки справа налево */
+@keyframes moveBackground {
+  0% {
+    background-position: 0 0; /* Начальная позиция */
+  }
+  100% {
+    background-position: -100% 0; /* Позиция после полного сдвига */
+  }
+}
+
+
 .line1 {
   position: relative;
   height: 0;
