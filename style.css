@@ -7,23 +7,19 @@ a:hover {color:#f54a6d; text-decoration: underline;}
   position: fixed;
   bottom: 0;
 left:0px;
-  width: 3000px;
   height: 200px;
-  background-image: url('https://raw.githubusercontent.com/GanstFeveral/ganstfeveral.github.io/refs/heads/master/backtest.png'); /* Укажите путь к вашей картинке */
-  background-repeat: repeat-x; /* Повторение картинки по горизонтали */
-  animation: moveBackground 10s linear infinite; /* Анимация */
+    background: url('https://raw.githubusercontent.com/GanstFeveral/ganstfeveral.github.io/refs/heads/master/backtest.png') repeat-x;  /* Картинка с повтором по горизонтали */
+    background-size: 3000px auto;  /* Устанавливаем размер картинки 3000px по ширине */
+    animation: moveBackground 5s linear infinite;  /* Анимация для движения */
 }
 
 @keyframes moveBackground {
-  0% {
-    transform: translateX(0); /* Начальная позиция */
-  }
-  50% {
-    transform: translateX(-100%); /* Половина пути - сдвиг на 100% ширины */
-  }
-  100% {
-    transform: translateX(-200%); /* Конечная позиция - сдвиг на 200% ширины */
-  }
+    from {
+        background-position: 100%;  /* Начальная позиция (справа) */
+    }
+    to {
+        background-position: -100%;  /* Конечная позиция (слева) */
+    }
 }
 
 
