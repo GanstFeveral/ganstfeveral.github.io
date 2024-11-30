@@ -229,5 +229,5 @@ h5 {border-bottom: 2px solid #e0e0e0; margin: 10px 0px 10px 0px;}
 	text-align:center;
 	}
 	
-#kontakti img {height: 30px; transition: all 0.2s ease-out; padding: 2px 4px 0px 4px; opacity: 70%;}
+#kontakti img {height: 28px; transition: all 0.2s ease-out; padding: 2px 4px 0px 4px; opacity: 70%;}
 #kontakti img:hover {transform: scale(1.2); opacity:100%;}
