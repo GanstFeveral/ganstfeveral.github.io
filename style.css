@@ -4,11 +4,12 @@ a {color:#0384fc; text-decoration: blink; font-weight:normal;}
 a:hover {color:#f54a6d; text-decoration: underline;}
 
 .background1 {
-  position: absolute;
-  bottom: 0; /* Картинка будет внизу экрана */
-  width: 200%; /* Ширина блока в 2 раза больше экрана для плавности */
-  height: 100px; /* Высота картинки */
-  background-image: url('https://raw.githubusercontent.com/GanstFeveral/ganstfeveral.github.io/master/header.png'); /* Укажите путь к вашей картинке */
+  position: fixed;
+  bottom: 0;
+left:0px;
+  width: 3000px;
+  height: 200px;
+  background-image: url('https://raw.githubusercontent.com/GanstFeveral/ganstfeveral.github.io/refs/heads/master/backtest.png'); /* Укажите путь к вашей картинке */
   background-repeat: repeat-x; /* Повторение картинки по горизонтали */
   animation: moveBackground 10s linear infinite; /* Анимация */
 }
