@@ -3,26 +3,6 @@ html {overflow-x: hidden; overflow-y: scroll;}
 a {color:#0384fc; text-decoration: blink; font-weight:normal;}
 a:hover {color:#f54a6d; text-decoration: underline;}
 
-.background1 {
-  position: fixed;
-  bottom: 0;
-left:0px;
-  height: 200px;
-    background: url('https://raw.githubusercontent.com/GanstFeveral/ganstfeveral.github.io/refs/heads/master/backtest.png') repeat-x;  /* Картинка с повтором по горизонтали */
-    background-size: 3000px auto;  /* Устанавливаем размер картинки 3000px по ширине */
-    animation: moveBackground 5s linear infinite;  /* Анимация для движения */
-}
-
-@keyframes moveBackground {
-    from {
-        background-position: 100%;  /* Начальная позиция (справа) */
-    }
-    to {
-        background-position: -100%;  /* Конечная позиция (слева) */
-    }
-}
-
-
 .line1 {
   position: relative;
   height: 0;
