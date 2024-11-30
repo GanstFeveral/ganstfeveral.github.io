@@ -18,8 +18,11 @@ left:0px;
   0% {
     transform: translateX(0); /* Начальная позиция */
   }
+  50% {
+    transform: translateX(-100%); /* Половина пути - сдвиг на 100% ширины */
+  }
   100% {
-    transform: translateX(-3000px); /* Сдвиг на 3000px (ширина картинки) */
+    transform: translateX(-200%); /* Конечная позиция - сдвиг на 200% ширины */
   }
 }
 
