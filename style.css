@@ -1,4 +1,7 @@
 body {margin:0px;}
+
+body.dark-mode {background:#212121;}
+
 html {overflow-x: hidden; overflow-y: scroll;}
 a {color:#0384fc; text-decoration: blink; font-weight:normal;}
 a:hover {color:#f54a6d; text-decoration: underline;}
