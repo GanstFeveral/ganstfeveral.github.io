@@ -18,7 +18,7 @@ a:hover {color:#f54a6d; text-decoration: underline;}
 	text-align: right;
 	}
 
-@media (max-width: 1050px) {
+@media (max-width: 1150px) {
   #ocenka {
     position: static; /* Убираем абсолютное позиционирование */
     margin-left: 0;   /* Сбрасываем отступ */
