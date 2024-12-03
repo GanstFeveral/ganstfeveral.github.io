@@ -275,12 +275,12 @@ h5 {margin: 10px 0px 10px 0px;background: linear-gradient(to right, rgba(245, 74
 	height: 28px;
 	padding: 2px 4px 0px 4px;
 	padding-bottom: 5px;
-	opacity: 100%;
+	opacity: 70%;
 	border-bottom: 2px solid #ff000000;
 }
 
 #kontakti img:hover {
-	opacity: 70%;
+	opacity: 100%;
 	border-bottom: 2px solid #f54a6d;
 	padding-bottom: 5px;
 }
