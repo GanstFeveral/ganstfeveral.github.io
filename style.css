@@ -270,5 +270,15 @@ h5 {margin: 10px 0px 10px 0px;background: linear-gradient(to right, rgba(245, 74
 	text-align:center;
 	}
 	
-#kontakti img {height: 28px; transition: all 0.2s ease-out; padding: 2px 4px 0px 4px; opacity: 70%;}
-#kontakti img:hover {transform: scale(1.2); opacity:100%;}
+#kontakti img {
+	height: 28px;
+	padding: 2px 4px 0px 4px;
+	padding-bottom: 5px;
+	border-bottom: 2px solid #ff000000;
+}
+
+#kontakti img:hover {
+	opacity: 100%;
+	border-bottom: 2px solid #f54a6d;
+	padding-bottom: 5px;
+}
