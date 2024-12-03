@@ -11,6 +11,8 @@ html {overflow-x: hidden; overflow-y: scroll;}
 a {color:#0384fc; text-decoration: blink; font-weight:normal;}
 a:hover {color:#f54a6d; text-decoration: underline;}
 
+#ocenka {position: absolute; margin-left: -120px;}
+
 .line1 {
   position: relative;
   height: 0;
