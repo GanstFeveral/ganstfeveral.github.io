@@ -23,7 +23,7 @@ a:hover {color:#f54a6d; text-decoration: underline;}
 #ocenka .soc-tel {opacity:50%;}
 #ocenka .soc-tel:hover {opacity:100%;}
 
-@media (max-width: 1150px) {
+@media (max-width: 1250px) {
   #ocenka {
     position: static; /* Убираем абсолютное позиционирование */
     margin-left: 0;   /* Сбрасываем отступ */
