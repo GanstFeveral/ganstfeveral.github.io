@@ -265,7 +265,7 @@ h5 {margin: 10px 0px 10px 0px;background: linear-gradient(to right, rgba(245, 74
 
 #kontakti {
 	padding: 10px 0px 0px 0px;
-	margin: auto;
+	margin-bottom:-8px;
 	overflow: hidden;
 	text-align:center;
 	}
