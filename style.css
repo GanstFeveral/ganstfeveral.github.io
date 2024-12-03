@@ -170,7 +170,7 @@ a:hover {color:#f54a6d; text-decoration: underline;}
 	margin: 5px 5px 5px 0px;
 	}
 
-.pop-block.dark-mode {
+.pop-block .dark-mode {
 	background:#212121;
 	border-left: 2px solid #28282800;
 	box-shadow: none;
@@ -232,7 +232,7 @@ p {
 	color: #000000;
 	}
 
-p.dark-mode {color#ececec;}
+p .dark-mode {color#ececec;}
 	
 h2 {
 	font-family: "Yanone Kaffeesatz", sans-serif;
