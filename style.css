@@ -23,7 +23,7 @@ a:hover {color:#f54a6d; text-decoration: underline;}
 #ocenka .soc-tel {opacity:50%;}
 #ocenka .soc-tel:hover {opacity:100%;}
 
-@media (max-width: 1250px) {
+@media (max-width: 1100px) {
   #ocenka {
     position: static; /* Убираем абсолютное позиционирование */
     margin-left: 0;   /* Сбрасываем отступ */
@@ -231,7 +231,7 @@ span.twitter {padding: 0px 25px 0px 25px;}
 .tabcontent {
 	border: 0px solid #ccc;
 	border-top: none;
-	max-width: 1000px;
+	max-width: 850px;
 	border-radius: 30px;
 	margin: auto;
 	text-align: left;
