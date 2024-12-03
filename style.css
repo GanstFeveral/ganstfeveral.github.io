@@ -5,6 +5,7 @@ body.dark-mode p {color:#ececec;}
 body.dark-mode .pop-block {background:#212121; border-left: 2px solid #3b3b3b;}
 body.dark-mode h5 {background:linear-gradient(to right, rgba(245, 74, 109, 0) 0%, #3b3b3b 50%, rgba(245, 74, 109, 0) 100%); height: 2px;}
 body.dark-mode #kontakti img {opacity:100%;}
+body.dark-mode #kontakti img:hover {opacity:70%;}
 
 html {overflow-x: hidden; overflow-y: scroll;}
 a {color:#0384fc; text-decoration: blink; font-weight:normal;}
@@ -274,11 +275,12 @@ h5 {margin: 10px 0px 10px 0px;background: linear-gradient(to right, rgba(245, 74
 	height: 28px;
 	padding: 2px 4px 0px 4px;
 	padding-bottom: 5px;
+	opacity: 100%;
 	border-bottom: 2px solid #ff000000;
 }
 
 #kontakti img:hover {
-	opacity: 100%;
+	opacity: 70%;
 	border-bottom: 2px solid #f54a6d;
 	padding-bottom: 5px;
 }
