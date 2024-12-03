@@ -18,6 +18,9 @@ a:hover {color:#f54a6d; text-decoration: underline;}
 	text-align: right;
 	}
 
+#ocenka img {opacity:50%;}
+#ocenka img:hover {opacity:100%;}
+
 @media (max-width: 1150px) {
   #ocenka {
     position: static; /* Убираем абсолютное позиционирование */
