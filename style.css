@@ -132,7 +132,7 @@ a:hover {color:#f54a6d; text-decoration: underline;}
 	margin-left: 3px;
 	}
 
-.soc-$::before {
+.soc-money::before {
 	content: '';
 	display: inline-block;
 	width: 13px;
@@ -166,7 +166,7 @@ a:hover {color:#f54a6d; text-decoration: underline;}
     background-image: url('https://raw.githubusercontent.com/GanstFeveral/GanstFeveral/master/icons/cinema.png');
 }
 
-.soc-$::before {
+.soc-money::before {
     background-image: url('https://raw.githubusercontent.com/GanstFeveral/GanstFeveral/master/icons/money.png');
 }
 
