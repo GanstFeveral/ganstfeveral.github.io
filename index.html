@@ -32,7 +32,7 @@
 <div id="chronicle" class="content">
 <h2>Оценки</h2>
 <h3>Здесь ведётся хроника оценок ко всему</h3>
-<p><span style="color:#bdbdbd"><a href="#c2024">2024</a> / <a href="#c2023">2023</a> / <a href="#c2022" class="year-link">2022</a> / <a href="#c2021">2021</a> / <a href="#c2020">2020</a> / <a href="#c2019">2019</a> / <a href="#c2018">2018</a> / <a href="#c2017">2017</a> / <a href="#c2016">2016</a> / <a href="#c2015">2015</a> / <a href="#c2014">2014</a> / <a href="#c2013">2013</a> / <a href="#c2012">2012</a> / <a href="#c2011">2011</a></span>
+<p><span style="color:#bdbdbd"><a href="#c2024">2024</a> / <a href="#c2023">2023</a> / <a href="#c2022" onclick="return false;">2022</a> / <a href="#c2021">2021</a> / <a href="#c2020">2020</a> / <a href="#c2019">2019</a> / <a href="#c2018">2018</a> / <a href="#c2017">2017</a> / <a href="#c2016">2016</a> / <a href="#c2015">2015</a> / <a href="#c2014">2014</a> / <a href="#c2013">2013</a> / <a href="#c2012">2012</a> / <a href="#c2011">2011</a></span>
 <h5></h5>
 
 <!--
@@ -2916,16 +2916,6 @@ window.addEventListener('scroll', () => {
             themeToggleText.textContent = 'Ночь'; // если светлая тема, текст "Ночь"
         }
     });
-</script>
-
-<script>document.querySelectorAll('.year-link').forEach(link => {
-  link.addEventListener('click', function (event) {
-    event.preventDefault(); // Отменяем стандартное поведение ссылки
-
-    const year = this.dataset.year; // Получаем год из атрибута
-    document.querySelector(`#${year}`).scrollIntoView({ behavior: 'smooth' }); // Плавная прокрутка
-  });
-});
 </script>
 	
 </body>
