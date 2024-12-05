@@ -26,6 +26,8 @@ a:hover {color:#f54a6d; text-decoration: underline;}
 #ocenka .soc-▲:hover {opacity:100%;}
 #ocenka .soc-$ {opacity:50%;}
 #ocenka .soc-$:hover {opacity:100%;}
+#ocenka .soc-twitch {opacity:50%;}
+#ocenka .soc-twitch:hover {opacity:100%;}
 
 @media (max-width: 1100px) {
   #ocenka {
@@ -141,6 +143,17 @@ a:hover {color:#f54a6d; text-decoration: underline;}
 	margin-left: 3px;
 	}
 
+.soc-twitch::before {
+	content: '';
+	display: inline-block;
+	width: 13px;
+	height: 13px;
+	background-size: contain;
+	background-repeat: no-repeat;
+	margin-right: 3px;
+	margin-left: 3px;
+	}
+
 .soc-x::before {
     background-image: url('https://raw.githubusercontent.com/GanstFeveral/ganstfeveral.github.io/master/icons/xlogo.png');
 }
@@ -155,6 +168,10 @@ a:hover {color:#f54a6d; text-decoration: underline;}
 
 .soc-$::before {
     background-image: url('https://raw.githubusercontent.com/GanstFeveral/GanstFeveral/master/icons/money.png');
+}
+
+.soc-twitch::before {
+    background-image: url('https://raw.githubusercontent.com/GanstFeveral/GanstFeveral/master/icons/twitch.png');
 }
 
 /* Стиль кнопки */
