@@ -22,6 +22,8 @@ a:hover {color:#f54a6d; text-decoration: underline;}
 #ocenka .soc-x:hover {opacity:100%;}
 #ocenka .soc-tel {opacity:50%;}
 #ocenka .soc-tel:hover {opacity:100%;}
+#ocenka .soc-c {opacity:50%;}
+#ocenka .soc-c:hover {opacity:100%;}
 
 @media (max-width: 1100px) {
   #ocenka {
