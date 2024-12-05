@@ -115,12 +115,27 @@ a:hover {color:#f54a6d; text-decoration: underline;}
 	margin-left: 3px;
 	}
 
+.soc-c::before {
+	content: '';
+	display: inline-block;
+	width: 13px;
+	height: 13px;
+	background-size: contain;
+	background-repeat: no-repeat;
+	margin-right: 3px;
+	margin-left: 3px;
+	}
+
 .soc-x::before {
     background-image: url('https://raw.githubusercontent.com/GanstFeveral/ganstfeveral.github.io/master/icons/xlogo.png');
 }
 
 .soc-tel::before {
     background-image: url('https://raw.githubusercontent.com/GanstFeveral/GanstFeveral/master/icons/telegram.png');
+}
+
+.soc-c::before {
+    background-image: url('https://raw.githubusercontent.com/GanstFeveral/GanstFeveral/master/icons/cinema.png');
 }
 
 
