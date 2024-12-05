@@ -18,6 +18,8 @@ a:hover {color:#f54a6d; text-decoration: underline;}
 	text-align: right;
 	}
 
+#ocenka p {opacity: 50%;}
+#ocenka p:hover {opacity: 100%;}
 #ocenka .soc-x {opacity:50%;}
 #ocenka .soc-x:hover {opacity:100%;}
 #ocenka .soc-tel {opacity:50%;}
