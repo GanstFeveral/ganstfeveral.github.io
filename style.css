@@ -23,11 +23,11 @@ a:hover {color:#f54a6d; text-decoration: underline;}
 #ocenka .soc-tel {opacity:50%;}
 #ocenka .soc-tel:hover {opacity:100%;}
 #ocenka .soc-▲ {opacity:100%;}
-#ocenka .soc-▲:hover {opacity:50%;}
+#ocenka .soc-▲:hover {opacity:100%;}
 #ocenka .soc-money {opacity:100%;}
-#ocenka .soc-money:hover {opacity:50%;}
+#ocenka .soc-money:hover {opacity:100%;}
 #ocenka .soc-twitch {opacity:100%;}
-#ocenka .soc-twitch:hover {opacity:50%;}
+#ocenka .soc-twitch:hover {opacity:100%;}
 
 @media (max-width: 1100px) {
   #ocenka {
