@@ -2821,6 +2821,32 @@ Remember Me / 2010<br></p>
 <h3>Информация о GanstFeveral</h3>
 <p>Сергей, 36 годиков, холост, великолепен, идеален.</p>
 <h5></h5>
+
+  <div class="days" id="daysCounter">0</div>
+
+  <script>
+    // Задаём дату начала трезвости
+    const sobrietyStartDate = new Date('2024-12-01');
+
+    function updateDaysCounter() {
+      const today = new Date();
+      // Рассчитываем разницу в миллисекундах
+      const differenceInMs = today - sobrietyStartDate;
+      // Конвертируем миллисекунды в дни
+      const differenceInDays = Math.floor(differenceInMs / (1000 * 60 * 60 * 24));
+      // Обновляем текст в элементе
+      document.getElementById('daysCounter').textContent = differenceInDays;
+    }
+
+    // Обновляем счётчик при загрузке страницы
+    updateDaysCounter();
+  </script>
+
+	<h5></h5>
+
+
+
+	
 <p><span class="grey">1987-1995 —</span> пинание хуёв.<br>
 <span class="grey">1995-2004 —</span> школа, образование 9 классов.<br>
 <span class="grey">2004-2005 —</span> учился на дизайнера, не доучился.<br>
