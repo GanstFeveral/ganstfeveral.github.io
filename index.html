@@ -2820,46 +2820,32 @@ Remember Me / 2010<br></p>
 <h2>Обо мне</h2>
 <h3>Информация о GanstFeveral</h3>
 <p>Сергей<br>
-36 годиков.<br>
+36 годиков.<br><br>
 
-sssНе стримлю <span id="daysCounterTwitch">0</span> дней.<br>
-Не пью <span id="daysCounterDrink">0</span> дней.<br></p>
+Не стримлю <span id="noStreamingDays">0</span> дней.<br>
+Не пью <span id="noDrinkingDays">0</span> дней.<br></p>
 
-<script>
-// Задаём дату начала трезвости
-const sobrietyStartDate = new Date('2024-11-07');
-
-function updateDaysCounterTwitch() {
-const today = new Date();
-// Рассчитываем разницу в миллисекундах
-const differenceInMs = today - sobrietyStartDate;
-// Конвертируем миллисекунды в дни
-const differenceInDays = Math.floor(differenceInMs / (1000 * 60 * 60 * 24));
-// Обновляем текст в элементе
-document.getElementById('daysCounterTwitch').textContent = differenceInDays;
-}
-
-// Обновляем счётчик при загрузке страницы
-updateDaysCounterTwitch();
-</script>
 
 <script>
-// Задаём дату начала трезвости
-const sobrietyStartDate = new Date('2024-12-07');
+    const sobrietyStartDate = new Date('2024-12-07'); // Дата начала трезвости
+    const streamingStartDate = new Date('2024-11-07'); // Дата последнего стрима
 
-function updateDaysCounterDrink() {
-const today = new Date();
-// Рассчитываем разницу в миллисекундах
-const differenceInMs = today - sobrietyStartDate;
-// Конвертируем миллисекунды в дни
-const differenceInDays = Math.floor(differenceInMs / (1000 * 60 * 60 * 24));
-// Обновляем текст в элементе
-document.getElementById('daysCounterDrink').textContent = differenceInDays;
-}
+    function calculateDays(startDate) {
+      const today = new Date();
+      const differenceInMs = today - new Date(startDate);
+      return Math.floor(differenceInMs / (1000 * 60 * 60 * 24));
+    }
 
-// Обновляем счётчик при загрузке страницы
-updateDaysCounterDrink();
-</script>
+    function updateCounters() {
+      document.getElementById('noDrinkingDays').textContent = calculateDays(sobrietyStartDate);
+      document.getElementById('noStreamingDays').textContent = calculateDays(streamingStartDate);
+    }
+
+    updateCounters();
+  </script>
+
+
+
 	
 <h5></h5>
 
