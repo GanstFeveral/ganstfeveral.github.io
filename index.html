@@ -2819,31 +2819,49 @@ Remember Me / 2010<br></p>
 <div id="about" class="content">
 <h2>Обо мне</h2>
 <h3>Информация о GanstFeveral</h3>
-<p>Сергей<br>
-36 годиков.<br><br>
+<p>Сергей, <span class="age" id="ageCounter">0.00</span> годиков.<br><br>
 
+Счётчик зависимостей:<br>
 Не стримлю <span id="noStreamingDays">0</span> дней.<br>
 Не пью <span id="noDrinkingDays">0</span> дней.<br></p>
 
 
 <script>
-    const sobrietyStartDate = new Date('2024-12-07'); // Дата начала трезвости
-    const streamingStartDate = new Date('2024-11-07'); // Дата последнего стрима
+const sobrietyStartDate = new Date('2024-12-07'); // Дата начала трезвости
+const streamingStartDate = new Date('2024-11-07'); // Дата последнего стрима
 
-    function calculateDays(startDate) {
-      const today = new Date();
-      const differenceInMs = today - new Date(startDate);
-      return Math.floor(differenceInMs / (1000 * 60 * 60 * 24));
-    }
+function calculateDays(startDate) {
+const today = new Date();
+const differenceInMs = today - new Date(startDate);
+return Math.floor(differenceInMs / (1000 * 60 * 60 * 24));
+}
 
-    function updateCounters() {
-      document.getElementById('noDrinkingDays').textContent = calculateDays(sobrietyStartDate);
-      document.getElementById('noStreamingDays').textContent = calculateDays(streamingStartDate);
-    }
+function updateCounters() {
+document.getElementById('noDrinkingDays').textContent = calculateDays(sobrietyStartDate);
+document.getElementById('noStreamingDays').textContent = calculateDays(streamingStartDate);
+}
 
-    updateCounters();
-  </script>
+updateCounters();
+</script>
 
+
+
+<script>
+const birthDate = new Date('2000-01-01'); // Укажи свою дату рождения
+
+function calculateAge(dateOfBirth) {
+const today = new Date();
+const differenceInMs = today - new Date(dateOfBirth);
+const ageInYears = differenceInMs / (1000 * 60 * 60 * 24 * 365.25); // Учитываем високосные годы
+return ageInYears.toFixed(2); // Округляем до двух знаков после запятой
+}
+
+function updateAgeCounter() {
+document.getElementById('ageCounter').textContent = calculateAge(birthDate);
+}
+
+updateAgeCounter();
+</script>
 
 
 	
