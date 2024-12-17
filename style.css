@@ -1,4 +1,23 @@
-body {margin:0px;}
+body {
+	margin:0px;
+	font-family: Arial, sans-serif;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	margin: 0;
+	background-image: url('https://raw.githubusercontent.com/GanstFeveral/ganstfeveral.github.io/refs/heads/master/qr.png'); /* Замените на свой путь к картинке */
+	background-position: bottom left;
+	background-repeat: no-repeat;
+	background-size: auto;
+    }
+
+    /* Медиазапрос, чтобы скрыть картинку при ширине экрана меньше 1000px */
+    @media (max-width: 1000px) {
+      body {
+        background-image: none;
+      }
+    }}
 
 body.dark-mode {background:#212121;}
 body.dark-mode p {color:#ececec;}
