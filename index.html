@@ -2819,31 +2819,49 @@ Remember Me / 2010<br></p>
 <div id="about" class="content">
 <h2>Обо мне</h2>
 <h3>Информация о GanstFeveral</h3>
-<p>Сергей, 36 годиков, холост, великолепен, идеален.</p>
+<p>Сергей<br>
+36 годиков.<br>
+
+Не стримлю <span id="daysCounterTwitch">0</span> дней.<br>
+Не пью <span id="daysCounterDrink">0</span> дней.<br></p>
+
+<script>
+// Задаём дату начала трезвости
+const sobrietyStartDate = new Date('2024-11-07');
+
+function updateDaysCounterTwitch() {
+const today = new Date();
+// Рассчитываем разницу в миллисекундах
+const differenceInMs = today - sobrietyStartDate;
+// Конвертируем миллисекунды в дни
+const differenceInDays = Math.floor(differenceInMs / (1000 * 60 * 60 * 24));
+// Обновляем текст в элементе
+document.getElementById('daysCounterTwitch').textContent = differenceInDays;
+}
+
+// Обновляем счётчик при загрузке страницы
+updateDaysCounterDrink();
+</script>
+
+<script>
+// Задаём дату начала трезвости
+const sobrietyStartDate = new Date('2024-12-07');
+
+function updateDaysCounterDrink() {
+const today = new Date();
+// Рассчитываем разницу в миллисекундах
+const differenceInMs = today - sobrietyStartDate;
+// Конвертируем миллисекунды в дни
+const differenceInDays = Math.floor(differenceInMs / (1000 * 60 * 60 * 24));
+// Обновляем текст в элементе
+document.getElementById('daysCounterDrink').textContent = differenceInDays;
+}
+
+// Обновляем счётчик при загрузке страницы
+updateDaysCounterDrink();
+</script>
+	
 <h5></h5>
-
-  <div class="days" id="daysCounter">0</div>
-
-  <script>
-    // Задаём дату начала трезвости
-    const sobrietyStartDate = new Date('2024-12-01');
-
-    function updateDaysCounter() {
-      const today = new Date();
-      // Рассчитываем разницу в миллисекундах
-      const differenceInMs = today - sobrietyStartDate;
-      // Конвертируем миллисекунды в дни
-      const differenceInDays = Math.floor(differenceInMs / (1000 * 60 * 60 * 24));
-      // Обновляем текст в элементе
-      document.getElementById('daysCounter').textContent = differenceInDays;
-    }
-
-    // Обновляем счётчик при загрузке страницы
-    updateDaysCounter();
-  </script>
-
-	<h5></h5>
-
 
 
 	
