@@ -2854,14 +2854,14 @@ Remember Me / 2010<br></p>
 	const differenceInMs = today - new Date(dateOfBirth);
 	const ageInYears = differenceInMs / (1000 * 60 * 60 * 24 * 365.25); // Учитываем високосные годы
 	const integerPart = Math.floor(ageInYears); // Целая часть возраста
-	const fractionalPart = (ageInYears - integerPart).toFixed(2).slice(1); // Дробная часть с точностью до сотых
+	const fractionalPart = Math.floor((ageInYears - integerPart) * 10); // Одна сотая (первый знак дроби)
 	return { integerPart, fractionalPart };
 	}
 	
 	function updateAgeCounter() {
 	const age = calculateAge(birthDate);
 	const ageCounter = document.getElementById('ageCounter');
-	ageCounter.innerHTML = `${age.integerPart}<span class="fraction">${age.fractionalPart}</span>`;
+	ageCounter.innerHTML = `${age.integerPart}<span class="fraction">,${age.fractionalPart}</span>`;
 	}
 	
 	updateAgeCounter();
