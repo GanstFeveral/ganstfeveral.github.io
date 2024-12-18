@@ -2829,7 +2829,8 @@ Remember Me / 2010<br></p>
 <h5></h5>
 <h3>Автоматический счётчик воздержания от зависимостей:</h3>
 <span style="color:#f54a6d">Не стримлю <span id="noStreamingDays">0</span> дней.<br>
-Не бухаю <span id="noDrinkingDays">0</span> дней.</span><br><br></p>
+Не бухаю <span id="noDrinkingDays">0</span> дней.</span><br>
+Не играю в Dead by Daylight и Apex Legends <span id="noDbdapexDays">0</span> дней.</span><br><br></p>
 
 <h5></h5>
 <h3>Рандомные факты:</h3>
@@ -2840,6 +2841,7 @@ GanstFeveral – это выдуманные имя и фамилия антаг
 <script>
 	const sobrietyStartDate = new Date('2024-12-07'); // Дата начала трезвости
 	const streamingStartDate = new Date('2024-11-07'); // Дата последнего стрима
+	const dbdapexStartDate = new Date('2024-04-13'); // Дата последнего ареха и дбд
 	
 	function calculateDays(startDate) {
 	const today = new Date();
@@ -2850,6 +2852,7 @@ GanstFeveral – это выдуманные имя и фамилия антаг
 	function updateCounters() {
 	document.getElementById('noDrinkingDays').textContent = calculateDays(sobrietyStartDate);
 	document.getElementById('noStreamingDays').textContent = calculateDays(streamingStartDate);
+	document.getElementById('noDbdapexDays').textContent = calculateDays(streamingStartDate);
 	}
 	
 	updateCounters();
