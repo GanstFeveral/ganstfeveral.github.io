@@ -20,32 +20,13 @@
 Новость: <span id="target1"></span></p>
 
 <script>
-	// Пары "источник-цель"
-	const pairs = [
-	{ source: "source1", target: "target1" },
-	{ source: "source2", target: "target2" }
-	];
-	
-	pairs.forEach(pair => {
-	const sourceElement = document.getElementById(pair.source);
-	const targetElement = document.getElementById(pair.target);
-	
-	if (sourceElement && targetElement) {
-	// Копируем текст при загрузке
-	targetElement.textContent = sourceElement.textContent;
-	
-	// Отслеживаем изменения в источнике
-	const observer = new MutationObserver(() => {
-	targetElement.textContent = sourceElement.textContent;
-	});
-	
-	observer.observe(sourceElement, {
-	childList: true,
-	characterData: true,
-	subtree: true
-	});
-	} else {
-	console.warn(`Элементы ${pair.source} или ${pair.target} не найдены.`);
+	[["source1", "target1"], ["source2", "target2"]].forEach(([sourceId, targetId]) => {
+	const source = document.getElementById(sourceId);
+	const target = document.getElementById(targetId);
+	if (source && target) {
+	target.textContent = source.textContent; // Инициализация
+	new MutationObserver(() => target.textContent = source.textContent)
+	.observe(source, { childList: true, characterData: true, subtree: true });
 	}
 	});
 </script>
