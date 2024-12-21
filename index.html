@@ -2539,28 +2539,7 @@ Remember Me / 2010<br></p>
 <br><span class="manga">Манга</span></p>
 
 <p><label for="pop-checkbox" class="close-block" style="color: #f54a6d; text-decoration-line: underline; cursor: pointer; font-size: 12px; font-family: Tahoma; font-weight: normal;">
-Закрыть подсказку</label></p> <!--кнопка закрытия; значение для for соответствует id у input--></p></div></div>
-
-
-    <script>
-        [["source1", "target1"], ["source2", "target2"]].forEach(([sourceId, targetId]) => {
-            const source = document.getElementById(sourceId);
-            const target = document.getElementById(targetId);
-            if (source && target) {
-                target.textContent = source.textContent; // Инициализация
-                new MutationObserver(() => target.textContent = source.textContent)
-                    .observe(source, { childList: true, characterData: true, subtree: true });
-            }
-        });
-    </script>
-
-
-
-
-
-
-
-</div>
+Закрыть подсказку</label></p> <!--кнопка закрытия; значение для for соответствует id у input--></p></div></div></div>
 
 <div id="threads" class="content">
 <h2>Треды</h2>
@@ -3039,6 +3018,19 @@ window.addEventListener('scroll', () => {
             themeToggleText.textContent = 'Ночь'; // если светлая тема, текст "Ночь"
         }
     });
+</script>
+
+
+<script>
+[["source1", "target1"], ["source2", "target2"]].forEach(([sourceId, targetId]) => {
+const source = document.getElementById(sourceId);
+const target = document.getElementById(targetId);
+if (source && target) {
+target.textContent = source.textContent; // Инициализация
+new MutationObserver(() => target.textContent = source.textContent)
+.observe(source, { childList: true, characterData: true, subtree: true });
+}
+});
 </script>
 	
 </body>
