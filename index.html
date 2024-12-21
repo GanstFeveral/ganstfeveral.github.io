@@ -15,6 +15,19 @@
 <h5></h5>
 
 <div id="start" class="content active"><p style="text-align:center">Сайт-визитка человека, известного под ником GanstFeveral.</p>
+<p>Последняя новость: <span id="target"></span></p>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const source = document.getElementById("source");
+        const target = document.getElementById("target");
+
+        target.textContent = source.textContent; // Копируем текст сразу при загрузке
+    });
+</script>
+
+
+</p>
 <div style="display: flex; justify-content: center; align-items: center; margin: 0; flex-wrap: wrap; position: absolute; left: 0; width: 100%; height: calc(100vh - 45%);">
 <div style="display: flex; justify-content: flex-end; align-items: center; padding: 10px; margin-right: 20px;">
 <p style="margin:0px; text-align: center;"><img src="https://raw.githubusercontent.com/GanstFeveral/GanstFeveral/master/icons/avatar.jpg" style="border-radius: 50%; float: left; margin-right: 15px; object-fit: cover; width: 210px;"></p></div>
@@ -2792,7 +2805,7 @@ Remember Me / 2010<br></p>
 <h5></h5>
 	  
 <h2 id="s2024">2024</h2>
-<p><span class="grey">17.12.24 —</span> сделал автоматический счётчик количества лет, стримов и бухла в "обо мне"<br>
+<p><span id="source"><span class="grey">17.12.24 —</span> сделал автоматический счётчик количества лет, стримов и бухла в "обо мне"</span><br>
 <span class="grey">15.12.24 —</span> вычислил даты создания моих стикерпаков и добавил их в раздел "творчество"<br>
 <span class="grey">05.12.24 —</span> добавил логотипы в подсказках "оценок"<br>
 <span class="grey">04.12.24 —</span> адаптировал к ширине экрана размещение иконок в "оценках"<br>
