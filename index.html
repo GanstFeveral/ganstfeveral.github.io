@@ -15,7 +15,7 @@
 <h5></h5>
 
 <div id="start" class="content active"><p style="text-align:center">Сайт-визитка человека, известного под ником GanstFeveral.</p>
-<p style="font-size: 12px;">Последние обновления<br>
+<p style="font-size: 12px;">Последние обновления:<br>
 Оценка: <span id="target2"></span><br>
 Новость: <span id="target"></span></p>
 
@@ -23,8 +23,8 @@
     document.addEventListener("DOMContentLoaded", () => {
         const source = document.getElementById("source");
         const target = document.getElementById("target");
-        const source = document.getElementById("source2");
-        const target = document.getElementById("target2");
+        const source2 = document.getElementById("source2");
+        const target2 = document.getElementById("target2");
         target.textContent = source.textContent; // Копируем текст сразу при загрузке
     });
 </script>
