@@ -15,30 +15,11 @@
 <h5></h5>
 
 <div id="start" class="content active"><p style="text-align:center">Сайт-визитка человека, известного под ником GanstFeveral.</p>
+
 <p style="font-size: 12px;">Последние обновления 2:<br>
 Оценка: <span id="target2"></span><br>
 Новость: <span id="target1"></span></p>
 
-    <span id="source1">Текст 1111111111111111</span>
-    <span id="target1"></span>
-
-    <span id="source2">Текст 2</span>
-    <span id="target2"></span>
-
-    <script>
-        [["source1", "target1"], ["source2", "target2"]].forEach(([sourceId, targetId]) => {
-            const source = document.getElementById(sourceId);
-            const target = document.getElementById(targetId);
-            if (source && target) {
-                target.textContent = source.textContent; // Инициализация
-                new MutationObserver(() => target.textContent = source.textContent)
-                    .observe(source, { childList: true, characterData: true, subtree: true });
-            }
-        });
-    </script>
-	
-
-</p>
 <div style="display: flex; justify-content: center; align-items: center; margin: 0; flex-wrap: wrap; position: absolute; left: 0; width: 100%; height: calc(100vh - 45%);">
 <div style="display: flex; justify-content: flex-end; align-items: center; padding: 10px; margin-right: 20px;">
 <p style="margin:0px; text-align: center;"><img src="https://raw.githubusercontent.com/GanstFeveral/GanstFeveral/master/icons/avatar.jpg" style="border-radius: 50%; float: left; margin-right: 15px; object-fit: cover; width: 210px;"></p></div>
@@ -2558,7 +2539,28 @@ Remember Me / 2010<br></p>
 <br><span class="manga">Манга</span></p>
 
 <p><label for="pop-checkbox" class="close-block" style="color: #f54a6d; text-decoration-line: underline; cursor: pointer; font-size: 12px; font-family: Tahoma; font-weight: normal;">
-Закрыть подсказку</label></p> <!--кнопка закрытия; значение для for соответствует id у input--></p></div></div></div>
+Закрыть подсказку</label></p> <!--кнопка закрытия; значение для for соответствует id у input--></p></div></div>
+
+
+    <script>
+        [["source1", "target1"], ["source2", "target2"]].forEach(([sourceId, targetId]) => {
+            const source = document.getElementById(sourceId);
+            const target = document.getElementById(targetId);
+            if (source && target) {
+                target.textContent = source.textContent; // Инициализация
+                new MutationObserver(() => target.textContent = source.textContent)
+                    .observe(source, { childList: true, characterData: true, subtree: true });
+            }
+        });
+    </script>
+
+
+
+
+
+
+
+</div>
 
 <div id="threads" class="content">
 <h2>Треды</h2>
