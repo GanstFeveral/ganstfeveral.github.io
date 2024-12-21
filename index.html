@@ -17,23 +17,17 @@
 <div id="start" class="content active"><p style="text-align:center">Сайт-визитка человека, известного под ником GanstFeveral.</p>
 <p style="font-size: 12px;">Последние обновления 2:<br>
 Оценка: <span id="target2"></span><br>
-Новость: <span id="target"></span></p>
+Новость: <span id="target1"></span></p>
 
-<script>
-    document.addEventListener("DOMContentLoaded", () => {
-        const source = document.getElementById("source");
-        const target = document.getElementById("target");
-        target.textContent = source.textContent; // Копируем текст сразу при загрузке
-    });
-</script>
-
-<script>
-    document.addEventListener("DOMContentLoaded", () => {
-	const source2 = document.getElementById("source2");
-	const target2 = document.getElementById("target2");
-        target.textContent = source.textContent; // Копируем текст сразу при загрузке
-    });
-</script>
+ <script>
+        [["source1", "target1"], ["source2", "target2"]].forEach(([sourceId, targetId]) => {
+            const source = document.getElementById(sourceId);
+            const target = document.getElementById(targetId);
+            const observer = new MutationObserver(() => target.textContent = source.textContent);
+            observer.observe(source, { childList: true, characterData: true, subtree: true });
+            target.textContent = source.textContent; // Инициализация
+        });
+    </script>
 	
 
 </p>
@@ -94,7 +88,7 @@
 
 <p><u>Декабрь</u>
 
-<br><span id="source2">6 из 10</span> | <span id="ocenka"><a href="https://x.com/GanstFeveral/status/1842096506989330500" target="_blank" class="soc-x"></a></span> <span class="anime">Dandadan / 2024</span>
+<br><span id="source2">6 из 10 | <span id="ocenka"><a href="https://x.com/GanstFeveral/status/1842096506989330500" target="_blank" class="soc-x"></a></span> <span class="anime">Dandadan / 2024</span></span>
 <br>6 из 10 | <span class="serial">Sex Education / 2019-2023 (season 2)</span>
 <br>7 из 10 | <span id="ocenka"><a href="https://x.com/GanstFeveral/status/1822331547187315047" target="_blank" class="soc-x"></a> <a href="https://t.me/ganstfeveral/5164" target="_blank" class="soc-tel"></a></span> <span class="mult-serial">Dream Productions / 2024</span>
 <br>6 из 10 | <span class="short">Play Me / 2023</span>
@@ -2814,7 +2808,7 @@ Remember Me / 2010<br></p>
 <h5></h5>
 	  
 <h2 id="s2024">2024</h2>
-<p><span id="source"><span class="grey">17.12.24 —</span> сделал автоматический счётчик количества лет, стримов и бухла в "обо мне"<br></span>
+<p><span id="source1"><span class="grey">17.12.24 —</span> сделал автоматический счётчик количества лет, стримов и бухла в "обо мне"<br></span>
 <span class="grey">15.12.24 —</span> вычислил даты создания моих стикерпаков и добавил их в раздел "творчество"<br>
 <span class="grey">05.12.24 —</span> добавил логотипы в подсказках "оценок"<br>
 <span class="grey">04.12.24 —</span> адаптировал к ширине экрана размещение иконок в "оценках"<br>
