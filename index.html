@@ -19,17 +19,23 @@
 Оценка: <span id="target2"></span><br>
 Новость: <span id="target1"></span></p>
 
-<script>
-	[["source1", "target1"], ["source2", "target2"]].forEach(([sourceId, targetId]) => {
-	const source = document.getElementById(sourceId);
-	const target = document.getElementById(targetId);
-	if (source && target) {
-	target.textContent = source.textContent; // Инициализация
-	new MutationObserver(() => target.textContent = source.textContent)
-	.observe(source, { childList: true, characterData: true, subtree: true });
-	}
-	});
-</script>
+    <span id="source1">Текст 1111111111111111</span>
+    <span id="target1"></span>
+
+    <span id="source2">Текст 2</span>
+    <span id="target2"></span>
+
+    <script>
+        [["source1", "target1"], ["source2", "target2"]].forEach(([sourceId, targetId]) => {
+            const source = document.getElementById(sourceId);
+            const target = document.getElementById(targetId);
+            if (source && target) {
+                target.textContent = source.textContent; // Инициализация
+                new MutationObserver(() => target.textContent = source.textContent)
+                    .observe(source, { childList: true, characterData: true, subtree: true });
+            }
+        });
+    </script>
 	
 
 </p>
