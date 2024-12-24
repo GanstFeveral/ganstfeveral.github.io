@@ -9,7 +9,7 @@
 <img src="https://raw.githubusercontent.com/GanstFeveral/ganstfeveral.github.io/refs/heads/master/qr.png" class="background-image">
 <div class="line1"></div>
 
-    <div id="content"></div>
+    <span id="archive-content"></span>
 
     <script>
         // URL с файлом, который нужно загрузить
@@ -19,8 +19,8 @@
         fetch(fileUrl)
             .then(response => response.text()) // Преобразуем ответ в текст
             .then(text => {
-                // Находим элемент с id "content" и вставляем в него текст
-                document.getElementById('content').innerText = text;
+                // Находим элемент с id "archive-content" и вставляем в него текст
+                document.getElementById('archive-content').innerText = text;
             })
             .catch(error => {
                 console.error('Ошибка при загрузке файла:', error);
