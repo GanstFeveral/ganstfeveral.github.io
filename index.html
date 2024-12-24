@@ -300,24 +300,22 @@
 <br>7 из 10 | <span class="doc">The Jinx: The Life and Deaths of Robert Durst / 2015</span></p>
 
 <h5></h5>
-
+11111
  <span id="archive-content"></span>
 
-    <script>
-        // URL с файлом, который нужно загрузить
-        const fileUrl = 'https://ganstfeveral.netlify.app/chronicle-archive.txt';
-
-        // Функция для получения и вставки текста на страницу
-        fetch(fileUrl)
-            .then(response => response.text()) // Преобразуем ответ в текст
-            .then(text => {
-                // Находим элемент с id "archive-content" и вставляем в него текст
-                document.getElementById('archive-content').innerText = text;
-            })
-            .catch(error => {
-                console.error('Ошибка при загрузке файла:', error);
-            });
-    </script>
+	<script>
+		const fileUrl = 'https://ganstfeveral.netlify.app/chronicle-archive.txt';
+		
+		fetch(fileUrl)
+		.then(response => response.text()) // Преобразуем ответ в текст
+		.then(text => {
+		// Вставляем текст в элемент с id="archive-content", используя innerHTML
+		document.getElementById('archive-content').innerHTML = text;
+		})
+		.catch(error => {
+		console.error('Ошибка при загрузке файла:', error);
+		});
+	</script>
 
 
 <h2 id="c2023">2023</h2>
