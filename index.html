@@ -8,26 +8,6 @@
 / <span id="theme-toggle" style="cursor: pointer; text-decoration: none;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">Ночь</span></div>
 <img src="https://raw.githubusercontent.com/GanstFeveral/ganstfeveral.github.io/refs/heads/master/qr.png" class="background-image">
 <div class="line1"></div>
-
-    <span id="archive-content"></span>
-
-    <script>
-        // URL с файлом, который нужно загрузить
-        const fileUrl = 'https://ganstfeveral.netlify.app/chronicle-archive.txt';
-
-        // Функция для получения и вставки текста на страницу
-        fetch(fileUrl)
-            .then(response => response.text()) // Преобразуем ответ в текст
-            .then(text => {
-                // Находим элемент с id "archive-content" и вставляем в него текст
-                document.getElementById('archive-content').innerText = text;
-            })
-            .catch(error => {
-                console.error('Ошибка при загрузке файла:', error);
-            });
-    </script>
-
-
 	
 <div class="back-to-top" id="backToTop"><span class="arrow">↑</span></div>
 <div id="right-list"><div id="kontakti">
@@ -320,6 +300,26 @@
 <br>7 из 10 | <span class="doc">The Jinx: The Life and Deaths of Robert Durst / 2015</span></p>
 
 <h5></h5>
+
+ <span id="archive-content"></span>
+
+    <script>
+        // URL с файлом, который нужно загрузить
+        const fileUrl = 'https://ganstfeveral.netlify.app/chronicle-archive.txt';
+
+        // Функция для получения и вставки текста на страницу
+        fetch(fileUrl)
+            .then(response => response.text()) // Преобразуем ответ в текст
+            .then(text => {
+                // Находим элемент с id "archive-content" и вставляем в него текст
+                document.getElementById('archive-content').innerText = text;
+            })
+            .catch(error => {
+                console.error('Ошибка при загрузке файла:', error);
+            });
+    </script>
+
+
 <h2 id="c2023">2023</h2>
 <p><u>Декабрь</u>
 <br>5 из 10 | Scrapper / 2023
