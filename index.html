@@ -805,27 +805,35 @@ window.addEventListener('scroll', () => {
     const themeToggleText = document.getElementById('theme-toggle');
     const currentTheme = localStorage.getItem('theme') || 'light'; // по умолчанию светлая тема
 
+    // Функция для установки изображения в зависимости от темы
+    function setThemeImage(isDarkMode) {
+        themeToggleText.innerHTML = ''; // Очищаем содержимое
+        const img = document.createElement('img');
+        img.src = isDarkMode ? 'https://raw.githubusercontent.com/GanstFeveral/ganstfeveral.github.io/refs/heads/master/icons/light-on.png' : 'https://raw.githubusercontent.com/GanstFeveral/ganstfeveral.github.io/refs/heads/master/icons/light-off.png'; // Укажите пути к вашим изображениям
+        img.alt = isDarkMode ? 'День' : 'Ночь'; // Описание для доступности
+        img.style.width = '24px'; // Настройте размер изображения
+        img.style.height = '24px';
+        themeToggleText.appendChild(img); // Добавляем изображение
+    }
+
     // Применяем сохранённую тему
     if (currentTheme === 'dark') {
         document.body.classList.add('dark-mode');
-        themeToggleText.textContent = '<img src="https://symbl-world.akamaized.net/i/webp/41/792dbed5f00a7decf43dba36ad4d17.webp">'; // меняем текст на "День"
+        setThemeImage(true); // Устанавливаем картинку для тёмной темы
     } else {
-        themeToggleText.textContent = '⏾'; // если светлая тема, то "Ночь"
+        setThemeImage(false); // Устанавливаем картинку для светлой темы
     }
 
     // Обработчик для переключения темы
     themeToggleText.addEventListener('click', () => {
         document.body.classList.toggle('dark-mode');
-        // Обновляем текст в зависимости от текущей темы
-        if (document.body.classList.contains('dark-mode')) {
-            localStorage.setItem('theme', 'dark');
-            themeToggleText.textContent = '🌣'; // если тёмная тема, текст "День"
-        } else {
-            localStorage.setItem('theme', 'light');
-            themeToggleText.textContent = '⏾'; // если светлая тема, текст "Ночь"
-        }
+        // Обновляем изображение в зависимости от текущей темы
+        const isDarkMode = document.body.classList.contains('dark-mode');
+        localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
+        setThemeImage(isDarkMode); // Меняем картинку
     });
 </script>
+
 
 
 <script>
