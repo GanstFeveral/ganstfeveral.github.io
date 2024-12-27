@@ -809,10 +809,10 @@ window.addEventListener('scroll', () => {
     function setThemeImage(isDarkMode) {
         themeToggleText.innerHTML = ''; // Очищаем содержимое
         const img = document.createElement('img');
-        img.src = isDarkMode ? 'https://raw.githubusercontent.com/GanstFeveral/ganstfeveral.github.io/refs/heads/master/icons/light-on.png' : 'https://raw.githubusercontent.com/GanstFeveral/ganstfeveral.github.io/refs/heads/master/icons/light-off.png'; // Укажите пути к вашим изображениям
+        img.src = isDarkMode ? 'https://raw.githubusercontent.com/GanstFeveral/ganstfeveral.github.io/refs/heads/master/icons/sun.png' : 'https://raw.githubusercontent.com/GanstFeveral/ganstfeveral.github.io/refs/heads/master/icons/moon.png'; // Укажите пути к вашим изображениям
         img.alt = isDarkMode ? 'День' : 'Ночь'; // Описание для доступности
-        img.style.width = '44px'; // Настройте размер изображения
-        img.style.height = '22px';
+        img.style.width = '18px'; // Настройте размер изображения
+        img.style.height = '18px';
         themeToggleText.appendChild(img); // Добавляем изображение
     }
 
