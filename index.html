@@ -808,9 +808,9 @@ window.addEventListener('scroll', () => {
     // Применяем сохранённую тему
     if (currentTheme === 'dark') {
         document.body.classList.add('dark-mode');
-        themeToggleText.textContent = 'День'; // меняем текст на "День"
+        themeToggleText.textContent = '🌣'; // меняем текст на "День"
     } else {
-        themeToggleText.textContent = 'Ночь'; // если светлая тема, то "Ночь"
+        themeToggleText.textContent = '⏾'; // если светлая тема, то "Ночь"
     }
 
     // Обработчик для переключения темы
@@ -819,10 +819,10 @@ window.addEventListener('scroll', () => {
         // Обновляем текст в зависимости от текущей темы
         if (document.body.classList.contains('dark-mode')) {
             localStorage.setItem('theme', 'dark');
-            themeToggleText.textContent = 'День'; // если тёмная тема, текст "День"
+            themeToggleText.textContent = '🌣'; // если тёмная тема, текст "День"
         } else {
             localStorage.setItem('theme', 'light');
-            themeToggleText.textContent = 'Ночь'; // если светлая тема, текст "Ночь"
+            themeToggleText.textContent = '⏾'; // если светлая тема, текст "Ночь"
         }
     });
 </script>
