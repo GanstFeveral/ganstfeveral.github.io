@@ -751,7 +751,7 @@
 <br>5 из 10 | <span id="ocenka"><span class="soc-▲"></span></span> <span class="mult">Frozen 2 / 2019</span>
 <br>6 из 10 | <span class="mult-serial">The Dragon Prince (season 3) / 2018 – ...</span>
 <br>5 из 10 | It Chapter Two / 2019
-<br>7 из 10 | <span class="mult">Klaus / 2019</span>
+<br>8 из 10 | <span class="mult">Klaus / 2019</span>
 <br>3 из 10 | <span id="ocenka"><span class="soc-money"></span></span> The Dirt / 2019
 <br>5 из 10 | Hidden Figures / 2016
 <br>6 из 10 | The Farewell / 2019
