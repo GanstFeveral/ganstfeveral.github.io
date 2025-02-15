@@ -1,7 +1,7 @@
 body {margin:0px;}
 
 .donater {font-size:9px; color:#65bf8c; display: none;}
-a .soc-money:hover + .donater {display: inline; /* или любой другой способ отображения, в зависимости от нужд */}
+#ocenka a .soc-money:hover + .donater {display: inline;}
 
 .background-image {
       position: fixed;
