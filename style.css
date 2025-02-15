@@ -1,7 +1,6 @@
 body {margin:0px;}
 
-.donater {font-size:9px; color:#65bf8c; display: none;}
-a .soc-money:hover ~ .donater {display: contents;}
+.donater {font-size:9px; color:#65bf8c;}
 
 .background-image {
       position: fixed;
