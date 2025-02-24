@@ -69,7 +69,7 @@ TG		<br>5 из 10 | <span id="ocenka"><a href="" target="_blank" class="soc-tel"
 -->
 
 
-<h2 style="color:#a0a0a0">Смотрю</h2> <a id="toggleLink">показать</a>
+<h2 style="color:#a0a0a0">Смотрю <a id="toggleLink">[показать]</a></h2> 
 
 <div id="list">
 
@@ -81,24 +81,10 @@ TG		<br>5 из 10 | <span id="ocenka"><a href="" target="_blank" class="soc-tel"
 <br>[оо] — A Small Light — 3/8
 </p>
 
-<div id="closeLink">Закрыть</div>
-    </div>
-    <script>
-        document.getElementById("toggleLink").addEventListener("click", function() {
-            document.getElementById("list").style.display = "block";
-            this.style.display = "none";
-        });
-        document.getElementById("closeLink").addEventListener("click", function() {
-            document.getElementById("list").style.display = "none";
-            document.getElementById("toggleLink").style.display = "block";
-        });
-    </script>
-	
-	
-	
+<div id="closeLink">Закрыть</div></div>
+<h5></h5>
 
-
-<h2 id="c2025">2025</h2>
+h2 id="c2025">2025</h2>
 <p><u>Февраль</u>
 
 <br>5 из 10 | The Brutalist / 2024
@@ -945,6 +931,17 @@ new MutationObserver(() => target.textContent = source.textContent)
 }
 });
 </script>
-	
+
+<script>
+document.getElementById("toggleLink").addEventListener("click", function() {
+document.getElementById("list").style.display = "block";
+this.style.display = "none";
+});
+document.getElementById("closeLink").addEventListener("click", function() {
+document.getElementById("list").style.display = "none";
+document.getElementById("toggleLink").style.display = "block";
+});
+</script>
+
 </body>
 </html>
