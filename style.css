@@ -1,9 +1,7 @@
 body {margin:0px;}
 
-input { display: none; }
-        input:checked + div { display: block; }
-        div { display: none; margin-top: 10px; }
-        label { cursor: pointer; color: blue; text-decoration: underline; }
+#toggleLink { cursor: pointer; color: blue; text-decoration: underline; }
+#list { display: none; margin-top: 10px; }
 
 .donater {font-size:9px; color:#65bf8c;}
 
