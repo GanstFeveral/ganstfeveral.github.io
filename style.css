@@ -2,6 +2,7 @@ body {margin:0px;}
 
 #toggleLink {cursor: pointer; color: #f54a6d; text-decoration: none; display: contents !important;}
 #list { display: none; margin-top: 10px; }
+.toggle-text { font-size: 20px; }
 
 .donater {font-size:9px; color:#65bf8c;}
 
