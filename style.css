@@ -1,6 +1,6 @@
 body {margin:0px;}
 
-#toggleLink {font-size:20px; cursor: pointer; color: #f54a6d; text-decoration: none; display: contents !important;}
+#toggleLink {font-size:20px; cursor: pointer; color: #f54a6d;}
 #toggleLink :hover {text-decoration: underline;}
 .toggle-text { font-size: 20px; text-decoration: none;}
 .toggle-text :hover { text-decoration: underline;}
