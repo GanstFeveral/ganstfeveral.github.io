@@ -932,16 +932,21 @@ new MutationObserver(() => target.textContent = source.textContent)
 });
 </script>
 
-<script>
-document.getElementById("toggleLink").addEventListener("click", function() {
-document.getElementById("list").style.display = "block";
-this.style.display = "none";
-});
-document.getElementById("closeLink").addEventListener("click", function() {
-document.getElementById("list").style.display = "none";
-document.getElementById("toggleLink").style.display = "block";
-});
-</script>
+    <script>
+        let toggleLink = document.getElementById("toggleLink");
+        let list = document.getElementById("list");
+
+        toggleLink.addEventListener("click", function() {
+            if (list.style.display === "none" || list.style.display === "") {
+                list.style.display = "block";
+                toggleLink.innerHTML = "⭱";
+            } else {
+                list.style.display = "none";
+                toggleLink.innerHTML = "⭳";
+            }
+        });
+    </script>
+
 
 </body>
 </html>
