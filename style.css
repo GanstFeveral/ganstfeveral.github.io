@@ -37,6 +37,16 @@ html {overflow-x: hidden; overflow-y: scroll;}
 a {color:#0384fc; text-decoration: blink; font-weight:normal;}
 a:hover {color:#f54a6d; text-decoration: underline;}
 
+#ocenka2 {
+	position: absolute;
+	margin-left: -100px;
+	width: 90px;
+	text-align: right;
+	color:#a0a0a0;
+	}
+
+
+
 #ocenka {
 	position: absolute;
 	margin-left: -170px;
