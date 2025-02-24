@@ -69,7 +69,7 @@ TG		<br>5 из 10 | <span id="ocenka"><a href="" target="_blank" class="soc-tel"
 -->
 
 
-<h2 style="color:#a0a0a0">Онгоинги <a id="toggleLink">🠇</a></h2> 
+<h2 style="color:#a0a0a0">Онгоинги <a id="toggleLink">⭳ <span style="font-size:10px;">открыть</a></h2> 
 
 <div id="list">
 
@@ -938,10 +938,12 @@ new MutationObserver(() => target.textContent = source.textContent)
         toggleLink.addEventListener("click", function() {
             if (list.style.display === "none" || list.style.display === "") {
                 list.style.display = "block";
-                toggleLink.innerHTML = "🠅";
+                toggleLink.innerHTML = "⭱";
+                toggleLink.style.color = "#0384fc";
             } else {
                 list.style.display = "none";
-                toggleLink.innerHTML = "🠇";
+                toggleLink.innerHTML = "⭳";
+                toggleLink.style.color = "#f54a6d";
             }
         });
     </script>
