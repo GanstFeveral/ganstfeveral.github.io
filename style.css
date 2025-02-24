@@ -1,7 +1,7 @@
 body {margin:0px;}
 
 #toggleLink {font-size:20px; cursor: pointer; color: #f54a6d; text-decoration: none; display: contents !important;}
-#toggleLink :hover {text-decoration: underline;}
+#toggleLink:hover {text-decoration: underline;}
 
 
 #list { display: none; margin-top: 10px; }
