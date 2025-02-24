@@ -72,7 +72,9 @@ TG		<br>5 из 10 | <span id="ocenka"><a href="" target="_blank" class="soc-tel"
 <h2 style="color:#a0a0a0">Смотрю</h2>
 <label for="toggle">[открыть]</label>
 
-<input type="checkbox" id="toggle"><div>
+    <div id="toggleLink">Показать список</div>
+    <div id="list">
+
 
 <p style="color:#a0a0a0;">[чт] — The Pitt — 6/15
 <br>[пт] — Severance (season 2) — 5/10
@@ -81,7 +83,19 @@ TG		<br>5 из 10 | <span id="ocenka"><a href="" target="_blank" class="soc-tel"
 <br>[ср] — Win or Lose — 2/8
 <br>[оо] — A Small Light — 3/8
 </p>
-<label for="toggle">Закрыть</label></div>
+
+<div id="closeLink">Закрыть</div>
+    </div>
+    <script>
+        document.getElementById("toggleLink").addEventListener("click", function() {
+            document.getElementById("list").style.display = "block";
+            this.style.display = "none";
+        });
+        document.getElementById("closeLink").addEventListener("click", function() {
+            document.getElementById("list").style.display = "none";
+            document.getElementById("toggleLink").style.display = "block";
+        });
+    </script>
 	
 	
 	
