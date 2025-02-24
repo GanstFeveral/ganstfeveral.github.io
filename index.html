@@ -927,7 +927,7 @@ new MutationObserver(() => target.textContent = source.textContent)
         toggleLink.addEventListener("click", function() {
             if (list.style.display === "none" || list.style.display === "") {
                 list.style.display = "block";
-                toggleLink.innerHTML = "⭱ закрыть";
+                toggleLink.innerHTML = "<span>⭱</span> <span class='toggle-text'>закрыть</span>";
                 toggleLink.style.color = "#0384fc";
             } else {
                 list.style.display = "none";
