@@ -927,11 +927,11 @@ new MutationObserver(() => target.textContent = source.textContent)
         toggleLink.addEventListener("click", function() {
             if (list.style.display === "none" || list.style.display === "") {
                 list.style.display = "block";
-                toggleLink.innerHTML = "⭱";
+                toggleLink.innerHTML = "⭱ закрыть";
                 toggleLink.style.color = "#0384fc";
             } else {
                 list.style.display = "none";
-                toggleLink.innerHTML = "⭳";
+                toggleLink.innerHTML = "⭳ открыть";
                 toggleLink.style.color = "#f54a6d";
             }
         });
