@@ -2,22 +2,23 @@ body {margin:0px;}
 
 /* Общие стили для tooltip */
 .short::after, .serial::after, .anime::after, .anime-movie::after, .mult::after, .mult-serial::after, .mult-short::after, .doc::after, .manga::after, .game::after {
-    position: absolute;
-    background: #ffffff;
-    color: #000000;
-    padding: 5px 10px;
-    border-radius: 10px;
-    border: 2px solid #e0e0e0;
-    white-space: nowrap;
-    visibility: hidden;
-    font-family: Tahoma, sans-serif;
-    font-weight: normal;
-    font-size: 16px;
-    opacity: 0;
-    transition: opacity 0.0s;
-    top: -32px;
-    left: -10px;
-    transform: translateX(0%);
+	position: absolute;
+	background: #ffffff;
+	color: #000000;
+	padding: 10px 20px;
+	border: 2px solid #e0e0e0;
+	white-space: nowrap;
+	visibility: hidden;
+	font-family: Tahoma, sans-serif;
+	font-weight: normal;
+	font-size: 16px;
+	opacity: 0;
+	transition: opacity 0.0s;
+	top: -48px;
+	left: 0px;
+	transform: translateX(0%);
+	z-index: 0;
+	pointer-events: none;
 }
 
 .short:hover::after, .serial:hover::after, .anime:hover::after, .anime-movie:hover::after, .mult:hover::after, .mult-serial:hover::after, .mult-short:hover::after, .doc:hover::after, .manga:hover::after, .game:hover::after {
@@ -26,16 +27,28 @@ body {margin:0px;}
 }
 
 /* Добавление подписей для разных категорий */
-.short::after { content: "Короткометражка";}
-.serial::after { content: "Сериал"; color:#ff2a81;}
-.anime::after { content: "Аниме сериал"; }
-.anime-movie::after { content: "Аниме полнометражка"; }
-.mult::after { content: "Мультфильм"; }
-.mult-serial::after { content: "Мультсериал"; }
-.mult-short::after { content: "Короткометражный мультфильм"; }
-.doc::after { content: "Документалка"; }
-.manga::after { content: "Манга"; }
-.game::after { content: "Игры"; }
+.short::after { content: "Короткометражка"; color:#acacac;}
+.serial::after { content: "Сериал"; color:#0064ff;}
+.anime::after { content: "Аниме сериал"; color:#ff9900;}
+.anime-movie::after { content: "Аниме полнометражка"; color:#ff9900;}
+.mult::after { content: "Мультфильм"; color:#ff00ff;}
+.mult-serial::after { content: "Мультсериал"; color:#ff2a81;}
+.mult-short::after { content: "Короткометражный мультфильм"; color:#9b7ccc;}
+.doc::after { content: "Документалка"; color:#00bcd4;}
+.manga::after { content: "Манга"; color:#00cc8b;}
+.game::after { content: "Игры"; color:#ff0000;}
+
+.short {color:#acacac;}
+.serial {color:#0064ff;}
+.anime {color:#ff9900;}
+.anime-movie {color:#e06666;}
+.mult {color:#ff00ff;}
+.mult-serial {color:#ff2a81;}
+.mult-short {color:#9b7ccc;}
+.doc {color:#00bcd4;}
+.manga {color:#00cc8b;}
+.game {color:#ff0000;}
+
 
 /* Установка позиции для tooltip */
 .short, .serial, .anime, .anime-movie, .mult, .mult-serial, .mult-short, .doc, .manga, .game {
@@ -413,17 +426,6 @@ h5 {margin: 10px 0px 10px 0px;background: linear-gradient(to right, rgba(245, 74
 	
 #kontent {text-align: center; max-width: 100%;}
 #kontent::-webkit-scrollbar {width:0px;}
-
-.short {color:#acacac;}
-.serial {color:#0064ff;}
-.anime {color:#ff9900;}
-.anime-movie {color:#e06666;}
-.mult {color:#ff00ff;}
-.mult-serial {color:#ff2a81;}
-.mult-short {color:#9b7ccc;}
-.doc {color:#00bcd4;}
-.manga {color:#00cc8b;}
-.game {color:#ff0000;}
 
 #kontakti {
 	padding: 10px 0px 0px 0px;
