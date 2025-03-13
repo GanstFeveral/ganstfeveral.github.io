@@ -15,8 +15,8 @@ body {margin:0px;}
     font-size: 16px;
     opacity: 0;
     transition: opacity 0.0s;
-    top: -200%;
-    left: 0px;
+    top: -32px;
+    left: -10px;
     transform: translateX(0%);
 }
 
