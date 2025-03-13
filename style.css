@@ -1,5 +1,55 @@
 body {margin:0px;}
 
+/* Общие стили для tooltip */
+.short::after, .serial::after, .anime::after, .anime-movie::after, .mult::after, .mult-serial::after, .mult-short::after, .doc::after, .manga::after, .game::after {
+    position: absolute;
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 12px;
+    white-space: nowrap;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.short:hover::after, .serial:hover::after, .anime:hover::after, .anime-movie:hover::after, .mult:hover::after, .mult-serial:hover::after, .mult-short:hover::after, .doc:hover::after, .manga:hover::after, .game:hover::after {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Добавление подписей для разных категорий */
+.short::after { content: "Короткометражка"; }
+.serial::after { content: "Сериал"; }
+.anime::after { content: "Аниме сериал"; }
+.anime-movie::after { content: "Аниме полнометражка"; }
+.mult::after { content: "Мультфильм"; }
+.mult-serial::after { content: "Мультсериал"; }
+.mult-short::after { content: "Короткометражный мультфильм"; }
+.doc::after { content: "Документалка"; }
+.manga::after { content: "Манга"; }
+.game::after { content: "Игры"; }
+
+/* Установка позиции для tooltip */
+.short, .serial, .anime, .anime-movie, .mult, .mult-serial, .mult-short, .doc, .manga, .game {
+    position: relative;
+    display: inline-block;
+}
+
+
+
+
+
+
+
+
+
+
+
 #toggleLink {font-size:20px; cursor: pointer; color: #f54a6d;}
 #toggleLink :hover {text-decoration: underline;}
 .toggle-text { font-size: 20px; text-decoration: none;}
