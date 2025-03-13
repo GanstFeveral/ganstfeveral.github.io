@@ -3,17 +3,20 @@ body {margin:0px;}
 /* Общие стили для tooltip */
 .short::after, .serial::after, .anime::after, .anime-movie::after, .mult::after, .mult-serial::after, .mult-short::after, .doc::after, .manga::after, .game::after {
     position: absolute;
-    background: rgba(0, 0, 0, 0.8);
-    color: #fff;
+    background: #ffffff;
+    color: #000000;
     padding: 5px 10px;
-    border-radius: 5px;
-    font-size: 12px;
+    border-radius: 10px;
+    border: 2px solid #e0e0e0;
     white-space: nowrap;
     visibility: hidden;
+    font-family: Tahoma, sans-serif;
+    font-weight: normal;
+    font-size: 16px;
     opacity: 0;
-    transition: opacity 0.3s;
-    top: 100%;
-    left: 50%;
+    transition: opacity 0.0s;
+    top: -150%;
+    left: 150%;
     transform: translateX(-50%);
 }
 
