@@ -30,7 +30,7 @@ body {margin:0px;}
 .short::after { content: "короткометражка"; color:#acacac;}
 .serial::after { content: "сериал"; color:#0064ff;}
 .anime::after { content: "аниме сериал"; color:#ff9900;}
-.anime-movie::after { content: "аниме полнометражка"; color:#ff9900;}
+.anime-movie::after { content: "аниме полнометражка"; color:#e06666;}
 .mult::after { content: "мультфильм"; color:#ff00ff;}
 .mult-serial::after { content: "мультсериал"; color:#ff2a81;}
 .mult-short::after { content: "короткометражный мультфильм"; color:#9b7ccc;}
