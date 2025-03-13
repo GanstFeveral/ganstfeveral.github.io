@@ -27,16 +27,16 @@ body {margin:0px;}
 }
 
 /* Добавление подписей для разных категорий */
-.short::after { content: "Короткометражка"; color:#acacac;}
-.serial::after { content: "Сериал"; color:#0064ff;}
-.anime::after { content: "Аниме сериал"; color:#ff9900;}
-.anime-movie::after { content: "Аниме полнометражка"; color:#ff9900;}
-.mult::after { content: "Мультфильм"; color:#ff00ff;}
-.mult-serial::after { content: "Мультсериал"; color:#ff2a81;}
-.mult-short::after { content: "Короткометражный мультфильм"; color:#9b7ccc;}
-.doc::after { content: "Документалка"; color:#00bcd4;}
-.manga::after { content: "Манга"; color:#00cc8b;}
-.game::after { content: "Игры"; color:#ff0000;}
+.short::after { content: "короткометражка"; color:#acacac;}
+.serial::after { content: "сериал"; color:#0064ff;}
+.anime::after { content: "аниме сериал"; color:#ff9900;}
+.anime-movie::after { content: "аниме полнометражка"; color:#ff9900;}
+.mult::after { content: "мультфильм"; color:#ff00ff;}
+.mult-serial::after { content: "мультсериал"; color:#ff2a81;}
+.mult-short::after { content: "короткометражный мультфильм"; color:#9b7ccc;}
+.doc::after { content: "документалка"; color:#00bcd4;}
+.manga::after { content: "манга"; color:#00cc8b;}
+.game::after { content: "игры"; color:#ff0000;}
 
 .short {color:#acacac;}
 .serial {color:#0064ff;}
