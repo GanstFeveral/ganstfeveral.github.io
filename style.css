@@ -26,8 +26,8 @@ body {margin:0px;}
 }
 
 /* Добавление подписей для разных категорий */
-.short::after { content: "Короткометражка"; }
-.serial::after { content: "Сериал"; }
+.short::after { content: "Короткометражка";}
+.serial::after { content: "Сериал"; color:#ff2a81;}
 .anime::after { content: "Аниме сериал"; }
 .anime-movie::after { content: "Аниме полнометражка"; }
 .mult::after { content: "Мультфильм"; }
