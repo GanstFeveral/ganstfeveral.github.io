@@ -17,7 +17,7 @@ body {margin:0px;}
     transition: opacity 0.0s;
     top: -200%;
     left: 0px;
-    transform: translateX(-50%);
+    transform: translateX(0%);
 }
 
 .short:hover::after, .serial:hover::after, .anime:hover::after, .anime-movie:hover::after, .mult:hover::after, .mult-serial:hover::after, .mult-short:hover::after, .doc:hover::after, .manga:hover::after, .game:hover::after {
