@@ -2,23 +2,25 @@ body {margin:0px;}
 
 /* Общие стили для tooltip */
 .short::after, .serial::after, .anime::after, .anime-movie::after, .mult::after, .mult-serial::after, .mult-short::after, .doc::after, .manga::after, .game::after {
-	position: absolute;
-	background: #ffffff;
-	color: #000000;
-	padding: 10px 20px;
-	border: 2px solid #e0e0e0;
-	white-space: nowrap;
-	visibility: hidden;
-	font-family: Tahoma, sans-serif;
-	font-weight: normal;
-	font-size: 16px;
-	opacity: 0;
-	transition: opacity 0.0s;
-	top: -48px;
-	left: 0px;
-	transform: translateX(0%);
-	z-index: 0;
-	pointer-events: none;
+    position: absolute;
+    background: #ffffff;
+    color: #000000;
+    padding: 0px 8px;
+    margin-left: 6px;
+    border-radius: 10px;
+    height: 22px;
+    white-space: nowrap;
+    visibility: hidden;
+    font-family: Tahoma, sans-serif;
+    font-weight: normal;
+    font-size: 16px;
+    opacity: 0;
+    transition: opacity 0.0s;
+    top: -2px;
+    border: 2px solid;
+    transform: translateX(0%);
+    z-index: 1;
+    pointer-events: none;
 }
 
 .short:hover::after, .serial:hover::after, .anime:hover::after, .anime-movie:hover::after, .mult:hover::after, .mult-serial:hover::after, .mult-short:hover::after, .doc:hover::after, .manga:hover::after, .game:hover::after {
