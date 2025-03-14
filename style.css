@@ -3,7 +3,6 @@ body {margin:0px;}
 /* Общие стили для tooltip */
 .short::after, .serial::after, .anime::after, .anime-movie::after, .mult::after, .mult-serial::after, .mult-short::after, .doc::after, .manga::after, .game::after {
     position: absolute;
-    background: #ffffff;
     color: #000000;
     padding: 0px 8px;
     margin-left: 6px;
@@ -101,7 +100,6 @@ body.dark-mode .pop-block {background:#212121; border-left: 2px solid #3b3b3b;}
 body.dark-mode h5 {background:linear-gradient(to right, rgba(245, 74, 109, 0) 0%, #3b3b3b 50%, rgba(245, 74, 109, 0) 100%); height: 2px;}
 body.dark-mode #kontakti img {opacity:100%;}
 body.dark-mode #kontakti img:hover {opacity:70%;}
-body.dark-mode .short:hover::after, .serial:hover::after, .anime:hover::after, .anime-movie:hover::after, .mult:hover::after, .mult-serial:hover::after, .mult-short:hover::after, .doc:hover::after, .manga:hover::after, .game:hover::after {background:#212121;}
 
 html {overflow-x: hidden; overflow-y: scroll;}
 a {color:#0384fc; text-decoration: blink; font-weight:normal;}
