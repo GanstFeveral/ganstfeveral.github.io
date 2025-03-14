@@ -17,10 +17,11 @@ body {margin:0px;}
     opacity: 0;
     transition: opacity 0.0s;
     top: -2px;
-    border: 2px solid;
+    border: 1px solid;
     transform: translateX(0%);
     z-index: 1;
     pointer-events: none;
+    box-shadow: 3px 3px 0px;
 }
 
 .short:hover::after, .serial:hover::after, .anime:hover::after, .anime-movie:hover::after, .mult:hover::after, .mult-serial:hover::after, .mult-short:hover::after, .doc:hover::after, .manga:hover::after, .game:hover::after {
