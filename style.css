@@ -6,6 +6,8 @@ body {margin:0px;}
 	flex-direction: row-reverse; /* Меняем порядок: картинка справа, текст слева */
 	text-decoration: none;
 	color: inherit;
+	margin-right: 3px;
+	margin-left: 3px;
 	}
 
 .soc-money a:hover {text-decoration: none !important;}
