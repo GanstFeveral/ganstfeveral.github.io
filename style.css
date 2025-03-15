@@ -8,7 +8,7 @@ body {margin:0px;}
 	color: inherit;
 	}
 
-.soc-money span a {text-decoration: none;}
+.soc-money a:hover {text-decoration: none !important;}
 
 .soc-money span {
 	white-space: nowrap;
