@@ -271,7 +271,7 @@ a:hover {color:#f54a6d; text-decoration: underline;}
 }
 
 .soc-money:hover::after {
-    opacity: 1;
+    opacity: 1;}
 
 .soc-twitch::before {
 	content: '';
