@@ -239,11 +239,26 @@ a:hover {color:#f54a6d; text-decoration: underline;}
 	}
 
 .soc-money {
-    position: relative;
     display: inline-flex;
     align-items: center;
+    flex-direction: row-reverse; /* Меняем порядок: картинка справа, текст слева */
     text-decoration: none;
     color: inherit;
+}
+
+.soc-money span {
+    background: rgba(0, 0, 0, 0.75);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 12px;
+    white-space: nowrap;
+    margin-left: 5px; /* Отступ слева перед иконкой */
+    display: none; /* Скрываем */
+}
+
+.soc-money:hover span {
+    display: inline-block; /* Показываем при наведении */
 }
 
 .soc-money::before {
@@ -253,25 +268,8 @@ a:hover {color:#f54a6d; text-decoration: underline;}
     height: 13px;
     background-size: contain;
     background-repeat: no-repeat;
-    margin-right: 3px;
     background-image: url('https://raw.githubusercontent.com/GanstFeveral/GanstFeveral/master/icons/money.png');
 }
-
-.soc-money::after {
-    content: attr(data-name);
-    position: absolute;
-    font-size: 9px;
-    color: #65bf8c;
-    white-space: nowrap;
-    right: 100%; /* Размещаем слева от иконки */
-    margin-right: 10px; /* Отступ от иконки */
-    opacity: 0;
-    transition: opacity 0.0s ease-in-out;
-    pointer-events: none;
-}
-
-.soc-money:hover::after {
-    opacity: 1;}
 
 .soc-twitch::before {
 	content: '';
