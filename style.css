@@ -101,14 +101,7 @@ body {margin:0px;}
 .toggle-text { font-size: 20px; text-decoration: none;}
 .toggle-text :hover { text-decoration: underline;}
 
-#toggleLink2 {font-size:20px; cursor: pointer; color: #f54a6d;}
-#toggleLink2 :hover {text-decoration: underline;}
-.toggle-text2 { font-size: 20px; text-decoration: none;}
-.toggle-text2 :hover { text-decoration: underline;}
-
-
 #list { display: none; margin-top: 10px; }
-#list2 { display: none; margin-top: 10px; }
 
 .donater {font-size:9px; color:#65bf8c;}
 
