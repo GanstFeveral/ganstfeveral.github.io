@@ -1,5 +1,37 @@
 body {margin:0px;}
 
+.soc-money {
+	display: inline-flex;
+	align-items: baseline;
+	flex-direction: row-reverse; /* Меняем порядок: картинка справа, текст слева */
+	text-decoration: none;
+	color: inherit;
+	}
+
+.soc-money span a {text-decoration: none;}
+
+.soc-money span {
+	white-space: nowrap;
+	font-size: 12px;
+	color: #65bf8c;
+	display: none;
+	margin: 0px 5px 0px 0px;
+	}
+
+.soc-money:hover span {
+	display: inline-block; /* Показываем при наведении */
+}
+
+.soc-money::before {
+	content: '';
+	display: inline-block;
+	width: 13px;
+	height: 13px;
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-image: url('https://raw.githubusercontent.com/GanstFeveral/GanstFeveral/master/icons/money.png');
+}
+
 /* Общие стили для tooltip */
 .short::after, .serial::after, .anime::after, .anime-movie::after, .mult::after, .mult-serial::after, .mult-short::after, .doc::after, .manga::after, .game::after {
     position: absolute;
@@ -227,36 +259,6 @@ a:hover {color:#f54a6d; text-decoration: underline;}
 	margin-left: 3px;
 	}
 
-.soc-money {
-    display: inline-flex;
-    align-items: center;
-    flex-direction: row-reverse; /* Меняем порядок: картинка справа, текст слева */
-    text-decoration: none;
-    color: inherit;
-}
-
-.soc-money span {
-    white-space: nowrap;
-    font-size: 9px;
-    color: #65bf8c;
-    display: none;
-    margin-right: 5px;
-}
-
-.soc-money:hover span {
-    display: inline-block; /* Показываем при наведении */
-}
-
-.soc-money::before {
-    content: '';
-    display: inline-block;
-    width: 13px;
-    height: 13px;
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-image: url('https://raw.githubusercontent.com/GanstFeveral/GanstFeveral/master/icons/money.png');
-}
-
 .soc-twitch::before {
 	content: '';
 	display: inline-block;
@@ -279,7 +281,6 @@ a:hover {color:#f54a6d; text-decoration: underline;}
 .soc-▲::before {
     background-image: url('https://raw.githubusercontent.com/GanstFeveral/GanstFeveral/master/icons/cinema.png');
 }
-
 
 .soc-twitch::before {
     background-image: url('https://raw.githubusercontent.com/GanstFeveral/GanstFeveral/master/icons/twitch.png');
