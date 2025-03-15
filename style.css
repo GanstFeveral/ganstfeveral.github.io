@@ -102,6 +102,7 @@ body {margin:0px;}
 .toggle-text :hover { text-decoration: underline;}
 
 #list { display: none; margin-top: 10px; }
+#list2 { display: none; margin-top: 10px; }
 
 .donater {font-size:9px; color:#65bf8c;}
 
