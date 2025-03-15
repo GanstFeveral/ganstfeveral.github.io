@@ -55,18 +55,7 @@ body {margin:0px;}
 /* Установка позиции для tooltip */
 .short, .serial, .anime, .anime-movie, .mult, .mult-serial, .mult-short, .doc, .manga, .game {
     position: relative;
-    display: inline-block;
-}
-
-
-
-
-
-
-
-
-
-
+    display: inline-block;}
 
 #toggleLink {font-size:20px; cursor: pointer; color: #f54a6d;}
 #toggleLink :hover {text-decoration: underline;}
@@ -247,14 +236,11 @@ a:hover {color:#f54a6d; text-decoration: underline;}
 }
 
 .soc-money span {
-    background: rgba(0, 0, 0, 0.75);
-    color: white;
-    padding: 5px 10px;
-    border-radius: 5px;
-    font-size: 12px;
     white-space: nowrap;
-    margin-left: 5px; /* Отступ слева перед иконкой */
-    display: none; /* Скрываем */
+    font-size: 9px;
+    color: #65bf8c;
+    display: none;
+    margin-right: 5px;
 }
 
 .soc-money:hover span {
