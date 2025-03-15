@@ -238,16 +238,40 @@ a:hover {color:#f54a6d; text-decoration: underline;}
 	margin-left: 3px;
 	}
 
+.soc-money {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    color: inherit;
+}
+
 .soc-money::before {
-	content: '';
-	display: inline-block;
-	width: 13px;
-	height: 13px;
-	background-size: contain;
-	background-repeat: no-repeat;
-	margin-right: 3px;
-	margin-left: 3px;
-	}
+    content: '';
+    display: inline-block;
+    width: 13px;
+    height: 13px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-right: 3px;
+    background-image: url('https://raw.githubusercontent.com/GanstFeveral/GanstFeveral/master/icons/money.png');
+}
+
+.soc-money::after {
+    content: attr(data-name);
+    position: absolute;
+    font-size: 9px;
+    color: #65bf8c;
+    white-space: nowrap;
+    right: 100%; /* Размещаем слева от иконки */
+    margin-right: 10px; /* Отступ от иконки */
+    opacity: 0;
+    transition: opacity 0.0s ease-in-out;
+    pointer-events: none;
+}
+
+.soc-money:hover::after {
+    opacity: 1;
 
 .soc-twitch::before {
 	content: '';
@@ -272,9 +296,6 @@ a:hover {color:#f54a6d; text-decoration: underline;}
     background-image: url('https://raw.githubusercontent.com/GanstFeveral/GanstFeveral/master/icons/cinema.png');
 }
 
-.soc-money::before {
-    background-image: url('https://raw.githubusercontent.com/GanstFeveral/GanstFeveral/master/icons/money.png');
-}
 
 .soc-twitch::before {
     background-image: url('https://raw.githubusercontent.com/GanstFeveral/GanstFeveral/master/icons/twitch.png');
