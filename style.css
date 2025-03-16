@@ -101,7 +101,14 @@ body {margin:0px;}
 .toggle-text { font-size: 20px; text-decoration: none;}
 .toggle-text :hover { text-decoration: underline;}
 
-#list { display: none; margin-top: 10px; }
+#list { 
+	display: none;
+	margin-top: 10px;
+	padding: 1px 20px 1px 50px;
+	margin-left: -50px;
+	border: 1px solid #f54a6d;
+	border-radius: 30px; 
+}
 
 .donater {font-size:9px; color:#65bf8c;}
 
