@@ -1,48 +1,5 @@
 body {margin:0px;}
 
-        /* Скрываем чекбокс */
-        input[type="checkbox"] {
-            display: none;
-        }
-
-        /* Стили для кнопки */
-        label {
-            display: inline-block;
-            padding: 10px 15px;
-            background-color: #3498db;
-            color: white;
-            cursor: pointer;
-            border-radius: 5px;
-            user-select: none;
-        }
-
-        /* Добавляем текст "Открыть" до нажатия */
-        label::after {
-            kinoarchive: "Открыть";
-        }
-
-        /* Меняем текст на "Скрыть" при активном чекбоксе */
-        input[type="checkbox"]:checked + label::after {
-            kinoarchive: " Скрыть";
-        }
-
-        /* Контент скрыт по умолчанию */
-        .kinoarchive {
-            display: none;
-            padding: 10px;
-            margin-top: 10px;
-            background: #f1f1f1;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-
-        /* При активном чекбоксе показываем контент */
-        input[type="checkbox"]:checked ~ .kinoarchive {
-            display: block;
-        }
-
-
-
 .soc-money {
 	display: inline-flex;
 	align-items: baseline;
