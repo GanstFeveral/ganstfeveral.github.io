@@ -53,7 +53,7 @@
 <br>7 из 10 | <span class="mult">The Wild Robot / 2024</span>
 <br>6 из 10 | Miracles from Heaven / 2016
 <br>5 из 10 | Beetlejuice Beetlejuice / 2024
-<br>7 из 10 | <span class="game">Silent Hill 2 / 2024</span>
+<br>7 из 10 | <span id="ocenka"><a href="https://t.me/ganstfeveral/4695" target="_blank" class="soc-tel"></a></span> <span class="game">Silent Hill 2 / 2024</span>
 <br>6 из 10 | Caddo Lake / 2024
 <br>4 из 10 | It's What's Inside / 2024
 <br>6 из 10 | Deadpool & Wolverine / 2024
