@@ -18,16 +18,16 @@ body {margin:0px;}
 
         /* Добавляем текст "Открыть" до нажатия */
         label::after {
-            content2: "Открыть";
+            kinoarchive: "Открыть";
         }
 
         /* Меняем текст на "Скрыть" при активном чекбоксе */
         input[type="checkbox"]:checked + label::after {
-            content2: " Скрыть";
+            kinoarchive: " Скрыть";
         }
 
         /* Контент скрыт по умолчанию */
-        .content2 {
+        .kinoarchive {
             display: none;
             padding: 10px;
             margin-top: 10px;
@@ -37,7 +37,7 @@ body {margin:0px;}
         }
 
         /* При активном чекбоксе показываем контент */
-        input[type="checkbox"]:checked ~ .content2 {
+        input[type="checkbox"]:checked ~ .kinoarchive {
             display: block;
         }
 
