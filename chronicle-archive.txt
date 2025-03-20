@@ -287,6 +287,7 @@
 <br>4 из 10 | Spy Kids / 2001
 <br>5 из 10 | <span class="anime">Mushoku Tensei II: Isekai Ittara Honki Dasu / 2023</span>
 <br>6 из 10 | No One Will Save You / 2023
+<br>6 из 10 | <span id="ocenka"><a href="https://x.com/GanstFeveral/status/1523915386592403457" target="_blank" class="soc-x"></a></span> <span class="mult-serial">Miraculous: Tales of Ladybug & Cat Noir (season 5) / 2023</span>
 <br>5 из 10 | <span class="anime-movie">Misaki no Mayoiga / 2021</span>
 <br>6 из 10 | <span class="game">Gylt / 2023</span>
 <br>6 из 10 | Кентавр / 2023
