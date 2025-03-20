@@ -121,7 +121,7 @@
 <br>5 из 10 | Сто лет тому вперёд / 2024
 <br>6 из 10 | I Saw the TV Glow / 2023
 <br>5 из 10 | IF / 2024
-<br>3 из 10 | <span class="anime">Mushoku Tensei II: Isekai Ittara Honki Dasu Part 2 / 2024</span>
+<br>3 из 10 | <span id="ocenka"><a href="https://twitter.com/GanstFeveral/status/1354160220453400576" target="_blank" class="soc-x"></a></span> <span class="anime">Mushoku Tensei II: Isekai Ittara Honki Dasu Part 2 / 2024</span>
 
 <br><br><u>Июнь</u>
 <br>3 из 10 | The Purge / 2013
@@ -285,7 +285,7 @@
 <br><br><u>Сентябрь</u>
 <br>5 из 10 | De grandes espérances / 2022
 <br>4 из 10 | Spy Kids / 2001
-<br>5 из 10 | <span class="anime">Mushoku Tensei II: Isekai Ittara Honki Dasu / 2023</span>
+<br>5 из 10 | <span id="ocenka"><a href="https://twitter.com/GanstFeveral/status/1354160220453400576" target="_blank" class="soc-x"></a></span> <span class="anime">Mushoku Tensei II: Isekai Ittara Honki Dasu / 2023</span>
 <br>6 из 10 | No One Will Save You / 2023
 <br>6 из 10 | <span id="ocenka"><a href="https://x.com/GanstFeveral/status/1523915386592403457" target="_blank" class="soc-x"></a></span> <span class="mult-serial">Miraculous: Tales of Ladybug & Cat Noir (season 5) / 2023</span>
 <br>5 из 10 | <span class="anime-movie">Misaki no Mayoiga / 2021</span>
@@ -362,7 +362,7 @@
 <br>6 из 10 | <span class="serial">You (season 3) / 2018-2024</span>
 <br>6 из 10 | <span class="serial">You (season 2) / 2018-2024</span>
 <br>7 из 10 | <span class="game">The Life and Suffering of Sir Brante / 2021</span>
-<br>7 из 10 | <span id="ocenka"><span class="soc-▲"></span></span> Guardians of the Galaxy Vol. 3 / 2023
+<br>7 из 10 | <span id="ocenka"><span id="ocenka"><a href="https://x.com/GanstFeveral/status/1457824183157772291" target="_blank" class="soc-x"></a></span> <span class="soc-▲"></span></span> Guardians of the Galaxy Vol. 3 / 2023
 <br>6 из 10 | Dungeons & Dragons: Honor Among Thieves / 2023
 <br>5 из 10 | <span class="anime-movie">Ai no Utagoe wo Kikasete / 2021</span>
 <br>6 из 10 | <span class="mult-short">Sopro / 2022</span>
@@ -377,7 +377,7 @@
 <br>5 из 10 | Where the Crawdads Sing / 2022
 <br>7 из 10 | <span class="serial">Beef / 2023</span>
 <br>6 из 10 | <span class="mult">Megamind / 2010</span>
-<br>6 из 10 | <span class="mult-serial">The Owl House (season 3) / 2020 – ...</span>
+<br>6 из 10 | <span id="ocenka"><a href="https://twitter.com/GanstFeveral/status/1424463239207919620" target="_blank" class="soc-x"></a></span> <span class="mult-serial">The Owl House (season 3) / 2020–2023</span>
 <br>5 из 10 | <span class="anime">Oniichan wa Oshimai! / 2023</span>
 <br>5 из 10 | <span class="anime-movie">5-toubun no Hanayome Movie / 2022</span>
 <br>5 из 10 | <span class="anime">5-toubun no Hanayome ∬ / 2021</span>
@@ -543,7 +543,7 @@
 <br>6 из 10 | Following / 1999
 <br>6 из 10 | Nightride / 2021
 <br>7 из 10 | <span class="mult">Hilda and the Mountain King / 2021</span>
-<br>6 из 10 | <span class="mult-serial">The Owl House (season 2) / 2020-2023</span>
+<br>6 из 10 | <span id="ocenka"><a href="https://twitter.com/GanstFeveral/status/1424463239207919620" target="_blank" class="soc-x"></a></span> <span class="mult-serial">The Owl House (season 2) / 2020-2023</span>
 <br>5 из 10 | <span class="mult-serial">Amphibia / 2019-2022</span>
 
 <br><br><u>Май</u>
@@ -563,7 +563,7 @@
 
 <br><br><u>Апрель</u>
 <br>6 из 10 | <span class="mult-short">Blush / 2021</span>
-<br>5 из 10 | <span class="doc">Embrace the Panda: Making Turning Red / 2022</span>
+<br>5 из 10 | <span id="ocenka"><a href="https://x.com/GanstFeveral/status/1407942476724375552" target="_blank" class="soc-x"></a></span> <span class="doc">Embrace the Panda: Making Turning Red / 2022</span>
 <br>5 из 10 | Ambulance / 2022
 <br>7 из 10 | Казнь / 2022
 <br>6 из 10 | <span class="mult-short">Базилик Фэт-Фрумос и царская дочь / 2021</span>
@@ -577,7 +577,7 @@
 <br>7 из 10 | Verdens verste menneske / 2021
 <br>5 из 10 | <span class="short">The Windshield Wiper / 2021</span>
 <br>6 из 10 | <span class="short">The Long Goodbye / 2020</span>
-<br>6 из 10 | <span class="mult">Turning Red / 2022</span>
+<br>6 из 10 | <span id="ocenka"><a href="https://x.com/GanstFeveral/status/1407942476724375552" target="_blank" class="soc-x"></a></span> <span class="mult">Turning Red / 2022</span>
 <br>6 из 10 | Многоэтажка / 2022
 <br>5 из 10 | West Side Story / 2022
 
@@ -628,6 +628,7 @@
 <br>6 из 10 | Cruella / 2021
 <br>5 из 10 | Nitram / 2021
 <br>5 из 10 | Finch / 2021
+<br>5 из 10 | <span id="ocenka"><a href="https://twitter.com/GanstFeveral/status/1450208173411950594" target="_blank" class="soc-x"></a></span> <span class="anime">Bishoujo Senshi Sailor Moon / 1992</span>
 <br>7 из 10 | <span class="mult-short">Encanto / 2021</span>
 <br>7 из 10 | <span class="mult-short">Far from the Tree / 2021</span> 
 <br>7 из 10 | <span class="mult-serial">Primal / 2019 – ...</span> 
@@ -669,7 +670,7 @@
 <br>7 из 10 | Dark Waters / 2019
 <br>6 из 10 | <span class="anime-movie">Violet Evergarden Movie / 2020</span>
 <br>7 из 10 | <span class="game">A Plague Tale: Innocence / 2019</span>
-<br>6 из 10 | <span class="mult-serial">The Owl House (season 1) / 2020-2023</span>
+<br>6 из 10 | <span id="ocenka"><a href="https://twitter.com/GanstFeveral/status/1424463239207919620" target="_blank" class="soc-x"></a></span> <span class="mult-serial">The Owl House (season 1) / 2020-2023</span>
 <br>6 из 10 | <span id="ocenka"><span class="soc-▲"></span></span> The Suicide Squad / 2021
 <br>4 из 10 | Run Hide Fight / 2020
 	
@@ -729,7 +730,7 @@
 <br><br><u>Март</u>
 <br>8 из 10 | The Father / 2020
 <br>6 из 10 | <span class="anime">Shingeki no Kyojin: The Final Season / 2020</span>
-<br>4 из 10 | <span class="anime">Yakusoku no Neverland 2nd Season / 2021</span>
+<br>4 из 10 | <span id="ocenka"><a href="https://x.com/GanstFeveral/status/1348377183757209607" target="_blank" class="soc-x"></a></span> <span class="anime">Yakusoku no Neverland 2nd Season / 2021</span>
 <br>6 из 10 | Snowpiercer / 2013
 <br>5 из 10 | <span class="serial">Servant (season 2) / 2019 – ...</span>
 <br>6 из 10 | <span id="ocenka"><a href="https://twitter.com/GanstFeveral/status/1354079575324635137" target="_blank" class="soc-x"></a></span> <span class="mult">Raya and the Last Dragon / 2021</span>
@@ -750,9 +751,9 @@
 <br>5 из 10 | Fear of Rain / 2020
 <br>6 из 10 | <span id="ocenka"><a href="https://twitter.com/GanstFeveral/status/1359647500169342977" target="_blank" class="soc-x"></a></span> <span class="anime">New Game! / 2016</span>
 <br>5 из 10 | <span class="anime">Flying Witch / 2016</span>
-<br>5 из 10 | <span class="anime">Suteki Desu wa, Sakura-chan! Tomoyo no Cardcaptor Sakura Katsuyaku Video Nikki! / 1998 – 1999</span>
-<br>5 из 10 | <span class="anime">Cardcaptor Sakura: Kero-chan ni Omakase! / 2020</span>
-<br>5 из 10 | <span id="ocenka"><a href="https://twitter.com/GanstFeveral/status/1353830594711588864" target="_blank" class="soc-x"></a></span> <span class="anime">Cardcaptor Sakura: Clear Card-hen / 2018</span>
+<br>5 из 10 | <span id="ocenka"><a href="https://x.com/GanstFeveral/status/1350730043908087808" target="_blank" class="soc-x"></a></span> <span class="anime">Suteki Desu wa, Sakura-chan! Tomoyo no Cardcaptor Sakura Katsuyaku Video Nikki! / 1998 – 1999</span>
+<br>5 из 10 | <span id="ocenka"><a href="https://x.com/GanstFeveral/status/1350730043908087808" target="_blank" class="soc-x"></a></span> <span class="anime">Cardcaptor Sakura: Kero-chan ni Omakase! / 2020</span>
+<br>5 из 10 | <span id="ocenka"><a href="https://x.com/GanstFeveral/status/1350730043908087808" target="_blank" class="soc-x"></a></span> <span class="anime">Cardcaptor Sakura: Clear Card-hen / 2018</span>
 <br>6 из 10 | <span class="serial">Пассажиры / 2020</span>
 <br>5 из 10 | <span class="short">Показалось / 2020</span>
 <br>6 из 10 | <span class="serial">The Mandalorian (season 2) / 2019 – ...</span>
@@ -763,9 +764,9 @@
 <br><br><u>Январь</u>
 <br>7 из 10 | Nomadland / 2020
 <br>6 из 10 | <span class="short">Временная связь / 2020</span>
-<br>5 из 10 | <span class="anime">Cardcaptor Sakura: Clear Card-hen Prologue - Sakura to Futatsu no Kuma (OVA) / 2017</span>
-<br>5 из 10 | <span class="anime-movie">Cardcaptor Sakura Movie 2: Fuuin Sareta Card / 2000</span>
-<br>5 из 10 | <span class="anime-movie">Cardcaptor Sakura Movie 1 / 1999</span> 
+<br>5 из 10 | <span id="ocenka"><a href="https://x.com/GanstFeveral/status/1350730043908087808" target="_blank" class="soc-x"></a></span> <span class="anime">Cardcaptor Sakura: Clear Card-hen Prologue - Sakura to Futatsu no Kuma (OVA) / 2017</span>
+<br>5 из 10 | <span id="ocenka"><a href="https://x.com/GanstFeveral/status/1350730043908087808" target="_blank" class="soc-x"></a></span> <span class="anime-movie">Cardcaptor Sakura Movie 2: Fuuin Sareta Card / 2000</span>
+<br>5 из 10 | <span id="ocenka"><a href="https://x.com/GanstFeveral/status/1350730043908087808" target="_blank" class="soc-x"></a></span> <span class="anime-movie">Cardcaptor Sakura Movie 1 / 1999</span> 
 <br>6 из 10 | Трое / 2020
 <br>6 из 10 | Дорогие товарищи! / 2020
 <br>5 из 10 | <span id="ocenka"><a href="https://twitter.com/GanstFeveral/status/1350730043908087808" target="_blank" class="soc-x"></a></span> <span class="anime">Cardcaptor Sakura / 1998</span>
@@ -783,7 +784,7 @@
 <br>5 из 10 | <span class="anime-movie">Kimi to, Nami ni Noretara / 2019</span>
 <br>8 из 10 | <span class="mult">Soul / 2020</span>
 <br>6 из 10 | Druk / 2020
-<br>5 из 10 | <span id="ocenka"><a href="https://twitter.com/Ganst_Feveral/status/1329936609450618881" target="_blank" class="soc-x"></a></span> <span class="serial">His Dark Materials (season 2) / 2019 – ...</span>
+<br>5 из 10 | <span id="ocenka"><a href="https://x.com/Ganst_Feveral/status/1329936609450618881" target="_blank" class="soc-x"></a></span> <span class="serial">His Dark Materials (season 2) / 2019–2022</span>
 <br>3 из 10 | <span id="ocenka"><span class="soc-twitch"></span></span> <span class="mult-serial">Следствие ведут Колобки / 1986</span>
 <br>6 из 10 | <span class="short">The Neighbors' Window / 2019</span>
 <br>6 из 10 | <span class="serial">The Queen's Gambit / 2020</span>
@@ -794,7 +795,8 @@
 <br>7 из 10 | City Lights / 1931
 
 <br><br><u>Ноябрь</u>
-<br>4 из 10 | <span class="anime">Plastic Neesan / 2011</span>
+
+4 из 10 | Plastic Neesan / 2011
 <br>6 из 10 | <span class="serial">Чики / 2020</span>
 <br>4 из 10 | Китобой / 2020
 <br>5 из 10 | The Innocents / 1961
@@ -964,7 +966,7 @@
 <br>5 из 10 | <span class="serial">The Mandalorian (season 1) / 2019 – ...</span>
 <br>5 из 10 | Togo / 2019
 <br>6 из 10 | The Lighthouse / 2019
-<br>4 из 10 | <span class="serial">His Dark Materials (season 1) / 2019 – ...</span>
+<br>4 из 10 | <span id="ocenka"><a href="https://x.com/Ganst_Feveral/status/1329936609450618881" target="_blank" class="soc-x"></a></span> <span class="serial">His Dark Materials (season 1) / 2019–2022</span>
 <br>3 из 10 | <span class="short">Ant Head / 2018</span>
 <br>6 из 10 | Freaks / 2019
 <br>4 из 10 | 6 Underground / 2019
