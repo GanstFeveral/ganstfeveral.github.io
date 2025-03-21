@@ -1,5 +1,39 @@
 body {margin:0px;}
 
+.toggle-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+        }
+
+.toggle-btn img {
+            width: 40px;
+            height: 40px;
+        }
+
+.sidebar {
+            position: fixed;
+            top: 0;
+            right: -500px;
+            width: 500px;
+            max-width: 100%;
+            height: 100vh;
+            background-color: #f8f9fa;
+            box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+            transition: right 0.3s ease-in-out, visibility 0.3s ease-in-out;
+            padding: 20px;
+            visibility: hidden;
+        }
+
+.sidebar.active {
+            right: 0;
+            visibility: visible;
+	}
+
 .soc-money {
 	display: inline-flex;
 	align-items: baseline;
