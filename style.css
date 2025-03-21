@@ -2,6 +2,15 @@ body {margin:0px;}
 
 /* Выездающая колонка справа */
 
+.sidebar {
+    scrollbar-width: none; /* Для Firefox */
+    -ms-overflow-style: none; /* Для Internet Explorer и Edge */
+}
+
+.sidebar::-webkit-scrollbar {
+    display: none; /* Для Chrome, Safari и новых версий Edge */
+}
+
         .toggle-btn {
             position: fixed;
             top: 20px;
@@ -159,6 +168,7 @@ body {margin:0px;}
       }
     }
 
+.sidebar .dark-mode {background:#292929;}
 body.dark-mode {background:#212121;}
 body.dark-mode p {color:#ececec;}
 body.dark-mode .pop-block {background:#212121; border-left: 2px solid #3b3b3b;}
