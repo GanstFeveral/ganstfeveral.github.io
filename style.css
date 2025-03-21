@@ -28,8 +28,8 @@ body {margin:0px;}
             right: -500px;
             max-width: 500px;
             height: 100vh;
-            background-color: #f8f9fa;
-            box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+            background-color: #ffffff;
+            box-shadow: -2px 0 70px rgb(0 0 0 / 20%);
             transition: right 0.3s ease-in-out, visibility 0.3s ease-in-out;
             padding: 20px;
             visibility: hidden;
