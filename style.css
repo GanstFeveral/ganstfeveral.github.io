@@ -1,5 +1,7 @@
 body {margin:0px;}
 
+/* Выездающая колонка справа */
+
 .toggle-btn {
             position: fixed;
             top: 20px;
@@ -33,6 +35,8 @@ body {margin:0px;}
             right: 0;
             visibility: visible;
 	}
+
+/* Выездающая колонка справа всё*/
 
 .soc-money {
 	display: inline-flex;
