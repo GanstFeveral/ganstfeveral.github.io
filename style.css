@@ -12,16 +12,12 @@ body {margin:0px;}
             padding: 0;
             z-index: 1001;
         }
-        .toggle-btn img {
-            width: 40px;
-            height: 40px;
-        }
+
         .sidebar {
             position: fixed;
             top: 0;
             right: -500px;
-            width: 500px;
-            max-width: 100%;
+            max-width: 500px;
             height: 100vh;
             background-color: #f8f9fa;
             box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
