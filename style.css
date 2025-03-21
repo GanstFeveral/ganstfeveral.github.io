@@ -2,14 +2,14 @@ body {margin:0px;}
 
 /* Выездающая колонка справа */
 
-.sidebar {
+	.sidebar {
     scrollbar-width: none; /* Для Firefox */
     -ms-overflow-style: none; /* Для Internet Explorer и Edge */
-}
+	}
 
-.sidebar::-webkit-scrollbar {
+	.sidebar::-webkit-scrollbar {
     display: none; /* Для Chrome, Safari и новых версий Edge */
-}
+	}
 
         .toggle-btn {
             position: fixed;
