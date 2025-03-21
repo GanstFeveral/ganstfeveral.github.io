@@ -2,7 +2,7 @@ body {margin:0px;}
 
 /* Выездающая колонка справа */
 
-.toggle-btn {
+        .toggle-btn {
             position: fixed;
             top: 20px;
             right: 20px;
@@ -10,14 +10,13 @@ body {margin:0px;}
             border: none;
             cursor: pointer;
             padding: 0;
+            z-index: 1001;
         }
-
-.toggle-btn img {
+        .toggle-btn img {
             width: 40px;
             height: 40px;
         }
-
-.sidebar {
+        .sidebar {
             position: fixed;
             top: 0;
             right: -500px;
@@ -29,12 +28,13 @@ body {margin:0px;}
             transition: right 0.3s ease-in-out, visibility 0.3s ease-in-out;
             padding: 20px;
             visibility: hidden;
+            overflow-y: auto;
+            z-index: 1000;
         }
-
-.sidebar.active {
+        .sidebar.active {
             right: 0;
             visibility: visible;
-	}
+        }
 
 /* Выездающая колонка справа всё*/
 
