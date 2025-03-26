@@ -313,6 +313,7 @@
 <br>7 из 10 | Yogisha X no kenshin / 2008
 <br>5 из 10 | <span class="anime">Golden Kamuy 4th Season / 2022</span>
 <br>5 из 10 | <span class="serial">Hijack / 2023</span>
+<br>7 из 10 | <span id="ocenka"><a href="https://x.com/GanstFeveral/status/1677579270716108803" target="_blank" class="soc-x"></a></span> <span class="serial">The Bear (season 2) / 2023</span>
 <br>7 из 10 | Человек из Подольска / 2020
 <br>6 из 10 | <span class="anime">Vinland Saga Season 2 / 2023</span>
 <br>5 из 10 | <span class="mult">Ladybug & Cat Noir: Awakening / 2023</span>
@@ -330,7 +331,7 @@
 <br>5 из 10 | <span class="anime-movie">Suzume no Tojimari / 2022</span>
 <br>5 из 10 | Sisu / 2022
 <br>6 из 10 | Trade / 2007
-<br>7 из 10 | <span class="serial">The Bear / 2022</span>
+<br>7 из 10 | <span id="ocenka"><a href="https://x.com/GanstFeveral/status/1677579270716108803" target="_blank" class="soc-x"></a></span> <span class="serial">The Bear (season 1) / 2022</span>
 <br>6 из 10 | <span class="anime">Kimi wa Houkago Insomnia / 2023</span>
 <br>6 из 10 | <span class="mult">9 / 2009</span>
 <br>6 из 10 | <span class="anime">"Oshi no Ko" / 2023</span>
