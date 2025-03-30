@@ -1,61 +1,58 @@
 body {margin:0px;}
 
 .background {
-	position: absolute;
+	position: fixed;
+	top: 0;
+	left: 50%;
+	transform: translateX(-50%);
 	width: 100%;
-	min-width: 950px; /* Минимальная ширина 950px */
+	max-width: 1000px;
 	height: 100%;
-	background-color: #3498db; /* Цвет фона, можно изменить */
-	z-index: -1; /* Фон будет на заднем плане */
-	}
-
-.ccontent {
-	position: relative;
-	z-index: 1;
-	padding: 20px;
-	text-align: center;
+	background-color: #1e1e1e;
+	z-index: -1;
 	}
 
 /* Выездающая колонка справа */
 
-	.sidebar {
-    scrollbar-width: none; /* Для Firefox */
-    -ms-overflow-style: none; /* Для Internet Explorer и Edge */
+.sidebar {
+	scrollbar-width: none; /* Для Firefox */
+	-ms-overflow-style: none; /* Для Internet Explorer и Edge */
+	}
+	
+.sidebar::-webkit-scrollbar {
+	display: none; /* Для Chrome, Safari и новых версий Edge */
 	}
 
-	.sidebar::-webkit-scrollbar {
-    display: none; /* Для Chrome, Safari и новых версий Edge */
+.toggle-btn {
+	position: fixed;
+	top: 15px;
+	right: 15px;
+	background: none;
+	border: none;
+	cursor: pointer;
+	padding: 0;
+	z-index: 1001;
 	}
 
-        .toggle-btn {
-            position: fixed;
-            top: 15px;
-            right: 15px;
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 0;
-            z-index: 1001;
-        }
+.sidebar {
+	position: fixed;
+	top: 0;
+	right: -500px;
+	max-width: 500px;
+	height: 100vh;
+	background-color: #ffffff;
+	box-shadow: -2px 0 70px rgb(0 0 0 / 20%);
+	transition: right 0.3s ease-in-out, visibility 0.3s ease-in-out;
+	padding: 20px;
+	visibility: hidden;
+	overflow-y: auto;
+	z-index: 1000;
+	}
 
-        .sidebar {
-            position: fixed;
-            top: 0;
-            right: -500px;
-            max-width: 500px;
-            height: 100vh;
-            background-color: #ffffff;
-            box-shadow: -2px 0 70px rgb(0 0 0 / 20%);
-            transition: right 0.3s ease-in-out, visibility 0.3s ease-in-out;
-            padding: 20px;
-            visibility: hidden;
-            overflow-y: auto;
-            z-index: 1000;
-        }
-        .sidebar.active {
-            right: 0;
-            visibility: visible;
-        }
+.sidebar.active {
+	right: 0;
+	visibility: visible;
+	}
 
 /* Выездающая колонка справа всё*/
 
@@ -69,7 +66,9 @@ body {margin:0px;}
 	margin-left: 3px;
 	}
 
-.soc-money a:hover {text-decoration: none !important;}
+.soc-money a:hover {
+	text-decoration: none !important;
+	}
 
 .soc-money span {
 	white-space: nowrap;
@@ -80,10 +79,12 @@ body {margin:0px;}
 	margin: 0px 5px 0px 0px;
 	}
 
-.soc-money:hover {text-decoration: none;}
+.soc-money:hover {
+	text-decoration: none;
+	}
 
 .soc-money:hover span {
-	display: inline-block; /* Показываем при наведении */
+	display: inline-block;
 	text-decoration: none;
 }
 
@@ -99,31 +100,31 @@ body {margin:0px;}
 
 /* Общие стили для tooltip */
 .short::after, .serial::after, .anime::after, .anime-movie::after, .mult::after, .mult-serial::after, .mult-short::after, .doc::after, .manga::after, .game::after {
-    position: absolute;
-    color: #000000;
-    padding: 0px 8px;
-    margin-left: 6px;
-    border-radius: 10px;
-    height: 22px;
-    white-space: nowrap;
-    visibility: hidden;
-    font-family: Tahoma, sans-serif;
-    font-weight: normal;
-    font-size: 16px;
-    opacity: 0;
-    transition: opacity 0.0s;
-    top: -2px;
-    border: 1px solid;
-    transform: translateX(0%);
-    z-index: 1;
-    pointer-events: none;
-    box-shadow: 3px 3px 0px;
-}
+	position: absolute;
+	color: #000000;
+	padding: 0px 8px;
+	margin-left: 6px;
+	border-radius: 10px;
+	height: 22px;
+	white-space: nowrap;
+	visibility: hidden;
+	font-family: Tahoma, sans-serif;
+	font-weight: normal;
+	font-size: 16px;
+	opacity: 0;
+	transition: opacity 0.0s;
+	top: -2px;
+	border: 1px solid;
+	transform: translateX(0%);
+	z-index: 1;
+	pointer-events: none;
+	box-shadow: 3px 3px 0px;
+	}
 
 .short:hover::after, .serial:hover::after, .anime:hover::after, .anime-movie:hover::after, .mult:hover::after, .mult-serial:hover::after, .mult-short:hover::after, .doc:hover::after, .manga:hover::after, .game:hover::after {
-    visibility: visible;
-    opacity: 1;
-}
+	visibility: visible;
+	opacity: 1;
+	}
 
 /* Добавление подписей для разных категорий */
 .short::after { content: "короткометражка"; color:#acacac;}
@@ -151,8 +152,9 @@ body {margin:0px;}
 
 /* Установка позиции для tooltip */
 .short, .serial, .anime, .anime-movie, .mult, .mult-serial, .mult-short, .doc, .manga, .game {
-    position: relative;
-    display: inline-block;}
+	position: relative;
+	display: inline-block;
+	}
 
 #toggleLink {font-size:20px; cursor: pointer; color: #f54a6d;}
 #toggleLink :hover {text-decoration: underline;}
