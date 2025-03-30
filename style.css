@@ -9,6 +9,13 @@ body {margin:0px;}
 	z-index: -1; /* Фон будет на заднем плане */
 	}
 
+.ccontent {
+	position: relative;
+	z-index: 1;
+	padding: 20px;
+	text-align: center;
+	}
+
 /* Выездающая колонка справа */
 
 	.sidebar {
