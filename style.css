@@ -1,5 +1,14 @@
 body {margin:0px;}
 
+.background {
+	position: absolute;
+	width: 100%;
+	min-width: 950px; /* Минимальная ширина 950px */
+	height: 100%;
+	background-color: #3498db; /* Цвет фона, можно изменить */
+	z-index: -1; /* Фон будет на заднем плане */
+	}
+
 /* Выездающая колонка справа */
 
 	.sidebar {
