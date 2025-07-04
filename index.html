@@ -448,72 +448,6 @@ TG		<br>5 из 10 | <span id="ocenka"><a href="" target="_blank" class="soc-tel"
 <h2 id="s2023">2023</h2>
 <p><span class="grey">22.01.23 —</span> обновил логотип "кинопоиска"</p></div>
 
-<!--———————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————— ОБО МНЕ —————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————-->
-
-<div id="about" class="content">
-<h2>Обо мне</h2>
-<h3>Информация о GanstFeveral</h3>
-<p>Сергей, <span class="age" id="ageCounter">0<span class="fraction">.00</span></span> годиков.<br>
-Активный пользователь интернета.<br>
-Большой киноман и фанат анимационных фильмов.<br>
-Пишу рецензии, обзоры, активно держу в курсе о том, как покушал.</p>
-
-<h5></h5>
-
-<h2>Факты</h2>
-<p><span class="grey">1.</span> GanstFeveral – имя и фамилия антагониста из моего фанфика "Месть Джуди".<br>
-<span class="grey">2.</span> Я реально родился 31 декабря. С ДР и с НГ получается.</p>
-
-<script>
-	const birthDate = new Date('1987-12-31'); // Укажи свою дату рождения
-	
-	function calculateAge(dateOfBirth) {
-	const today = new Date();
-	const differenceInMs = today - new Date(dateOfBirth);
-	const ageInYears = differenceInMs / (1000 * 60 * 60 * 24 * 365.25); // Учитываем високосные годы
-	const integerPart = Math.floor(ageInYears); // Целая часть возраста
-	const fractionalPart = Math.floor((ageInYears - integerPart) * 10); // Одна сотая (первый знак дроби)
-	return { integerPart, fractionalPart };
-	}
-	
-	function updateAgeCounter() {
-	const age = calculateAge(birthDate);
-	const ageCounter = document.getElementById('ageCounter');
-	ageCounter.innerHTML = `${age.integerPart}<span class="fraction">,${age.fractionalPart}</span>`;
-	}
-	
-	updateAgeCounter();
-</script>
-	
-<h5></h5>
-
-<h2>Спидран</h2>
-<p><span class="grey">1987 —</span> родился;<br>
-<span class="grey">1995 —</span> пошёл в школу;<br>
-<span class="grey">2004 —</span> закончил 9 классов;<br>
-<span class="grey">2004 —</span> поступил в колледж на дизайнера;<br>
-<span class="grey">2005 —</span> был отчислен из-за Продиджи;<br>
-<span class="grey">2011 —</span> работал курьером в разных местах;<br>
-<span class="grey">2012 —</span> работал контент-менеджером;<br>
-<span class="grey">2017 —</span> уволился, переехал жить в деревню, где разводил и продавал щенков;<br>
-<span class="grey">2024 —</span> вернулся в Москву, ищу работу.</p>
-
-<h5></h5>
-
-<h2><span style="color:#30bd00">Люблю</span></h2>
-<p>	<span style="color:#30bd00">Еда:</span> сыр, мясо, спагетти, шаурма, пицца, красная икра, молоко.<br>
-	<span style="color:#30bd00">Игры:</span> кинцо, глубокий сюжет, рпг, рогалики.<br>
-	<span style="color:#30bd00">Кино:</span> детектив, триллер, драма.<br>
-	<span style="color:#30bd00">Аниме:</span> драма, психология.</p>
-
-<h2><span style="color:#ff0000">Не люблю</h2>
-<p>	<span style="color:#ff0000">Еда:</span> Грибы, суши, рыба, каши, кефир, сметана, ряженка, фасоль.<br>
-	<span style="color:#ff0000">Игры:</span> Аниме-гачи.<br>
-	<span style="color:#ff0000">Кино:</span> Комедия, пародия.<br>
-	<span style="color:#ff0000">Аниме:</span> Фансервис, меха, иссекай.</p>
-
-<h5></h5>
-
 </div></div>
 
 <script>
@@ -679,107 +613,26 @@ new MutationObserver(() => target.textContent = source.textContent)
     </script>
 
 
-<!-- Скрипт для колонки справа 
-
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const toggleBtn = document.querySelector(".toggle-btn");
-            const toggleIcon = document.getElementById("toggle-icon");
-            const sidebar = document.querySelector(".sidebar");
-
-            toggleBtn.addEventListener("click", function (event) {
-                if (sidebar.classList.contains("active")) {
-                    sidebar.classList.remove("active");
-                    toggleIcon.src = "https://raw.githubusercontent.com/GanstFeveral/ganstfeveral.github.io/master/icons/mark-off.png";
-                } else {
-                    sidebar.classList.add("active");
-                    toggleIcon.src = "https://raw.githubusercontent.com/GanstFeveral/ganstfeveral.github.io/master/icons/mark-on.png";
-                }
-                event.stopPropagation();
-            });
-
-            document.addEventListener("click", function (event) {
-                if (!sidebar.contains(event.target) && !toggleBtn.contains(event.target)) {
-                    sidebar.classList.remove("active");
-                    toggleIcon.src = "https://raw.githubusercontent.com/GanstFeveral/ganstfeveral.github.io/master/icons/mark-off.png";
-                }
-            });
-        });
-    </script>
+<script>
+	const birthDate = new Date('1987-12-31'); // Укажи свою дату рождения
 	
-	<button class="toggle-btn"><img src="https://raw.githubusercontent.com/GanstFeveral/ganstfeveral.github.io/master/icons/mark-off.png" alt="Открыть" id="toggle-icon"></button>
-<div class="sidebar"><img src="https://raw.githubusercontent.com/GanstFeveral/ganstfeveral.github.io/refs/heads/master/icons/tredi.png" style="display: block; max-width: 50%; height: auto;">
-<span class="grey-mini" style="font-family: Tahoma, sans-serif;">Актуальные треды из твиттера для личного пользования</span>
-<br><br><div style="font-family: Yanone Kaffeesatz, sans-serif; font-size:28px; font-style: bold;"><span class="grey" style="font-size:28px;"><a href="#sidebar-raznoe">Разное</a> / <a href="#sidebar-watch">Смотрю</a> / <a href="#sidebar-game">Игры</a></span></div>
-<br><div class="line1"></div>
-
-<br><h2 id="sidebar-raznoe">Разное</h2>
-<p><a target="_blank" href="https://x.com/GanstFeveral/status/1899449591893790893">Дом.ру как обычно</a></p>
-<h5></h5>
-<h2 id="sidebar-watch">Смотрю</h2>
-
-<p><span style="color:#a0a0a0">Ожидание просмотра</span>
-<br><a target="_blank" href="https://x.com/GanstFeveral/status/1902772180980539886">Тайна Коко 2</a>
-<br><a target="_blank" href="https://x.com/GanstFeveral/status/1822337095580451255">Toy Story 5</a>
-<br><a target="_blank" href="https://x.com/GanstFeveral/status/1822336111588331765">Hoopers</a>
-<br><a target="_blank" href="https://x.com/GanstFeveral/status/1822334779561222449">Incredibles 3</a>
-<br><a target="_blank" href="https://x.com/GanstFeveral/status/1715474021066702947">Zootopia 2</a>
-<br><a target="_blank" href="https://x.com/GanstFeveral/status/1816901596128620758">Wildwood</a>
-<br><a target="_blank" href="https://x.com/GanstFeveral/status/1668659588025991168">Elio</a>
-<br><a target="_blank" href="https://x.com/GanstFeveral/status/1590980896403881985">Аватар мультфильм</a></p>
-
-<p><span style="color:#a0a0a0">Недосмотрено</span>
-<br><a target="_blank" href="https://x.com/GanstFeveral/status/1677579270716108803">The Bear</a>
-<br><a target="_blank" href="https://x.com/GanstFeveral/status/1246414343228608514">Ginga Eiyuu Densetsu</a>
-<br><a target="_blank" href="https://x.com/GanstFeveral/status/1891981051033002394">Paradise</a>
-<br><a target="_blank" href="https://x.com/GanstFeveral/status/1883599402037924260">Pitt</a>
-<br><a target="_blank" href="https://x.com/GanstFeveral/status/1685265783566303232">Медалистка (манга)</a>
-<br><a target="_blank" href="https://x.com/GanstFeveral/status/1522335455986995200">Ranma ½</a>
-<br><a target="_blank" href="https://x.com/GanstFeveral/status/1636093619168788480">Princess Tutu</a>
-<br><a target="_blank" href="https://x.com/GanstFeveral/status/1694828908560994748">Yawara!</a>
-<br><a target="_blank" href="https://x.com/GanstFeveral/status/1712954726411608350">Daa! Daa! Daa!</a>
-<br><a target="_blank" href="https://x.com/GanstFeveral/status/1297996276068474881">Trollhunters (season 3)</a>
-<br><a target="_blank" href="https://x.com/GanstFeveral/status/1772709018659594702">Fushigi no Umi no Nadia</a>
-
-<h5></h5>
-
-<h2 id="sidebar-game">Игры</h2>
-<p><a target="_blank" href="https://x.com/GanstFeveral/status/1423720224751341570">A Plague Tale: Innocence</a>
-<br><a target="_blank" href="https://x.com/GanstFeveral/status/1351325890970611715">Apex Legends</a>
-<br><a target="_blank" href="https://x.com/GanstFeveral/status/1718055082669814003">Alan Wake</a>
-<br><a target="_blank" href="https://x.com/GanstFeveral/status/1763283656297386158">Balatro</a>
-<br><a target="_blank" href="https://x.com/GanstFeveral/status/1687423845194436608">Baldur's Gate 3</a>
-<br><a target="_blank" href="https://x.com/GanstFeveral/status/1475901723235475458">Crusader Kings 3</a>
-<br><a target="_blank" href="https://x.com/GanstFeveral/status/1736455578606518629">Cult of the Lamb</a>
-<br><a target="_blank" href="https://x.com/GanstFeveral/status/1479868529688068096">Dead Cells</a>
-<br><a target="_blank" href="https://x.com/GanstFeveral/status/1435865232702943234">Dead by Daylight</a>
-<br><a target="_blank" href="https://x.com/GanstFeveral/status/1353767217448574977">Disco Elysium</a>
-<br><a target="_blank" href="https://x.com/GanstFeveral/status/1277259143032733697">Divinity Original Sin 2 Enhanced Edition</a>
-<br><a target="_blank" href="https://x.com/GanstFeveral/status/1248336149187362817">Divinity Original Sin Enhanced Edition</a>
-<br><a target="_blank" href="https://x.com/GanstFeveral/status/1487066841574952964">For the people</a>
-<br><a target="_blank" href="https://x.com/GanstFeveral/status/1365956802035220484">Genshin Impact</a>
-<br><a target="_blank" href="https://x.com/GanstFeveral/status/1731922882555523192">GTA 6</a>
-<br><a target="_blank" href="https://x.com/GanstFeveral/status/1476601659015016451">Hollow Knight</a>
-<br><a target="_blank" href="https://x.com/GanstFeveral/status/1438185132700151813">Kena: Bridge of Spirits</a>
-<br><a target="_blank" href="https://x.com/GanstFeveral/status/1436058409753841665">KOTOR remake</a>
-<br><a target="_blank" href="https://x.com/GanstFeveral/status/1359952657255960576">Little Nightmares II</a>
-<br><a target="_blank" href="https://x.com/GanstFeveral/status/1769420291887825088">Ni no Kuni Wrath of the White Witch™ Remastered / 2019</a>
-<br><a target="_blank" href="https://x.com/GanstFeveral/status/1485744232656781312">Noita</a>
-<br><a target="_blank" href="https://x.com/GanstFeveral/status/1487068768023068678">Pathfinder: Wrath of the Righteous - Enhanced Edition</a>
-<br><a target="_blank" href="https://x.com/GanstFeveral/status/1719616369786855564">Psychonauts</a>
-<br><a target="_blank" href="https://x.com/GanstFeveral/status/1301165982774419461">Red Dead Redemption 2</a>
-<br><a target="_blank" href="https://x.com/GanstFeveral/status/1439002738487185409">Sea of Thieves</a>
-<br><a target="_blank" href="https://x.com/GanstFeveral/status/1843225630072061991">Silent Hill 2</a>
-<br><a target="_blank" href="https://x.com/GanstFeveral/status/1795513086453125368">Songs of Conquest</a>
-<br><a target="_blank" href="https://x.com/GanstFeveral/status/1415774391061913611">SOR4: Mr. X Nightmare</a>
-<br><a target="_blank" href="https://x.com/GanstFeveral/status/1761866534144651509">Stardew Valley</a>
-<br><a target="_blank" href="https://x.com/GanstFeveral/status/1874895898494529952">Teardown</a>
-<br><a target="_blank" href="https://x.com/GanstFeveral/status/1743405273312575918">Valheim</a>
-<br><a target="_blank" href="https://x.com/Ganst_Feveral/status/1318557483238100993">Valiant Hearts</a>
-<br><a target="_blank" href="https://x.com/GanstFeveral/status/1600940163718385668">World of Warcraft: Dragonflight</a>
-<br><a target="_blank" href="https://x.com/GanstFeveral/status/1792631589077123236">Дети плесени</a>
-<br><a target="_blank" href="https://x.com/GanstFeveral/status/1393345869135626240">Зайчик</a>
-<br><a target="_blank" href="https://x.com/GanstFeveral/status/1658107147832393734">Лихо одноглазое</a></p><br><br></div>-->
+	function calculateAge(dateOfBirth) {
+	const today = new Date();
+	const differenceInMs = today - new Date(dateOfBirth);
+	const ageInYears = differenceInMs / (1000 * 60 * 60 * 24 * 365.25); // Учитываем високосные годы
+	const integerPart = Math.floor(ageInYears); // Целая часть возраста
+	const fractionalPart = Math.floor((ageInYears - integerPart) * 10); // Одна сотая (первый знак дроби)
+	return { integerPart, fractionalPart };
+	}
+	
+	function updateAgeCounter() {
+	const age = calculateAge(birthDate);
+	const ageCounter = document.getElementById('ageCounter');
+	ageCounter.innerHTML = `${age.integerPart}<span class="fraction">,${age.fractionalPart}</span>`;
+	}
+	
+	updateAgeCounter();
+</script>
 
 </body>
 </html>
