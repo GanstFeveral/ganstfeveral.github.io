@@ -664,34 +664,29 @@ new MutationObserver(() => target.textContent = source.textContent)
 </script>
 
 <script>
-	function removeHash() {
-  setTimeout(() => {
-    history.replaceState(null, null, location.pathname + location.search);
-  }, 0);
-}
-</script>
-
-	<script>
 document.addEventListener("DOMContentLoaded", () => {
-  const allowedHashes = [
-    "#profile",
-    "#threads",
-    "#zhelezo",
-    "#art",
-    "#chronicle",
-    "#news"
-  ];
+  // Карта: что заменить на что
+  const replaceMap = {
+    "#t2025": "#threads",
+    "#t2024": "#threads",
+    "#zh1": "#zhelezo",
+    "#zh2": "#zhelezo"
+  };
 
-  const currentHash = location.hash;
+  // Добавляем обработчик на все ссылки с хэшем
+  document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener('click', e => {
+      const hash = link.getAttribute("href");
+      const replacement = replaceMap[hash];
 
-  if (currentHash && !allowedHashes.includes(currentHash)) {
-    // Дождаться прокрутки, потом убрать хэш
-    setTimeout(() => {
-      // Найдём, есть ли основной разрешённый хэш в URL
-      const base = allowedHashes.find(h => location.href.includes(h)) || "";
-      history.replaceState(null, "", location.pathname + location.search + base);
-    }, 0);
-  }
+      if (replacement) {
+        // Дождаться прокрутки, затем заменить hash
+        setTimeout(() => {
+          history.replaceState(null, "", location.pathname + location.search + replacement);
+        }, 0);
+      }
+    });
+  });
 });
 </script>
 	
