@@ -16,6 +16,7 @@ body {margin:0px; background:#ffffff;}
   100% {
     transform: translate(0px, 0px) scale(1);
   }
+}
 
 .background {
 	position: fixed;
