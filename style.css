@@ -186,7 +186,16 @@ body {margin:0px; background:#ffffff;}
       }
     }
 
-.short::after, .serial::after, .anime::after, .anime-movie::after, .mult::after, .mult-serial::after, .mult-short::after, .doc::after, .manga::after, .game::after .dark-mode {bacgkround:#141414;}
+.short::after.dark-mode {bacgkround:#141414;}
+.serial::after.dark-mode {bacgkround:#141414;}
+.anime::after.dark-mode {bacgkround:#141414;}
+.anime-movie::after.dark-mode {bacgkround:#141414;}
+.mult::after.dark-mode {bacgkround:#141414;}
+.mult-serial::after.dark-mode {bacgkround:#141414;}
+.mult-short::after.dark-mode {bacgkround:#141414;}
+.doc::after.dark-mode {bacgkround:#141414;}
+.manga::after.dark-mode {bacgkround:#141414;}
+.game::after.dark-mode {bacgkround:#141414;}
 body.dark-mode .sidebar {background:#1e1e1e;}
 body.dark-mode .background {background:#141414;}
 body.dark-mode {background:#141414;}
