@@ -705,14 +705,24 @@ document.addEventListener("DOMContentLoaded", () => {
 
   };
 
-  // Добавляем обработчик на все ссылки с хэшем
+ const currentHash = location.hash;
+
+  // 📌 1. Если пользователь пришёл напрямую по "вложенному" якорю (#t2025 и т.п.)
+  if (replaceMap[currentHash]) {
+    setTimeout(() => {
+      // Скролл уже выполнен браузером, теперь меняем адрес
+      history.replaceState(null, "", location.pathname + location.search + replaceMap[currentHash]);
+    }, 0);
+  }
+
+  // 📌 2. При клике по ссылке типа <a href="#t2025">...</a>
   document.querySelectorAll('a[href^="#"]').forEach(link => {
     link.addEventListener('click', e => {
       const hash = link.getAttribute("href");
       const replacement = replaceMap[hash];
 
       if (replacement) {
-        // Дождаться прокрутки, затем заменить hash
+        // Разрешаем скролл, но меняем hash сразу после
         setTimeout(() => {
           history.replaceState(null, "", location.pathname + location.search + replacement);
         }, 0);
