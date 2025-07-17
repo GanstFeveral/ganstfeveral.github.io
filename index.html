@@ -242,7 +242,7 @@ TG		<br>5 из 10 | <span id="ocenka"><a href="" target="_blank" class="soc-tel"
 <h2>Треды</h2>
 <h3>Архив тредов из твиттера</h3>
 
-<p><span style="color:#bdbdbd"><a href="#threads/#t2025">2025</a> / <a href="#threads/#t2024">2024</a> / <a href="#threads/#t2023">2023</a> / <a href="#threads/#t2022">2022</a> / <a href="#threads/#t2021">2021</a> / <a href="#threads/#t2020">2020</a> / <a href="#threads/#t2017">2017</a></span></p>
+<p><span style="color:#bdbdbd"><a href="#t2025">2025</a> / <a href="#t2024">2024</a> / <a href="#t2023">2023</a> / <a href="#t2022">2022</a> / <a href="#t2021">2021</a> / <a href="#t2020">2020</a> / <a href="#t2017">2017</a></span></p>
 <h5></h5>
 
 <h2 id="t2025">2025</h2>
@@ -662,80 +662,6 @@ new MutationObserver(() => target.textContent = source.textContent)
 	
 	updateAgeCounter();
 </script>
-
-<script>
-	// Функция для переключения раздела
-function showSection(sectionId, subSectionId = null) {
-    const contents = document.querySelectorAll('.content');
-    const links = document.querySelectorAll('#main-menu a');
-
-    // Скрываем все разделы и убираем активный класс у ссылок
-    contents.forEach(content => content.classList.remove('active'));
-    links.forEach(link => link.classList.remove('active'));
-
-    // Показываем нужный раздел
-    const targetSection = document.querySelector(sectionId);
-    if (targetSection) {
-        targetSection.classList.add('active');
-        document.querySelector(`a[href="${sectionId}"]`).classList.add('active');
-    }
-
-    // Если есть вложенный якорь, прокручиваем к нему
-    if (subSectionId) {
-        const subSection = document.querySelector(subSectionId);
-        if (subSection) {
-            subSection.scrollIntoView({ behavior: 'smooth' });
-        }
-    }
-}
-
-// Обработка загрузки страницы
-window.addEventListener('load', () => {
-    const hash = window.location.hash; // Например, #threads/#t2023
-
-    if (hash) {
-        // Разделяем хэш на основной раздел и вложенный якорь
-        const [sectionId, subSectionId] = hash.split('/#');
-
-        // Убираем хэш из URL для предотвращения автоматической прокрутки
-        window.location.hash = '';
-        window.scrollTo(0, 0);
-
-        // Через небольшую задержку возвращаем хэш и показываем раздел
-        setTimeout(() => {
-            window.location.hash = hash; // Возвращаем полный хэш
-            showSection(`#${sectionId}`, subSectionId ? `#${subSectionId}` : null);
-        }, 1);
-    }
-});
-
-// Обработка кликов по ссылкам главного меню
-document.querySelectorAll('#main-menu a').forEach(link => {
-    link.addEventListener('click', (event) => {
-        event.preventDefault();
-        const sectionId = link.getAttribute('href');
-        window.history.pushState(null, null, sectionId);
-        showSection(sectionId);
-    });
-});
-
-// Обработка кликов по вложенным якорным ссылкам
-document.querySelectorAll('.content a[href*="/#"]').forEach(link => {
-    link.addEventListener('click', (event) => {
-        event.preventDefault();
-        const fullHash = link.getAttribute('href'); // Например, #threads/#t2023
-        const [sectionId, subSectionId] = fullHash.split('/#');
-        window.history.pushState(null, null, fullHash);
-        showSection(`#${sectionId}`, `#${subSectionId}`);
-    });
-});
-</script>
-
-<script>if (!hash.includes('/#')) {
-    // Предполагаем, что это старый формат ссылки
-    const sectionId = '#threads'; // Или определяйте раздел по ID
-    showSection(sectionId, hash);
-}</script>
 
 </body>
 </html>
