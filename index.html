@@ -434,10 +434,10 @@ TG		<br>5 из 10 | <span id="ocenka"><a href="" target="_blank" class="soc-tel"
 <h2>Новости</h2>
 <h3>Последние изменения на сайте</h3>
 
-<p><span style="color:#bdbdbd"><a href="#s2025">2025</a> / <a href="#s2024">2024</a> / <a href="#s2023">2023</a></span>
+<p><span style="color:#bdbdbd"><a href="#n2025">2025</a> / <a href="#n2024">2024</a> / <a href="#n2023">2023</a></span>
 <h5></h5>
 
-<h2 id="s2025">2025</h2>
+<h2 id="n2025">2025</h2>
 <p><span id="source1"><span class="grey">17.07.25 —</span> адаптировал все разделы + добавил аватару на главной анимацию
 <br><span class="grey">05.07.25 —</span> все мои аккаунты теперь отображаются только на стартовой странице
 <br><span class="grey">21.03.25 —</span> сделал справа колонку для личного пользования с актуальными тредами из твиттера
@@ -448,7 +448,7 @@ TG		<br>5 из 10 | <span id="ocenka"><a href="" target="_blank" class="soc-tel"
 <br><span class="grey">15.02.25 —</span> теперь в разделе "оценок" будут отображаться именя донатеров кинца</p>
 
 <h5></h5>
-<h2 id="s2024">2024</h2>
+<h2 id="n2024">2024</h2>
 <p><span class="grey">24.12.24 —</span> оптимизировал раздел "оценки"
 <br><span class="grey">19.12.24 —</span> добавил qr с телегой, который видео на FHD экранах
 <br><span class="grey">17.12.24 —</span> сделал счётчики в разделе "обо мне"
@@ -474,7 +474,7 @@ TG		<br>5 из 10 | <span id="ocenka"><a href="" target="_blank" class="soc-tel"
 <br><span class="grey">14.09.24 —</span> обновил раздел "тредов"</p>
 
 <h5></h5>
-<h2 id="s2023">2023</h2>
+<h2 id="n2023">2023</h2>
 <p><span class="grey">22.01.23 —</span> обновил логотип "кинопоиска"</p></div>
 
 </div></div>
@@ -667,10 +667,42 @@ new MutationObserver(() => target.textContent = source.textContent)
 document.addEventListener("DOMContentLoaded", () => {
   // Карта: что заменить на что
   const replaceMap = {
-    "#t2025": "#threads",
-    "#t2024": "#threads",
-    "#zh1": "#zhelezo",
-    "#zh2": "#zhelezo"
+"#t2025": "#threads",
+"#t2024": "#threads",
+"#t2023": "#threads",
+"#t2022": "#threads",
+"#t2021": "#threads",
+"#t2020": "#threads",
+"#t2017": "#threads",
+"#zh1": "#zhelezo",
+"#zh2": "#zhelezo",
+"#zh3": "#zhelezo",
+"#zh4": "#zhelezo",
+"#a1": "#art",
+"#a2": "#art",
+"#a3": "#art",
+"#a4": "#art",
+"#a5": "#art",
+"#a6": "#art",
+"#c2025": "#chronicle",
+"#c2024": "#chronicle",
+"#c2023": "#chronicle",
+"#c2022": "#chronicle",
+"#c2021": "#chronicle",
+"#c2020": "#chronicle",
+"#c2019": "#chronicle",
+"#c2018": "#chronicle",
+"#c2017": "#chronicle",
+"#c2016": "#chronicle",
+"#c2015": "#chronicle",
+"#c2014": "#chronicle",
+"#c2013": "#chronicle",
+"#c2012": "#chronicle",
+"#c2011": "#chronicle",
+"#n2025": "#news",
+"#n2024": "#news",
+"#n2023": "#news"	  
+
   };
 
   // Добавляем обработчик на все ссылки с хэшем
