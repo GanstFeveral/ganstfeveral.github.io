@@ -119,6 +119,7 @@ body {margin:0px; background:#ffffff;}
 	z-index: 1;
 	pointer-events: none;
 	box-shadow: 3px 3px 0px;
+	background:#ffffff;
 	}
 
 .short:hover::after, .serial:hover::after, .anime:hover::after, .anime-movie:hover::after, .mult:hover::after, .mult-serial:hover::after, .mult-short:hover::after, .doc:hover::after, .manga:hover::after, .game:hover::after {
@@ -185,6 +186,7 @@ body {margin:0px; background:#ffffff;}
       }
     }
 
+.short::after, .serial::after, .anime::after, .anime-movie::after, .mult::after, .mult-serial::after, .mult-short::after, .doc::after, .manga::after, .game::after .dark-mode {bacgkround:#141414;}
 body.dark-mode .sidebar {background:#1e1e1e;}
 body.dark-mode .background {background:#141414;}
 body.dark-mode {background:#141414;}
