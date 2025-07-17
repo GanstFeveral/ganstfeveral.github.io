@@ -731,5 +731,11 @@ document.querySelectorAll('.content a[href*="/#"]').forEach(link => {
 });
 </script>
 
+<script>if (!hash.includes('/#')) {
+    // Предполагаем, что это старый формат ссылки
+    const sectionId = '#threads'; // Или определяйте раздел по ID
+    showSection(sectionId, hash);
+}</script>
+
 </body>
 </html>
