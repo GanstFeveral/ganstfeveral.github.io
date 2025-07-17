@@ -670,5 +670,30 @@ new MutationObserver(() => target.textContent = source.textContent)
   }, 0);
 }
 </script>
+
+	<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const allowedHashes = [
+    "#profile",
+    "#threads",
+    "#zhelezo",
+    "#art",
+    "#chronicle",
+    "#news"
+  ];
+
+  const currentHash = location.hash;
+
+  if (currentHash && !allowedHashes.includes(currentHash)) {
+    // Дождаться прокрутки, потом убрать хэш
+    setTimeout(() => {
+      // Найдём, есть ли основной разрешённый хэш в URL
+      const base = allowedHashes.find(h => location.href.includes(h)) || "";
+      history.replaceState(null, "", location.pathname + location.search + base);
+    }, 0);
+  }
+});
+</script>
+	
 </body>
 </html>
