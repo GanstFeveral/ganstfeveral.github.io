@@ -498,46 +498,19 @@ TG		<br>5 из 10 | <span id="ocenka"><a href="" target="_blank" class="soc-tel"
     }
 
     // Остановка прокрутки до якоря при загрузке
-window.addEventListener('load', () => {
-    const hash = window.location.hash || '#profile'; // По умолчанию #profile, если хэш отсутствует
-    showSection(hash); // Показать раздел, соответствующий хэшу
-});
+    window.addEventListener('load', () => {
+        const hash = window.location.hash;
 
-// Функция для отображения раздела по хэшу
-function showSection(sectionId) {
-    const contents = document.querySelectorAll('.content');
-    const links = document.querySelectorAll('#main-menu a');
+        if (hash) {
+            window.location.hash = ''; // Убираем хэш
+            window.scrollTo(0, 0); // Прокручиваем страницу наверх
 
-    // Удалить класс 'active' у всех разделов и ссылок
-    contents.forEach(content => content.classList.remove('active'));
-    links.forEach(link => link.classList.remove('active'));
-
-    // Добавить класс 'active' к целевому разделу и соответствующей ссылке
-    const section = document.querySelector(sectionId);
-    const link = document.querySelector(`a[href="${sectionId}"]`);
-    if (section) {
-        section.classList.add('active');
-    }
-    if (link) {
-        link.classList.add('active');
-    }
-
-    // Прокрутить к разделу, если это подраздел (например, #t2024)
-    const element = document.querySelector(sectionId);
-    if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-    }
-}
-
-// Обработка кликов по ссылкам главного меню
-document.querySelectorAll('#main-menu a').forEach(link => {
-    link.addEventListener('click', (event) => {
-        event.preventDefault();
-        const sectionId = link.getAttribute('href');
-        window.history.pushState(null, null, sectionId); // Обновить URL
-        showSection(sectionId); // Показать раздел
+            setTimeout(() => {
+                window.location.hash = hash; // Возвращаем хэш обратно
+                showSection(hash); // Показываем соответствующий контент
+            }, 1); 
+        }
     });
-});
 
     // Изменение контента при клике на ссылки
     document.querySelectorAll('#main-menu a').forEach(link => {
