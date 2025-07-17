@@ -11,26 +11,26 @@ body {margin:0px; background:#ffffff;}
   23.33% { transform: translate(29.1px, -10.5px); }
   26.66% { transform: translate(30.9px, -5.3px); }
   30%    { transform: translate(31.9px, 0px); }
-  33.33% { transform: translate(31.9px, 5.3px); }
-  36.66% { transform: translate(30.9px, 10.5px); }
-  40%    { transform: translate(29.1px, 15.3px); }
-  43.33% { transform: translate(26.6px, 19.5px); }
-  46.66% { transform: translate(23.3px, 23.1px); }
-  50%    { transform: translate(19.4px, 26.0px); }
-  53.33% { transform: translate(15.1px, 28.2px); }
-  56.66% { transform: translate(10.3px, 29.5px); }
-  60%    { transform: translate(5.2px, 30.0px); }
-  63.33% { transform: translate(0px, 30px); }
-  66.66% { transform: translate(-5.2px, 29.5px); }
-  70%    { transform: translate(-10.3px, 28.2px); }
-  73.33% { transform: translate(-15.1px, 26.0px); }
-  76.66% { transform: translate(-19.4px, 23.1px); }
-  80%    { transform: translate(-23.3px, 19.5px); }
-  83.33% { transform: translate(-26.6px, 15.3px); }
-  86.66% { transform: translate(-29.1px, 10.5px); }
-  90%    { transform: translate(-30.9px, 5.3px); }
-  93.33% { transform: translate(-31.9px, 0px); }
-  96.66% { transform: translate(-30.9px, -5.3px); }
+  33.33% { transform: translate(30.9px, 5.3px); }
+  36.66% { transform: translate(29.1px, 10.5px); }
+  40%    { transform: translate(26.6px, 15.3px); }
+  43.33% { transform: translate(23.3px, 19.5px); }
+  46.66% { transform: translate(19.4px, 23.1px); }
+  50%    { transform: translate(15.1px, 26.0px); }
+  53.33% { transform: translate(10.3px, 28.2px); }
+  56.66% { transform: translate(5.2px, 29.5px); }
+  60%    { transform: translate(0px, 30px); }
+  63.33% { transform: translate(-5.2px, 29.5px); }
+  66.66% { transform: translate(-10.3px, 28.2px); }
+  70%    { transform: translate(-15.1px, 26.0px); }
+  73.33% { transform: translate(-19.4px, 23.1px); }
+  76.66% { transform: translate(-23.3px, 19.5px); }
+  80%    { transform: translate(-26.6px, 15.3px); }
+  83.33% { transform: translate(-29.1px, 10.5px); }
+  86.66% { transform: translate(-30.9px, 5.3px); }
+  90%    { transform: translate(-31.9px, 0px); }
+  93.33% { transform: translate(-30.9px, -5.3px); }
+  96.66% { transform: translate(-29.1px, -10.5px); }
   100%   { transform: translate(0px, -30px); }
 }
 
