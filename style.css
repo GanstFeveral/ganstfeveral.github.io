@@ -194,7 +194,7 @@ body {margin:0px; background:#ffffff;}
 .mult-serial::after.dark-mode {bacgkround:#141414;}
 .mult-short::after.dark-mode {bacgkround:#141414;}
 .doc::after.dark-mode {bacgkround:#141414;}
-.manga::after.dark-mode {bacgkround:#141414;}
+.manga.dark-mode::after {bacgkround:#141414;}
 .game::after.dark-mode {bacgkround:#141414;}
 body.dark-mode .sidebar {background:#1e1e1e;}
 body.dark-mode .background {background:#141414;}
