@@ -748,7 +748,7 @@ a:hover {color:#f54a6d; text-decoration: underline;}
 	left: 0;
 	top: 0;
 	height: 100%;
-	width: 8%;
+	width: 5%;
 	background: #0384fc6e;
 	opacity: 0;
 	transition: opacity 0.5s ease, pointer-events 0s ease 0.5s;
