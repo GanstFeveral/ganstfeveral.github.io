@@ -4,6 +4,7 @@ body {margin:0px; background:#ffffff;}
   to {
     opacity: 1;
   }
+}
 
 @keyframes float-circle {
 0.0% { transform: translate(0.0px, -5.0px); }
