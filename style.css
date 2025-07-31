@@ -507,7 +507,7 @@ body {margin:0px; background:#ffffff;}
 .mult-short::after { content: "короткометражный мультфильм"; color:#9b7ccc;}
 .doc::after { content: "документалка"; color:#00bcd4;}
 .manga::after { content: "манга"; color:#00cc8b;}
-.book::after { content: "книга"; color:#00cc8b;}
+.book::after { content: "книга"; color:#019100;}
 .game::after { content: "игры"; color:#ff0000;}
 
 .short {color:#acacac;}
@@ -520,7 +520,7 @@ body {margin:0px; background:#ffffff;}
 .doc {color:#00bcd4;}
 .manga {color:#00cc8b;}
 .game {color:#ff0000;}
-.book {color:#00cc8b;}
+.book {color:#019100;}
 
 
 /* Установка позиции для tooltip */
