@@ -469,7 +469,7 @@ body {margin:0px; background:#ffffff;}
 }
 
 /* Общие стили для tooltip */
-.short::after, .serial::after, .anime::after, .anime-movie::after, .mult::after, .mult-serial::after, .mult-short::after, .doc::after, .manga::after, .game::after {
+.short::after, .serial::after, .anime::after, .anime-movie::after, .mult::after, .mult-serial::after, .mult-short::after, .doc::after, .manga::after, .book::after, .game::after {
 	position: absolute;
 	color: #000000;
 	padding: 0px 8px;
@@ -492,7 +492,7 @@ body {margin:0px; background:#ffffff;}
 	background:#ffffff;
 	}
 
-.short:hover::after, .serial:hover::after, .anime:hover::after, .anime-movie:hover::after, .mult:hover::after, .mult-serial:hover::after, .mult-short:hover::after, .doc:hover::after, .manga:hover::after, .game:hover::after {
+.short:hover::after, .serial:hover::after, .anime:hover::after, .anime-movie:hover::after, .mult:hover::after, .mult-serial:hover::after, .mult-short:hover::after, .doc:hover::after, .manga:hover::after, .book:hover::after, .game:hover::after {
 	visibility: visible;
 	opacity: 1;
 	}
@@ -507,6 +507,7 @@ body {margin:0px; background:#ffffff;}
 .mult-short::after { content: "короткометражный мультфильм"; color:#9b7ccc;}
 .doc::after { content: "документалка"; color:#00bcd4;}
 .manga::after { content: "манга"; color:#00cc8b;}
+.book::after { content: "книга"; color:#00cc8b;}
 .game::after { content: "игры"; color:#ff0000;}
 
 .short {color:#acacac;}
@@ -519,10 +520,11 @@ body {margin:0px; background:#ffffff;}
 .doc {color:#00bcd4;}
 .manga {color:#00cc8b;}
 .game {color:#ff0000;}
+.book {color:#00cc8b;}
 
 
 /* Установка позиции для tooltip */
-.short, .serial, .anime, .anime-movie, .mult, .mult-serial, .mult-short, .doc, .manga, .game {
+.short, .serial, .anime, .anime-movie, .mult, .mult-serial, .mult-short, .doc, .manga, .game, .book {
 	position: relative;
 	display: inline-block;
 	}
@@ -565,6 +567,7 @@ body.dark-mode .mult-serial::after,
 body.dark-mode .mult-short::after,
 body.dark-mode .doc::after,
 body.dark-mode .manga::after,
+body.dark-mode .book::after,
 body.dark-mode .game::after {background: #141414;}
 	
 body.dark-mode .sidebar {background:#1e1e1e;}
