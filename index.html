@@ -11,6 +11,11 @@
 <span style="display: inline-block; white-space: nowrap;">Большой фан мультфильмов и кино.</span>
 <span style="display: inline-block; white-space: nowrap;">Пишу рецензии, обзоры, лытдыбры.</span></p></div>
 
+	<div id="latest-ratings">
+  <h3>Последние оценки</h3>
+  <div id="ratings-list"></div>
+</div>
+
 <div style="display: flex; justify-content: center; align-items: center; margin: 0; flex-wrap: wrap; position: absolute; left: 0; width: 100%; height: calc(100vh - 45%);">
 <div style="display: flex; justify-content: flex-end; align-items: center; padding: 10px; margin-right: 20px; animation: float-circle 8s linear infinite;">
 <div style="margin:0px; text-align: center;"><img src="https://raw.githubusercontent.com/GanstFeveral/GanstFeveral/master/icons/avatar.jpg" style="border-radius: 50%; float: left; margin-right: 15px; object-fit: cover; width: 300px;"></div>
@@ -771,6 +776,27 @@ document.addEventListener("DOMContentLoaded", () => {
         }, 0);
       }
     });
+  });
+});
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  // Находим все строки с оценками в #chronicle
+  const ratings = document.querySelectorAll('#chronicle p br');
+  
+  // Берем только первые 3 оценки
+  const latest = Array.from(ratings).slice(0, 3);
+  
+  // Контейнер для вставки
+  const target = document.getElementById('ratings-list');
+
+  latest.forEach(item => {
+    // Создаём отдельный div для каждой оценки
+    const line = document.createElement("div");
+    // Берём текст из строки (следующий текстовый узел после <br>)
+    line.innerHTML = item.nextSibling.textContent.trim();
+    target.appendChild(line);
   });
 });
 </script>
