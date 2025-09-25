@@ -11,7 +11,7 @@
 <span style="display: inline-block; white-space: nowrap;">Большой фан мультфильмов и кино.</span>
 <span style="display: inline-block; white-space: nowrap;">Пишу рецензии, обзоры, лытдыбры.</span></p>
 
-<div id="ratings-list"><span class="grey-mini">Последние оценки ↓</span><br></div>
+<div id="ratings-list"><p><span class="grey-mini">Последние оценки ↓</span></p></div>
 
 </div>
 
@@ -795,8 +795,8 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!part) continue;
     tmp.innerHTML = part.trim();
     const text = (tmp.textContent || '').trim();
-    // Проверяем, что строка соответствует рейтингу и не содержит #ocenka
-    if (ratingRE.test(text) && !text.includes('#ocenka')) {
+    // Проверяем, что строка соответствует рейтингу
+    if (ratingRE.test(text)) {
       matches.push(part.trim());
       if (matches.length >= 3) break; // первые 3 оценки
     }
@@ -808,8 +808,15 @@ document.addEventListener('DOMContentLoaded', () => {
   const p = document.createElement('p');
   p.innerHTML = matches.join('<br>');
   ratingsList.appendChild(p);
+
+  // Скрываем любой span с id="ocenka" внутри ratingsList
+  const ocenkaSpans = ratingsList.querySelectorAll('span#ocenka');
+  ocenkaSpans.forEach(span => {
+    span.style.display = 'none';
+  });
 });
 </script>
+
 
 	
 </body>
