@@ -1,4 +1,4 @@
-body {margin:0px; background:#ffffff; height: 100%;}
+body {margin:0px; background:#ffffff; height: 100%; display: flex; flex-direction: column;}
 
 .content {
   flex: 1; /* занимает всё свободное место */
