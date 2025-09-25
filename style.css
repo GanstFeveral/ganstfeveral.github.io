@@ -4,6 +4,14 @@ body {margin:0px; background:#ffffff; height: 100%; display: flex; flex-directio
   flex: 1; /* занимает всё свободное место */
 }
 
+.ratings-container {
+  display: flex;
+  justify-content: center;  /* центрируем по горизонтали */
+  gap: 40px;                /* отступ между блоками */
+  flex-wrap: wrap;          /* разрешаем перенос на новую строку */
+  text-align: center;
+}
+
 .site-footer {
 	height: 120px;
 	color: #fff;
