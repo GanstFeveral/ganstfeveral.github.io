@@ -1,4 +1,4 @@
-body {margin:0px; background:#ffffff;}
+body {margin:0px; background:#ffffff; height: 100%;}
 
 .content {
   flex: 1; /* занимает всё свободное место */
@@ -601,7 +601,7 @@ body.dark-mode h5 {background:#3b3b3b;}
 body.dark-mode #kontakti img {opacity:100%;}
 body.dark-mode #kontakti img:hover {opacity:70%;}
 
-html {overflow-x: hidden; overflow-y: scroll;}
+html {overflow-x: hidden; overflow-y: scroll; height: 100%;}
 a {color:#0384fc; text-decoration: blink; font-weight:normal;}
 a:hover {color:#f54a6d; text-decoration: underline;}
 
