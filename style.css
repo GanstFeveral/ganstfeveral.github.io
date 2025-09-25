@@ -1,12 +1,12 @@
 body {margin:0px; background:#ffffff;}
 
 #ratings-list {
-	border: 2px solid #f54a6d;
+	border: 2px solid #bdbdbd;
 	width: 300px;
 	border-radius: 10px;
-	height: 70px;
+	height: 100px;
 	text-align: left;
-	padding: 10px;
+	padding: 5px 10px 10px 10px;
 }
 
 @keyframes fadeIn {
