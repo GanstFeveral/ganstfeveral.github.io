@@ -37,17 +37,12 @@ body {margin:0px; background:#ffffff; height: 100%; display: flex; flex-directio
 	white-space: nowrap;
 	text-overflow: ellipsis;
 	word-break: keep-all;
-}
-
-#ratings-list:after {
-	content: "";
-	position: absolute;
-	top: 0;
-	right: 0;
-	width: 20px;
-	height: 100%;
-	background: linear-gradient(to left, white, transparent);
-	pointer-events: none;
+    -webkit-mask-image: linear-gradient(to left, transparent, black 20px);
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-size: 100% 100%;
+    mask-image: linear-gradient(to left, transparent, black 100px);
+    mask-repeat: no-repeat;
+    mask-size: 100% 100%;
 }
 
 @keyframes fadeIn {
