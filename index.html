@@ -795,7 +795,8 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!part) continue;
     tmp.innerHTML = part.trim();
     const text = (tmp.textContent || '').trim();
-    if (ratingRE.test(text)) {
+    // Проверяем, что строка соответствует рейтингу и не содержит #ocenka
+    if (ratingRE.test(text) && !text.includes('#ocenka')) {
       matches.push(part.trim());
       if (matches.length >= 3) break; // первые 3 оценки
     }
@@ -805,14 +806,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Создаем один <p> для всего блока
   const p = document.createElement('p');
-  // Добавляем строки через <br>
   p.innerHTML = matches.join('<br>');
   ratingsList.appendChild(p);
 });
 </script>
-
-
-
 
 	
 </body>
