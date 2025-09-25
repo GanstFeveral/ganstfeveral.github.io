@@ -781,38 +781,66 @@ document.addEventListener("DOMContentLoaded", () => {
 </script>
 
 <script>
-document.addEventListener("DOMContentLoaded", () => {
-  // Находим весь блок с оценками
-  const chronicle = document.querySelector('#chronicle');
-
+document.addEventListener('DOMContentLoaded', () => {
+  const chronicle = document.getElementById('chronicle');
   if (!chronicle) return;
 
-  // Берем все строки <br> и ищем те, что содержат "из 10"
-  const allRatings = Array.from(chronicle.querySelectorAll('p'))
-    .flatMap(p => p.innerHTML.split('<br>')) // режем текст по переносам
-    .map(str => str.trim())                  // убираем пробелы
-    .filter(str => /^\d+\s+из\s+10\s+\|/i.test(str)); // фильтруем только "5 из 10 | ..."
+  // Разбиваем HTML внутри #chronicle по <br> (учитываем <br/> и т.п.)
+  const parts = chronicle.innerHTML.split(/<br\s*\/?>/i);
+  const tmp = document.createElement('div');
+  const matches = [];
+  // Регекс для строк формата "5 из 10 | ..."
+  const ratingRE = /^\s*\d+\s*из\s*10\s*\|/i;
 
-  // Берем последние 3
-  const latest = allRatings.slice(-3).reverse();
+  for (let part of parts) {
+    if (!part) continue;
+    part = part.trim();
+    if (!part) continue;
 
-  // Создаем контейнер вверху страницы
-  const topContainer = document.createElement('div');
-  topContainer.id = "latest-ratings";
-  topContainer.style.padding = "10px";
-  topContainer.style.borderBottom = "1px solid #ccc";
-  topContainer.innerHTML = "<h3>Последние оценки</h3>";
+    // Получаем текстовую версию (удаляем теги) для корректного теста
+    tmp.innerHTML = part;
+    const text = (tmp.textContent || '').replace(/\u00A0/g, ' ').trim();
 
-  latest.forEach(rating => {
-    const div = document.createElement("div");
-    div.innerHTML = rating; // сохраняем html (ссылки, span иконки и т.п.)
-    topContainer.appendChild(div);
+    if (ratingRE.test(text)) {
+      matches.push(part); // сохраняем HTML-версию, чтобы не потерять ссылки/иконки
+      if (matches.length >= 3) break; // нашли первые 3 — выходим
+    }
+  }
+
+  // На случай, если ничего не нашлось — попробуем просто искать "из 10" (более мягкий поиск)
+  if (matches.length === 0) {
+    for (let part of parts) {
+      if (!part) continue;
+      tmp.innerHTML = part;
+      const text = (tmp.textContent || '').replace(/\u00A0/g, ' ').trim();
+      if (text.includes('из 10')) {
+        matches.push(part);
+        if (matches.length >= 3) break;
+      }
+    }
+  }
+
+  if (matches.length === 0) return; // нечего показывать
+
+  // Собираем блок и вставляем в начало #main (наверх страницы)
+  const container = document.createElement('div');
+  container.id = 'latest-ratings';
+  container.style.cssText = 'max-width:900px;margin:10px auto;padding:10px 12px;border-bottom:1px solid #e6e6e6;';
+  container.innerHTML = '<h3 style="margin:0 0 8px 0;font-size:16px">Последние оценки</h3>';
+
+  matches.forEach(htmlLine => {
+    const row = document.createElement('div');
+    row.className = 'latest-rating';
+    row.style.margin = '4px 0';
+    row.innerHTML = htmlLine; // вставляем оригинальный HTML (с ссылками/иконками)
+    container.appendChild(row);
   });
 
-  // Вставляем контейнер в начало body (самый верх)
-  document.body.insertBefore(topContainer, document.body.firstChild);
+  const main = document.getElementById('main') || document.body;
+  main.insertBefore(container, main.firstChild);
 });
 </script>
+
 
 	
 </body>
