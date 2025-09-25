@@ -782,24 +782,38 @@ document.addEventListener("DOMContentLoaded", () => {
 
 <script>
 document.addEventListener("DOMContentLoaded", () => {
-  // Находим все строки с оценками в #chronicle
-  const ratings = document.querySelectorAll('#chronicle p br');
-  
-  // Берем только первые 3 оценки
-  const latest = Array.from(ratings).slice(0, 3);
-  
-  // Контейнер для вставки
-  const target = document.getElementById('ratings-list');
+  // Находим весь блок с оценками
+  const chronicle = document.querySelector('#chronicle');
 
-  latest.forEach(item => {
-    // Создаём отдельный div для каждой оценки
-    const line = document.createElement("div");
-    // Берём текст из строки (следующий текстовый узел после <br>)
-    line.innerHTML = item.nextSibling.textContent.trim();
-    target.appendChild(line);
+  if (!chronicle) return;
+
+  // Берем все строки <br> и ищем те, что содержат "из 10"
+  const allRatings = Array.from(chronicle.querySelectorAll('p'))
+    .flatMap(p => p.innerHTML.split('<br>')) // режем текст по переносам
+    .map(str => str.trim())                  // убираем пробелы
+    .filter(str => /^\d+\s+из\s+10\s+\|/i.test(str)); // фильтруем только "5 из 10 | ..."
+
+  // Берем последние 3
+  const latest = allRatings.slice(-3).reverse();
+
+  // Создаем контейнер вверху страницы
+  const topContainer = document.createElement('div');
+  topContainer.id = "latest-ratings";
+  topContainer.style.padding = "10px";
+  topContainer.style.borderBottom = "1px solid #ccc";
+  topContainer.innerHTML = "<h3>Последние оценки</h3>";
+
+  latest.forEach(rating => {
+    const div = document.createElement("div");
+    div.innerHTML = rating; // сохраняем html (ссылки, span иконки и т.п.)
+    topContainer.appendChild(div);
   });
+
+  // Вставляем контейнер в начало body (самый верх)
+  document.body.insertBefore(topContainer, document.body.firstChild);
 });
 </script>
+
 	
 </body>
 </html>
