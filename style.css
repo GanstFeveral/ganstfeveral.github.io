@@ -862,6 +862,7 @@ span.twitter {padding: 0px 25px 0px 25px;}
 	margin: 0 auto;
     max-width: 850px;
 	box-sizing: border-box;
+	width: 100%; 
 }
 
 #top {
