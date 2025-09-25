@@ -38,7 +38,7 @@ body {margin:0px; background:#ffffff; height: 100%; display: flex; flex-directio
 	}
 	
 #ratings-list {
-	width: 280px;
+	width: 260px;
 	height: 80px;
 	text-align: left;
 	overflow: hidden;
@@ -54,7 +54,7 @@ body {margin:0px; background:#ffffff; height: 100%; display: flex; flex-directio
 }
 
 #ratings-list2 {
-	width: 280px;
+	width: 260px;
 	height: 80px;
 	text-align: left;
 	overflow: hidden;
@@ -70,7 +70,7 @@ body {margin:0px; background:#ffffff; height: 100%; display: flex; flex-directio
 }
 
 #ratings-list3 {
-	width: 280px;
+	width: 260px;
 	height: 80px;
 	text-align: left;
 	overflow: hidden;
