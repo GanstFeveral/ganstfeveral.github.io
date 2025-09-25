@@ -1,5 +1,14 @@
 body {margin:0px; background:#ffffff;}
 
+#ratings-list {
+	border: 2px solid #f54a6d;
+	width: 300px;
+	border-radius: 10px;
+	height: 70px;
+	text-align: left;
+	padding: 10px;
+}
+
 @keyframes fadeIn {
   to {
     opacity: 1;
