@@ -38,7 +38,7 @@ body {margin:0px; background:#ffffff; height: 100%; display: flex; flex-directio
 	}
 	
 #ratings-list {
-	width: 350px;
+	width: 280px;
 	height: 80px;
 	text-align: left;
 	overflow: hidden;
@@ -54,7 +54,23 @@ body {margin:0px; background:#ffffff; height: 100%; display: flex; flex-directio
 }
 
 #ratings-list2 {
-	width: 350px;
+	width: 280px;
+	height: 80px;
+	text-align: left;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	word-break: keep-all;
+    -webkit-mask-image: linear-gradient(to left, transparent, black 20px);
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-size: 100% 100%;
+    mask-image: linear-gradient(to left, transparent, black 100px);
+    mask-repeat: no-repeat;
+    mask-size: 100% 100%;
+}
+
+#ratings-list3 {
+	width: 280px;
 	height: 80px;
 	text-align: left;
 	overflow: hidden;
