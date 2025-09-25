@@ -797,23 +797,21 @@ document.addEventListener('DOMContentLoaded', () => {
     const text = (tmp.textContent || '').trim();
     if (ratingRE.test(text)) {
       matches.push(part.trim());
-      if (matches.length >= 3) break; // первые три оценки
+      if (matches.length >= 3) break; // первые 3 оценки
     }
   }
 
-  // Если ничего не нашли, просто выходим
   if (matches.length === 0) return;
 
   // Вставляем внутрь твоего <div id="ratings-list"></div>
   matches.forEach(htmlLine => {
-    const row = document.createElement('div');
-    row.className = 'latest-rating';
-    row.style.margin = '4px 0';
-    row.innerHTML = htmlLine; // оставляем HTML со ссылками и иконками
-    ratingsList.appendChild(row);
+    const p = document.createElement('p');
+    p.innerHTML = htmlLine; // вставляем HTML, чтобы сохранились ссылки/иконки
+    ratingsList.appendChild(p);
   });
 });
 </script>
+
 
 
 	
