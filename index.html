@@ -11,7 +11,7 @@
 <span style="display: inline-block; white-space: nowrap;">Большой фан мультфильмов и кино.</span>
 <span style="display: inline-block; white-space: nowrap;">Пишу рецензии, обзоры, лытдыбры.</span></p>
 
-<div id="ratings-list"><p></p></div>
+<div id="ratings-list"></div>
 
 </div>
 
@@ -782,59 +782,36 @@ document.addEventListener("DOMContentLoaded", () => {
 <script>
 document.addEventListener('DOMContentLoaded', () => {
   const chronicle = document.getElementById('chronicle');
-  if (!chronicle) return;
+  const ratingsList = document.getElementById('ratings-list');
+  if (!chronicle || !ratingsList) return;
 
-  // Разбиваем HTML внутри #chronicle по <br> (учитываем <br/> и т.п.)
+  // Разбиваем контент блока "Оценки" по <br>
   const parts = chronicle.innerHTML.split(/<br\s*\/?>/i);
   const tmp = document.createElement('div');
   const matches = [];
-  // Регекс для строк формата "5 из 10 | ..."
   const ratingRE = /^\s*\d+\s*из\s*10\s*\|/i;
 
   for (let part of parts) {
     if (!part) continue;
-    part = part.trim();
-    if (!part) continue;
-
-    // Получаем текстовую версию (удаляем теги) для корректного теста
-    tmp.innerHTML = part;
-    const text = (tmp.textContent || '').replace(/\u00A0/g, ' ').trim();
-
+    tmp.innerHTML = part.trim();
+    const text = (tmp.textContent || '').trim();
     if (ratingRE.test(text)) {
-      matches.push(part); // сохраняем HTML-версию, чтобы не потерять ссылки/иконки
-      if (matches.length >= 3) break; // нашли первые 3 — выходим
+      matches.push(part.trim());
+      if (matches.length >= 3) break; // первые три оценки
     }
   }
 
-  // На случай, если ничего не нашлось — попробуем просто искать "из 10" (более мягкий поиск)
-  if (matches.length === 0) {
-    for (let part of parts) {
-      if (!part) continue;
-      tmp.innerHTML = part;
-      const text = (tmp.textContent || '').replace(/\u00A0/g, ' ').trim();
-      if (text.includes('из 10')) {
-        matches.push(part);
-        if (matches.length >= 3) break;
-      }
-    }
-  }
+  // Если ничего не нашли, просто выходим
+  if (matches.length === 0) return;
 
-  if (matches.length === 0) return; // нечего показывать
-
-  // Собираем блок и вставляем в начало #main (наверх страницы)
-  const container = document.createElement('div');
-  container.id = 'latest-ratings';
-
+  // Вставляем внутрь твоего <div id="ratings-list"></div>
   matches.forEach(htmlLine => {
     const row = document.createElement('div');
     row.className = 'latest-rating';
     row.style.margin = '4px 0';
-    row.innerHTML = htmlLine; // вставляем оригинальный HTML (с ссылками/иконками)
-    container.appendChild(row);
+    row.innerHTML = htmlLine; // оставляем HTML со ссылками и иконками
+    ratingsList.appendChild(row);
   });
-
-  const main = document.getElementById('main') || document.body;
-  main.insertBefore(container, main.firstChild);
 });
 </script>
 
