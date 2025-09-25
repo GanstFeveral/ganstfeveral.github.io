@@ -855,7 +855,12 @@ a:hover {color:#f54a6d; text-decoration: underline;}
 span.twitter {padding: 0px 25px 0px 25px;}
 .twitter-logo {width:14px;}
 	
-#main {display: block; padding: 0px 35px 20px 35px;}
+#main {
+	display: block;
+    padding: 0px 35px 20px 35px;
+    flex: 1;
+    max-width: 850px;
+}
 
 #top {
 	text-align: center;
