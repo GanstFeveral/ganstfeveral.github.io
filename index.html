@@ -803,14 +803,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (matches.length === 0) return;
 
-  // Вставляем внутрь твоего <div id="ratings-list"></div>
-  matches.forEach(htmlLine => {
-    const p = document.createElement('p');
-    p.innerHTML = htmlLine; // вставляем HTML, чтобы сохранились ссылки/иконки
-    ratingsList.appendChild(p);
-  });
+  // Создаем один <p> для всего блока
+  const p = document.createElement('p');
+  // Добавляем строки через <br>
+  p.innerHTML = matches.join('<br>');
+  ratingsList.appendChild(p);
 });
 </script>
+
 
 
 
