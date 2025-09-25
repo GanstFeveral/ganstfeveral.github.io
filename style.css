@@ -1,5 +1,19 @@
 body {margin:0px; background:#ffffff;}
 
+.content {
+  flex: 1; /* занимает всё свободное место */
+}
+
+.site-footer {
+  height: 200px;
+  background: #111;   /* цвет можно поменять */
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
 #ratings-list {
     border-left: 2px solid #bbbbbb;
     width: 300px;
