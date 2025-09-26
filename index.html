@@ -801,7 +801,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const ratingsList = document.getElementById('ratings-list');
   if (!chronicle || !ratingsList) return;
 
-  const addRatings = () => {
+  const WRAPPER_ID = 'my-ratings-wrapper'; // уникальный id для нашего блока
+
+  const buildHtml = () => {
     const parts = chronicle.innerHTML.split(/<br\s*\/?>/i);
     const tmp = document.createElement('div');
     const matches = [];
@@ -813,43 +815,57 @@ document.addEventListener('DOMContentLoaded', () => {
       const text = (tmp.textContent || '').trim();
       if (ratingRE.test(text)) {
         matches.push(part.trim());
-        if (matches.length >= 1) break; // ← можно заменить на 3
+        if (matches.length >= 1) break; // ← поменяй на 3 если нужно 3 оценки
       }
     }
 
-    if (matches.length === 0) return;
+    return matches.length ? matches.join('<br>') : '';
+  };
 
-    const html = matches.join('<br>');
+  const addRatings = () => {
+    const html = buildHtml();
+    if (!html) return;
 
-    // Берём первый "автоматический" узел и вставляем СРАЗУ ПОСЛЕ него
-    const firstChild = ratingsList.firstChild;
-    if (firstChild) {
-      firstChild.insertAdjacentHTML('afterend', html);
+    let wrapper = ratingsList.querySelector('#' + WRAPPER_ID);
+
+    if (!wrapper) {
+      wrapper = document.createElement('div');
+      wrapper.id = WRAPPER_ID;
+      wrapper.innerHTML = html;
+      // Вставляем перед любым существующим содержимым (т.е. перед "текст 2")
+      if (ratingsList.firstChild) {
+        ratingsList.insertBefore(wrapper, ratingsList.firstChild);
+      } else {
+        ratingsList.appendChild(wrapper);
+      }
     } else {
-      ratingsList.insertAdjacentHTML('afterbegin', html);
+      // Обновляем содержимое и гарантируем, что файл в начале
+      wrapper.innerHTML = html;
+      if (ratingsList.firstChild !== wrapper) {
+        ratingsList.insertBefore(wrapper, ratingsList.firstChild);
+      }
     }
 
-    // Скрываем span#ocenka только внутри нашего списка
+    // Скрываем span#ocenka внутри ratingsList (как раньше)
     ratingsList.querySelectorAll('span#ocenka').forEach(span => {
       span.style.display = 'none';
     });
   };
 
-  // Наблюдаем за изменениями, ждём когда появится первый автоконтент
-  const observer = new MutationObserver((mutations, obs) => {
-    if (ratingsList.firstChild) {
+  // Наблюдатель: если наш блок пропадёт или сместится — восстанавливаем его в начало
+  const observer = new MutationObserver(() => {
+    const wrapper = ratingsList.querySelector('#' + WRAPPER_ID);
+    if (!wrapper || ratingsList.firstChild !== wrapper) {
+      observer.disconnect();
       addRatings();
-      obs.disconnect(); // добавили и больше не мешаем
+      observer.observe(ratingsList, { childList: true });
     }
   });
 
-  observer.observe(ratingsList, { childList: true, subtree: false });
+  observer.observe(ratingsList, { childList: true });
 
-  // Если автоматический контент уже был до загрузки скрипта
-  if (ratingsList.firstChild) {
-    addRatings();
-    observer.disconnect();
-  }
+  // Попытка вставки сразу при загрузке (если есть данные)
+  addRatings();
 });
 </script>
 
