@@ -27,7 +27,7 @@ body {margin:0px; background:#ffffff; height: 100%; display: flex; flex-directio
 }
 
 .site-footer {
-	height: 105px;
+	height: 85px;
 	color: #fff;
 	align-items: center;
 	text-align: center;
@@ -35,7 +35,7 @@ body {margin:0px; background:#ffffff; height: 100%; display: flex; flex-directio
 	margin: 0 auto;
 	width: 100%;
 	box-sizing: border-box;
-    padding: 20px;
+    padding: 10px 20px 10px 20px;
 	position: relative;
 	display: flex;
 	justify-content: space-between;
