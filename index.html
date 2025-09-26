@@ -800,6 +800,12 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 </script>
 
+
+
+
+
+	
+
 <script>
 document.addEventListener('DOMContentLoaded', () => {
   const chronicle = document.getElementById('chronicle');
@@ -826,7 +832,8 @@ document.addEventListener('DOMContentLoaded', () => {
       // Всё после | — название, включая HTML
       const titleHtml = tmp.innerHTML.slice(pipeIndex + 1).trim();
 
-      matches.push(`Оценка: ${titleHtml} (${rating})`);
+      // Добавляем span с прозрачностью для оценки
+      matches.push(`Оценка: ${titleHtml} <span style="opacity: 0.5">(${rating})</span>`);
 
       if (matches.length >= 1) break; // можно поставить 3 для трёх рейтингов
     }
@@ -857,6 +864,7 @@ document.addEventListener('DOMContentLoaded', () => {
   observer.observe(ratingsList, { childList: true });
 });
 </script>
+
 
 
 
