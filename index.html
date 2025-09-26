@@ -813,7 +813,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const text = (tmp.textContent || '').trim();
       if (ratingRE.test(text)) {
         matches.push(part.trim());
-        if (matches.length >= 1) break; // ← тут можешь поменять на 3, если нужно три оценки
+        if (matches.length >= 1) break; // ← можно заменить на 3
       }
     }
 
@@ -821,37 +821,38 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const html = matches.join('<br>');
 
-    // 👉 Вставляем сразу после первого уже существующего элемента
-    if (ratingsList.firstChild) {
-      ratingsList.firstChild.insertAdjacentHTML('afterend', html);
+    // Берём первый "автоматический" узел и вставляем СРАЗУ ПОСЛЕ него
+    const firstChild = ratingsList.firstChild;
+    if (firstChild) {
+      firstChild.insertAdjacentHTML('afterend', html);
     } else {
-      // если div пустой — добавляем в начало
       ratingsList.insertAdjacentHTML('afterbegin', html);
     }
 
-    // Скрываем span#ocenka внутри ratingsList
+    // Скрываем span#ocenka только внутри нашего списка
     ratingsList.querySelectorAll('span#ocenka').forEach(span => {
       span.style.display = 'none';
     });
   };
 
-  // Наблюдаем за изменениями (чтобы дождаться автоконтента)
+  // Наблюдаем за изменениями, ждём когда появится первый автоконтент
   const observer = new MutationObserver((mutations, obs) => {
-    if (ratingsList.innerHTML.trim().length > 0) {
+    if (ratingsList.firstChild) {
       addRatings();
-      obs.disconnect(); // больше не нужно следить
+      obs.disconnect(); // добавили и больше не мешаем
     }
   });
 
-  observer.observe(ratingsList, { childList: true });
+  observer.observe(ratingsList, { childList: true, subtree: false });
 
-  // Если контент уже был на момент загрузки
-  if (ratingsList.innerHTML.trim().length > 0) {
+  // Если автоматический контент уже был до загрузки скрипта
+  if (ratingsList.firstChild) {
     addRatings();
     observer.disconnect();
   }
 });
 </script>
+
 
 	
 </body>
