@@ -38,8 +38,7 @@ body {margin:0px; background:#ffffff; height: 100%; display: flex; flex-directio
 	}
 	
 #ratings-list {
-	width: 260px;
-	height: 80px;
+	max-width: 810px;
 	text-align: left;
 	overflow: hidden;
 	white-space: nowrap;
