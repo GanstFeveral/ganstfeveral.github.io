@@ -807,23 +807,23 @@ document.addEventListener('DOMContentLoaded', () => {
   if (!chronicle || !ratingsList) return;
 
   const buildHtml = () => {
+    // Разделяем на строки по <br>
     const parts = chronicle.innerHTML.split(/<br\s*\/?>/i);
-    const tmp = document.createElement('div');
     const matches = [];
-    const ratingRE = /^\s*(\d+\s*из\s*10)\s*\|\s*(.+)$/i;
 
     for (let part of parts) {
-      if (!part) continue;
-      tmp.innerHTML = part.trim();
-      const text = (tmp.textContent || '').trim();
-      const match = text.match(ratingRE);
-      if (match) {
-        const rating = match[1];      // "5 из 10"
-        const titleHtml = match[2];   // "Alien: Earth / 2025" — оставляем HTML
-        matches.push(`Оценка: <span>${titleHtml}</span> (${rating})`);
-        if (matches.length >= 1) break; // можно поставить 3 для трёх рейтингов
+      if (!part.trim()) continue;
+
+      // Проверяем, есть ли оценка в начале строки
+      const ratingMatch = part.match(/^\s*(\d+\s*из\s*10)\s*\|\s*(.+)$/i);
+      if (ratingMatch) {
+        const rating = ratingMatch[1];       // "5 из 10"
+        const titleHtml = ratingMatch[2];    // ВСЁ после |, включая span и атрибуты
+        matches.push(`Оценка: ${titleHtml} (${rating})`);
+        if (matches.length >= 1) break;      // можно поставить 3 для трёх рейтингов
       }
     }
+
     return matches.join('<br>');
   };
 
@@ -843,11 +843,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const existingHtml = p.innerHTML.replace(/^\s*<br\s*\/?>\s*/, '');
     p.innerHTML = html + (existingHtml ? '<br>' + existingHtml : '');
-
-    // Сохраняем стиль span как есть
-    p.querySelectorAll('span').forEach(span => {
-      span.style.display = ''; // не скрываем
-    });
   };
 
   addRatings();
@@ -855,6 +850,7 @@ document.addEventListener('DOMContentLoaded', () => {
   observer.observe(ratingsList, { childList: true });
 });
 </script>
+
 
 
 
