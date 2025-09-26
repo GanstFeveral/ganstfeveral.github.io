@@ -6,9 +6,9 @@ body {margin:0px; background:#ffffff; height: 100%; display: flex; flex-directio
 
 .ratings-container {
   display: flex;
-  justify-content: center;  /* центрируем по горизонтали */
-  gap: 15px;                /* отступ между блоками */
-  flex-wrap: wrap;          /* разрешаем перенос на новую строку */
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
   text-align: center;
 }
 
@@ -55,6 +55,7 @@ body {margin:0px; background:#ffffff; height: 100%; display: flex; flex-directio
 #ratings-list p{
 	margin-top: 0px;
     margin-bottom: 0px;
+	font-size:12px;
 	}
 
 @keyframes fadeIn {
