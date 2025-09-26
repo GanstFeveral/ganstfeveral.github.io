@@ -52,37 +52,10 @@ body {margin:0px; background:#ffffff; height: 100%; display: flex; flex-directio
     mask-size: 100% 100%;
 }
 
-#ratings-list2 {
-	width: 260px;
-	height: 80px;
-	text-align: left;
-	overflow: hidden;
-	white-space: nowrap;
-	text-overflow: ellipsis;
-	word-break: keep-all;
-    -webkit-mask-image: linear-gradient(to left, transparent, black 20px);
-    -webkit-mask-repeat: no-repeat;
-    -webkit-mask-size: 100% 100%;
-    mask-image: linear-gradient(to left, transparent, black 100px);
-    mask-repeat: no-repeat;
-    mask-size: 100% 100%;
-}
-
-#ratings-list3 {
-	width: 260px;
-	height: 80px;
-	text-align: left;
-	overflow: hidden;
-	white-space: nowrap;
-	text-overflow: ellipsis;
-	word-break: keep-all;
-    -webkit-mask-image: linear-gradient(to left, transparent, black 20px);
-    -webkit-mask-repeat: no-repeat;
-    -webkit-mask-size: 100% 100%;
-    mask-image: linear-gradient(to left, transparent, black 100px);
-    mask-repeat: no-repeat;
-    mask-size: 100% 100%;
-}
+#ratings-list {
+	margin-top: 0px;
+    margin-bottom: 0px;
+	}
 
 @keyframes fadeIn {
   to {
