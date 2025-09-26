@@ -11,7 +11,7 @@ body {margin:0px; background:#ffffff; height: 100%; display: flex; flex-directio
 }
 
 .footer-right {
-  flex: 0 0 100px;
+  flex: 0 0 200px;
   text-align: center;
 }
 
