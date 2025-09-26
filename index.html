@@ -807,21 +807,28 @@ document.addEventListener('DOMContentLoaded', () => {
   if (!chronicle || !ratingsList) return;
 
   const buildHtml = () => {
-    // Разделяем на строки по <br>
     const parts = chronicle.innerHTML.split(/<br\s*\/?>/i);
     const matches = [];
 
     for (let part of parts) {
       if (!part.trim()) continue;
 
-      // Проверяем, есть ли оценка в начале строки
-      const ratingMatch = part.match(/^\s*(\d+\s*из\s*10)\s*\|\s*(.+)$/i);
-      if (ratingMatch) {
-        const rating = ratingMatch[1];       // "5 из 10"
-        const titleHtml = ratingMatch[2];    // ВСЁ после |, включая span и атрибуты
-        matches.push(`Оценка: ${titleHtml} (${rating})`);
-        if (matches.length >= 1) break;      // можно поставить 3 для трёх рейтингов
-      }
+      const tmp = document.createElement('div');
+      tmp.innerHTML = part.trim();
+
+      // Найдём индекс символа | в innerHTML
+      const pipeIndex = tmp.innerHTML.indexOf('|');
+      if (pipeIndex === -1) continue;
+
+      // Всё до | — оценка
+      const rating = tmp.innerHTML.slice(0, pipeIndex).trim();
+
+      // Всё после | — название, включая HTML
+      const titleHtml = tmp.innerHTML.slice(pipeIndex + 1).trim();
+
+      matches.push(`Оценка: ${titleHtml} (${rating})`);
+
+      if (matches.length >= 1) break; // можно поставить 3 для трёх рейтингов
     }
 
     return matches.join('<br>');
@@ -850,6 +857,7 @@ document.addEventListener('DOMContentLoaded', () => {
   observer.observe(ratingsList, { childList: true });
 });
 </script>
+
 
 
 
