@@ -801,8 +801,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const ratingsList = document.getElementById('ratings-list');
   if (!chronicle || !ratingsList) return;
 
-  const WRAPPER_ID = 'my-ratings-wrapper';
-
   const buildHtml = () => {
     const parts = chronicle.innerHTML.split(/<br\s*\/?>/i);
     const tmp = document.createElement('div');
@@ -815,19 +813,19 @@ document.addEventListener('DOMContentLoaded', () => {
       const text = (tmp.textContent || '').trim();
       if (ratingRE.test(text)) {
         matches.push(part.trim());
-        if (matches.length >= 1) break; // ← поставь 3 если нужно три оценки
+        if (matches.length >= 1) break; // можно поставить 3 для трёх рейтингов
       }
     }
-
-    return matches.length ? matches.join('<br>') : '';
+    return matches.join('<br>');
   };
 
   const addRatings = () => {
     const html = buildHtml();
     if (!html) return;
 
-    // Если <p> ещё нет, создаём и переносим туда всё содержимое
     let p = ratingsList.querySelector('p');
+
+    // если <p> ещё нет, создаём его и переносим туда весь контент
     if (!p) {
       p = document.createElement('p');
       while (ratingsList.firstChild) {
@@ -836,30 +834,11 @@ document.addEventListener('DOMContentLoaded', () => {
       ratingsList.appendChild(p);
     }
 
-    // Проверяем, есть ли уже наш рейтинг внутри <p>
-    let wrapper = p.querySelector('#' + WRAPPER_ID);
-    if (!wrapper) {
-      wrapper = document.createElement('span');
-      wrapper.id = WRAPPER_ID;
-      wrapper.innerHTML = html;
+    // формируем новый порядок: рейтинг + <br> + существующий текст
+    const existingHtml = p.innerHTML.replace(/^\s*<br\s*\/?>\s*/, ''); // очищаем возможный старый <br> спереди
+    p.innerHTML = html + (existingHtml ? '<br>' + existingHtml : '');
 
-      // Вставляем наш рейтинг в начало <p>
-      if (p.firstChild) {
-        p.insertBefore(wrapper, p.firstChild);
-        p.insertBefore(document.createElement('br'), wrapper.nextSibling);
-      } else {
-        p.appendChild(wrapper);
-      }
-    } else {
-      wrapper.innerHTML = html;
-      // гарантируем, что наш рейтинг в начале
-      if (p.firstChild !== wrapper) {
-        p.insertBefore(wrapper, p.firstChild);
-        p.insertBefore(document.createElement('br'), wrapper.nextSibling);
-      }
-    }
-
-    // Скрываем span#ocenka внутри
+    // Скрываем все span#ocenka внутри p
     p.querySelectorAll('span#ocenka').forEach(span => {
       span.style.display = 'none';
     });
@@ -872,6 +851,7 @@ document.addEventListener('DOMContentLoaded', () => {
   observer.observe(ratingsList, { childList: true });
 });
 </script>
+
 
 
 
