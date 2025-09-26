@@ -801,7 +801,21 @@ document.addEventListener('DOMContentLoaded', () => {
   const ratingsList = document.getElementById('ratings-list');
   if (!chronicle || !ratingsList) return;
 
-  const WRAPPER_ID = 'my-ratings-wrapper'; // уникальный id для нашего блока
+  const WRAPPER_ID = 'my-ratings-wrapper';
+
+  const ensureParagraphWrapper = () => {
+    // если внутри уже есть <p>, используем его
+    let p = ratingsList.querySelector('p');
+    if (!p) {
+      p = document.createElement('p');
+      // перемещаем всё текущее содержимое внутрь <p>
+      while (ratingsList.firstChild) {
+        p.appendChild(ratingsList.firstChild);
+      }
+      ratingsList.appendChild(p);
+    }
+    return p;
+  };
 
   const buildHtml = () => {
     const parts = chronicle.innerHTML.split(/<br\s*\/?>/i);
@@ -815,7 +829,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const text = (tmp.textContent || '').trim();
       if (ratingRE.test(text)) {
         matches.push(part.trim());
-        if (matches.length >= 1) break; // ← поменяй на 3 если нужно 3 оценки
+        if (matches.length >= 1) break; // ← поставь 3, если нужно три оценки
       }
     }
 
@@ -826,48 +840,43 @@ document.addEventListener('DOMContentLoaded', () => {
     const html = buildHtml();
     if (!html) return;
 
-    let wrapper = ratingsList.querySelector('#' + WRAPPER_ID);
+    const p = ensureParagraphWrapper();
 
+    let wrapper = p.querySelector('#' + WRAPPER_ID);
     if (!wrapper) {
-      wrapper = document.createElement('div');
+      wrapper = document.createElement('span'); // span внутри <p>
       wrapper.id = WRAPPER_ID;
       wrapper.innerHTML = html;
-      // Вставляем перед любым существующим содержимым (т.е. перед "текст 2")
-      if (ratingsList.firstChild) {
-        ratingsList.insertBefore(wrapper, ratingsList.firstChild);
+      // вставляем в самое начало <p>
+      if (p.firstChild) {
+        p.insertBefore(wrapper, p.firstChild);
+        p.insertBefore(document.createElement('br'), wrapper.nextSibling);
       } else {
-        ratingsList.appendChild(wrapper);
+        p.appendChild(wrapper);
       }
     } else {
-      // Обновляем содержимое и гарантируем, что файл в начале
       wrapper.innerHTML = html;
-      if (ratingsList.firstChild !== wrapper) {
-        ratingsList.insertBefore(wrapper, ratingsList.firstChild);
+      if (p.firstChild !== wrapper) {
+        p.insertBefore(wrapper, p.firstChild);
       }
     }
 
-    // Скрываем span#ocenka внутри ratingsList (как раньше)
-    ratingsList.querySelectorAll('span#ocenka').forEach(span => {
+    // Скрываем span#ocenka внутри
+    p.querySelectorAll('span#ocenka').forEach(span => {
       span.style.display = 'none';
     });
   };
 
-  // Наблюдатель: если наш блок пропадёт или сместится — восстанавливаем его в начало
   const observer = new MutationObserver(() => {
-    const wrapper = ratingsList.querySelector('#' + WRAPPER_ID);
-    if (!wrapper || ratingsList.firstChild !== wrapper) {
-      observer.disconnect();
-      addRatings();
-      observer.observe(ratingsList, { childList: true });
-    }
+    addRatings();
   });
 
-  observer.observe(ratingsList, { childList: true });
+  observer.observe(ratingsList, { childList: true, subtree: true });
 
-  // Попытка вставки сразу при загрузке (если есть данные)
   addRatings();
 });
 </script>
+
 
 
 	
