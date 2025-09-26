@@ -813,7 +813,7 @@ document.addEventListener('DOMContentLoaded', () => {
       tmp.innerHTML = part.trim();
       const text = (tmp.textContent || '').trim();
       if (ratingRE.test(text)) {
-        matches.push(part.trim());
+        matches.push(`Последняя оценка: ${part.trim()}`);
         if (matches.length >= 1) break; // можно поставить 3 для трёх рейтингов
       }
     }
@@ -826,7 +826,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let p = ratingsList.querySelector('p');
 
-    // если <p> ещё нет, создаём его и переносим туда весь контент
     if (!p) {
       p = document.createElement('p');
       while (ratingsList.firstChild) {
@@ -835,19 +834,15 @@ document.addEventListener('DOMContentLoaded', () => {
       ratingsList.appendChild(p);
     }
 
-    // формируем новый порядок: рейтинг + <br> + существующий текст
-    const existingHtml = p.innerHTML.replace(/^\s*<br\s*\/?>\s*/, ''); // очищаем возможный старый <br> спереди
+    const existingHtml = p.innerHTML.replace(/^\s*<br\s*\/?>\s*/, '');
     p.innerHTML = html + (existingHtml ? '<br>' + existingHtml : '');
 
-    // Скрываем все span#ocenka внутри p
     p.querySelectorAll('span#ocenka').forEach(span => {
       span.style.display = 'none';
     });
   };
 
   addRatings();
-
-  // Следим за динамическим добавлением контента
   const observer = new MutationObserver(() => addRatings());
   observer.observe(ratingsList, { childList: true });
 });
