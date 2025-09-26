@@ -802,7 +802,6 @@ document.addEventListener('DOMContentLoaded', () => {
   if (!chronicle || !ratingsList) return;
 
   const addRatings = () => {
-    // Разбиваем контент блока "Оценки" по <br>
     const parts = chronicle.innerHTML.split(/<br\s*\/?>/i);
     const tmp = document.createElement('div');
     const matches = [];
@@ -812,41 +811,48 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!part) continue;
       tmp.innerHTML = part.trim();
       const text = (tmp.textContent || '').trim();
-      // Проверяем, что строка соответствует рейтингу
       if (ratingRE.test(text)) {
         matches.push(part.trim());
-        if (matches.length >= 1) break; // первые 1 оценка
+        if (matches.length >= 1) break; // ← тут можешь поменять на 3, если нужно три оценки
       }
     }
 
     if (matches.length === 0) return;
 
-    // Добавляем контент после любого автоматически вставленного содержимого
-    ratingsList.insertAdjacentHTML('beforeend', matches.join('<br>'));
+    const html = matches.join('<br>');
 
-    // Скрываем любой span с id="ocenka" внутри ratingsList
+    // 👉 Вставляем сразу после первого уже существующего элемента
+    if (ratingsList.firstChild) {
+      ratingsList.firstChild.insertAdjacentHTML('afterend', html);
+    } else {
+      // если div пустой — добавляем в начало
+      ratingsList.insertAdjacentHTML('afterbegin', html);
+    }
+
+    // Скрываем span#ocenka внутри ratingsList
     ratingsList.querySelectorAll('span#ocenka').forEach(span => {
       span.style.display = 'none';
     });
   };
 
-  // ✅ Следим за изменениями внутри #ratings-list (на случай, если контент добавляется динамически)
+  // Наблюдаем за изменениями (чтобы дождаться автоконтента)
   const observer = new MutationObserver((mutations, obs) => {
     if (ratingsList.innerHTML.trim().length > 0) {
       addRatings();
-      obs.disconnect(); // останавливаем наблюдение после вставки
+      obs.disconnect(); // больше не нужно следить
     }
   });
 
   observer.observe(ratingsList, { childList: true });
 
-  // ✅ На случай, если контент уже есть к моменту загрузки
+  // Если контент уже был на момент загрузки
   if (ratingsList.innerHTML.trim().length > 0) {
     addRatings();
     observer.disconnect();
   }
 });
 </script>
+
 	
 </body>
 </html>
