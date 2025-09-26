@@ -822,7 +822,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Проверяем, что строка соответствует рейтингу
     if (ratingRE.test(text)) {
       matches.push(part.trim());
-      if (matches.length >= 3) break; // первые 3 оценки
+      if (matches.length >= 1) break; // первые 3 оценки
     }
   }
 
