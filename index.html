@@ -531,11 +531,11 @@ TG			<span id="ocenka"><a href="" target="_blank" class="soc-tel"></a></span> Н
 
 <footer class="site-footer">
 	
-<div id="ratings-list"></div>
-<p>Творчество: <a href="https://github.com/GanstFeveral/X-Sidebar" target="_blank">X Sidebar</a><br>
+<div id="ratings-list">Творчество: <a href="https://github.com/GanstFeveral/X-Sidebar" target="_blank">X Sidebar</a><br>
 Тред: <a target="_blank" href="https://x.com/GanstFeveral/status/1921300654749819337">Ожидание договорнячка</a><br>
 Железо: <a href="/#zhelezo">TP-Link Archer AX18</a><br>
-© GanstFeveral 1987-2015</p>
+© GanstFeveral 1987-2015</p></div>
+
 
 </div>
 </footer>
@@ -814,16 +814,14 @@ document.addEventListener('DOMContentLoaded', () => {
     // Проверяем, что строка соответствует рейтингу
     if (ratingRE.test(text)) {
       matches.push(part.trim());
-      if (matches.length >= 1) break; // первые 3 оценки
+      if (matches.length >= 1) break; // пока только первая оценка
     }
   }
 
   if (matches.length === 0) return;
 
-  // Создаем один <p> для всего блока
-  const p = document.createElement('p');
-  p.innerHTML = matches.join('<br>');
-  ratingsList.appendChild(p);
+  // Вставляем контент начиная с <p>, но без закрывающего </p>
+  ratingsList.insertAdjacentHTML('beforeend', '<p>' + matches.join('<br>'));
 
   // Скрываем любой span с id="ocenka" внутри ratingsList
   const ocenkaSpans = ratingsList.querySelectorAll('span#ocenka');
@@ -832,5 +830,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 </script>
+
+	
 </body>
 </html>
