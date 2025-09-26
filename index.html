@@ -801,36 +801,52 @@ document.addEventListener('DOMContentLoaded', () => {
   const ratingsList = document.getElementById('ratings-list');
   if (!chronicle || !ratingsList) return;
 
-  // Разбиваем контент блока "Оценки" по <br>
-  const parts = chronicle.innerHTML.split(/<br\s*\/?>/i);
-  const tmp = document.createElement('div');
-  const matches = [];
-  const ratingRE = /^\s*\d+\s*из\s*10\s*\|/i;
+  const addRatings = () => {
+    // Разбиваем контент блока "Оценки" по <br>
+    const parts = chronicle.innerHTML.split(/<br\s*\/?>/i);
+    const tmp = document.createElement('div');
+    const matches = [];
+    const ratingRE = /^\s*\d+\s*из\s*10\s*\|/i;
 
-  for (let part of parts) {
-    if (!part) continue;
-    tmp.innerHTML = part.trim();
-    const text = (tmp.textContent || '').trim();
-    // Проверяем, что строка соответствует рейтингу
-    if (ratingRE.test(text)) {
-      matches.push(part.trim());
-      if (matches.length >= 1) break; // пока только первая оценка
+    for (let part of parts) {
+      if (!part) continue;
+      tmp.innerHTML = part.trim();
+      const text = (tmp.textContent || '').trim();
+      // Проверяем, что строка соответствует рейтингу
+      if (ratingRE.test(text)) {
+        matches.push(part.trim());
+        if (matches.length >= 1) break; // первые 1 оценка
+      }
     }
-  }
 
-  if (matches.length === 0) return;
+    if (matches.length === 0) return;
 
-  // Вставляем контент начиная с <p>, но без закрывающего </p>
-  ratingsList.insertAdjacentHTML('beforeend', '<p>' + matches.join('<br>'));
+    // Добавляем контент после любого автоматически вставленного содержимого
+    ratingsList.insertAdjacentHTML('beforeend', matches.join('<br>'));
 
-  // Скрываем любой span с id="ocenka" внутри ratingsList
-  const ocenkaSpans = ratingsList.querySelectorAll('span#ocenka');
-  ocenkaSpans.forEach(span => {
-    span.style.display = 'none';
+    // Скрываем любой span с id="ocenka" внутри ratingsList
+    ratingsList.querySelectorAll('span#ocenka').forEach(span => {
+      span.style.display = 'none';
+    });
+  };
+
+  // ✅ Следим за изменениями внутри #ratings-list (на случай, если контент добавляется динамически)
+  const observer = new MutationObserver((mutations, obs) => {
+    if (ratingsList.innerHTML.trim().length > 0) {
+      addRatings();
+      obs.disconnect(); // останавливаем наблюдение после вставки
+    }
   });
+
+  observer.observe(ratingsList, { childList: true });
+
+  // ✅ На случай, если контент уже есть к моменту загрузки
+  if (ratingsList.innerHTML.trim().length > 0) {
+    addRatings();
+    observer.disconnect();
+  }
 });
 </script>
-
 	
 </body>
 </html>
