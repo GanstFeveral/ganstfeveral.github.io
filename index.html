@@ -815,7 +815,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const text = (tmp.textContent || '').trim();
       if (ratingRE.test(text)) {
         matches.push(part.trim());
-        if (matches.length >= 1) break; // ← поменяй на 3 если нужно 3 оценки
+        if (matches.length >= 1) break; // ← поставь 3 если нужно три оценки
       }
     }
 
@@ -826,7 +826,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const html = buildHtml();
     if (!html) return;
 
-    // Если внутри нет <p>, создаём и переносим туда всё содержимое
+    // Если <p> ещё нет, создаём и переносим туда всё содержимое
     let p = ratingsList.querySelector('p');
     if (!p) {
       p = document.createElement('p');
@@ -836,14 +836,14 @@ document.addEventListener('DOMContentLoaded', () => {
       ratingsList.appendChild(p);
     }
 
-    // Наш блок
+    // Проверяем, есть ли уже наш рейтинг внутри <p>
     let wrapper = p.querySelector('#' + WRAPPER_ID);
     if (!wrapper) {
       wrapper = document.createElement('span');
       wrapper.id = WRAPPER_ID;
       wrapper.innerHTML = html;
 
-      // вставляем в начало <p>, потом переносим старый контент после него
+      // Вставляем наш рейтинг в начало <p>
       if (p.firstChild) {
         p.insertBefore(wrapper, p.firstChild);
         p.insertBefore(document.createElement('br'), wrapper.nextSibling);
@@ -852,6 +852,11 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     } else {
       wrapper.innerHTML = html;
+      // гарантируем, что наш рейтинг в начале
+      if (p.firstChild !== wrapper) {
+        p.insertBefore(wrapper, p.firstChild);
+        p.insertBefore(document.createElement('br'), wrapper.nextSibling);
+      }
     }
 
     // Скрываем span#ocenka внутри
@@ -860,14 +865,14 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   };
 
-  // Сначала пробуем вставить сразу
   addRatings();
 
-  // Следим только за изменениями в ratingsList (на случай динамики)
+  // Следим за динамическим добавлением контента
   const observer = new MutationObserver(() => addRatings());
   observer.observe(ratingsList, { childList: true });
 });
 </script>
+
 
 
 
