@@ -833,8 +833,10 @@ document.addEventListener('DOMContentLoaded', () => {
       // Всё после | — название, включая HTML
       const titleHtml = tmp.innerHTML.slice(pipeIndex + 1).trim();
 
-      // Добавляем span с прозрачностью для оценки
-      matches.push(`Оценка: ${titleHtml} <span style="opacity: 0.5">(${rating})</span>`);
+      // "Оценка:" обычное, название с opacity 0.2, оценка с opacity 0.5
+      matches.push(
+        `Оценка: <span style="opacity: 0.2">${titleHtml}</span> <span style="opacity: 0.5">(${rating})</span>`
+      );
 
       if (matches.length >= 1) break; // можно поставить 3 для трёх рейтингов
     }
@@ -865,6 +867,7 @@ document.addEventListener('DOMContentLoaded', () => {
   observer.observe(ratingsList, { childList: true });
 });
 </script>
+
 
 
 
