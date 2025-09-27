@@ -27,7 +27,7 @@ body {margin:0px; background:#ffffff; height: 100%; display: flex; flex-directio
 }
 
 .site-footer {
-	height: 85px;
+	height: 105px;
 	color: #fff;
 	align-items: center;
 	text-align: center;
@@ -35,7 +35,7 @@ body {margin:0px; background:#ffffff; height: 100%; display: flex; flex-directio
 	margin: 0 auto;
 	width: 100%;
 	box-sizing: border-box;
-    padding: 10px 20px 10px 20px;
+    padding: 20px;
 	position: relative;
 	display: flex;
 	justify-content: space-between;
@@ -909,7 +909,7 @@ span.twitter {padding: 0px 25px 0px 25px;}
 	
 #main {
 	display: block;
-    padding: 0px 20px 20px 20px;
+    padding: 0px 20px 0px 20px;
     flex: 1;
 	margin: 0 auto;
     max-width: 850px;
