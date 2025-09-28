@@ -18,6 +18,14 @@ body {margin:0px; background:#ffffff; height: 100%; display: flex; flex-directio
   text-align: right;
 }
 
+.footer-right img {
+	opacity:0.7;
+}
+	
+.footer-right img:hover {
+	filter: brightness(1.25);
+}
+
 .ratings-container {
   display: flex;
   justify-content: center;
