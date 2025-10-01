@@ -25,7 +25,7 @@ body {margin:0px; background:#ffffff; height: 100%; display: flex; flex-directio
       background: #fff;
       padding: 20px;
       border-radius: 8px;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+      box-shadow: 0 5px 100px #f54a6d;
       width: 300px;
       max-width: 90%;
     }
