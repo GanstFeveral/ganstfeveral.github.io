@@ -698,6 +698,7 @@ body.dark-mode h5 {background:#3b3b3b;}
 body.dark-mode #kontakti img {opacity:100%;}
 body.dark-mode #kontakti img:hover {opacity:70%;}
 body.dark-mode .site-footer::before {background-color: #3b3b3b;}
+body.dark-mode .modalBox77 {background:#141414;}
 
 
 html {overflow-x: hidden; overflow-y: scroll; height: 100%;}
