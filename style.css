@@ -34,8 +34,6 @@ body {margin:0px; background:#ffffff; height: 100%; display: flex; flex-directio
       display: inline-block;
       margin-top: 15px;
       cursor: pointer;
-      color: red;
-      text-decoration: underline;
     }
 
 #ratings-list .short::after, .serial::after, .anime::after, .anime-movie::after, .mult::after, .mult-serial::after, .mult-short::after, .doc::after, .manga::after, .book::after, .game::after {display:none;}
