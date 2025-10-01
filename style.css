@@ -1,5 +1,43 @@
 body {margin:0px; background:#ffffff; height: 100%; display: flex; flex-direction: column;}
 
+   #openBtn77 {
+      cursor: pointer;
+      color: blue;
+      text-decoration: underline;
+    }
+
+    /* Фон-затемнение */
+    .overlay77 {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(4px);
+      z-index: 999;
+    }
+
+    /* Окно */
+    .modalBox77 {
+      position: fixed;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+      width: 300px;
+      max-width: 90%;
+    }
+
+    .closeBtn77 {
+      display: inline-block;
+      margin-top: 15px;
+      cursor: pointer;
+      color: red;
+      text-decoration: underline;
+    }
+
 #ratings-list .short::after, .serial::after, .anime::after, .anime-movie::after, .mult::after, .mult-serial::after, .mult-short::after, .doc::after, .manga::after, .book::after, .game::after {display:none;}
 
 .content {
