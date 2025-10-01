@@ -2,8 +2,6 @@ body {margin:0px; background:#ffffff; height: 100%; display: flex; flex-directio
 
    #openBtn77 {
       cursor: pointer;
-      color: blue;
-      text-decoration: underline;
     }
 
     /* Фон-затемнение */
