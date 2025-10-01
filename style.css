@@ -1,11 +1,24 @@
 body {margin:0px; background:#ffffff; height: 100%; display: flex; flex-direction: column;}
 
+    .boxArea42 {
+      display: none; /* изначально скрыт */
+      margin-top: 10px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      background: #f9f9f9;
+    }
+    a {
+      cursor: pointer;
+      color: blue;
+      text-decoration: underline;
+    }
+
+
 #ratings-list .short::after, .serial::after, .anime::after, .anime-movie::after, .mult::after, .mult-serial::after, .mult-short::after, .doc::after, .manga::after, .book::after, .game::after {display:none;}
 
 .content {
   flex: 1; /* занимает всё свободное место */
 }
-
 
 .footer-left {
 	flex: 1 1 auto;
