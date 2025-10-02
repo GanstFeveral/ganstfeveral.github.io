@@ -1,5 +1,8 @@
 body {margin:0px; background:#ffffff; height: 100%; display: flex; flex-direction: column;}
 
+#profile {height:94%;}
+#profile {height:100%;}
+
    #openBtn77 {
       cursor: pointer;
     }
