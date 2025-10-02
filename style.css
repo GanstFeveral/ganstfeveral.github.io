@@ -22,8 +22,6 @@ body {margin:0px; background:#ffffff; height: 100%; display: flex; flex-directio
 	transform: translate(-50%, -50%);
 	background: #fff;
 	padding: 0px 20px 0px 20px;
-	border-radius: 8px;
-	box-shadow: 0 5px 100px #f54a6d;
 	width: 400px;
 	max-width: 90%;
     }
