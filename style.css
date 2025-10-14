@@ -725,6 +725,8 @@ a:hover {color:#f54a6d; text-decoration: underline;}
 
 #ocenka .soc-x {opacity:50%;}
 #ocenka .soc-x:hover {opacity:100%;}
+#ocenka .soc-y {opacity:50%;}
+#ocenka .soc-y:hover {opacity:100%;}
 #ocenka .soc-tel {opacity:50%;}
 #ocenka .soc-tel:hover {opacity:100%;}
 #ocenka .soc-▲ {opacity:100%;}
@@ -825,6 +827,17 @@ a:hover {color:#f54a6d; text-decoration: underline;}
 	margin-left: 3px;
 	}
 
+.soc-y::before {
+	content: '';
+	display: inline-block;
+	width: 12px;
+	height: 12px;
+	background-size: contain;
+	background-repeat: no-repeat;
+	margin-right: 3px;
+	margin-left: 3px;
+	}
+
 .soc-tel::before {
 	content: '';
 	display: inline-block;
@@ -860,6 +873,10 @@ a:hover {color:#f54a6d; text-decoration: underline;}
 
 .soc-x::before {
     background-image: url('https://raw.githubusercontent.com/GanstFeveral/ganstfeveral.github.io/master/icons/xlogo.png');
+}
+
+.soc-y::before {
+    background-image: url('https://raw.githubusercontent.com/GanstFeveral/ganstfeveral.github.io/master/icons/youtube.png');
 }
 
 .soc-tel::before {
