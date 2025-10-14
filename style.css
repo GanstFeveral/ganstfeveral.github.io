@@ -39,7 +39,7 @@ body {margin:0px; background:#ffffff; height: 100%; display: flex; flex-directio
     position: absolute;
     }
 
-#ratings-list .short::after, .serial::after, .anime::after, .anime-movie::after, .mult::after, .mult-serial::after, .mult-short::after, .doc::after, .manga::after, .book::after, .game::after {display:none;}
+#ratings-list .short::after, .serial::after, .anime::after, .anime-movie::after, .mult::after, .mult-serial::after, .mult-short::after, .doc::after, .manga::after, .book::after, .game::after {display:none1;}
 
 .content {
   flex: 1; /* занимает всё свободное место */
