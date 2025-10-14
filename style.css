@@ -39,7 +39,7 @@ body {margin:0px; background:#ffffff; height: 100%; display: flex; flex-directio
     position: absolute;
     }
 
-#ratings-list .short::after, .serial::after, .anime::after, .anime-movie::after, .mult::after, .mult-serial::after, .mult-short::after, .doc::after, .manga::after, .book::after, .game::after {display:none1;}
+#ratings-list .short:hover::after, .serial:hover::after, .anime:hover::after, .anime-movie:hover::after, .mult:hover::after, .mult-serial:hover::after, .mult-short:hover::after, .doc:hover::after, .manga:hover::after, .book:hover::after, .game:hover::after {display:none;}
 
 .content {
   flex: 1; /* занимает всё свободное место */
