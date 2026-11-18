@@ -186,7 +186,7 @@ select {
       <span id="rateValue">1.0×</span>
     </label>
     <input id="rate" type="range"
-      min="0.5" max="4" step="0.1" value="1">
+      min="0.5" max="4" step="0.1" value="3">
   </div>
 
   <div class="setting">
@@ -195,7 +195,7 @@ select {
       <span id="volumeValue">100%</span>
     </label>
     <input id="volume" type="range"
-      min="0" max="1" step="0.05" value="1">
+      min="0" max="1" step="0.05" value="0.6">
   </div>
 
   <button id="test" class="secondary" style="width:100%">
@@ -207,7 +207,7 @@ select {
   <h3>Фильтры</h3>
 
   <div class="toggle">
-    <input type="checkbox" id="filterEmoji" checked>
+    <input type="checkbox" id="filterEmoji">
     <label for="filterEmoji">Не зачитывать эмодзи и смайлики</label>
   </div>
 
@@ -651,6 +651,22 @@ $("disconnect").onclick = disconnect;
 $("skip").onclick = skipMessage;
 $("mute").onclick = toggleMute;
 $("test").onclick = testVoice;
+
+// Вторая боковая кнопка мыши (обычно Mouse Button 5 / e.button === 4):
+// первое нажатие пропускает сообщение и выключает звук;
+// следующее только возвращает прежнюю громкость.
+document.addEventListener("mousedown", event => {
+  if (event.button !== 4) return;
+
+  event.preventDefault();
+
+  if (muted) {
+    toggleMute();
+  } else {
+    skipMessage();
+    toggleMute();
+  }
+});
 
 // --------------------
 // Автоподключение
