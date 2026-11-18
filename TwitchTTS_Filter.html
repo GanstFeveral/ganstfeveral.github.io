@@ -1,0 +1,669 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Twitch TTS Filter</title>
+
+<style>
+* { box-sizing: border-box; }
+
+body {
+  background: #18181b;
+  color: white;
+  font: 14px Arial, sans-serif;
+  padding: 14px;
+  max-width: 540px;
+  margin: auto;
+}
+
+h2 {
+  color: #bf94ff;
+  margin: 5px 0 14px;
+  font-size: 20px;
+}
+
+h3 {
+  font-size: 15px;
+  margin: 0 0 12px;
+}
+
+.panel {
+  background: #222226;
+  border: 1px solid #38383e;
+  border-radius: 8px;
+  padding: 12px;
+  margin-top: 11px;
+}
+
+button, select, input {
+  font: inherit;
+  border-radius: 5px;
+}
+
+button {
+  cursor: pointer;
+  background: #9147ff;
+  color: white;
+  border: none;
+  padding: 11px 8px;
+  font-weight: bold;
+}
+
+button:hover { filter: brightness(1.15); }
+
+.top-buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 9px;
+}
+
+#skip {
+  background: #c03945;
+  font-size: 15px;
+}
+
+#mute {
+  background: #393940;
+  font-size: 15px;
+}
+
+#mute.muted { background: #16834b; }
+
+input[type="range"] {
+  width: 100%;
+  accent-color: #a970ff;
+  margin: 5px 0;
+}
+
+select {
+  width: 100%;
+  padding: 9px;
+  background: #29292e;
+  color: white;
+  border: 1px solid #444;
+}
+
+.setting {
+  margin: 11px 0;
+}
+
+.setting label {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+
+.toggle {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin: 10px 0;
+}
+
+.toggle input {
+  accent-color: #a970ff;
+  width: 17px;
+  height: 17px;
+  margin: 0;
+}
+
+.toggle label { cursor: pointer; }
+
+.small {
+  color: #999;
+  font-size: 11px;
+  line-height: 1.45;
+}
+
+#status {
+  color: #aaa;
+  margin-top: 12px;
+}
+
+#current {
+  color: #bf94ff;
+  overflow-wrap: anywhere;
+  margin-top: 5px;
+  min-height: 18px;
+}
+
+#log {
+  background: #151518;
+  padding: 9px;
+  height: 130px;
+  overflow-y: auto;
+  font-size: 12px;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  border-radius: 5px;
+}
+
+.bottom-buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.secondary { background: #393940; }
+.danger { background: #8d3038; }
+
+</style>
+</head>
+
+<body>
+
+<h2>Twitch TTS Filter</h2>
+
+<div class="top-buttons">
+  <button id="skip">⏭ ПРОПУСТИТЬ</button>
+  <button id="mute">🔇 ВЫКЛЮЧИТЬ ЗВУК</button>
+</div>
+
+<div class="panel">
+  <h3>Подключение</h3>
+  <div><b>Канал:</b> ganstfeveral</div>
+  <div id="status">Подключение...</div>
+  <div class="bottom-buttons">
+    <button id="connect">Переподключить</button>
+    <button id="disconnect" class="danger">Отключиться</button>
+  </div>
+</div>
+
+<div class="panel">
+  <h3>Голос</h3>
+
+  <div class="setting">
+    <label for="voice">Синтезатор</label>
+    <select id="voice"></select>
+  </div>
+
+  <div class="setting">
+    <label>
+      Скорость
+      <span id="rateValue">1.0×</span>
+    </label>
+    <input id="rate" type="range"
+      min="0.5" max="4" step="0.1" value="1">
+  </div>
+
+  <div class="setting">
+    <label>
+      Громкость
+      <span id="volumeValue">100%</span>
+    </label>
+    <input id="volume" type="range"
+      min="0" max="1" step="0.05" value="1">
+  </div>
+
+  <button id="test" class="secondary" style="width:100%">
+    Проверить голос
+  </button>
+</div>
+
+<div class="panel">
+  <h3>Фильтры</h3>
+
+  <div class="toggle">
+    <input type="checkbox" id="filterEmoji" checked>
+    <label for="filterEmoji">Не зачитывать эмодзи и смайлики</label>
+  </div>
+
+  <div class="toggle">
+    <input type="checkbox" id="readSpecialNames">
+    <label for="readSpecialNames">
+      Зачитывать ники с цифрами и _
+    </label>
+  </div>
+
+  <div class="toggle">
+    <input type="checkbox" id="readCleanNames">
+    <label for="readCleanNames">
+      Зачитывать ники без цифр и _
+    </label>
+  </div>
+
+  <p class="small">
+    Настройки ников независимы. Если включены обе,
+    зачитываются все упоминания. Если обе выключены,
+    упоминаемые ники удаляются.
+  </p>
+</div>
+
+<div class="panel">
+  <h3>Сейчас озвучивается</h3>
+  <div id="current">Нет активного сообщения</div>
+</div>
+
+<div class="panel">
+  <h3>История сообщений</h3>
+  <div id="log"></div>
+</div>
+
+<script>
+const CHANNEL = "ganstfeveral";
+
+let socket = null;
+let voices = [];
+let queue = [];
+let speaking = false;
+let currentUtterance = null;
+let speechToken = 0;
+let reconnectTimer = null;
+let manuallyDisconnected = false;
+
+let muted = false;
+let previousVolume = 1;
+
+const $ = id => document.getElementById(id);
+
+// --------------------
+// Голоса
+// --------------------
+
+function loadVoices() {
+  voices = speechSynthesis.getVoices();
+
+  const select = $("voice");
+  const previous = select.value;
+
+  select.innerHTML = "";
+
+  voices.forEach((voice, index) => {
+    const option = document.createElement("option");
+    option.value = index;
+    option.textContent = `${voice.name} (${voice.lang})`;
+    select.appendChild(option);
+  });
+
+  if (voices[Number(previous)]) {
+    select.value = previous;
+  } else {
+    const russian = voices.findIndex(v =>
+      v.lang.toLowerCase().startsWith("ru")
+    );
+
+    if (russian >= 0) select.value = russian;
+  }
+}
+
+speechSynthesis.onvoiceschanged = loadVoices;
+loadVoices();
+
+// --------------------
+// Регуляторы
+// --------------------
+
+$("rate").addEventListener("input", () => {
+  $("rateValue").textContent =
+    Number($("rate").value).toFixed(1) + "×";
+});
+
+$("volume").addEventListener("input", () => {
+  $("volumeValue").textContent =
+    Math.round(Number($("volume").value) * 100) + "%";
+
+  if (!muted) {
+    previousVolume = Number($("volume").value);
+  }
+});
+
+// --------------------
+// Кнопка отключения звука
+// --------------------
+
+function toggleMute() {
+  if (!muted) {
+    previousVolume = Number($("volume").value);
+    $("volume").value = 0;
+    muted = true;
+
+    $("mute").textContent = "🔊 ВЕРНУТЬ ЗВУК";
+    $("mute").classList.add("muted");
+  } else {
+    $("volume").value = previousVolume;
+    muted = false;
+
+    $("mute").textContent = "🔇 ВЫКЛЮЧИТЬ ЗВУК";
+    $("mute").classList.remove("muted");
+  }
+
+  $("volume").dispatchEvent(new Event("input"));
+
+  if (currentUtterance && speaking) {
+    currentUtterance.volume = Number($("volume").value);
+  }
+}
+
+// --------------------
+// Фильтрация ников
+// --------------------
+
+function filterNames(text) {
+
+  // Ищем упоминания вида @Username, @User_123 и т.д.
+  // Поддерживаем пробелы и распространённую пунктуацию.
+
+  const mentionPattern =
+    /(^|[\s([{])@([a-zA-Z0-9_]{1,25})(?=$|[\s.,!?;:)\]}])/g;
+
+  return text.replace(
+    mentionPattern,
+    (full, prefix, username) => {
+
+      const hasSpecialCharacters = /[0-9_]/.test(username);
+
+      if (hasSpecialCharacters) {
+        if ($("readSpecialNames").checked) {
+          return prefix + username;
+        }
+
+        return prefix;
+      }
+
+      if ($("readCleanNames").checked) {
+        return prefix + username;
+      }
+
+      return prefix;
+    }
+  );
+}
+
+// --------------------
+// Фильтрация эмодзи
+// --------------------
+
+function filterEmojis(text) {
+  if (!$("filterEmoji").checked) return text;
+
+  // Убираем Unicode-эмодзи
+  try {
+    text = text.replace(
+      /(?:\p{Extended_Pictographic}|\p{Regional_Indicator}|\uFE0F|\u200D|\u20E3|\p{Emoji_Modifier})+/gu,
+      " "
+    );
+  } catch (e) {
+    text = text.replace(
+      /[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}]/gu,
+      " "
+    );
+  }
+
+  // Убираем текстовые смайлики
+  text = text.replace(
+    /(?:[:;=8xX][-^']?[)(/DPpOo]+|<3|\^_\^|T_T|;-?\))/gi,
+    " "
+  );
+
+  return text;
+}
+
+function cleanMessage(text) {
+  text = filterNames(text);
+  text = filterEmojis(text);
+
+  return text.replace(/\s+/g, " ").trim();
+}
+
+// --------------------
+// История
+// --------------------
+
+function addLog(text) {
+  const line = document.createElement("div");
+  line.textContent = text;
+
+  $("log").appendChild(line);
+
+  while ($("log").children.length > 100) {
+    $("log").removeChild($("log").firstChild);
+  }
+
+  $("log").scrollTop = $("log").scrollHeight;
+}
+
+// --------------------
+// Очередь озвучивания
+// --------------------
+
+function enqueue(text) {
+  if (!text.trim()) return;
+
+  // Ограничиваем очередь, чтобы она не росла бесконечно
+  if (queue.length >= 100) {
+    queue.shift();
+  }
+
+  queue.push(text);
+  processQueue();
+}
+
+function processQueue() {
+  if (speaking || queue.length === 0) return;
+
+  const text = queue.shift();
+
+  speaking = true;
+
+  const token = ++speechToken;
+
+  $("current").textContent = text;
+
+  const utterance = new SpeechSynthesisUtterance(text);
+
+  utterance.rate = Number($("rate").value);
+  utterance.volume = Number($("volume").value);
+
+  const selectedVoice = voices[Number($("voice").value)];
+
+  if (selectedVoice) {
+    utterance.voice = selectedVoice;
+  }
+
+  currentUtterance = utterance;
+
+  function finish() {
+    if (token !== speechToken) return;
+
+    speaking = false;
+    currentUtterance = null;
+
+    $("current").textContent = "Нет активного сообщения";
+
+    processQueue();
+  }
+
+  utterance.onend = finish;
+  utterance.onerror = finish;
+
+  speechSynthesis.speak(utterance);
+}
+
+// --------------------
+// Пропуск сообщения
+// --------------------
+
+function skipMessage() {
+
+  // Если сейчас ничего не произносится,
+  // удаляем первое ожидающее сообщение.
+  if (!speaking) {
+    queue.shift();
+    processQueue();
+    return;
+  }
+
+  speechToken++;
+
+  speaking = false;
+  currentUtterance = null;
+
+  speechSynthesis.cancel();
+
+  $("current").textContent = "Сообщение пропущено";
+
+  processQueue();
+}
+
+// --------------------
+// Twitch IRC
+// --------------------
+
+function connect() {
+  manuallyDisconnected = false;
+
+  if (reconnectTimer) {
+    clearTimeout(reconnectTimer);
+    reconnectTimer = null;
+  }
+
+  if (socket) {
+    socket.onclose = null;
+    socket.close();
+    socket = null;
+  }
+
+  $("status").textContent = "Подключение к #" + CHANNEL + "...";
+
+  const nick = "justinfan" +
+    Math.floor(Math.random() * 900000 + 100000);
+
+  socket = new WebSocket(
+    "wss://irc-ws.chat.twitch.tv:443"
+  );
+
+  socket.onopen = () => {
+    socket.send("PASS SCHMOOPIIE");
+    socket.send("NICK " + nick);
+    socket.send("JOIN #" + CHANNEL);
+  };
+
+  socket.onmessage = event => {
+
+    const lines = event.data.split("\r\n");
+
+    lines.forEach(line => {
+
+      if (line.startsWith("PING")) {
+        if (socket && socket.readyState === WebSocket.OPEN) {
+          socket.send("PONG :tmi.twitch.tv");
+        }
+        return;
+      }
+
+      if (line.includes(" 366 ")) {
+        $("status").textContent =
+          "🟢 Подключено к #" + CHANNEL;
+        return;
+      }
+
+      // Поддерживаем IRC-сообщения как с тегами,
+      // так и без тегов.
+      const match = line.match(
+        /^(?:@[^ ]+ )?:([^! ]+)![^ ]+ PRIVMSG #[^ ]+ :(.*)$/
+      );
+
+      if (match) {
+        const sender = match[1];
+        const original = match[2];
+
+        const filtered = cleanMessage(original);
+
+        addLog(
+          sender + ": " +
+          (filtered || "[пустое после фильтрации]")
+        );
+
+        if (filtered) {
+          enqueue(filtered);
+        }
+      }
+    });
+  };
+
+  socket.onerror = () => {
+    $("status").textContent = "Ошибка соединения";
+  };
+
+  socket.onclose = () => {
+    socket = null;
+
+    if (!manuallyDisconnected) {
+      $("status").textContent =
+        "Соединение потеряно. Переподключение...";
+
+      reconnectTimer = setTimeout(connect, 5000);
+    }
+  };
+}
+
+// --------------------
+// Отключение
+// --------------------
+
+function disconnect() {
+  manuallyDisconnected = true;
+
+  if (reconnectTimer) {
+    clearTimeout(reconnectTimer);
+    reconnectTimer = null;
+  }
+
+  if (socket) {
+    const oldSocket = socket;
+    socket = null;
+    oldSocket.onclose = null;
+    oldSocket.close();
+  }
+
+  speechToken++;
+  speechSynthesis.cancel();
+
+  queue = [];
+  speaking = false;
+  currentUtterance = null;
+
+  $("current").textContent = "Нет активного сообщения";
+  $("status").textContent = "Отключено";
+}
+
+// --------------------
+// Проверка голоса
+// --------------------
+
+function testVoice() {
+  enqueue(
+    cleanMessage(
+      "Проверка синтезатора. Привет! Сегодня 2026 год. @Test_User99. @TestUser."
+    )
+  );
+}
+
+// --------------------
+// Кнопки
+// --------------------
+
+$("connect").onclick = connect;
+$("disconnect").onclick = disconnect;
+$("skip").onclick = skipMessage;
+$("mute").onclick = toggleMute;
+$("test").onclick = testVoice;
+
+// --------------------
+// Автоподключение
+// --------------------
+
+window.addEventListener("load", () => {
+  loadVoices();
+
+  // Автоматически подключаемся к ganstfeveral
+  setTimeout(connect, 1000);
+});
+
+</script>
+
+</body>
+</html>
