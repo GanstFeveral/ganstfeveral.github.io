@@ -184,6 +184,59 @@ select {
 .secondary { background: #393940; }
 .danger { background: #8d3038; }
 
+
+.nickname-editor {
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
+  gap: 7px;
+  margin-top: 10px;
+}
+.nickname-editor input {
+  min-width: 0;
+  width: 100%;
+  padding: 9px;
+  background: #29292e;
+  color: white;
+  border: 1px solid #444;
+}
+.nickname-editor button { padding: 9px 12px; }
+.nickname-list {
+  display: grid;
+  gap: 7px;
+  margin-top: 10px;
+}
+.nickname-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 8px;
+  padding: 8px;
+  background: #19191d;
+  border: 1px solid #38383e;
+  border-radius: 6px;
+}
+.nickname-row-text {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.nickname-row-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.nickname-row button {
+  background: #55515f;
+  padding: 7px 9px;
+  font-size: 12px;
+}
+.nickname-row button.edit-nickname { background: #505d79; }
+.nickname-row button.reset-nickname { background: #55515f; }
+.nickname-editor button.secondary { background: #55515f; }
+@media (max-width: 420px) {
+  .nickname-editor { grid-template-columns: 1fr 1fr; }
+  .nickname-editor button { grid-column: 1 / -1; }
+}
+
 </style>
 </head>
 
@@ -225,20 +278,32 @@ select {
 </div>
 
 <div class="panel">
-  <h3>Голос</h3>
-
-  <div class="setting">
-    <label for="voice">Синтезатор</label>
-    <select id="voice"></select>
-  </div>
-
-  <button id="test" class="secondary" style="width:100%">
-    Проверить голос
-  </button>
-</div>
-
-<div class="panel">
   <h3>Фильтры</h3>
+
+  <h3 style="margin-top:16px">Варианты озвучивания ников</h3>
+  <p class="small">Укажи ник Twitch и вариант, который должен произносить синтезатор. Если для ника нет отдельного варианта, используется стандартное чтение с учётом настроек озвучивания ников ниже. Кнопка «Сбросить» удаляет пользовательский вариант.</p>
+  <div class="toggle">
+    <input type="checkbox" id="enableCustomNicknamePronunciations" checked>
+    <label for="enableCustomNicknamePronunciations">Зачитывать добавленные варианты ников</label>
+  </div>
+  <p class="small">Если выключить эту настройку, добавленные варианты временно перестанут использоваться, но останутся в списке. Их можно будет снова включить в любой момент.</p>
+  <div class="nickname-editor">
+    <input id="nicknameInput" type="text" maxlength="25" placeholder="Ник в Twitch" autocomplete="off">
+    <input id="nicknamePronunciation" type="text" maxlength="60" placeholder="Как произносить" autocomplete="off">
+    <button id="addNickname" type="button">Добавить</button>
+    <button id="cancelNicknameEdit" type="button" class="secondary" hidden>Отмена</button>
+  </div>
+  <div id="nicknameStatus" class="small" aria-live="polite"></div>
+  <div id="nicknameList" class="nickname-list"></div>
+
+  <h3 style="margin-top:18px">Игнорируемые пользователи</h3>
+  <p class="small">Добавь Twitch-ники, сообщения которых не должны попадать в озвучивание. Их сообщения останутся видны в истории, но произноситься не будут.</p>
+  <div class="nickname-editor" style="grid-template-columns:minmax(0,1fr) auto">
+    <input id="ignoredNicknameInput" type="text" maxlength="25" placeholder="Ник Twitch" autocomplete="off">
+    <button id="addIgnoredNickname" type="button">Добавить</button>
+  </div>
+  <div id="ignoredNicknameStatus" class="small" aria-live="polite"></div>
+  <div id="ignoredNicknameList" class="nickname-list"></div>
 
   <div class="toggle">
     <input type="checkbox" id="filterEmoji">
@@ -259,12 +324,48 @@ select {
     </label>
   </div>
 
+  <div class="toggle">
+    <input type="checkbox" id="replaceLinks" checked>
+    <label for="replaceLinks">Зачитывать ссылки как «ссылка»</label>
+  </div>
+
+  <div class="toggle">
+    <input type="checkbox" id="readLinksFully">
+    <label for="readLinksFully">Зачитывать ссылки полностью</label>
+  </div>
+
+  <div class="toggle">
+    <input type="checkbox" id="filterEnglishWords">
+    <label for="filterEnglishWords">Не зачитывать английские слова</label>
+  </div>
+
+  <div class="toggle">
+    <input type="checkbox" id="antiSpam">
+    <label for="antiSpam">Антиспам: если слово повторяется больше 5 раз подряд, оставить первые 5</label>
+  </div>
+
+  <p class="small">Если снять галочку «Зачитывать ссылки как “ссылка”», можно отдельно включить «Зачитывать ссылки полностью». Если оба флажка выключены, ссылки не зачитываются.</p>
+
   <p class="small">
     Настройки ников независимы. Если включены обе,
     зачитываются все упоминания. Если обе выключены,
     упоминаемые ники удаляются.
   </p>
 </div>
+
+<div class="panel">
+  <h3>Голос</h3>
+
+  <div class="setting">
+    <label for="voice">Синтезатор</label>
+    <select id="voice"></select>
+  </div>
+
+  <button id="test" class="secondary" style="width:100%">
+    Проверить голос
+  </button>
+</div>
+
 
 <div class="panel">
   <h3>Сейчас озвучивается</h3>
@@ -380,8 +481,334 @@ function toggleMute() {
   }
 }
 
+// Два режима чтения ссылок взаимоисключающие только при включении одного из них.
+// Снятие галочки «ссылка» НЕ отключает и НЕ скрывает возможность читать URL полностью.
+// Если обе галочки сняты, ссылки не зачитываются.
+$("replaceLinks").addEventListener("change", () => {
+  if ($("replaceLinks").checked) $("readLinksFully").checked = false;
+});
+
+$("readLinksFully").addEventListener("change", () => {
+  if ($("readLinksFully").checked) $("replaceLinks").checked = false;
+});
+
 // --------------------
-// Фильтрация ников
+// Фильтрация ссылок
+// --------------------
+
+function filterLinks(text) {
+  // Поддерживаем ссылки с протоколом, www и обычные домены
+  // (например, twitch.tv/channel или example.com/page).
+  const urlPattern = /(?:https?:\/\/|ftp:\/\/|www\.)[^\s<>"']+|\b(?:[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?\.)+(?:[a-z]{2,}|xn--[a-z0-9-]{2,})(?:\/[^\s<>"']*)?/gi;
+
+  return text.replace(urlPattern, (url) => {
+    // Не включаем завершающую пунктуацию в саму ссылку.
+    const trailingMatch = url.match(/[.,!?;:)]*$/);
+    const trailing = trailingMatch ? trailingMatch[0] : "";
+    const cleanUrl = trailing ? url.slice(0, -trailing.length) : url;
+
+    if ($("replaceLinks").checked) return "ссылка" + trailing;
+    if ($("readLinksFully").checked) return cleanUrl + trailing;
+    return trailing;
+  });
+}
+
+// --------------------
+// Пользовательские варианты озвучивания ников
+// --------------------
+
+const NICKNAME_STORAGE_KEY = "twitchTtsNicknamePronunciations";
+let nicknamePronunciations = {};
+
+function loadNicknamePronunciations() {
+  try {
+    const saved = JSON.parse(localStorage.getItem(NICKNAME_STORAGE_KEY) || "{}");
+    if (saved && typeof saved === "object" && !Array.isArray(saved)) {
+      nicknamePronunciations = Object.fromEntries(
+        Object.entries(saved).filter(([nick, pronunciation]) =>
+          /^[a-zA-Z0-9_]{1,25}$/.test(nick) &&
+          typeof pronunciation === "string" && pronunciation.trim()
+        ).map(([nick, pronunciation]) => [nick.toLowerCase(), pronunciation.trim()])
+      );
+    }
+  } catch (error) {
+    nicknamePronunciations = {};
+  }
+  renderNicknamePronunciations();
+}
+
+function saveNicknamePronunciations() {
+  try {
+    localStorage.setItem(NICKNAME_STORAGE_KEY, JSON.stringify(nicknamePronunciations));
+  } catch (error) {
+    $("nicknameStatus").textContent = "Не удалось сохранить настройки в этом браузере.";
+  }
+}
+
+let editingNicknameKey = null;
+
+function finishNicknameEditing(clearStatus = false) {
+  editingNicknameKey = null;
+  $("nicknameInput").value = "";
+  $("nicknamePronunciation").value = "";
+  $("addNickname").textContent = "Добавить";
+  $("cancelNicknameEdit").hidden = true;
+  if (clearStatus) $("nicknameStatus").textContent = "";
+}
+
+function renderNicknamePronunciations() {
+  const list = $("nicknameList");
+  if (!list) return;
+  list.replaceChildren();
+
+  const entries = Object.entries(nicknamePronunciations).sort((a, b) => a[0].localeCompare(b[0]));
+  if (!entries.length) {
+    const empty = document.createElement("div");
+    empty.className = "small";
+    empty.textContent = "Пока нет пользовательских вариантов ников.";
+    list.appendChild(empty);
+    return;
+  }
+
+  entries.forEach(([nick, pronunciation]) => {
+    const row = document.createElement("div");
+    row.className = "nickname-row";
+
+    const label = document.createElement("div");
+    label.className = "nickname-row-text";
+    label.textContent = nick + " → " + pronunciation;
+
+    const actions = document.createElement("div");
+    actions.className = "nickname-row-actions";
+
+    const edit = document.createElement("button");
+    edit.type = "button";
+    edit.className = "edit-nickname";
+    edit.textContent = "Изменить";
+    edit.title = "Изменить ник или вариант произношения";
+    edit.addEventListener("click", () => {
+      editingNicknameKey = nick;
+      $("nicknameInput").value = nick;
+      $("nicknamePronunciation").value = nicknamePronunciations[nick];
+      $("addNickname").textContent = "Сохранить";
+      $("cancelNicknameEdit").hidden = false;
+      $("nicknameStatus").textContent = "Редактирование варианта для " + nick + ".";
+      $("nicknamePronunciation").focus();
+    });
+
+    const reset = document.createElement("button");
+    reset.type = "button";
+    reset.className = "reset-nickname";
+    reset.textContent = "Сбросить";
+    reset.title = "Вернуть стандартное чтение ника";
+    reset.addEventListener("click", () => {
+      delete nicknamePronunciations[nick];
+      if (editingNicknameKey === nick) finishNicknameEditing();
+      saveNicknamePronunciations();
+      renderNicknamePronunciations();
+      $("nicknameStatus").textContent = "Для " + nick + " восстановлено стандартное чтение.";
+    });
+
+    actions.append(edit, reset);
+    row.append(label, actions);
+    list.appendChild(row);
+  });
+}
+
+function addNicknamePronunciation() {
+  const nick = $("nicknameInput").value.trim().replace(/^@/, "");
+  const normalizedNick = nick.toLowerCase();
+  const pronunciation = $("nicknamePronunciation").value.trim();
+
+  if (!/^[a-zA-Z0-9_]{1,25}$/.test(nick)) {
+    $("nicknameStatus").textContent = "Укажи корректный ник Twitch (буквы, цифры и _; до 25 символов).";
+    return;
+  }
+  if (!pronunciation) {
+    $("nicknameStatus").textContent = "Укажи вариант произношения ника.";
+    return;
+  }
+
+  if (editingNicknameKey !== null) {
+    if (normalizedNick !== editingNicknameKey && Object.prototype.hasOwnProperty.call(nicknamePronunciations, normalizedNick)) {
+      $("nicknameStatus").textContent = "Для этого ника уже есть вариант произношения. Выбери другой ник.";
+      return;
+    }
+    const oldNick = editingNicknameKey;
+    if (normalizedNick !== oldNick) delete nicknamePronunciations[oldNick];
+    nicknamePronunciations[normalizedNick] = pronunciation;
+    saveNicknamePronunciations();
+    finishNicknameEditing();
+    renderNicknamePronunciations();
+    $("nicknameStatus").textContent = "Вариант произношения для " + nick + " обновлён.";
+    return;
+  }
+
+  nicknamePronunciations[normalizedNick] = pronunciation;
+  saveNicknamePronunciations();
+  renderNicknamePronunciations();
+  $("nicknameInput").value = "";
+  $("nicknamePronunciation").value = "";
+  $("nicknameStatus").textContent = "Вариант произношения для " + nick + " сохранён.";
+}
+
+$("addNickname").addEventListener("click", addNicknamePronunciation);
+$("cancelNicknameEdit").addEventListener("click", () => {
+  finishNicknameEditing(true);
+});
+$("nicknamePronunciation").addEventListener("keydown", event => {
+  if (event.key === "Enter") addNicknamePronunciation();
+  if (event.key === "Escape" && editingNicknameKey !== null) finishNicknameEditing(true);
+});
+$("nicknameInput").addEventListener("keydown", event => {
+  if (event.key === "Enter") addNicknamePronunciation();
+  if (event.key === "Escape" && editingNicknameKey !== null) finishNicknameEditing(true);
+});
+loadNicknamePronunciations();
+
+// Включение/отключение пользовательских вариантов произношения ников.
+// Сами варианты сохраняются, даже когда переключатель выключен.
+const CUSTOM_NICKNAME_PRONUNCIATIONS_ENABLED_KEY = "twitchTtsCustomNicknamePronunciationsEnabled";
+try {
+  const savedCustomNicknameState = localStorage.getItem(CUSTOM_NICKNAME_PRONUNCIATIONS_ENABLED_KEY);
+  if (savedCustomNicknameState !== null) {
+    $("enableCustomNicknamePronunciations").checked = savedCustomNicknameState !== "false";
+  }
+} catch (error) {
+  // При недоступном localStorage оставляем включённое значение по умолчанию.
+}
+$("enableCustomNicknamePronunciations").addEventListener("change", () => {
+  try {
+    localStorage.setItem(
+      CUSTOM_NICKNAME_PRONUNCIATIONS_ENABLED_KEY,
+      String($("enableCustomNicknamePronunciations").checked)
+    );
+  } catch (error) {
+    // Переключатель продолжит работать до закрытия/перезагрузки страницы.
+  }
+});
+
+// --------------------
+// Список пользователей, сообщения которых не озвучиваются
+// --------------------
+
+const IGNORED_NICKNAMES_STORAGE_KEY = "twitchTtsIgnoredNicknames";
+let ignoredNicknames = [];
+
+function loadIgnoredNicknames() {
+  try {
+    const saved = JSON.parse(localStorage.getItem(IGNORED_NICKNAMES_STORAGE_KEY) || "[]");
+    if (Array.isArray(saved)) {
+      ignoredNicknames = [...new Set(saved
+        .filter(nick => typeof nick === "string" && /^[a-zA-Z0-9_]{1,25}$/.test(nick))
+        .map(nick => nick.toLowerCase()))];
+    }
+  } catch (error) {
+    ignoredNicknames = [];
+  }
+  renderIgnoredNicknames();
+}
+
+function saveIgnoredNicknames() {
+  try {
+    localStorage.setItem(IGNORED_NICKNAMES_STORAGE_KEY, JSON.stringify(ignoredNicknames));
+  } catch (error) {
+    $("ignoredNicknameStatus").textContent = "Не удалось сохранить список в этом браузере.";
+  }
+}
+
+function renderIgnoredNicknames() {
+  const list = $("ignoredNicknameList");
+  if (!list) return;
+  list.replaceChildren();
+
+  if (!ignoredNicknames.length) {
+    const empty = document.createElement("div");
+    empty.className = "small";
+    empty.textContent = "Список пуст.";
+    list.appendChild(empty);
+    return;
+  }
+
+  [...ignoredNicknames].sort((a, b) => a.localeCompare(b)).forEach(nick => {
+    const row = document.createElement("div");
+    row.className = "nickname-row";
+
+    const label = document.createElement("div");
+    label.className = "nickname-row-text";
+    label.textContent = nick;
+
+    const remove = document.createElement("button");
+    remove.type = "button";
+    remove.className = "reset-nickname";
+    remove.textContent = "Удалить";
+    remove.title = "Убрать ник из списка игнорирования";
+    remove.addEventListener("click", () => {
+      ignoredNicknames = ignoredNicknames.filter(item => item !== nick);
+      saveIgnoredNicknames();
+      renderIgnoredNicknames();
+      $("ignoredNicknameStatus").textContent = "Пользователь " + nick + " удалён из списка.";
+    });
+
+    const actions = document.createElement("div");
+    actions.className = "nickname-row-actions";
+    actions.appendChild(remove);
+    row.append(label, actions);
+    list.appendChild(row);
+  });
+}
+
+function addIgnoredNickname() {
+  const nick = $("ignoredNicknameInput").value.trim().replace(/^@/, "");
+  if (!/^[a-zA-Z0-9_]{1,25}$/.test(nick)) {
+    $("ignoredNicknameStatus").textContent = "Укажи корректный ник Twitch (буквы, цифры и _; до 25 символов).";
+    return;
+  }
+
+  const normalizedNick = nick.toLowerCase();
+  if (ignoredNicknames.includes(normalizedNick)) {
+    $("ignoredNicknameStatus").textContent = "Этот пользователь уже есть в списке.";
+    return;
+  }
+
+  ignoredNicknames.push(normalizedNick);
+  saveIgnoredNicknames();
+  renderIgnoredNicknames();
+  $("ignoredNicknameInput").value = "";
+  $("ignoredNicknameStatus").textContent = "Пользователь " + normalizedNick + " добавлен в список.";
+}
+
+$("addIgnoredNickname").addEventListener("click", addIgnoredNickname);
+$("ignoredNicknameInput").addEventListener("keydown", event => {
+  if (event.key === "Enter") addIgnoredNickname();
+});
+loadIgnoredNicknames();
+
+function isIgnoredNickname(sender) {
+  return ignoredNicknames.includes(sender.toLowerCase());
+}
+
+function getSpokenSenderName(sender) {
+  const normalizedNick = sender.toLowerCase();
+  const hasCustomPronunciation = Object.prototype.hasOwnProperty.call(nicknamePronunciations, normalizedNick);
+
+  if (hasCustomPronunciation) {
+    // При выключенном переключателе не произносим этот ник,
+    // но сохраняем его пользовательский вариант для последующего включения.
+    return $("enableCustomNicknamePronunciations").checked
+      ? nicknamePronunciations[normalizedNick]
+      : "";
+  }
+
+  const hasSpecialCharacters = /[0-9_]/.test(sender);
+  if (hasSpecialCharacters) {
+    return $("readSpecialNames").checked ? sender : "";
+  }
+  return $("readCleanNames").checked ? sender : "";
+}
+
+// --------------------
+// Фильтрация ников в тексте сообщения
 // --------------------
 
 function filterNames(text) {
@@ -444,9 +871,57 @@ function filterEmojis(text) {
   return text;
 }
 
+function filterEnglishWords(text) {
+  if (!$("filterEnglishWords").checked) return text;
+
+  // Не трогаем URL, если пользователь выбрал их полное чтение.
+  const urlPattern = /(?:https?:\/\/|ftp:\/\/|www\.)[^\s<>"']+|\b(?:[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?\.)+(?:[a-z]{2,}|xn--[a-z0-9-]{2,})(?:\/[^\s<>"']*)?/gi;
+  const urlRanges = [...text.matchAll(urlPattern)].map(m => [m.index, m.index + m[0].length]);
+
+  return text.replace(/\b[A-Za-z]+(?:['’][A-Za-z]+)*\b/g, (word, offset) => {
+    const insideUrl = urlRanges.some(([start, end]) => offset >= start && offset < end);
+    return insideUrl ? word : " ";
+  });
+}
+
+function filterRepeatedWords(text) {
+  if (!$("antiSpam").checked) return text;
+
+  // Если слово повторяется подряд больше пяти раз, оставляем первые пять.
+  // Сравнение не зависит от регистра; пунктуация между словами сохраняется.
+  const matches = [...text.matchAll(/[\p{L}\p{N}_]+/gu)];
+  const removeRanges = [];
+
+  for (let i = 0; i < matches.length;) {
+    let end = i + 1;
+    const word = matches[i][0].toLocaleLowerCase();
+
+    while (end < matches.length &&
+           matches[end][0].toLocaleLowerCase() === word) {
+      end++;
+    }
+
+    // Пятый и последующие повторы в серии удаляем.
+    for (let j = i + 5; j < end; j++) {
+      removeRanges.push([matches[j].index, matches[j].index + matches[j][0].length]);
+    }
+    i = end;
+  }
+
+  for (let i = removeRanges.length - 1; i >= 0; i--) {
+    const [start, end] = removeRanges[i];
+    text = text.slice(0, start) + text.slice(end);
+  }
+
+  return text;
+}
+
 function cleanMessage(text) {
+  text = filterLinks(text);
   text = filterNames(text);
   text = filterEmojis(text);
+  text = filterEnglishWords(text);
+  text = filterRepeatedWords(text);
 
   return text.replace(/\s+/g, " ").trim();
 }
@@ -625,6 +1100,11 @@ function connect() {
         const sender = match[1];
         const original = match[2];
 
+        if (isIgnoredNickname(sender)) {
+          addLog(sender + ": [сообщение не озвучивается — пользователь в списке игнорирования]");
+          return;
+        }
+
         const filtered = cleanMessage(original);
 
         addLog(
@@ -633,7 +1113,9 @@ function connect() {
         );
 
         if (filtered) {
-          enqueue(filtered);
+          const spokenSender = getSpokenSenderName(sender);
+          const speechText = spokenSender ? spokenSender + ": " + filtered : filtered;
+          enqueue(speechText);
         }
       }
     });
