@@ -54,7 +54,7 @@
     #timer,
     #extraTimer {
         display: inline-block;
-        width: 390px;                  /* фиксированная ширина */
+        width: 390px;
         text-align: right;
         font-size: 72px;
         font-weight: normal;
@@ -68,7 +68,7 @@
 
     #timer {
         color: #36e36b;
-        transition: color 0.5s ease;
+        transition: color 0.5s ease, opacity 0.3s ease;
     }
 
     #extraTimer {
@@ -270,6 +270,7 @@ function updateTimer() {
 
     timerElement.textContent = formatTime(elapsed);
 
+    // Цвет
     if (elapsed < 60) {
         timerElement.style.color = "#36e36b";
     } else if (elapsed < 120) {
@@ -280,6 +281,16 @@ function updateTimer() {
         timerElement.style.color = "#ff981c";
     } else {
         timerElement.style.color = "#ff3434";
+    }
+
+    // Прозрачность: первая секунда — полностью прозрачный, к 25-й — полностью непрозрачный
+    if (elapsed < 1) {
+        timerElement.style.opacity = "0";
+    } else if (elapsed < 25) {
+        const progress = (elapsed - 1) / 24; // от 0 до 1 за 24 секунды
+        timerElement.style.opacity = progress.toFixed(3);
+    } else {
+        timerElement.style.opacity = "1";
     }
 }
 
