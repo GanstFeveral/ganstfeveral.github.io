@@ -44,8 +44,8 @@
 
     .timer-label {
         color: white;
-        font-size: 72px;
-        margin-right: 6px;          /* уменьшенный отступ */
+        font-size: 48px;            /* уменьшенный размер надписей */
+        margin-right: 8px;
         white-space: nowrap;
         line-height: 1.1;
         text-shadow: none;
@@ -103,16 +103,16 @@
     #totalMessages {
         margin-top: 12px;
         color: white;
-        font-size: 20px;
+        font-size: 28px;            /* увеличенный размер */
         text-align: right;
         width: 100%;
     }
 
     #topUsers {
-        margin-top: 5px;
+        margin-top: 6px;
         color: white;
-        font-size: 18px;
-        line-height: 1.5;
+        font-size: 28px;            /* такой же размер, как у "всего сообщений" */
+        line-height: 1.4;
         text-align: right;
         width: 100%;
     }
@@ -275,7 +275,7 @@ function updateTimer() {
 
     timerElement.textContent = formatTime(elapsed);
 
-    // Цвет (и для надписи, и для таймера)
+    // Цвет
     let color;
     if (elapsed < 60) {
         color = "#36e36b";
@@ -292,12 +292,12 @@ function updateTimer() {
     timerElement.style.color = color;
     chatSilentLabel.style.color = color;
 
-    // Прозрачность (одинаковая у надписи и таймера)
+    // Прозрачность: первые 10 сек — 0, к 30-й секунде — 1
     let opacity;
     if (elapsed < 10) {
         opacity = "0";
-    } else if (elapsed < 20) {
-        const progress = (elapsed - 10) / 10;
+    } else if (elapsed < 30) {
+        const progress = (elapsed - 10) / 20; // 20 секунд на проявление
         opacity = progress.toFixed(3);
     } else {
         opacity = "1";
