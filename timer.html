@@ -1,0 +1,721 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Twitch Chat Timer</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
+
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    html, body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        background: transparent;
+    }
+
+    body {
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-start;
+        font-family: 'Russo One', sans-serif;
+    }
+
+    #container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        text-align: center;
+        width: 100%;
+        padding-top: 0;
+    }
+
+    /* Основной таймер */
+
+    #timer {
+        font-size: 72px;
+        font-weight: normal;
+        color: #36e36b;
+        letter-spacing: 2px;
+        white-space: nowrap;
+        line-height: 1.1;
+        transition: color 0.5s ease;
+        text-shadow: none;
+    }
+
+    /* Второй таймер */
+
+    #extraTimer {
+        margin-top: 8px;
+        font-size: 72px;
+        font-weight: normal;
+        color: white;
+        letter-spacing: 2px;
+        white-space: nowrap;
+        line-height: 1.1;
+        text-shadow: none;
+    }
+
+    /* Общее количество сообщений */
+
+    #totalMessages {
+        margin-top: 12px;
+        font-size: 24px;
+        color: white;
+        line-height: 1.3;
+    }
+
+    /* Топ пользователей */
+
+    #topUsers {
+        margin-top: 10px;
+        font-size: 20px;
+        color: white;
+        line-height: 1.5;
+    }
+
+    .user-row {
+        white-space: nowrap;
+    }
+
+    .user-name,
+    .user-count {
+        color: white;
+    }
+
+    /* Кнопка настроек */
+
+    #settingsToggle {
+        position: fixed;
+        bottom: 8px;
+        right: 8px;
+        font-family: Arial, sans-serif;
+        font-size: 16px;
+        background: rgba(30, 30, 30, 0.8);
+        color: white;
+        border: 1px solid #777;
+        border-radius: 6px;
+        padding: 6px 10px;
+        cursor: pointer;
+        opacity: 0.25;
+    }
+
+    #settingsToggle:hover {
+        opacity: 1;
+    }
+
+    /* Панель управления */
+
+    #settingsPanel {
+        display: none;
+        position: fixed;
+        bottom: 45px;
+        right: 8px;
+        background: rgba(25, 25, 25, 0.96);
+        border: 1px solid #666;
+        border-radius: 8px;
+        padding: 14px;
+        color: white;
+        font-family: Arial, sans-serif;
+        text-align: center;
+        width: 270px;
+        z-index: 100;
+    }
+
+    #settingsPanel.visible {
+        display: block;
+    }
+
+    #settingsPanel h3 {
+        margin: 0 0 12px;
+        font-size: 16px;
+    }
+
+    .timeInputs {
+        display: flex;
+        gap: 6px;
+        justify-content: center;
+        margin-bottom: 12px;
+    }
+
+    .timeInputs input {
+        width: 70px;
+        padding: 8px 4px;
+        text-align: center;
+        font-size: 16px;
+        border: 1px solid #777;
+        border-radius: 5px;
+        background: #333;
+        color: white;
+    }
+
+    .inputLabel {
+        font-size: 11px;
+        color: #ccc;
+        margin-bottom: 4px;
+    }
+
+    .inputGroup {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .settingsButtons {
+        display: flex;
+        gap: 8px;
+    }
+
+    .settingsButtons button {
+        flex: 1;
+        padding: 9px 5px;
+        border: none;
+        border-radius: 5px;
+        font-size: 13px;
+        cursor: pointer;
+    }
+
+    #setTimeButton {
+        background: #36a85b;
+        color: white;
+    }
+
+    #resetTimeButton {
+        background: #555;
+        color: white;
+    }
+
+    #settingsStatus {
+        margin-top: 9px;
+        font-size: 11px;
+        color: #aaa;
+        min-height: 13px;
+    }
+
+</style>
+</head>
+
+<body>
+
+<div id="container">
+
+    <div id="timer">00:00:00</div>
+
+    <div id="extraTimer">00:00:00</div>
+
+    <div id="totalMessages">
+        Всего сообщений — 0
+    </div>
+
+    <div id="topUsers"></div>
+
+</div>
+
+<button id="settingsToggle" type="button">⚙</button>
+
+<div id="settingsPanel">
+
+    <h3>Настройка второго таймера</h3>
+
+    <div class="timeInputs">
+
+        <div class="inputGroup">
+            <div class="inputLabel">Часы</div>
+            <input id="inputHours" type="number" min="0" step="1" value="0">
+        </div>
+
+        <div class="inputGroup">
+            <div class="inputLabel">Минуты</div>
+            <input id="inputMinutes" type="number" min="0" max="59" step="1" value="0">
+        </div>
+
+        <div class="inputGroup">
+            <div class="inputLabel">Секунды</div>
+            <input id="inputSeconds" type="number" min="0" max="59" step="1" value="0">
+        </div>
+
+    </div>
+
+    <div class="settingsButtons">
+
+        <button id="setTimeButton" type="button">
+            Установить
+        </button>
+
+        <button id="resetTimeButton" type="button">
+            Сбросить
+        </button>
+
+    </div>
+
+    <div id="settingsStatus"></div>
+
+</div>
+
+<script>
+(() => {
+
+    // =====================================
+    // НАСТРОЙКИ TWITCH
+    // =====================================
+
+    const CHANNEL = "ganstfeveral";
+    const IRC_URL = "wss://irc-ws.chat.twitch.tv:443";
+
+    // =====================================
+    // ЭЛЕМЕНТЫ
+    // =====================================
+
+    const timerElement = document.getElementById("timer");
+    const extraTimerElement = document.getElementById("extraTimer");
+    const totalElement = document.getElementById("totalMessages");
+    const topElement = document.getElementById("topUsers");
+
+    const settingsToggle = document.getElementById("settingsToggle");
+    const settingsPanel = document.getElementById("settingsPanel");
+
+    const inputHours = document.getElementById("inputHours");
+    const inputMinutes = document.getElementById("inputMinutes");
+    const inputSeconds = document.getElementById("inputSeconds");
+
+    const settingsStatus = document.getElementById("settingsStatus");
+
+    // =====================================
+    // ПЕРЕМЕННЫЕ
+    // =====================================
+
+    let lastMessageTime = Date.now();
+    let totalMessages = 0;
+
+    const users = new Map();
+
+    let socket = null;
+    let reconnectDelay = 2000;
+    let reconnectTimer = null;
+    let receiveBuffer = "";
+
+    // Второй таймер
+    let extraTimerStartTime = Date.now();
+    let extraTimerOffset = 0;
+
+    // =====================================
+    // ФОРМАТ ВРЕМЕНИ
+    // =====================================
+
+    function formatTime(totalSeconds) {
+
+        totalSeconds = Math.max(0, Math.floor(totalSeconds));
+
+        const hours = Math.floor(totalSeconds / 3600);
+        const minutes = Math.floor((totalSeconds % 3600) / 60);
+        const seconds = totalSeconds % 60;
+
+        return [hours, minutes, seconds]
+            .map(value => String(value).padStart(2, "0"))
+            .join(":");
+    }
+
+    // =====================================
+    // ЦВЕТ ОСНОВНОГО ТАЙМЕРА
+    // =====================================
+
+    function getTimerColor(seconds) {
+
+        if (seconds < 60) return "#36e36b";
+        if (seconds < 120) return "#c8dc43";
+        if (seconds < 180) return "#ffe600";
+        if (seconds < 240) return "#ff981c";
+
+        return "#ff3434";
+    }
+
+    // =====================================
+    // ОСНОВНОЙ ТАЙМЕР
+    // =====================================
+
+    function updateTimer() {
+
+        const elapsedSeconds = Math.floor(
+            (Date.now() - lastMessageTime) / 1000
+        );
+
+        timerElement.textContent = formatTime(elapsedSeconds);
+        timerElement.style.color = getTimerColor(elapsedSeconds);
+    }
+
+    // =====================================
+    // ВТОРОЙ ТАЙМЕР
+    // =====================================
+
+    function updateExtraTimer() {
+
+        const elapsedSeconds = extraTimerOffset + Math.floor(
+            (Date.now() - extraTimerStartTime) / 1000
+        );
+
+        extraTimerElement.textContent = formatTime(elapsedSeconds);
+    }
+
+    function setExtraTimer(hours, minutes, seconds) {
+
+        extraTimerOffset =
+            hours * 3600 +
+            minutes * 60 +
+            seconds;
+
+        extraTimerStartTime = Date.now();
+
+        updateExtraTimer();
+    }
+
+    // =====================================
+    // УПРАВЛЕНИЕ ВТОРЫМ ТАЙМЕРОМ
+    // =====================================
+
+    settingsToggle.addEventListener("click", () => {
+
+        settingsPanel.classList.toggle("visible");
+
+    });
+
+    document.getElementById("setTimeButton").addEventListener("click", () => {
+
+        const hours = Number(inputHours.value);
+        const minutes = Number(inputMinutes.value);
+        const seconds = Number(inputSeconds.value);
+
+        if (
+            !Number.isSafeInteger(hours) ||
+            !Number.isSafeInteger(minutes) ||
+            !Number.isSafeInteger(seconds) ||
+            hours < 0 ||
+            minutes < 0 || minutes > 59 ||
+            seconds < 0 || seconds > 59
+        ) {
+
+            settingsStatus.textContent = "Проверьте введённое время";
+            return;
+        }
+
+        const totalSeconds = hours * 3600 + minutes * 60 + seconds;
+
+        if (!Number.isSafeInteger(totalSeconds)) {
+
+            settingsStatus.textContent = "Слишком большое значение";
+            return;
+        }
+
+        setExtraTimer(hours, minutes, seconds);
+
+        settingsStatus.textContent = "Время установлено";
+
+    });
+
+    document.getElementById("resetTimeButton").addEventListener("click", () => {
+
+        setExtraTimer(0, 0, 0);
+
+        inputHours.value = 0;
+        inputMinutes.value = 0;
+        inputSeconds.value = 0;
+
+        settingsStatus.textContent = "Таймер сброшен";
+
+    });
+
+    // =====================================
+    // СЧЁТЧИК СООБЩЕНИЙ
+    // =====================================
+
+    function updateTotal() {
+
+        totalElement.textContent =
+            "Всего сообщений — " + totalMessages;
+    }
+
+    // =====================================
+    // ТОП ПОЛЬЗОВАТЕЛЕЙ
+    // =====================================
+
+    function updateTop() {
+
+        const sortedUsers = Array.from(users.values())
+            .sort((a, b) => b.count - a.count)
+            .slice(0, 5);
+
+        topElement.innerHTML = "";
+
+        sortedUsers.forEach(user => {
+
+            const row = document.createElement("div");
+            row.className = "user-row";
+
+            const name = document.createElement("span");
+            name.className = "user-name";
+            name.textContent = user.name;
+
+            const separator = document.createTextNode(" – ");
+
+            const count = document.createElement("span");
+            count.className = "user-count";
+            count.textContent = user.count;
+
+            row.appendChild(name);
+            row.appendChild(separator);
+            row.appendChild(count);
+
+            topElement.appendChild(row);
+
+        });
+    }
+
+    // =====================================
+    // ДЕКОДИРОВАНИЕ IRC-ТЕГОВ
+    // =====================================
+
+    function decodeTag(value) {
+
+        return value.replace(
+            /\\([snr:\\\\])/g,
+            (_, char) => {
+
+                const replacements = {
+                    "s": " ",
+                    "n": "\n",
+                    "r": "\r",
+                    ":": ";",
+                    "\\": "\\"
+                };
+
+                return replacements[char];
+            }
+        );
+    }
+
+    // =====================================
+    // ОБРАБОТКА СООБЩЕНИЙ
+    // =====================================
+
+    function processMessage(login, displayName) {
+
+        lastMessageTime = Date.now();
+        totalMessages++;
+
+        const normalizedLogin = login.toLowerCase();
+
+        let user = users.get(normalizedLogin);
+
+        if (!user) {
+
+            user = {
+                name: displayName || login,
+                count: 0
+            };
+
+            users.set(normalizedLogin, user);
+        }
+
+        if (displayName) {
+            user.name = displayName;
+        }
+
+        user.count++;
+
+        updateTimer();
+        updateTotal();
+        updateTop();
+    }
+
+    // =====================================
+    // ПАРСИНГ IRC
+    // =====================================
+
+    function handleIRCMessage(message) {
+
+        if (message.startsWith("PING")) {
+
+            if (socket && socket.readyState === WebSocket.OPEN) {
+
+                socket.send(
+                    message.replace(/^PING/, "PONG") + "\r\n"
+                );
+            }
+
+            return;
+        }
+
+        if (!message.includes(" PRIVMSG ")) {
+            return;
+        }
+
+        let ircMessage = message;
+        let tags = {};
+
+        if (message.startsWith("@")) {
+
+            const separator = message.indexOf(" ");
+
+            if (separator !== -1) {
+
+                const rawTags = message.substring(1, separator);
+                ircMessage = message.substring(separator + 1);
+
+                rawTags.split(";").forEach(tag => {
+
+                    const equalIndex = tag.indexOf("=");
+
+                    if (equalIndex !== -1) {
+
+                        const key = tag.substring(0, equalIndex);
+                        const value = tag.substring(equalIndex + 1);
+
+                        tags[key] = decodeTag(value);
+                    }
+                });
+            }
+        }
+
+        const match = ircMessage.match(/^:([^! ]+)!/);
+
+        if (!match) {
+
+            console.warn("Не удалось определить автора:", message);
+            return;
+        }
+
+        const login = match[1];
+        const displayName = tags["display-name"] || login;
+
+        processMessage(login, displayName);
+    }
+
+    // =====================================
+    // ПРИЁМ ДАННЫХ
+    // =====================================
+
+    function handleIncomingData(data) {
+
+        receiveBuffer += data;
+
+        const lines = receiveBuffer.split("\r\n");
+
+        receiveBuffer = lines.pop() || "";
+
+        lines.forEach(line => {
+
+            if (line.length > 0) {
+                handleIRCMessage(line);
+            }
+
+        });
+    }
+
+    // =====================================
+    // ПОДКЛЮЧЕНИЕ К TWITCH
+    // =====================================
+
+    function connectToChat() {
+
+        clearTimeout(reconnectTimer);
+        receiveBuffer = "";
+
+        console.log("Подключение к Twitch IRC...");
+
+        const currentSocket = new WebSocket(IRC_URL);
+
+        socket = currentSocket;
+
+        currentSocket.onopen = () => {
+
+            if (socket !== currentSocket) return;
+
+            console.log("Twitch IRC: подключено");
+
+            reconnectDelay = 2000;
+
+            currentSocket.send(
+                "CAP REQ :twitch.tv/tags twitch.tv/commands\r\n"
+            );
+
+            currentSocket.send("PASS SCHMOOPIIE\r\n");
+
+            currentSocket.send(
+                "NICK justinfan" +
+                Math.floor(Math.random() * 900000 + 100000) +
+                "\r\n"
+            );
+
+            currentSocket.send("JOIN #" + CHANNEL + "\r\n");
+
+            console.log("Подключён чат #" + CHANNEL);
+        };
+
+        currentSocket.onmessage = (event) => {
+
+            if (socket !== currentSocket) return;
+
+            if (typeof event.data === "string") {
+                handleIncomingData(event.data);
+            }
+        };
+
+        currentSocket.onerror = (error) => {
+
+            console.error("Twitch IRC error:", error);
+        };
+
+        currentSocket.onclose = (event) => {
+
+            if (socket !== currentSocket) return;
+
+            console.warn(
+                "Twitch IRC: соединение закрыто",
+                event.code,
+                event.reason
+            );
+
+            socket = null;
+            receiveBuffer = "";
+
+            reconnectTimer = setTimeout(() => {
+
+                connectToChat();
+
+            }, reconnectDelay);
+
+            reconnectDelay = Math.min(
+                reconnectDelay * 2,
+                30000
+            );
+        };
+    }
+
+    // =====================================
+    // ЗАПУСК
+    // =====================================
+
+    updateTimer();
+    updateExtraTimer();
+    updateTotal();
+    updateTop();
+
+    setInterval(updateTimer, 1000);
+    setInterval(updateExtraTimer, 1000);
+
+    connectToChat();
+
+})();
+</script>
+
+</body>
+</html>
