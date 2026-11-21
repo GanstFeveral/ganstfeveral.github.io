@@ -68,7 +68,7 @@
 
     #timer {
         color: #36e36b;
-        transition: color 0.5s ease, opacity 0.3s ease;
+        transition: color 0.5s ease, opacity 0.5s ease;
     }
 
     #extraTimer {
@@ -283,11 +283,14 @@ function updateTimer() {
         timerElement.style.color = "#ff3434";
     }
 
-    // Прозрачность: первая секунда — полностью прозрачный, к 25-й — полностью непрозрачный
-    if (elapsed < 1) {
+    // Прозрачность:
+    // 0–10 сек  → полностью прозрачный (opacity 0)
+    // 10–20 сек → плавно проявляется до opacity 1
+    // после 20 сек → всегда opacity 1
+    if (elapsed < 10) {
         timerElement.style.opacity = "0";
-    } else if (elapsed < 25) {
-        const progress = (elapsed - 1) / 24; // от 0 до 1 за 24 секунды
+    } else if (elapsed < 20) {
+        const progress = (elapsed - 10) / 10; // 0 → 1
         timerElement.style.opacity = progress.toFixed(3);
     } else {
         timerElement.style.opacity = "1";
