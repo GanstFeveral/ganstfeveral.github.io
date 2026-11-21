@@ -44,7 +44,7 @@
 
     .timer-label {
         color: white;
-        font-size: 48px;            /* уменьшенный размер надписей */
+        font-size: 48px;
         margin-right: 8px;
         white-space: nowrap;
         line-height: 1.1;
@@ -90,6 +90,7 @@
         border-radius: 5px;
         cursor: pointer;
         transition: background 0.2s ease;
+        align-self: flex-end;
     }
 
     #resetStatsButton:hover {
@@ -100,21 +101,26 @@
         background: rgba(150, 40, 40, 0.9);
     }
 
-    #totalMessages {
-        margin-top: 12px;
-        color: white;
-        font-size: 28px;            /* увеличенный размер */
-        text-align: right;
+    #statsBlock {
+        align-self: flex-start;
         width: 100%;
+        text-align: left;
+        margin-top: 12px;
+    }
+
+    #totalMessages {
+        color: white;
+        font-size: 28px;
+        text-align: left;
+        margin: 0;
     }
 
     #topUsers {
-        margin-top: 6px;
+        margin-top: 4px;
         color: white;
-        font-size: 28px;            /* такой же размер, как у "всего сообщений" */
-        line-height: 1.4;
-        text-align: right;
-        width: 100%;
+        font-size: 28px;
+        line-height: 1.15;
+        text-align: left;
     }
 
     #settingsButton {
@@ -202,8 +208,10 @@
         Сбросить топ сообщений
     </button>
 
-    <div id="totalMessages">Всего сообщений — 0</div>
-    <div id="topUsers"></div>
+    <div id="statsBlock">
+        <div id="totalMessages">ВСЕГО СООБЩЕНИЙ — 0</div>
+        <div id="topUsers"></div>
+    </div>
 
 </div>
 
@@ -275,7 +283,6 @@ function updateTimer() {
 
     timerElement.textContent = formatTime(elapsed);
 
-    // Цвет
     let color;
     if (elapsed < 60) {
         color = "#36e36b";
@@ -292,12 +299,11 @@ function updateTimer() {
     timerElement.style.color = color;
     chatSilentLabel.style.color = color;
 
-    // Прозрачность: первые 10 сек — 0, к 30-й секунде — 1
     let opacity;
     if (elapsed < 10) {
         opacity = "0";
     } else if (elapsed < 30) {
-        const progress = (elapsed - 10) / 20; // 20 секунд на проявление
+        const progress = (elapsed - 10) / 20;
         opacity = progress.toFixed(3);
     } else {
         opacity = "1";
@@ -316,7 +322,7 @@ function updateExtraTimer() {
 }
 
 function updateTotal() {
-    totalMessagesElement.textContent = `Всего сообщений — ${totalMessages}`;
+    totalMessagesElement.textContent = `ВСЕГО СООБЩЕНИЙ — ${totalMessages}`;
 }
 
 function updateTop() {
@@ -328,7 +334,7 @@ function updateTop() {
 
     sortedUsers.forEach(([login, data]) => {
         const line = document.createElement("div");
-        line.textContent = `${data.name} – ${data.count}`;
+        line.textContent = `${data.name} — ${data.count}`;
         topUsersElement.appendChild(line);
     });
 }
