@@ -45,10 +45,14 @@
     .timer-label {
         color: white;
         font-size: 72px;
-        margin-right: 12px;
+        margin-right: 6px;          /* уменьшенный отступ */
         white-space: nowrap;
         line-height: 1.1;
         text-shadow: none;
+    }
+
+    #chatSilentLabel {
+        transition: color 0.5s ease, opacity 0.5s ease;
     }
 
     #timer,
@@ -185,12 +189,12 @@
 <div id="container">
 
     <div class="timer-row">
-        <span class="timer-label">Без сообщений уже</span>
+        <span class="timer-label" id="chatSilentLabel">ЧАТ МОЛЧИТ</span>
         <div id="timer">00:00:00</div>
     </div>
 
     <div class="timer-row">
-        <span class="timer-label">Стрим идёт уже</span>
+        <span class="timer-label">СТРИМ ИДЁТ</span>
         <div id="extraTimer">00:00:00</div>
     </div>
 
@@ -225,6 +229,7 @@ const CHANNEL = "ganstfeveral";
 
 const timerElement = document.getElementById("timer");
 const extraTimerElement = document.getElementById("extraTimer");
+const chatSilentLabel = document.getElementById("chatSilentLabel");
 const totalMessagesElement = document.getElementById("totalMessages");
 const topUsersElement = document.getElementById("topUsers");
 
@@ -270,31 +275,36 @@ function updateTimer() {
 
     timerElement.textContent = formatTime(elapsed);
 
-    // Цвет
+    // Цвет (и для надписи, и для таймера)
+    let color;
     if (elapsed < 60) {
-        timerElement.style.color = "#36e36b";
+        color = "#36e36b";
     } else if (elapsed < 120) {
-        timerElement.style.color = "#c8dc43";
+        color = "#c8dc43";
     } else if (elapsed < 180) {
-        timerElement.style.color = "#ffe600";
+        color = "#ffe600";
     } else if (elapsed < 240) {
-        timerElement.style.color = "#ff981c";
+        color = "#ff981c";
     } else {
-        timerElement.style.color = "#ff3434";
+        color = "#ff3434";
     }
 
-    // Прозрачность:
-    // 0–10 сек  → полностью прозрачный (opacity 0)
-    // 10–20 сек → плавно проявляется до opacity 1
-    // после 20 сек → всегда opacity 1
+    timerElement.style.color = color;
+    chatSilentLabel.style.color = color;
+
+    // Прозрачность (одинаковая у надписи и таймера)
+    let opacity;
     if (elapsed < 10) {
-        timerElement.style.opacity = "0";
+        opacity = "0";
     } else if (elapsed < 20) {
-        const progress = (elapsed - 10) / 10; // 0 → 1
-        timerElement.style.opacity = progress.toFixed(3);
+        const progress = (elapsed - 10) / 10;
+        opacity = progress.toFixed(3);
     } else {
-        timerElement.style.opacity = "1";
+        opacity = "1";
     }
+
+    timerElement.style.opacity = opacity;
+    chatSilentLabel.style.opacity = opacity;
 }
 
 function updateExtraTimer() {
