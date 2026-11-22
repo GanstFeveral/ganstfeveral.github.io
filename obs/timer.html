@@ -331,11 +331,9 @@ function updateTotal() {
 }
 
 function triggerTotalFade() {
-    // При новом сообщении — полностью видно, затем плавно исчезает за 10 секунд
     totalMessagesElement.style.transition = "none";
     totalMessagesElement.style.opacity = "1";
 
-    // Принудительный reflow
     void totalMessagesElement.offsetWidth;
 
     totalMessagesElement.style.transition = "opacity 10s ease";
@@ -345,15 +343,24 @@ function triggerTotalFade() {
 function updateTop() {
     const sortedUsers = Array.from(users.entries())
         .sort((a, b) => b[1].count - a[1].count)
-        .slice(0, 5);
+        .slice(0, 10);
 
     topUsersElement.innerHTML = "";
 
+    // Заполняем реальными никами
     sortedUsers.forEach(([login, data]) => {
         const line = document.createElement("div");
         line.textContent = `${data.name} — ${data.count}`;
         topUsersElement.appendChild(line);
     });
+
+    // Дополняем до 10 строк точками
+    const remaining = 10 - sortedUsers.length;
+    for (let i = 0; i < remaining; i++) {
+        const line = document.createElement("div");
+        line.textContent = "...";
+        topUsersElement.appendChild(line);
+    }
 }
 
 function resetStatistics() {
