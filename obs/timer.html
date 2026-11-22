@@ -56,7 +56,7 @@
     }
 
     #timer,
-    #extraTimer {
+    #moscowTime {
         display: inline-block;
         width: 390px;
         text-align: right;
@@ -75,7 +75,7 @@
         transition: color 0.5s ease, opacity 0.5s ease;
     }
 
-    #extraTimer {
+    #moscowTime {
         color: white;
     }
 
@@ -102,25 +102,28 @@
     }
 
     #statsBlock {
-        align-self: flex-start;
+        align-self: stretch;
         width: 100%;
         text-align: left;
         margin-top: 12px;
+        padding-right: 10px;
     }
 
     #totalMessages {
         color: white;
-        font-size: 42px;            /* крупный размер */
-        text-align: left;
+        font-size: 42px;
+        text-align: right;
         margin: 0;
         line-height: 1.1;
+        opacity: 1;
+        transition: opacity 10s ease;
     }
 
     #topUsers {
         margin-top: 2px;
         color: white;
-        font-size: 42px;            /* такой же крупный размер */
-        line-height: 1.05;          /* меньше вертикальный отступ */
+        font-size: 42px;
+        line-height: 1.05;
         text-align: left;
     }
 
@@ -201,8 +204,8 @@
     </div>
 
     <div class="timer-row">
-        <span class="timer-label">СТРИМ ИДЁТ</span>
-        <div id="extraTimer">00:00:00</div>
+        <span class="timer-label">ВРЕМЯ</span>
+        <div id="moscowTime">00:00:00</div>
     </div>
 
     <button id="resetStatsButton" type="button">
@@ -210,7 +213,7 @@
     </button>
 
     <div id="statsBlock">
-        <div id="totalMessages">ВСЕГО СООБЩЕНИЙ — 0</div>
+        <div id="totalMessages">+0</div>
         <div id="topUsers"></div>
     </div>
 
@@ -237,7 +240,7 @@
 const CHANNEL = "ganstfeveral";
 
 const timerElement = document.getElementById("timer");
-const extraTimerElement = document.getElementById("extraTimer");
+const moscowTimeElement = document.getElementById("moscowTime");
 const chatSilentLabel = document.getElementById("chatSilentLabel");
 const totalMessagesElement = document.getElementById("totalMessages");
 const topUsersElement = document.getElementById("topUsers");
@@ -260,9 +263,6 @@ let lastMessageTime = Date.now();
 let totalMessages = 0;
 let users = new Map();
 
-let extraTimerStartTime = Date.now();
-let extraTimerOffset = 0;
-
 let socket = null;
 let reconnectDelay = 2000;
 let receiveBuffer = "";
@@ -277,6 +277,18 @@ function formatTime(totalSeconds) {
         String(minutes).padStart(2, "0"),
         String(seconds).padStart(2, "0")
     ].join(":");
+}
+
+function updateMoscowTime() {
+    const now = new Date();
+    const moscowTime = now.toLocaleTimeString("ru-RU", {
+        timeZone: "Europe/Moscow",
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+        hour12: false
+    });
+    moscowTimeElement.textContent = moscowTime;
 }
 
 function updateTimer() {
@@ -314,16 +326,20 @@ function updateTimer() {
     chatSilentLabel.style.opacity = opacity;
 }
 
-function updateExtraTimer() {
-    const elapsedSeconds = extraTimerOffset + Math.floor(
-        (Date.now() - extraTimerStartTime) / 1000
-    );
-
-    extraTimerElement.textContent = formatTime(elapsedSeconds);
+function updateTotal() {
+    totalMessagesElement.textContent = `+${totalMessages}`;
 }
 
-function updateTotal() {
-    totalMessagesElement.textContent = `ВСЕГО СООБЩЕНИЙ — ${totalMessages}`;
+function triggerTotalFade() {
+    // При новом сообщении — полностью видно, затем плавно исчезает за 10 секунд
+    totalMessagesElement.style.transition = "none";
+    totalMessagesElement.style.opacity = "1";
+
+    // Принудительный reflow
+    void totalMessagesElement.offsetWidth;
+
+    totalMessagesElement.style.transition = "opacity 10s ease";
+    totalMessagesElement.style.opacity = "0";
 }
 
 function updateTop() {
@@ -346,6 +362,7 @@ function resetStatistics() {
 
     updateTotal();
     updateTop();
+    triggerTotalFade();
 
     console.log("Статистика сообщений сброшена");
 }
@@ -374,6 +391,7 @@ function processMessage(tags, username) {
     updateTimer();
     updateTotal();
     updateTop();
+    triggerTotalFade();
 }
 
 function parseTags(rawTags) {
@@ -476,38 +494,23 @@ settingsButton.addEventListener("click", () => {
 });
 
 setTimeButton.addEventListener("click", () => {
-    const hours = Math.max(0, Number(inputHours.value) || 0);
-    const minutes = Math.max(0, Number(inputMinutes.value) || 0);
-    const seconds = Math.max(0, Number(inputSeconds.value) || 0);
-
-    extraTimerOffset = hours * 3600 + minutes * 60 + seconds;
-    extraTimerStartTime = Date.now();
-
-    updateExtraTimer();
-
-    settingsStatus.textContent = "Время установлено";
+    settingsStatus.textContent = "Функция установки времени отключена";
 });
 
 resetTimeButton.addEventListener("click", () => {
-    extraTimerOffset = 0;
-    extraTimerStartTime = Date.now();
-
     inputHours.value = "";
     inputMinutes.value = "";
     inputSeconds.value = "";
-
-    updateExtraTimer();
-
-    settingsStatus.textContent = "Таймер сброшен";
+    settingsStatus.textContent = "Функция сброса отключена";
 });
 
 setInterval(() => {
     updateTimer();
-    updateExtraTimer();
+    updateMoscowTime();
 }, 1000);
 
 updateTimer();
-updateExtraTimer();
+updateMoscowTime();
 updateTotal();
 updateTop();
 
