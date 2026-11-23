@@ -115,8 +115,7 @@
         text-align: right;
         margin: 0;
         line-height: 1.1;
-        opacity: 1;
-        transition: opacity 10s ease;
+        opacity: 0;
     }
 
     #topUsers {
@@ -263,6 +262,8 @@ let lastMessageTime = Date.now();
 let totalMessages = 0;
 let users = new Map();
 
+let totalFadeTimeout = null;
+
 let socket = null;
 let reconnectDelay = 2000;
 let receiveBuffer = "";
@@ -331,13 +332,23 @@ function updateTotal() {
 }
 
 function triggerTotalFade() {
+    if (totalFadeTimeout) clearTimeout(totalFadeTimeout);
+
+    // Сбрасываем и делаем полностью прозрачным
     totalMessagesElement.style.transition = "none";
-    totalMessagesElement.style.opacity = "1";
+    totalMessagesElement.style.opacity = "0";
 
     void totalMessagesElement.offsetWidth;
 
-    totalMessagesElement.style.transition = "opacity 10s ease";
-    totalMessagesElement.style.opacity = "0";
+    // Плавное появление за 0.5 секунды
+    totalMessagesElement.style.transition = "opacity 0.5s ease";
+    totalMessagesElement.style.opacity = "1";
+
+    // Через 0.5 секунды начинаем плавное исчезновение за 9.5 секунды
+    totalFadeTimeout = setTimeout(() => {
+        totalMessagesElement.style.transition = "opacity 9.5s ease";
+        totalMessagesElement.style.opacity = "0";
+    }, 500);
 }
 
 function updateTop() {
@@ -347,14 +358,12 @@ function updateTop() {
 
     topUsersElement.innerHTML = "";
 
-    // Заполняем реальными никами
     sortedUsers.forEach(([login, data]) => {
         const line = document.createElement("div");
         line.textContent = `${data.name} — ${data.count}`;
         topUsersElement.appendChild(line);
     });
 
-    // Дополняем до 10 строк точками
     const remaining = 10 - sortedUsers.length;
     for (let i = 0; i < remaining; i++) {
         const line = document.createElement("div");
@@ -520,6 +529,9 @@ updateTimer();
 updateMoscowTime();
 updateTotal();
 updateTop();
+
+// Запускаем анимацию для начального "+0"
+triggerTotalFade();
 
 connectToChat();
 </script>
