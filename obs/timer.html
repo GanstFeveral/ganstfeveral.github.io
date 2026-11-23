@@ -79,28 +79,6 @@
         color: white;
     }
 
-    #resetStatsButton {
-        margin-top: 10px;
-        padding: 7px 14px;
-        font-family: 'Russo One', sans-serif;
-        font-size: 13px;
-        color: white;
-        background: rgba(40, 40, 40, 0.75);
-        border: 1px solid rgba(255, 255, 255, 0.5);
-        border-radius: 5px;
-        cursor: pointer;
-        transition: background 0.2s ease;
-        align-self: flex-end;
-    }
-
-    #resetStatsButton:hover {
-        background: rgba(100, 40, 40, 0.9);
-    }
-
-    #resetStatsButton:active {
-        background: rgba(150, 40, 40, 0.9);
-    }
-
     #statsBlock {
         align-self: stretch;
         width: 100%;
@@ -135,71 +113,6 @@
         opacity: 0;
         transition: opacity 2s ease;
     }
-
-    #settingsButton {
-        position: fixed;
-        right: 18px;
-        bottom: 8px;
-        width: 32px;
-        height: 32px;
-        font-size: 18px;
-        color: white;
-        background: rgba(40, 40, 40, 0.75);
-        border: 1px solid rgba(255, 255, 255, 0.5);
-        border-radius: 5px;
-        cursor: pointer;
-        z-index: 1000;
-    }
-
-    #settingsPanel {
-        display: none;
-        position: fixed;
-        right: 18px;
-        bottom: 45px;
-        padding: 12px;
-        background: rgba(20, 20, 20, 0.95);
-        border: 1px solid rgba(255, 255, 255, 0.5);
-        border-radius: 6px;
-        color: white;
-        font-family: 'Russo One', sans-serif;
-        font-size: 12px;
-        z-index: 1000;
-        text-align: right;
-    }
-
-    #settingsPanel input {
-        width: 55px;
-        padding: 5px;
-        margin: 4px 2px;
-        background: #333;
-        color: white;
-        border: 1px solid #777;
-        border-radius: 3px;
-        font-family: 'Russo One', sans-serif;
-        text-align: center;
-    }
-
-    #settingsPanel button {
-        margin: 5px 2px;
-        padding: 6px 9px;
-        background: #444;
-        color: white;
-        border: 1px solid #888;
-        border-radius: 4px;
-        font-family: 'Russo One', sans-serif;
-        font-size: 11px;
-        cursor: pointer;
-    }
-
-    #settingsPanel button:hover {
-        background: #666;
-    }
-
-    #settingsStatus {
-        margin-top: 5px;
-        color: #36e36b;
-        font-size: 11px;
-    }
 </style>
 </head>
 
@@ -217,10 +130,6 @@
         <div id="moscowTime">00:00:00</div>
     </div>
 
-    <button id="resetStatsButton" type="button">
-        Сбросить топ сообщений
-    </button>
-
     <div id="statsBlock">
         <div id="totalMessages">+0</div>
         <div id="judyContainer">
@@ -231,28 +140,13 @@
 
 </div>
 
-<button id="settingsButton" type="button">⚙</button>
-
-<div id="settingsPanel">
-    <div>Установить время таймера:</div>
-
-    <input id="inputHours" type="number" min="0" placeholder="Часы">
-    <input id="inputMinutes" type="number" min="0" max="59" placeholder="Мин">
-    <input id="inputSeconds" type="number" min="0" max="59" placeholder="Сек">
-
-    <div>
-        <button id="setTimeButton" type="button">Установить</button>
-        <button id="resetTimeButton" type="button">Сбросить</button>
-    </div>
-
-    <div id="settingsStatus"></div>
-</div>
-
 <script>
 const CHANNEL = "ganstfeveral";
 
 const JUDY1 = "https://raw.githubusercontent.com/GanstFeveral/ganstfeveral.github.io/refs/heads/master/obs/judy1.png";
 const JUDY2 = "https://raw.githubusercontent.com/GanstFeveral/ganstfeveral.github.io/refs/heads/master/obs/judy2.png";
+const JUDY5 = "https://raw.githubusercontent.com/GanstFeveral/ganstfeveral.github.io/refs/heads/master/obs/judy5.png";
+const JUDY4 = "https://raw.githubusercontent.com/GanstFeveral/ganstfeveral.github.io/refs/heads/master/obs/judy4.png";
 const JUDY3 = "https://raw.githubusercontent.com/GanstFeveral/ganstfeveral.github.io/refs/heads/master/obs/judy3.png";
 
 const timerElement = document.getElementById("timer");
@@ -261,19 +155,6 @@ const chatSilentLabel = document.getElementById("chatSilentLabel");
 const totalMessagesElement = document.getElementById("totalMessages");
 const judyImg1 = document.getElementById("judyImg1");
 const judyImg2 = document.getElementById("judyImg2");
-
-const resetStatsButton = document.getElementById("resetStatsButton");
-
-const settingsButton = document.getElementById("settingsButton");
-const settingsPanel = document.getElementById("settingsPanel");
-
-const inputHours = document.getElementById("inputHours");
-const inputMinutes = document.getElementById("inputMinutes");
-const inputSeconds = document.getElementById("inputSeconds");
-
-const setTimeButton = document.getElementById("setTimeButton");
-const resetTimeButton = document.getElementById("resetTimeButton");
-const settingsStatus = document.getElementById("settingsStatus");
 
 let lastMessageTime = Date.now();
 
@@ -358,14 +239,16 @@ function updateJudy(elapsed, baseOpacity) {
 
     let targetSrc = null;
 
-    if (elapsed < 120) {
+    if (elapsed < 60) {
         targetSrc = JUDY1;
+    } else if (elapsed < 120) {
+        targetSrc = JUDY2;
+    } else if (elapsed < 180) {
+        targetSrc = JUDY5;
     } else if (elapsed < 240) {
-        targetSrc = JUDY2;
-    } else if (elapsed >= 300) {
-        targetSrc = JUDY3;
+        targetSrc = JUDY4;
     } else {
-        targetSrc = JUDY2;
+        targetSrc = JUDY3;
     }
 
     if (targetSrc !== currentJudy) {
@@ -373,7 +256,6 @@ function updateJudy(elapsed, baseOpacity) {
         currentJudy = targetSrc;
 
         if (isFirstJudy1) {
-            // Показываем judy1 без кроссфейда
             showJudyDirectly(targetSrc);
             judy1Shown = true;
         } else {
@@ -413,7 +295,6 @@ function showJudyDirectly(src) {
     void img.offsetWidth;
 
     img.style.transition = "opacity 2s ease";
-    // opacity будет выставлена в updateJudy через baseOpacity
 }
 
 function crossfadeJudy(src) {
@@ -450,15 +331,6 @@ function triggerTotalFade() {
         totalMessagesElement.style.opacity = "0";
     }, 500);
 }
-
-function resetStatistics() {
-    totalMessages = 0;
-    updateTotal();
-    triggerTotalFade();
-    console.log("Статистика сообщений сброшена");
-}
-
-resetStatsButton.addEventListener("click", resetStatistics);
 
 function processMessage(tags, username) {
     lastMessageTime = Date.now();
@@ -566,22 +438,6 @@ function connectToChat() {
         reconnectDelay = Math.min(reconnectDelay * 2, 30000);
     };
 }
-
-settingsButton.addEventListener("click", () => {
-    const isVisible = settingsPanel.style.display === "block";
-    settingsPanel.style.display = isVisible ? "none" : "block";
-});
-
-setTimeButton.addEventListener("click", () => {
-    settingsStatus.textContent = "Функция установки времени отключена";
-});
-
-resetTimeButton.addEventListener("click", () => {
-    inputHours.value = "";
-    inputMinutes.value = "";
-    inputSeconds.value = "";
-    settingsStatus.textContent = "Функция сброса отключена";
-});
 
 setInterval(() => {
     updateTimer();
