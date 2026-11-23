@@ -281,7 +281,8 @@ let totalMessages = 0;
 
 let totalFadeTimeout = null;
 let currentJudy = null;
-let activeImg = 1; // 1 или 2
+let activeImg = 1;
+let judy1Shown = false;
 
 let socket = null;
 let reconnectDelay = 2000;
@@ -349,33 +350,70 @@ function updateTimer() {
 }
 
 function updateJudy(elapsed, baseOpacity) {
+    if (elapsed < 2) {
+        hideJudyImmediately();
+        judy1Shown = false;
+        return;
+    }
+
     let targetSrc = null;
 
-    if (elapsed < 120) {          // 0–2 мин
+    if (elapsed < 120) {
         targetSrc = JUDY1;
-    } else if (elapsed < 240) {   // 2–4 мин
+    } else if (elapsed < 240) {
         targetSrc = JUDY2;
-    } else if (elapsed >= 300) {  // с 5-й минуты
+    } else if (elapsed >= 300) {
         targetSrc = JUDY3;
     } else {
-        targetSrc = JUDY2;        // 4–5 мин всё ещё judy2
+        targetSrc = JUDY2;
     }
 
     if (targetSrc !== currentJudy) {
+        const isFirstJudy1 = (targetSrc === JUDY1 && !judy1Shown);
         currentJudy = targetSrc;
-        crossfadeJudy(targetSrc);
+
+        if (isFirstJudy1) {
+            // Показываем judy1 без кроссфейда
+            showJudyDirectly(targetSrc);
+            judy1Shown = true;
+        } else {
+            crossfadeJudy(targetSrc);
+        }
     }
 
-    // Для первой картинки применяем базовую прозрачность появления
     const visibleImg = activeImg === 1 ? judyImg1 : judyImg2;
     if (elapsed < 30 && currentJudy === JUDY1) {
         visibleImg.style.opacity = baseOpacity;
-    } else if (currentJudy) {
-        // После 30 секунд или при других картинках — полная видимость (если уже показана)
-        if (parseFloat(visibleImg.style.opacity) < 1 && elapsed >= 30) {
-            visibleImg.style.opacity = "1";
-        }
+    } else if (currentJudy && elapsed >= 30) {
+        visibleImg.style.opacity = "1";
     }
+}
+
+function hideJudyImmediately() {
+    judyImg1.style.transition = "none";
+    judyImg2.style.transition = "none";
+    judyImg1.style.opacity = "0";
+    judyImg2.style.opacity = "0";
+    currentJudy = null;
+    setTimeout(() => {
+        judyImg1.style.transition = "opacity 2s ease";
+        judyImg2.style.transition = "opacity 2s ease";
+    }, 50);
+}
+
+function showJudyDirectly(src) {
+    const img = activeImg === 1 ? judyImg1 : judyImg2;
+    const other = activeImg === 1 ? judyImg2 : judyImg1;
+
+    other.style.opacity = "0";
+    img.src = src;
+    img.style.transition = "none";
+    img.style.opacity = "0";
+
+    void img.offsetWidth;
+
+    img.style.transition = "opacity 2s ease";
+    // opacity будет выставлена в updateJudy через baseOpacity
 }
 
 function crossfadeJudy(src) {
@@ -385,7 +423,6 @@ function crossfadeJudy(src) {
     nextImg.src = src;
     nextImg.style.opacity = "0";
 
-    // Небольшая задержка, чтобы браузер успел загрузить
     setTimeout(() => {
         nextImg.style.opacity = "1";
         currentImg.style.opacity = "0";
@@ -428,12 +465,12 @@ function processMessage(tags, username) {
 
     totalMessages++;
 
+    hideJudyImmediately();
+    judy1Shown = false;
+
     updateTimer();
     updateTotal();
     triggerTotalFade();
-
-    // Сбрасываем картинку на первую при новом сообщении
-    currentJudy = null;
 }
 
 function parseTags(rawTags) {
