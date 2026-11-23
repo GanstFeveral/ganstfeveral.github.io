@@ -147,7 +147,9 @@ const JUDY1 = "https://raw.githubusercontent.com/GanstFeveral/ganstfeveral.githu
 const JUDY2 = "https://raw.githubusercontent.com/GanstFeveral/ganstfeveral.github.io/refs/heads/master/obs/judy2.png";
 const JUDY5 = "https://raw.githubusercontent.com/GanstFeveral/ganstfeveral.github.io/refs/heads/master/obs/judy5.png";
 const JUDY4 = "https://raw.githubusercontent.com/GanstFeveral/ganstfeveral.github.io/refs/heads/master/obs/judy4.png";
+const JUDY6 = "https://raw.githubusercontent.com/GanstFeveral/ganstfeveral.github.io/refs/heads/master/obs/judy6.png";
 const JUDY3 = "https://raw.githubusercontent.com/GanstFeveral/ganstfeveral.github.io/refs/heads/master/obs/judy3.png";
+const JUDY7 = "https://raw.githubusercontent.com/GanstFeveral/ganstfeveral.github.io/refs/heads/master/obs/judy7.png";
 
 const timerElement = document.getElementById("timer");
 const moscowTimeElement = document.getElementById("moscowTime");
@@ -239,16 +241,20 @@ function updateJudy(elapsed, baseOpacity) {
 
     let targetSrc = null;
 
-    if (elapsed < 60) {
+    if (elapsed < 60) {           // 0–1 мин
         targetSrc = JUDY1;
-    } else if (elapsed < 120) {
+    } else if (elapsed < 120) {   // 1–2 мин
         targetSrc = JUDY2;
-    } else if (elapsed < 180) {
+    } else if (elapsed < 180) {   // 2–3 мин
         targetSrc = JUDY5;
-    } else if (elapsed < 240) {
+    } else if (elapsed < 240) {   // 3–4 мин
         targetSrc = JUDY4;
-    } else {
+    } else if (elapsed < 300) {   // 4–5 мин
+        targetSrc = JUDY6;
+    } else if (elapsed < 600) {   // 5–10 мин
         targetSrc = JUDY3;
+    } else {                      // 10+ мин
+        targetSrc = JUDY7;
     }
 
     if (targetSrc !== currentJudy) {
