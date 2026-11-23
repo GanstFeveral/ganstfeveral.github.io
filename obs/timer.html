@@ -118,12 +118,22 @@
         opacity: 0;
     }
 
-    #topUsers {
-        margin-top: 2px;
-        color: white;
-        font-size: 42px;
-        line-height: 1.05;
-        text-align: left;
+    #judyContainer {
+        margin-top: 10px;
+        position: relative;
+        width: 300px;
+        height: 300px;
+    }
+
+    #judyContainer img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        opacity: 0;
+        transition: opacity 2s ease;
     }
 
     #settingsButton {
@@ -213,7 +223,10 @@
 
     <div id="statsBlock">
         <div id="totalMessages">+0</div>
-        <div id="topUsers"></div>
+        <div id="judyContainer">
+            <img id="judyImg1" alt="">
+            <img id="judyImg2" alt="">
+        </div>
     </div>
 
 </div>
@@ -238,11 +251,16 @@
 <script>
 const CHANNEL = "ganstfeveral";
 
+const JUDY1 = "https://raw.githubusercontent.com/GanstFeveral/ganstfeveral.github.io/refs/heads/master/obs/judy1.png";
+const JUDY2 = "https://raw.githubusercontent.com/GanstFeveral/ganstfeveral.github.io/refs/heads/master/obs/judy2.png";
+const JUDY3 = "https://raw.githubusercontent.com/GanstFeveral/ganstfeveral.github.io/refs/heads/master/obs/judy3.png";
+
 const timerElement = document.getElementById("timer");
 const moscowTimeElement = document.getElementById("moscowTime");
 const chatSilentLabel = document.getElementById("chatSilentLabel");
 const totalMessagesElement = document.getElementById("totalMessages");
-const topUsersElement = document.getElementById("topUsers");
+const judyImg1 = document.getElementById("judyImg1");
+const judyImg2 = document.getElementById("judyImg2");
 
 const resetStatsButton = document.getElementById("resetStatsButton");
 
@@ -260,9 +278,10 @@ const settingsStatus = document.getElementById("settingsStatus");
 let lastMessageTime = Date.now();
 
 let totalMessages = 0;
-let users = new Map();
 
 let totalFadeTimeout = null;
+let currentJudy = null;
+let activeImg = 1; // 1 или 2
 
 let socket = null;
 let reconnectDelay = 2000;
@@ -325,6 +344,53 @@ function updateTimer() {
 
     timerElement.style.opacity = opacity;
     chatSilentLabel.style.opacity = opacity;
+
+    updateJudy(elapsed, opacity);
+}
+
+function updateJudy(elapsed, baseOpacity) {
+    let targetSrc = null;
+
+    if (elapsed < 120) {          // 0–2 мин
+        targetSrc = JUDY1;
+    } else if (elapsed < 240) {   // 2–4 мин
+        targetSrc = JUDY2;
+    } else if (elapsed >= 300) {  // с 5-й минуты
+        targetSrc = JUDY3;
+    } else {
+        targetSrc = JUDY2;        // 4–5 мин всё ещё judy2
+    }
+
+    if (targetSrc !== currentJudy) {
+        currentJudy = targetSrc;
+        crossfadeJudy(targetSrc);
+    }
+
+    // Для первой картинки применяем базовую прозрачность появления
+    const visibleImg = activeImg === 1 ? judyImg1 : judyImg2;
+    if (elapsed < 30 && currentJudy === JUDY1) {
+        visibleImg.style.opacity = baseOpacity;
+    } else if (currentJudy) {
+        // После 30 секунд или при других картинках — полная видимость (если уже показана)
+        if (parseFloat(visibleImg.style.opacity) < 1 && elapsed >= 30) {
+            visibleImg.style.opacity = "1";
+        }
+    }
+}
+
+function crossfadeJudy(src) {
+    const nextImg = activeImg === 1 ? judyImg2 : judyImg1;
+    const currentImg = activeImg === 1 ? judyImg1 : judyImg2;
+
+    nextImg.src = src;
+    nextImg.style.opacity = "0";
+
+    // Небольшая задержка, чтобы браузер успел загрузить
+    setTimeout(() => {
+        nextImg.style.opacity = "1";
+        currentImg.style.opacity = "0";
+        activeImg = activeImg === 1 ? 2 : 1;
+    }, 50);
 }
 
 function updateTotal() {
@@ -334,52 +400,24 @@ function updateTotal() {
 function triggerTotalFade() {
     if (totalFadeTimeout) clearTimeout(totalFadeTimeout);
 
-    // Сбрасываем и делаем полностью прозрачным
     totalMessagesElement.style.transition = "none";
     totalMessagesElement.style.opacity = "0";
 
     void totalMessagesElement.offsetWidth;
 
-    // Плавное появление за 0.5 секунды
     totalMessagesElement.style.transition = "opacity 0.5s ease";
     totalMessagesElement.style.opacity = "1";
 
-    // Через 0.5 секунды начинаем плавное исчезновение за 9.5 секунды
     totalFadeTimeout = setTimeout(() => {
         totalMessagesElement.style.transition = "opacity 9.5s ease";
         totalMessagesElement.style.opacity = "0";
     }, 500);
 }
 
-function updateTop() {
-    const sortedUsers = Array.from(users.entries())
-        .sort((a, b) => b[1].count - a[1].count)
-        .slice(0, 10);
-
-    topUsersElement.innerHTML = "";
-
-    sortedUsers.forEach(([login, data]) => {
-        const line = document.createElement("div");
-        line.textContent = `${data.name} — ${data.count}`;
-        topUsersElement.appendChild(line);
-    });
-
-    const remaining = 10 - sortedUsers.length;
-    for (let i = 0; i < remaining; i++) {
-        const line = document.createElement("div");
-        line.textContent = "...";
-        topUsersElement.appendChild(line);
-    }
-}
-
 function resetStatistics() {
     totalMessages = 0;
-    users.clear();
-
     updateTotal();
-    updateTop();
     triggerTotalFade();
-
     console.log("Статистика сообщений сброшена");
 }
 
@@ -390,24 +428,12 @@ function processMessage(tags, username) {
 
     totalMessages++;
 
-    const login = username.toLowerCase();
-    const displayName = tags["display-name"] || username;
-
-    if (users.has(login)) {
-        const userData = users.get(login);
-        userData.count++;
-        userData.name = displayName;
-    } else {
-        users.set(login, {
-            name: displayName,
-            count: 1
-        });
-    }
-
     updateTimer();
     updateTotal();
-    updateTop();
     triggerTotalFade();
+
+    // Сбрасываем картинку на первую при новом сообщении
+    currentJudy = null;
 }
 
 function parseTags(rawTags) {
@@ -528,9 +554,6 @@ setInterval(() => {
 updateTimer();
 updateMoscowTime();
 updateTotal();
-updateTop();
-
-// Запускаем анимацию для начального "+0"
 triggerTotalFade();
 
 connectToChat();
