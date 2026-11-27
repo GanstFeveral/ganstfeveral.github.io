@@ -15,7 +15,7 @@
 
     body {
         margin: 0;
-        padding: 0 10px 0 0;
+        padding: 0;
         background: transparent;
         font-family: 'Russo One', sans-serif;
         display: flex;
@@ -30,33 +30,28 @@
         align-items: flex-end;
         justify-content: flex-start;
         text-align: right;
+        padding: 10px 10px 0 0;
         width: 100%;
-        padding: 0;
     }
 
-    .timer-row {
+    .timer-block {
         display: flex;
-        align-items: baseline;
-        justify-content: flex-end;
-        white-space: nowrap;
-        width: 100%;
-    }
-
-    .timer-label {
-        color: white;
-        font-size: 48px;
-        margin-right: 8px;
-        white-space: nowrap;
-        line-height: 1.1;
-        text-shadow: none;
+        flex-direction: column;
+        align-items: flex-end;
+        margin-bottom: 4px;
     }
 
     #chatSilentLabel {
+        color: white;
+        font-size: 48px;
+        margin-top: 4px;
+        white-space: nowrap;
+        line-height: 1.1;
+        text-shadow: none;
         transition: color 0.5s ease, opacity 0.5s ease;
     }
 
-    #timer,
-    #moscowTime {
+    #timer {
         display: inline-block;
         width: 390px;
         text-align: right;
@@ -68,47 +63,44 @@
         text-shadow: none;
         font-variant-numeric: tabular-nums;
         font-feature-settings: "tnum";
-    }
-
-    #timer {
         color: #36e36b;
         transition: color 0.5s ease, opacity 0.5s ease;
     }
 
-    #moscowTime {
+    #countdown {
+        font-size: 42px;
         color: white;
-    }
-
-    #statsBlock {
-        align-self: stretch;
-        width: 100%;
-        text-align: left;
-        margin-top: 12px;
-        padding-right: 10px;
+        text-align: right;
+        white-space: nowrap;
+        letter-spacing: 1px;
+        font-variant-numeric: tabular-nums;
+        margin-top: 6px;
+        margin-bottom: 6px;
     }
 
     #totalMessages {
         color: white;
         font-size: 42px;
         text-align: right;
-        margin: 0;
+        margin: 6px 0 0 0;
         line-height: 1.1;
         opacity: 0;
     }
 
     #judyContainer {
-        margin-top: 10px;
+        margin-top: 8px;
         position: relative;
-        width: 300px;
-        height: 300px;
+        width: 80px;
+        height: 80px;
+        align-self: flex-end;
     }
 
     #judyContainer img {
         position: absolute;
         top: 0;
         left: 0;
-        width: 100%;
-        height: 100%;
+        width: 80px;
+        height: 80px;
         object-fit: contain;
         opacity: 0;
         transition: opacity 2s ease;
@@ -120,22 +112,18 @@
 
 <div id="container">
 
-    <div class="timer-row">
-        <span class="timer-label" id="chatSilentLabel">ЧАТ МОЛЧИТ</span>
+    <div class="timer-block">
         <div id="timer">00:00:00</div>
+        <span id="chatSilentLabel">ЧАТ МОЛЧИТ</span>
     </div>
 
-    <div class="timer-row">
-        <span class="timer-label">ВРЕМЯ</span>
-        <div id="moscowTime">00:00:00</div>
-    </div>
+    <div id="countdown">0 дней 00:00:00</div>
 
-    <div id="statsBlock">
-        <div id="totalMessages">+0</div>
-        <div id="judyContainer">
-            <img id="judyImg1" alt="">
-            <img id="judyImg2" alt="">
-        </div>
+    <div id="totalMessages">+0</div>
+
+    <div id="judyContainer">
+        <img id="judyImg1" alt="">
+        <img id="judyImg2" alt="">
     </div>
 
 </div>
@@ -151,8 +139,10 @@ const JUDY6 = "https://raw.githubusercontent.com/GanstFeveral/ganstfeveral.githu
 const JUDY3 = "https://raw.githubusercontent.com/GanstFeveral/ganstfeveral.github.io/refs/heads/master/obs/judy3.png";
 const JUDY7 = "https://raw.githubusercontent.com/GanstFeveral/ganstfeveral.github.io/refs/heads/master/obs/judy7.png";
 
+const TARGET_DATE = new Date("2027-06-25T00:00:00+03:00"); // 25 июня 2027, Москва
+
 const timerElement = document.getElementById("timer");
-const moscowTimeElement = document.getElementById("moscowTime");
+const countdownElement = document.getElementById("countdown");
 const chatSilentLabel = document.getElementById("chatSilentLabel");
 const totalMessagesElement = document.getElementById("totalMessages");
 const judyImg1 = document.getElementById("judyImg1");
@@ -183,16 +173,28 @@ function formatTime(totalSeconds) {
     ].join(":");
 }
 
-function updateMoscowTime() {
+function updateCountdown() {
     const now = new Date();
-    const moscowTime = now.toLocaleTimeString("ru-RU", {
-        timeZone: "Europe/Moscow",
-        hour: "2-digit",
-        minute: "2-digit",
-        second: "2-digit",
-        hour12: false
-    });
-    moscowTimeElement.textContent = moscowTime;
+    const diff = TARGET_DATE - now;
+
+    if (diff <= 0) {
+        countdownElement.textContent = "0 дней 00:00:00";
+        return;
+    }
+
+    const totalSeconds = Math.floor(diff / 1000);
+    const days = Math.floor(totalSeconds / 86400);
+    const hours = Math.floor((totalSeconds % 86400) / 3600);
+    const minutes = Math.floor((totalSeconds % 3600) / 60);
+    const seconds = totalSeconds % 60;
+
+    const timeStr = [
+        String(hours).padStart(2, "0"),
+        String(minutes).padStart(2, "0"),
+        String(seconds).padStart(2, "0")
+    ].join(":");
+
+    countdownElement.textContent = `${days} дней ${timeStr}`;
 }
 
 function updateTimer() {
@@ -241,19 +243,19 @@ function updateJudy(elapsed, baseOpacity) {
 
     let targetSrc = null;
 
-    if (elapsed < 60) {           // 0–1 мин
+    if (elapsed < 60) {
         targetSrc = JUDY1;
-    } else if (elapsed < 120) {   // 1–2 мин
+    } else if (elapsed < 120) {
         targetSrc = JUDY2;
-    } else if (elapsed < 180) {   // 2–3 мин
+    } else if (elapsed < 180) {
         targetSrc = JUDY5;
-    } else if (elapsed < 240) {   // 3–4 мин
+    } else if (elapsed < 240) {
         targetSrc = JUDY4;
-    } else if (elapsed < 300) {   // 4–5 мин
+    } else if (elapsed < 300) {
         targetSrc = JUDY6;
-    } else if (elapsed < 600) {   // 5–10 мин
+    } else if (elapsed < 600) {
         targetSrc = JUDY3;
-    } else {                      // 10+ мин
+    } else {
         targetSrc = JUDY7;
     }
 
@@ -447,11 +449,11 @@ function connectToChat() {
 
 setInterval(() => {
     updateTimer();
-    updateMoscowTime();
+    updateCountdown();
 }, 1000);
 
 updateTimer();
-updateMoscowTime();
+updateCountdown();
 updateTotal();
 triggerTotalFade();
 
