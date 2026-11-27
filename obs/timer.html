@@ -133,8 +133,8 @@
         </div>
     </div>
 
-    <div id="countdown1" class="countdown-line">ДНЕЙ – 0</div>
-    <div id="countdown2" class="countdown-line">ДНЕЙ – 0</div>
+    <div id="countdown1" class="countdown-line">0 ДНЕЙ</div>
+    <div id="countdown2" class="countdown-line">0 ДНЕЙ</div>
 
     <div id="totalMessages">+0</div>
 
@@ -187,6 +187,25 @@ function formatTime(totalSeconds) {
     ].join(":");
 }
 
+function getDaysWord(days) {
+    const lastDigit = days % 10;
+    const lastTwoDigits = days % 100;
+
+    if (lastTwoDigits >= 11 && lastTwoDigits <= 14) {
+        return "ДНЕЙ";
+    }
+
+    if (lastDigit === 1) {
+        return "ДЕНЬ";
+    }
+
+    if (lastDigit >= 2 && lastDigit <= 4) {
+        return "ДНЯ";
+    }
+
+    return "ДНЕЙ";
+}
+
 function getDaysLeft(targetDate) {
     const now = new Date();
     const diff = targetDate - now;
@@ -200,8 +219,8 @@ function updateCountdowns() {
     const days1 = getDaysLeft(TARGET_DATE_1);
     const days2 = getDaysLeft(TARGET_DATE_2);
 
-    countdown1Element.textContent = `ДНЕЙ – ${days1}`;
-    countdown2Element.textContent = `ДНЕЙ – ${days2}`;
+    countdown1Element.textContent = `${days1} ${getDaysWord(days1)}`;
+    countdown2Element.textContent = `${days2} ${getDaysWord(days2)}`;
 }
 
 function updateTimer() {
